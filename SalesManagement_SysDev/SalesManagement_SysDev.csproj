@@ -107,6 +107,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bin\Debug\SalesManagement_SysDev.exe.config" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\SalesManagement_SysDev.csproj.AssemblyReference.cache" />
@@ -128,11 +129,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\SalesManagement_SysDev.exe" />
+    <Content Include="bin\Debug\SalesManagement_SysDev.pdb" />
     <Content Include="obj\Debug\SalesManagement_SysDev.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\SalesManagement_SysDev.exe" />
     <Content Include="obj\Debug\SalesManagement_SysDev.pdb" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\Release\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
