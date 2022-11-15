@@ -50,9 +50,6 @@ namespace SalesManagement_SysDev
             this.labelManaMakerPostal = new System.Windows.Forms.Label();
             this.labelManaMakerHidden = new System.Windows.Forms.Label();
             this.dataGridViewManaMaker = new System.Windows.Forms.DataGridView();
-            this.maruibuttonManaMakerDeleteList = new SalesManagement_SysDev.maruibutton();
-            this.maruibuttonManaMakerDelete = new SalesManagement_SysDev.maruibutton();
-            this.maruibuttonManaMakerDeleteList = new SalesManagement_SysDev.maruibutton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManaMaker)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +68,7 @@ namespace SalesManagement_SysDev
             this.buttonManaMakerReturn.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.buttonManaMakerReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonManaMakerReturn.Location = new System.Drawing.Point(1029, 24);
-            this.buttonManaMakerReturn.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonManaMakerReturn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonManaMakerReturn.Name = "buttonManaMakerReturn";
             this.buttonManaMakerReturn.Size = new System.Drawing.Size(168, 72);
             this.buttonManaMakerReturn.TabIndex = 207;
@@ -83,7 +80,7 @@ namespace SalesManagement_SysDev
             this.buttonAddMaker.BackColor = System.Drawing.Color.LightCyan;
             this.buttonAddMaker.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonAddMaker.Location = new System.Drawing.Point(31, 117);
-            this.buttonAddMaker.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonAddMaker.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonAddMaker.Name = "buttonAddMaker";
             this.buttonAddMaker.Size = new System.Drawing.Size(164, 74);
             this.buttonAddMaker.TabIndex = 208;
@@ -95,7 +92,7 @@ namespace SalesManagement_SysDev
             this.buttonUpdateMaker.BackColor = System.Drawing.Color.LightCyan;
             this.buttonUpdateMaker.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonUpdateMaker.Location = new System.Drawing.Point(213, 117);
-            this.buttonUpdateMaker.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonUpdateMaker.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonUpdateMaker.Name = "buttonUpdateMaker";
             this.buttonUpdateMaker.Size = new System.Drawing.Size(164, 74);
             this.buttonUpdateMaker.TabIndex = 209;
@@ -107,7 +104,7 @@ namespace SalesManagement_SysDev
             this.buttonListMaker.BackColor = System.Drawing.Color.LightCyan;
             this.buttonListMaker.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonListMaker.Location = new System.Drawing.Point(400, 117);
-            this.buttonListMaker.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonListMaker.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonListMaker.Name = "buttonListMaker";
             this.buttonListMaker.Size = new System.Drawing.Size(164, 74);
             this.buttonListMaker.TabIndex = 210;
@@ -119,7 +116,7 @@ namespace SalesManagement_SysDev
             this.buttonSearchMaker.BackColor = System.Drawing.Color.LightCyan;
             this.buttonSearchMaker.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSearchMaker.Location = new System.Drawing.Point(592, 117);
-            this.buttonSearchMaker.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonSearchMaker.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSearchMaker.Name = "buttonSearchMaker";
             this.buttonSearchMaker.Size = new System.Drawing.Size(164, 74);
             this.buttonSearchMaker.TabIndex = 211;
@@ -139,7 +136,7 @@ namespace SalesManagement_SysDev
             // textBoxManaMekerID
             // 
             this.textBoxManaMekerID.Location = new System.Drawing.Point(105, 227);
-            this.textBoxManaMekerID.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxManaMekerID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxManaMekerID.Multiline = true;
             this.textBoxManaMekerID.Name = "textBoxManaMekerID";
             this.textBoxManaMekerID.Size = new System.Drawing.Size(190, 37);
@@ -148,7 +145,7 @@ namespace SalesManagement_SysDev
             // textBoxManaMakerHidden
             // 
             this.textBoxManaMakerHidden.Location = new System.Drawing.Point(745, 227);
-            this.textBoxManaMakerHidden.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxManaMakerHidden.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxManaMakerHidden.Multiline = true;
             this.textBoxManaMakerHidden.Name = "textBoxManaMakerHidden";
             this.textBoxManaMakerHidden.Size = new System.Drawing.Size(452, 139);
@@ -160,7 +157,7 @@ namespace SalesManagement_SysDev
             this.labelManaMakerName.Location = new System.Drawing.Point(309, 227);
             this.labelManaMakerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelManaMakerName.Name = "labelManaMakerName";
-            this.labelManaMakerName.Size = new System.Drawing.Size(87, 36);
+            this.labelManaMakerName.Size = new System.Drawing.Size(79, 36);
             this.labelManaMakerName.TabIndex = 214;
             this.labelManaMakerName.Text = "メーカ名";
             // 
@@ -170,7 +167,7 @@ namespace SalesManagement_SysDev
             this.comboBoxManaMakerName.FormattingEnabled = true;
             this.comboBoxManaMakerName.ItemHeight = 24;
             this.comboBoxManaMakerName.Location = new System.Drawing.Point(400, 228);
-            this.comboBoxManaMakerName.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxManaMakerName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxManaMakerName.Name = "comboBoxManaMakerName";
             this.comboBoxManaMakerName.Size = new System.Drawing.Size(190, 32);
             this.comboBoxManaMakerName.TabIndex = 216;
@@ -178,7 +175,7 @@ namespace SalesManagement_SysDev
             // textBoxManaMakerAdress
             // 
             this.textBoxManaMakerAdress.Location = new System.Drawing.Point(105, 277);
-            this.textBoxManaMakerAdress.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxManaMakerAdress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxManaMakerAdress.Multiline = true;
             this.textBoxManaMakerAdress.Name = "textBoxManaMakerAdress";
             this.textBoxManaMakerAdress.Size = new System.Drawing.Size(190, 37);
@@ -197,7 +194,7 @@ namespace SalesManagement_SysDev
             // textBoxManaMakerPhone
             // 
             this.textBoxManaMakerPhone.Location = new System.Drawing.Point(400, 277);
-            this.textBoxManaMakerPhone.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxManaMakerPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxManaMakerPhone.Multiline = true;
             this.textBoxManaMakerPhone.Name = "textBoxManaMakerPhone";
             this.textBoxManaMakerPhone.Size = new System.Drawing.Size(190, 37);
@@ -216,7 +213,7 @@ namespace SalesManagement_SysDev
             // textBoxManaMakerFax
             // 
             this.textBoxManaMakerFax.Location = new System.Drawing.Point(400, 329);
-            this.textBoxManaMakerFax.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxManaMakerFax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxManaMakerFax.Multiline = true;
             this.textBoxManaMakerFax.Name = "textBoxManaMakerFax";
             this.textBoxManaMakerFax.Size = new System.Drawing.Size(190, 37);
@@ -235,7 +232,7 @@ namespace SalesManagement_SysDev
             // textBoxManaMakerPostal
             // 
             this.textBoxManaMakerPostal.Location = new System.Drawing.Point(105, 329);
-            this.textBoxManaMakerPostal.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxManaMakerPostal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxManaMakerPostal.Multiline = true;
             this.textBoxManaMakerPostal.Name = "textBoxManaMakerPostal";
             this.textBoxManaMakerPostal.Size = new System.Drawing.Size(190, 37);
@@ -265,59 +262,18 @@ namespace SalesManagement_SysDev
             // 
             this.dataGridViewManaMaker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewManaMaker.Location = new System.Drawing.Point(28, 390);
-            this.dataGridViewManaMaker.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewManaMaker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewManaMaker.Name = "dataGridViewManaMaker";
             this.dataGridViewManaMaker.RowHeadersWidth = 62;
             this.dataGridViewManaMaker.RowTemplate.Height = 27;
             this.dataGridViewManaMaker.Size = new System.Drawing.Size(1169, 309);
             this.dataGridViewManaMaker.TabIndex = 226;
             // 
-            // maruibuttonManaMakerDelete
-            // 
-            this.maruibuttonManaMakerDelete.BackColor = System.Drawing.Color.Red;
-            this.maruibuttonManaMakerDelete.FlatAppearance.BorderSize = 0;
-            this.maruibuttonManaMakerDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibuttonManaMakerDelete.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibuttonManaMakerDelete.Location = new System.Drawing.Point(844, 105);
-            this.maruibuttonManaMakerDelete.Name = "maruibuttonManaMakerDelete";
-            this.maruibuttonManaMakerDelete.Size = new System.Drawing.Size(140, 107);
-            this.maruibuttonManaMakerDelete.TabIndex = 227;
-            this.maruibuttonManaMakerDelete.Text = "非表示";
-            this.maruibuttonManaMakerDelete.UseVisualStyleBackColor = false;
-            // 
-            // maruibuttonManaMakerDeleteList
-            // 
-            this.maruibuttonManaMakerDeleteList.BackColor = System.Drawing.Color.Red;
-            this.maruibuttonManaMakerDeleteList.FlatAppearance.BorderSize = 0;
-            this.maruibuttonManaMakerDeleteList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibuttonManaMakerDeleteList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibuttonManaMakerDeleteList.Location = new System.Drawing.Point(999, 105);
-            this.maruibuttonManaMakerDeleteList.Name = "maruibuttonManaMakerDeleteList";
-            this.maruibuttonManaMakerDeleteList.Size = new System.Drawing.Size(140, 107);
-            this.maruibuttonManaMakerDeleteList.TabIndex = 228;
-            this.maruibuttonManaMakerDeleteList.Text = "非表示リスト";
-            this.maruibuttonManaMakerDeleteList.UseVisualStyleBackColor = false;
-            // 
-            // maruibuttonManaMakerDelete
-            // 
-            this.maruibuttonManaMakerDelete.BackColor = System.Drawing.Color.Red;
-            this.maruibuttonManaMakerDelete.FlatAppearance.BorderSize = 0;
-            this.maruibuttonManaMakerDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibuttonManaMakerDelete.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibuttonManaMakerDelete.Location = new System.Drawing.Point(844, 105);
-            this.maruibuttonManaMakerDelete.Name = "maruibuttonManaMakerDelete";
-            this.maruibuttonManaMakerDelete.Size = new System.Drawing.Size(140, 107);
-            this.maruibuttonManaMakerDelete.TabIndex = 227;
-            this.maruibuttonManaMakerDelete.Text = "非表示";
-            this.maruibuttonManaMakerDelete.UseVisualStyleBackColor = false;
-            // 
             // MakerMana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1261, 737);
-            this.Controls.Add(this.maruibuttonManaMakerDeleteList);
-            this.Controls.Add(this.maruibuttonManaMakerDelete);
             this.Controls.Add(this.dataGridViewManaMaker);
             this.Controls.Add(this.labelManaMakerHidden);
             this.Controls.Add(this.textBoxManaMakerPostal);
@@ -339,7 +295,7 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.buttonAddMaker);
             this.Controls.Add(this.buttonManaMakerReturn);
             this.Controls.Add(this.labelManaMakerTitle);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MakerMana";
             this.Text = "MakerMana";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManaMaker)).EndInit();
@@ -371,7 +327,5 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelManaMakerPostal;
         private System.Windows.Forms.Label labelManaMakerHidden;
         private System.Windows.Forms.DataGridView dataGridViewManaMaker;
-        private maruibutton maruibuttonManaMakerDelete;
-        private maruibutton maruibuttonManaMakerDeleteList;
     }
 }
