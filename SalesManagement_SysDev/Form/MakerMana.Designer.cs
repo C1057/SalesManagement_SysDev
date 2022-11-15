@@ -50,6 +50,7 @@ namespace SalesManagement_SysDev
             this.labelManaMakerPostal = new System.Windows.Forms.Label();
             this.labelManaMakerHidden = new System.Windows.Forms.Label();
             this.dataGridViewManaMaker = new System.Windows.Forms.DataGridView();
+            this.maruibuttonManaMakerDeleteList = new SalesManagement_SysDev.maruibutton();
             this.maruibuttonManaMakerDelete = new SalesManagement_SysDev.maruibutton();
             this.maruibuttonManaMakerDeleteList = new SalesManagement_SysDev.maruibutton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManaMaker)).BeginInit();
@@ -296,6 +297,19 @@ namespace SalesManagement_SysDev
             this.maruibuttonManaMakerDeleteList.TabIndex = 228;
             this.maruibuttonManaMakerDeleteList.Text = "非表示リスト";
             this.maruibuttonManaMakerDeleteList.UseVisualStyleBackColor = false;
+            // 
+            // maruibuttonManaMakerDelete
+            // 
+            this.maruibuttonManaMakerDelete.BackColor = System.Drawing.Color.Red;
+            this.maruibuttonManaMakerDelete.FlatAppearance.BorderSize = 0;
+            this.maruibuttonManaMakerDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.maruibuttonManaMakerDelete.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.maruibuttonManaMakerDelete.Location = new System.Drawing.Point(844, 105);
+            this.maruibuttonManaMakerDelete.Name = "maruibuttonManaMakerDelete";
+            this.maruibuttonManaMakerDelete.Size = new System.Drawing.Size(140, 107);
+            this.maruibuttonManaMakerDelete.TabIndex = 227;
+            this.maruibuttonManaMakerDelete.Text = "非表示";
+            this.maruibuttonManaMakerDelete.UseVisualStyleBackColor = false;
             // 
             // MakerMana
             // 
