@@ -12,11 +12,7 @@ namespace SalesManagement_SysDev
 {
     public partial class Form1 : Form
     {
-        private List<Panel> panelList = new System.Collections.Generic.List<Panel>();
-
-        
-
-
+        private List<Panel> panelList = new System.Collections.Generic.List<Panel>();     
 
         bool flg = true;
 
@@ -45,14 +41,8 @@ namespace SalesManagement_SysDev
         {
             foreach (Panel panel in panelList)
             {
-                panel.Hide();
-                
+                panel.Hide();                
             }
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -74,11 +64,6 @@ namespace SalesManagement_SysDev
             timer3.Interval = 1;
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             panelHide();
@@ -91,8 +76,6 @@ namespace SalesManagement_SysDev
         private void maruibutton1_Click(object sender, EventArgs e)
         {
             panel14.Hide();
-
-
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -100,8 +83,6 @@ namespace SalesManagement_SysDev
             panelHide();
 
             panel11.Show();
-
-
 
             label61.Text = ((Button)sender).Text;
         }
@@ -121,8 +102,6 @@ namespace SalesManagement_SysDev
 
             panel12.Show();
 
-
-
             label61.Text = ((Button)sender).Text;
         }
 
@@ -133,32 +112,6 @@ namespace SalesManagement_SysDev
             panel3.Show();
 
             label61.Text = ((Button)sender).Text;
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click_2(object sender, EventArgs e)
-        {
-
         }
 
         private void button24_Click(object sender, EventArgs e)
@@ -168,41 +121,6 @@ namespace SalesManagement_SysDev
             panel4.Show();
 
             label61.Text = ((Button)sender).Text;
-        }
-
-        private void panel4_Paint_1(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void maruibutton3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint_2(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        private void label53_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -228,26 +146,6 @@ namespace SalesManagement_SysDev
             panel7.Show();
 
             label61.Text = ((Button)sender).Text;
-        }
-
-        private void dataGridView8_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button39_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label55_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label56_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void timer3_Tick(object sender, EventArgs e)
@@ -428,8 +326,6 @@ namespace SalesManagement_SysDev
 
             panel13.Show();
 
-
-
             label61.Text = ((Button)sender).Text;
         }
 
@@ -439,8 +335,6 @@ namespace SalesManagement_SysDev
 
             panel9.Show();
 
-
-
             label61.Text = ((Button)sender).Text;
         }
 
@@ -449,8 +343,6 @@ namespace SalesManagement_SysDev
             panelHide();
 
             panel10.Show();
-
-
 
             label61.Text = ((Button)sender).Text;
         }
@@ -474,28 +366,6 @@ namespace SalesManagement_SysDev
         {
             textBox1.ResetText();
             textBox2.ResetText();
-
-
-        }
-
-        private void panel9_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel10_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel11_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel14_Paint(object sender, PaintEventArgs e)
-        {
-            
         }
 
         private void button18_Click(object sender, EventArgs e)
@@ -504,14 +374,7 @@ namespace SalesManagement_SysDev
 
             panel15.Show();
 
-
-
             label61.Text = ((Button)sender).Text;
-        }
-
-        private void button39_Click_1(object sender, EventArgs e)
-        {
-            
         }
 
         private void button39_Click_2(object sender, EventArgs e)
@@ -520,11 +383,5 @@ namespace SalesManagement_SysDev
 
             form4.Show();　　　　　　
         }
-
-        private void label61_Click(object sender, EventArgs e)
-        {
-
-        }
     }
-    }
-
+}

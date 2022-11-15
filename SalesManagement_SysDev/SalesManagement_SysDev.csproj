@@ -82,6 +82,12 @@
     <Compile Include="Form\Form4.Designer.cs">
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\MakerMana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\MakerMana.Designer.cs">
+      <DependentUpon>MakerMana.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\maruibutton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\MakerMana.resx">
+      <DependentUpon>MakerMana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_login.resx">
       <DependentUpon>F_login.cs</DependentUpon>
