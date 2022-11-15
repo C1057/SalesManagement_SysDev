@@ -383,5 +383,19 @@ namespace SalesManagement_SysDev
 
             form4.Show();　　　　　　
         }
+
+        private void button70_Click(object sender, EventArgs e)
+        {
+            MakerMana formMaker = new MakerMana();
+
+            formMaker.Show();
+        }
+
+        private void button41_Click(object sender, EventArgs e)
+        {
+            FormProductSelect formproductselect = new FormProductSelect();
+
+            formproductselect.Show();
+        }
     }
 }
