@@ -82,6 +82,12 @@
     <Compile Include="Form\Form4.Designer.cs">
       <DependentUpon>Form4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\FormPositionMana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FormPositionMana.Designer.cs">
+      <DependentUpon>FormPositionMana.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\FormProductSelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Form4.resx">
       <DependentUpon>Form4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FormPositionMana.resx">
+      <DependentUpon>FormPositionMana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormProductSelect.resx">
       <DependentUpon>FormProductSelect.cs</DependentUpon>

@@ -404,5 +404,12 @@ namespace SalesManagement_SysDev
 
             formSOMana.Show();
         }
+
+        private void button72_Click(object sender, EventArgs e)
+        {
+            FormPositionMana formPositionMana = new FormPositionMana();
+
+            formPositionMana.Show();
+        }
     }
 }
