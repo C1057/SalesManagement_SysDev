@@ -397,5 +397,12 @@ namespace SalesManagement_SysDev
 
             formproductselect.Show();
         }
+
+        private void button71_Click(object sender, EventArgs e)
+        {
+            FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();
+
+            formSOMana.Show();
+        }
     }
 }
