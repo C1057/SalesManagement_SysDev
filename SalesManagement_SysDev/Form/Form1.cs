@@ -386,9 +386,9 @@ namespace SalesManagement_SysDev
 
         private void button70_Click(object sender, EventArgs e)
         {
-            MakerMana formMaker = new MakerMana();
+           MakerMana formMaker = new MakerMana();
 
-            formMaker.Show();
+           formMaker.Show();
         }
 
         private void button41_Click(object sender, EventArgs e)
