@@ -12,7 +12,7 @@ namespace SalesManagement_SysDev
 {
     public partial class Form1 : Form
     {
-        private List<Panel> panelList = new System.Collections.Generic.List<Panel>();     
+        private List<Panel> panelList = new System.Collections.Generic.List<Panel>();
 
         bool flg = true;
 
@@ -41,7 +41,7 @@ namespace SalesManagement_SysDev
         {
             foreach (Panel panel in panelList)
             {
-                panel.Hide();                
+                panel.Hide();
             }
         }
 
@@ -202,7 +202,7 @@ namespace SalesManagement_SysDev
                 panel15.Size = new Size(1876, 738);
                 panel15.Location = new Point(12, 285);
 
-                dataGridView13.Size = new Size(1843, 306); 
+                dataGridView13.Size = new Size(1843, 306);
                 dataGridView13.Location = new Point(16, 401);
 
                 dataGridView1.Size = new Size(1843, 306);
@@ -381,14 +381,14 @@ namespace SalesManagement_SysDev
         {
             Form4 form4 = new Form4();
 
-            form4.Show();　　　　　　
+            form4.Show();
         }
 
         private void button70_Click(object sender, EventArgs e)
         {
-           MakerMana formMaker = new MakerMana();
+            MakerMana formMaker = new MakerMana();
 
-           formMaker.Show();
+            formMaker.Show();
         }
 
         private void button41_Click(object sender, EventArgs e)
@@ -410,6 +410,86 @@ namespace SalesManagement_SysDev
             FormPositionMana formPositionMana = new FormPositionMana();
 
             formPositionMana.Show();
+        }
+
+        private void comboBox5_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxOrOrderID.Text))
+            {
+                EnabledChangedtruebutton(panel8);
+            }
+            else
+            {
+                EnabledChangedfalsebutton(panel8);
+            }
+        }
+
+        public static void ClearTextBox(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    ClearTextBox(cControl);
+                }
+
+                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+                if (cControl is TextBoxBase)
+                {
+                    cControl.Text = string.Empty;
+                }
+
+                if (cControl is ComboBox)
+                {
+                    cControl.Text = string.Empty;
+                }
+            }
+        }
+
+        public static void EnabledChangedfalsebutton(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    ClearTextBox(cControl);
+                }
+
+                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+                if (cControl is Button)
+                {
+                    if (cControl.Text == "登録")
+                    {
+                        cControl.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        public static void EnabledChangedtruebutton(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    ClearTextBox(cControl);
+                }
+
+                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+                if (cControl is Button)
+                {
+                    if (cControl.Text == "登録")
+                    {
+                        cControl.Enabled = true;
+                    }
+                }
+            }
         }
     }
 }
