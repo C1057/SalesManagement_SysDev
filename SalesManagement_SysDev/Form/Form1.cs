@@ -29,9 +29,9 @@ namespace SalesManagement_SysDev
             panelList.Add(panel8);
             panelList.Add(panel9);
             panelList.Add(panel10);
-            panelList.Add(panel11);
+            panelList.Add(panelSyukko);
             panelList.Add(panelArrival);
-            panelList.Add(panel13);
+            panelList.Add(panelChumon);
             panelList.Add(panel15);
 
             panelHide();
@@ -82,7 +82,7 @@ namespace SalesManagement_SysDev
         {
             panelHide();
 
-            panel11.Show();
+            panelSyukko.Show();
 
             labelManaTitle.Text = ((Button)sender).Text;
         }
@@ -187,14 +187,14 @@ namespace SalesManagement_SysDev
                 panel10.Size = new Size(1876, 738);
                 panel10.Location = new Point(12, 285);
 
-                panel11.Size = new Size(1876, 738);
-                panel11.Location = new Point(12, 285);
+                panelSyukko.Size = new Size(1876, 738);
+                panelSyukko.Location = new Point(12, 285);
 
                 panelArrival.Size = new Size(1876, 738);
                 panelArrival.Location = new Point(12, 285);
 
-                panel13.Size = new Size(1876, 738);
-                panel13.Location = new Point(12, 285);
+                panelChumon.Size = new Size(1876, 738);
+                panelChumon.Location = new Point(12, 285);
 
                 panel14.Size = new Size(1876, 738);
                 panel14.Location = new Point(12, 285);
@@ -223,8 +223,8 @@ namespace SalesManagement_SysDev
                 dataGridView10.Size = new Size(1843, 306);
                 dataGridView10.Location = new Point(16, 401);
 
-                dataGridView11.Size = new Size(1843, 306);
-                dataGridView11.Location = new Point(16, 401);
+                dataGridViewSyukko.Size = new Size(1843, 306);
+                dataGridViewSyukko.Location = new Point(16, 401);
 
                 dataGridViewArrival.Size = new Size(1843, 306);
                 dataGridViewArrival.Location = new Point(16, 401);
@@ -259,14 +259,14 @@ namespace SalesManagement_SysDev
                 panel10.Size = new Size(1685, 738);
                 panel10.Location = new Point(207, 285);
 
-                panel11.Size = new Size(1685, 738);
-                panel11.Location = new Point(207, 285);
+                panelSyukko.Size = new Size(1685, 738);
+                panelSyukko.Location = new Point(207, 285);
 
                 panelArrival.Size = new Size(1685, 738);
                 panelArrival.Location = new Point(207, 285);
 
-                panel13.Size = new Size(1685, 738);
-                panel13.Location = new Point(207, 285);
+                panelChumon.Size = new Size(1685, 738);
+                panelChumon.Location = new Point(207, 285);
 
                 panel14.Size = new Size(1685, 738);
                 panel14.Location = new Point(207, 285);
@@ -298,8 +298,8 @@ namespace SalesManagement_SysDev
                 dataGridView10.Size = new Size(1614, 306);
                 dataGridView10.Location = new Point(38, 401);
 
-                dataGridView11.Size = new Size(1614, 306);
-                dataGridView11.Location = new Point(38, 401);
+                dataGridViewSyukko.Size = new Size(1614, 306);
+                dataGridViewSyukko.Location = new Point(38, 401);
 
                 dataGridViewArrival.Size = new Size(1614, 306);
                 dataGridViewArrival.Location = new Point(38, 401);
@@ -324,7 +324,7 @@ namespace SalesManagement_SysDev
         {
             panelHide();
 
-            panel13.Show();
+            panelChumon.Show();
 
             labelManaTitle.Text = ((Button)sender).Text;
         }
