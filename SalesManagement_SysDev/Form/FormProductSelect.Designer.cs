@@ -70,7 +70,7 @@ namespace SalesManagement_SysDev
             // 
             // buttonProSelectConfirm
             // 
-            this.buttonProSelectConfirm.BackColor = System.Drawing.Color.Violet;
+            this.buttonProSelectConfirm.BackColor = System.Drawing.Color.Red;
             this.buttonProSelectConfirm.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonProSelectConfirm.Location = new System.Drawing.Point(1038, 118);
             this.buttonProSelectConfirm.Margin = new System.Windows.Forms.Padding(1);
@@ -296,6 +296,7 @@ namespace SalesManagement_SysDev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1251, 779);
             this.Controls.Add(this.labelProSelectTitle);
             this.Controls.Add(this.labelProSelectSmall);

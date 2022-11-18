@@ -301,6 +301,7 @@ namespace SalesManagement_SysDev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1261, 737);
             this.Controls.Add(this.buttonManaMakerDeleteList);
             this.Controls.Add(this.buttonManaMakerDelete);
