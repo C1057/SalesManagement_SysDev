@@ -42,6 +42,8 @@ namespace SalesManagement_SysDev
             this.textBoxPositionManaHidden = new System.Windows.Forms.TextBox();
             this.buttonPositionManaReturn = new System.Windows.Forms.Button();
             this.dataGridViewPositionMana = new System.Windows.Forms.DataGridView();
+            this.buttonPositionManaDeleteList = new SalesManagement_SysDev.maruibutton();
+            this.buttonPositionManaDelete = new SalesManagement_SysDev.maruibutton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositionMana)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,7 +167,7 @@ namespace SalesManagement_SysDev
             // 
             this.buttonPositionManaReturn.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.buttonPositionManaReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonPositionManaReturn.Location = new System.Drawing.Point(840, 36);
+            this.buttonPositionManaReturn.Location = new System.Drawing.Point(1039, 26);
             this.buttonPositionManaReturn.Margin = new System.Windows.Forms.Padding(1);
             this.buttonPositionManaReturn.Name = "buttonPositionManaReturn";
             this.buttonPositionManaReturn.Size = new System.Drawing.Size(168, 72);
@@ -179,14 +181,42 @@ namespace SalesManagement_SysDev
             this.dataGridViewPositionMana.Location = new System.Drawing.Point(35, 395);
             this.dataGridViewPositionMana.Name = "dataGridViewPositionMana";
             this.dataGridViewPositionMana.RowTemplate.Height = 21;
-            this.dataGridViewPositionMana.Size = new System.Drawing.Size(973, 281);
+            this.dataGridViewPositionMana.Size = new System.Drawing.Size(1103, 281);
             this.dataGridViewPositionMana.TabIndex = 248;
+            // 
+            // buttonPositionManaDeleteList
+            // 
+            this.buttonPositionManaDeleteList.BackColor = System.Drawing.Color.Red;
+            this.buttonPositionManaDeleteList.FlatAppearance.BorderSize = 0;
+            this.buttonPositionManaDeleteList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPositionManaDeleteList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonPositionManaDeleteList.Location = new System.Drawing.Point(1029, 142);
+            this.buttonPositionManaDeleteList.Name = "buttonPositionManaDeleteList";
+            this.buttonPositionManaDeleteList.Size = new System.Drawing.Size(140, 107);
+            this.buttonPositionManaDeleteList.TabIndex = 250;
+            this.buttonPositionManaDeleteList.Text = "非表示リスト";
+            this.buttonPositionManaDeleteList.UseVisualStyleBackColor = false;
+            // 
+            // buttonPositionManaDelete
+            // 
+            this.buttonPositionManaDelete.BackColor = System.Drawing.Color.Red;
+            this.buttonPositionManaDelete.FlatAppearance.BorderSize = 0;
+            this.buttonPositionManaDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPositionManaDelete.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonPositionManaDelete.Location = new System.Drawing.Point(874, 142);
+            this.buttonPositionManaDelete.Name = "buttonPositionManaDelete";
+            this.buttonPositionManaDelete.Size = new System.Drawing.Size(140, 107);
+            this.buttonPositionManaDelete.TabIndex = 249;
+            this.buttonPositionManaDelete.Text = "非表示";
+            this.buttonPositionManaDelete.UseVisualStyleBackColor = false;
             // 
             // FormPositionMana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 731);
+            this.ClientSize = new System.Drawing.Size(1255, 738);
+            this.Controls.Add(this.buttonPositionManaDeleteList);
+            this.Controls.Add(this.buttonPositionManaDelete);
             this.Controls.Add(this.dataGridViewPositionMana);
             this.Controls.Add(this.buttonPositionManaReturn);
             this.Controls.Add(this.labelPositionManaHidden);
@@ -223,5 +253,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.TextBox textBoxPositionManaHidden;
         private System.Windows.Forms.Button buttonPositionManaReturn;
         private System.Windows.Forms.DataGridView dataGridViewPositionMana;
+        private maruibutton buttonPositionManaDeleteList;
+        private maruibutton buttonPositionManaDelete;
     }
 }

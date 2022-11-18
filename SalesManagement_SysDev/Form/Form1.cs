@@ -25,7 +25,7 @@ namespace SalesManagement_SysDev
             panelList.Add(panel3);
             panelList.Add(panel4);
             panelList.Add(panel6);
-            panelList.Add(panel7);
+            panelList.Add(panelSalesOffice);
             panelList.Add(panel8);
             panelList.Add(panel9);
             panelList.Add(panel10);
@@ -143,7 +143,7 @@ namespace SalesManagement_SysDev
         {
             panelHide();
 
-            panel7.Show();
+            panelSalesOffice.Show();
 
             labelManaTitle.Text = ((Button)sender).Text;
         }
@@ -175,8 +175,8 @@ namespace SalesManagement_SysDev
                 panel6.Size = new Size(1876, 738);
                 panel6.Location = new Point(12, 285);
 
-                panel7.Size = new Size(1876, 738);
-                panel7.Location = new Point(12, 285);
+                panelSalesOffice.Size = new Size(1876, 738);
+                panelSalesOffice.Location = new Point(12, 285);
 
                 panel8.Size = new Size(1876, 738);
                 panel8.Location = new Point(12, 285);
@@ -247,8 +247,8 @@ namespace SalesManagement_SysDev
                 panel6.Size = new Size(1685, 738);
                 panel6.Location = new Point(207, 285);
 
-                panel7.Size = new Size(1685, 738);
-                panel7.Location = new Point(207, 285);
+                panelSalesOffice.Size = new Size(1685, 738);
+                panelSalesOffice.Location = new Point(207, 285);
 
                 panel8.Size = new Size(1685, 738);
                 panel8.Location = new Point(207, 285);
