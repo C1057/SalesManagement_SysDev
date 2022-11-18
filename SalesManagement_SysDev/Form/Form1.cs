@@ -20,7 +20,7 @@ namespace SalesManagement_SysDev
         {
             InitializeComponent();
 
-            new ToolTip().SetToolTip(button2, "入力中の情報が初期状態に戻る");
+            new ToolTip().SetToolTip(buttonClear, "入力中の情報が初期状態に戻る");
             panelList.Add(panel5);
             panelList.Add(panel3);
             panelList.Add(panel4);
@@ -48,7 +48,7 @@ namespace SalesManagement_SysDev
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime d = DateTime.Now;
-            label3.Text = string.Format("{0:00}:{1:00}:{2:00}", d.Hour, d.Minute, d.Second);
+            labelNowTime.Text = string.Format("{0:00}:{1:00}:{2:00}", d.Hour, d.Minute, d.Second);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace SalesManagement_SysDev
 
             panel5.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void maruibutton1_Click(object sender, EventArgs e)
@@ -84,7 +84,7 @@ namespace SalesManagement_SysDev
 
             panel11.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -93,7 +93,7 @@ namespace SalesManagement_SysDev
 
             panel6.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -102,7 +102,7 @@ namespace SalesManagement_SysDev
 
             panel12.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace SalesManagement_SysDev
 
             panel3.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void button24_Click(object sender, EventArgs e)
@@ -120,14 +120,14 @@ namespace SalesManagement_SysDev
 
             panel4.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
             DateTime d = DateTime.Now;
-            label53.Text = string.Format("{0:00}/{1:00}/{2:00}", d.Year, d.Month, d.Day);
-            label53.Text += d.ToString("(ddd)");
+            labelNowDays.Text = string.Format("{0:00}/{1:00}/{2:00}", d.Year, d.Month, d.Day);
+            labelNowDays.Text += d.ToString("(ddd)");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -136,7 +136,7 @@ namespace SalesManagement_SysDev
 
             panel8.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -145,7 +145,7 @@ namespace SalesManagement_SysDev
 
             panel7.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void timer3_Tick(object sender, EventArgs e)
@@ -214,8 +214,8 @@ namespace SalesManagement_SysDev
                 dataGridView3.Size = new Size(1843, 306);
                 dataGridView3.Location = new Point(16, 401);
 
-                dataGridView4.Size = new Size(1843, 306);
-                dataGridView4.Location = new Point(16, 401);
+                dataGridViewEmMana.Size = new Size(1843, 306);
+                dataGridViewEmMana.Location = new Point(16, 401);
 
                 dataGridView9.Size = new Size(1843, 306);
                 dataGridView9.Location = new Point(16, 401);
@@ -289,8 +289,8 @@ namespace SalesManagement_SysDev
                 dataGridView3.Size = new Size(1614, 306);
                 dataGridView3.Location = new Point(38, 401);
 
-                dataGridView4.Size = new Size(1614, 306);
-                dataGridView4.Location = new Point(38, 401);
+                dataGridViewEmMana.Size = new Size(1614, 306);
+                dataGridViewEmMana.Location = new Point(38, 401);
 
                 dataGridView9.Size = new Size(1614, 306);
                 dataGridView9.Location = new Point(38, 401);
@@ -317,7 +317,7 @@ namespace SalesManagement_SysDev
 
             panel14.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -326,7 +326,7 @@ namespace SalesManagement_SysDev
 
             panel13.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -335,7 +335,7 @@ namespace SalesManagement_SysDev
 
             panel9.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -344,28 +344,28 @@ namespace SalesManagement_SysDev
 
             panel10.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void maruibutton10_Click(object sender, EventArgs e)
         {
-            new ToolTip().SetToolTip(button2, "パスワードを表示");
+            new ToolTip().SetToolTip(buttonClear, "パスワードを表示");
         }
 
         private void maruibutton10_MouseUp(object sender, MouseEventArgs e)
         {
-            textBox2.PasswordChar = (char)'*';
+            textBoxHomePassword.PasswordChar = (char)'*';
         }
 
         private void maruibutton10_MouseDown(object sender, MouseEventArgs e)
         {
-            textBox2.PasswordChar = (char)'\0';
+            textBoxHomePassword.PasswordChar = (char)'\0';
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.ResetText();
-            textBox2.ResetText();
+            textBoxHomeLoginID.ResetText();
+            textBoxHomePassword.ResetText();
         }
 
         private void button18_Click(object sender, EventArgs e)
@@ -374,7 +374,7 @@ namespace SalesManagement_SysDev
 
             panel15.Show();
 
-            label61.Text = ((Button)sender).Text;
+            labelManaTitle.Text = ((Button)sender).Text;
         }
 
         private void button39_Click_2(object sender, EventArgs e)
