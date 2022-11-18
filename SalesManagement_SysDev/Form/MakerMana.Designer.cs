@@ -268,7 +268,7 @@ namespace SalesManagement_SysDev
             this.dataGridViewManaMaker.Name = "dataGridViewManaMaker";
             this.dataGridViewManaMaker.RowHeadersWidth = 62;
             this.dataGridViewManaMaker.RowTemplate.Height = 27;
-            this.dataGridViewManaMaker.Size = new System.Drawing.Size(1169, 309);
+            this.dataGridViewManaMaker.Size = new System.Drawing.Size(1209, 324);
             this.dataGridViewManaMaker.TabIndex = 226;
             // 
             // buttonManaMakerDeleteList

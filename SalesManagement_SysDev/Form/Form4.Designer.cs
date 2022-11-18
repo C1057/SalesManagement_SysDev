@@ -346,7 +346,7 @@ namespace SalesManagement_SysDev
             // 
             this.label100.AutoSize = true;
             this.label100.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label100.Location = new System.Drawing.Point(24, 174);
+            this.label100.Location = new System.Drawing.Point(24, 196);
             this.label100.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label100.Name = "label100";
             this.label100.Size = new System.Drawing.Size(96, 26);
@@ -383,7 +383,7 @@ namespace SalesManagement_SysDev
             // 
             this.label96.AutoSize = true;
             this.label96.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label96.Location = new System.Drawing.Point(329, 173);
+            this.label96.Location = new System.Drawing.Point(329, 195);
             this.label96.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(99, 26);
@@ -393,7 +393,7 @@ namespace SalesManagement_SysDev
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox2.Location = new System.Drawing.Point(125, 173);
+            this.textBox2.Location = new System.Drawing.Point(125, 195);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(166, 27);
             this.textBox2.TabIndex = 204;
@@ -401,7 +401,7 @@ namespace SalesManagement_SysDev
             // comboBox30
             // 
             this.comboBox30.FormattingEnabled = true;
-            this.comboBox30.Location = new System.Drawing.Point(458, 179);
+            this.comboBox30.Location = new System.Drawing.Point(458, 201);
             this.comboBox30.Name = "comboBox30";
             this.comboBox30.Size = new System.Drawing.Size(166, 20);
             this.comboBox30.TabIndex = 191;

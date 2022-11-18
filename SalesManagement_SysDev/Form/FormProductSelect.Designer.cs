@@ -209,7 +209,7 @@ namespace SalesManagement_SysDev
             this.dataGridViewProSelect.Location = new System.Drawing.Point(23, 433);
             this.dataGridViewProSelect.Name = "dataGridViewProSelect";
             this.dataGridViewProSelect.RowTemplate.Height = 21;
-            this.dataGridViewProSelect.Size = new System.Drawing.Size(1183, 321);
+            this.dataGridViewProSelect.Size = new System.Drawing.Size(1216, 334);
             this.dataGridViewProSelect.TabIndex = 226;
             // 
             // labelProSelectTotal

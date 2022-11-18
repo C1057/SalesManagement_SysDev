@@ -181,7 +181,7 @@ namespace SalesManagement_SysDev
             this.dataGridViewPositionMana.Location = new System.Drawing.Point(35, 395);
             this.dataGridViewPositionMana.Name = "dataGridViewPositionMana";
             this.dataGridViewPositionMana.RowTemplate.Height = 21;
-            this.dataGridViewPositionMana.Size = new System.Drawing.Size(1103, 281);
+            this.dataGridViewPositionMana.Size = new System.Drawing.Size(1190, 331);
             this.dataGridViewPositionMana.TabIndex = 248;
             // 
             // buttonPositionManaDeleteList
