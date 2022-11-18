@@ -99,7 +99,6 @@ namespace SalesManagement_SysDev
             this.maruibutton19 = new SalesManagement_SysDev.maruibutton();
             this.label70 = new System.Windows.Forms.Label();
             this.maruibutton20 = new SalesManagement_SysDev.maruibutton();
-            this.button46 = new System.Windows.Forms.Button();
             this.button47 = new System.Windows.Forms.Button();
             this.button48 = new System.Windows.Forms.Button();
             this.label71 = new System.Windows.Forms.Label();
@@ -205,7 +204,7 @@ namespace SalesManagement_SysDev
             this.button15 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
-            this.panel15 = new System.Windows.Forms.Panel();
+            this.panelShSearchTitle = new System.Windows.Forms.Panel();
             this.button22 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -222,11 +221,9 @@ namespace SalesManagement_SysDev
             this.maruibutton5 = new SalesManagement_SysDev.maruibutton();
             this.label25 = new System.Windows.Forms.Label();
             this.maruibutton6 = new SalesManagement_SysDev.maruibutton();
-            this.button23 = new System.Windows.Forms.Button();
             this.button25 = new System.Windows.Forms.Button();
             this.button68 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
-            this.button69 = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.label28 = new System.Windows.Forms.Label();
@@ -266,7 +263,7 @@ namespace SalesManagement_SysDev
             this.label24 = new System.Windows.Forms.Label();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.button21 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.panelProduct = new System.Windows.Forms.Panel();
             this.labelEmPositionName = new System.Windows.Forms.Label();
             this.textBoxEmPositionName = new System.Windows.Forms.TextBox();
             this.labelEmSalesOfficeName = new System.Windows.Forms.Label();
@@ -296,7 +293,7 @@ namespace SalesManagement_SysDev
             this.labelEmEmployeeName = new System.Windows.Forms.Label();
             this.labelEmEmployeeID = new System.Windows.Forms.Label();
             this.textBoxEmEmployeeName = new System.Windows.Forms.TextBox();
-            this.panelSalesOffice = new System.Windows.Forms.Panel();
+            this.panelSale = new System.Windows.Forms.Panel();
             this.labelSaOrderEmployeeName = new System.Windows.Forms.Label();
             this.textBoxSaOrderEmployeeName = new System.Windows.Forms.TextBox();
             this.labelSaSalesOfficeName = new System.Windows.Forms.Label();
@@ -390,6 +387,24 @@ namespace SalesManagement_SysDev
             this.buttonLogin = new SalesManagement_SysDev.maruibutton();
             this.buttonLogout = new SalesManagement_SysDev.maruibutton();
             this.dataGridViewSyukkoDetail = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.dataGridView6 = new System.Windows.Forms.DataGridView();
+            this.labelArSearchTitle = new System.Windows.Forms.Label();
+            this.labelChSearchTitle = new System.Windows.Forms.Label();
+            this.labelSySearchTitle = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelCiSearchTitle = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.labelStSearchTitle = new System.Windows.Forms.Label();
+            this.dataGridView7 = new System.Windows.Forms.DataGridView();
+            this.label29 = new System.Windows.Forms.Label();
+            this.labelPrSearchTitle = new System.Windows.Forms.Label();
+            this.labelEmSearchTitle = new System.Windows.Forms.Label();
+            this.labelSaSearchTitle = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -405,14 +420,14 @@ namespace SalesManagement_SysDev
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView14)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel15.SuspendLayout();
+            this.panelShSearchTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panel14.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.panel6.SuspendLayout();
+            this.panelProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmMana)).BeginInit();
-            this.panelSalesOffice.SuspendLayout();
+            this.panelSale.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSaDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSa)).BeginInit();
             this.panel8.SuspendLayout();
@@ -422,6 +437,9 @@ namespace SalesManagement_SysDev
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArrivalDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArrival)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSyukkoDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNowTime
@@ -468,7 +486,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelHomeEmployeeID.AutoSize = true;
             this.labelHomeEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHomeEmployeeID.Location = new System.Drawing.Point(1557, 48);
+            this.labelHomeEmployeeID.Location = new System.Drawing.Point(1557, 47);
             this.labelHomeEmployeeID.Name = "labelHomeEmployeeID";
             this.labelHomeEmployeeID.Size = new System.Drawing.Size(94, 26);
             this.labelHomeEmployeeID.TabIndex = 47;
@@ -482,7 +500,7 @@ namespace SalesManagement_SysDev
             this.labelHomePositionName.Name = "labelHomePositionName";
             this.labelHomePositionName.Size = new System.Drawing.Size(91, 26);
             this.labelHomePositionName.TabIndex = 46;
-            this.labelHomePositionName.Text = "役職    :";
+            this.labelHomePositionName.Text = "役職　　:";
             // 
             // labelHomeHumanNameNow
             // 
@@ -576,7 +594,7 @@ namespace SalesManagement_SysDev
             this.buttonShipment.BackColor = System.Drawing.Color.White;
             this.buttonShipment.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonShipment.ForeColor = System.Drawing.Color.Black;
-            this.buttonShipment.Location = new System.Drawing.Point(28, 820);
+            this.buttonShipment.Location = new System.Drawing.Point(28, 811);
             this.buttonShipment.Name = "buttonShipment";
             this.buttonShipment.Size = new System.Drawing.Size(135, 64);
             this.buttonShipment.TabIndex = 53;
@@ -588,9 +606,9 @@ namespace SalesManagement_SysDev
             // 
             this.buttonProduct.BackColor = System.Drawing.Color.White;
             this.buttonProduct.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonProduct.Location = new System.Drawing.Point(28, 129);
+            this.buttonProduct.Location = new System.Drawing.Point(28, 131);
             this.buttonProduct.Name = "buttonProduct";
-            this.buttonProduct.Size = new System.Drawing.Size(134, 64);
+            this.buttonProduct.Size = new System.Drawing.Size(135, 64);
             this.buttonProduct.TabIndex = 43;
             this.buttonProduct.Text = "商品管理";
             this.buttonProduct.UseVisualStyleBackColor = false;
@@ -601,7 +619,7 @@ namespace SalesManagement_SysDev
             this.buttonArrival.BackColor = System.Drawing.Color.White;
             this.buttonArrival.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonArrival.ForeColor = System.Drawing.Color.Black;
-            this.buttonArrival.Location = new System.Drawing.Point(28, 751);
+            this.buttonArrival.Location = new System.Drawing.Point(28, 743);
             this.buttonArrival.Name = "buttonArrival";
             this.buttonArrival.Size = new System.Drawing.Size(135, 64);
             this.buttonArrival.TabIndex = 51;
@@ -614,7 +632,7 @@ namespace SalesManagement_SysDev
             this.buttonSyukko.BackColor = System.Drawing.Color.White;
             this.buttonSyukko.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSyukko.ForeColor = System.Drawing.Color.Black;
-            this.buttonSyukko.Location = new System.Drawing.Point(28, 681);
+            this.buttonSyukko.Location = new System.Drawing.Point(28, 675);
             this.buttonSyukko.Name = "buttonSyukko";
             this.buttonSyukko.Size = new System.Drawing.Size(135, 64);
             this.buttonSyukko.TabIndex = 52;
@@ -627,7 +645,7 @@ namespace SalesManagement_SysDev
             this.buttonHattyu.BackColor = System.Drawing.Color.White;
             this.buttonHattyu.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonHattyu.ForeColor = System.Drawing.Color.Black;
-            this.buttonHattyu.Location = new System.Drawing.Point(28, 545);
+            this.buttonHattyu.Location = new System.Drawing.Point(28, 539);
             this.buttonHattyu.Name = "buttonHattyu";
             this.buttonHattyu.Size = new System.Drawing.Size(135, 64);
             this.buttonHattyu.TabIndex = 49;
@@ -640,9 +658,9 @@ namespace SalesManagement_SysDev
             this.buttonWareHousing.BackColor = System.Drawing.Color.White;
             this.buttonWareHousing.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonWareHousing.ForeColor = System.Drawing.Color.Black;
-            this.buttonWareHousing.Location = new System.Drawing.Point(28, 614);
+            this.buttonWareHousing.Location = new System.Drawing.Point(28, 607);
             this.buttonWareHousing.Name = "buttonWareHousing";
-            this.buttonWareHousing.Size = new System.Drawing.Size(135, 62);
+            this.buttonWareHousing.Size = new System.Drawing.Size(135, 64);
             this.buttonWareHousing.TabIndex = 50;
             this.buttonWareHousing.Text = "入庫管理";
             this.buttonWareHousing.UseVisualStyleBackColor = false;
@@ -653,9 +671,9 @@ namespace SalesManagement_SysDev
             this.buttonOrder.BackColor = System.Drawing.Color.White;
             this.buttonOrder.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonOrder.ForeColor = System.Drawing.Color.Black;
-            this.buttonOrder.Location = new System.Drawing.Point(28, 408);
+            this.buttonOrder.Location = new System.Drawing.Point(28, 403);
             this.buttonOrder.Name = "buttonOrder";
-            this.buttonOrder.Size = new System.Drawing.Size(135, 63);
+            this.buttonOrder.Size = new System.Drawing.Size(135, 64);
             this.buttonOrder.TabIndex = 47;
             this.buttonOrder.Text = "受注管理";
             this.buttonOrder.UseVisualStyleBackColor = false;
@@ -666,7 +684,7 @@ namespace SalesManagement_SysDev
             this.buttonChumon.BackColor = System.Drawing.Color.White;
             this.buttonChumon.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonChumon.ForeColor = System.Drawing.Color.Black;
-            this.buttonChumon.Location = new System.Drawing.Point(28, 476);
+            this.buttonChumon.Location = new System.Drawing.Point(28, 471);
             this.buttonChumon.Name = "buttonChumon";
             this.buttonChumon.Size = new System.Drawing.Size(135, 64);
             this.buttonChumon.TabIndex = 48;
@@ -681,7 +699,7 @@ namespace SalesManagement_SysDev
             this.buttonClient.ForeColor = System.Drawing.Color.Black;
             this.buttonClient.Location = new System.Drawing.Point(28, 63);
             this.buttonClient.Name = "buttonClient";
-            this.buttonClient.Size = new System.Drawing.Size(135, 61);
+            this.buttonClient.Size = new System.Drawing.Size(135, 64);
             this.buttonClient.TabIndex = 42;
             this.buttonClient.Text = "顧客管理";
             this.buttonClient.UseVisualStyleBackColor = false;
@@ -692,12 +710,12 @@ namespace SalesManagement_SysDev
             this.buttonSale.BackColor = System.Drawing.Color.White;
             this.buttonSale.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSale.ForeColor = System.Drawing.Color.Black;
-            this.buttonSale.Location = new System.Drawing.Point(28, 337);
+            this.buttonSale.Location = new System.Drawing.Point(28, 335);
             this.buttonSale.Name = "buttonSale";
             this.buttonSale.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonSale.Size = new System.Drawing.Size(135, 64);
             this.buttonSale.TabIndex = 46;
-            this.buttonSale.Text = "売上機能";
+            this.buttonSale.Text = "売上管理";
             this.buttonSale.UseVisualStyleBackColor = false;
             this.buttonSale.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -849,7 +867,9 @@ namespace SalesManagement_SysDev
             // 
             // panel9
             // 
-            this.panel9.BackColor = System.Drawing.Color.White;
+            this.panel9.BackColor = System.Drawing.Color.Azure;
+            this.panel9.Controls.Add(this.label3);
+            this.panel9.Controls.Add(this.dataGridView6);
             this.panel9.Controls.Add(this.comboBox6);
             this.panel9.Controls.Add(this.comboBox7);
             this.panel9.Controls.Add(this.comboBox8);
@@ -880,7 +900,7 @@ namespace SalesManagement_SysDev
             // comboBox6
             // 
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(416, 327);
+            this.comboBox6.Location = new System.Drawing.Point(411, 252);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(121, 23);
             this.comboBox6.TabIndex = 160;
@@ -888,7 +908,7 @@ namespace SalesManagement_SysDev
             // comboBox7
             // 
             this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(177, 250);
+            this.comboBox7.Location = new System.Drawing.Point(172, 175);
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(139, 23);
             this.comboBox7.TabIndex = 159;
@@ -897,7 +917,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBox8.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(178, 312);
+            this.comboBox8.Location = new System.Drawing.Point(173, 237);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(138, 23);
             this.comboBox8.TabIndex = 158;
@@ -905,7 +925,7 @@ namespace SalesManagement_SysDev
             // comboBox9
             // 
             this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(177, 198);
+            this.comboBox9.Location = new System.Drawing.Point(172, 123);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(139, 23);
             this.comboBox9.TabIndex = 157;
@@ -913,9 +933,9 @@ namespace SalesManagement_SysDev
             // dateTimePicker2
             // 
             this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(177, 372);
+            this.dateTimePicker2.Location = new System.Drawing.Point(219, 294);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(39323, 23);
+            this.dateTimePicker2.Size = new System.Drawing.Size(39, 23);
             this.dateTimePicker2.TabIndex = 156;
             // 
             // maruibutton17
@@ -924,9 +944,9 @@ namespace SalesManagement_SysDev
             this.maruibutton17.FlatAppearance.BorderSize = 0;
             this.maruibutton17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton17.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton17.Location = new System.Drawing.Point(1365, 32);
+            this.maruibutton17.Location = new System.Drawing.Point(1311, 29);
             this.maruibutton17.Name = "maruibutton17";
-            this.maruibutton17.Size = new System.Drawing.Size(120, 95);
+            this.maruibutton17.Size = new System.Drawing.Size(172, 111);
             this.maruibutton17.TabIndex = 155;
             this.maruibutton17.Text = "非表示";
             this.maruibutton17.UseVisualStyleBackColor = false;
@@ -935,7 +955,7 @@ namespace SalesManagement_SysDev
             // 
             this.label63.AutoSize = true;
             this.label63.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label63.Location = new System.Drawing.Point(51, 195);
+            this.label63.Location = new System.Drawing.Point(46, 120);
             this.label63.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(78, 26);
@@ -948,29 +968,30 @@ namespace SalesManagement_SysDev
             this.maruibutton18.FlatAppearance.BorderSize = 0;
             this.maruibutton18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton18.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton18.Location = new System.Drawing.Point(1508, 32);
+            this.maruibutton18.Location = new System.Drawing.Point(1495, 29);
             this.maruibutton18.Name = "maruibutton18";
-            this.maruibutton18.Size = new System.Drawing.Size(120, 95);
+            this.maruibutton18.Size = new System.Drawing.Size(172, 111);
             this.maruibutton18.TabIndex = 154;
             this.maruibutton18.Text = "非表示リスト";
             this.maruibutton18.UseVisualStyleBackColor = false;
             // 
             // button42
             // 
-            this.button42.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button42.Location = new System.Drawing.Point(20, 32);
+            this.button42.BackColor = System.Drawing.Color.White;
+            this.button42.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button42.Location = new System.Drawing.Point(23, 29);
             this.button42.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button42.Name = "button42";
             this.button42.Size = new System.Drawing.Size(260, 75);
             this.button42.TabIndex = 152;
             this.button42.Text = "登録";
-            this.button42.UseVisualStyleBackColor = true;
+            this.button42.UseVisualStyleBackColor = false;
             // 
             // label64
             // 
             this.label64.AutoSize = true;
             this.label64.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label64.Location = new System.Drawing.Point(333, 369);
+            this.label64.Location = new System.Drawing.Point(328, 294);
             this.label64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(54, 26);
@@ -979,19 +1000,20 @@ namespace SalesManagement_SysDev
             // 
             // button43
             // 
-            this.button43.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button43.Location = new System.Drawing.Point(1036, 32);
+            this.button43.BackColor = System.Drawing.Color.White;
+            this.button43.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button43.Location = new System.Drawing.Point(1035, 29);
             this.button43.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button43.Name = "button43";
             this.button43.Size = new System.Drawing.Size(258, 75);
             this.button43.TabIndex = 151;
             this.button43.Text = "検索";
-            this.button43.UseVisualStyleBackColor = true;
+            this.button43.UseVisualStyleBackColor = false;
             // 
             // textBox40
             // 
             this.textBox40.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox40.Location = new System.Drawing.Point(416, 366);
+            this.textBox40.Location = new System.Drawing.Point(411, 291);
             this.textBox40.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox40.Name = "textBox40";
             this.textBox40.Size = new System.Drawing.Size(121, 34);
@@ -999,20 +1021,21 @@ namespace SalesManagement_SysDev
             // 
             // button44
             // 
-            this.button44.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button44.Location = new System.Drawing.Point(698, 32);
+            this.button44.BackColor = System.Drawing.Color.White;
+            this.button44.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button44.Location = new System.Drawing.Point(699, 29);
             this.button44.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button44.Name = "button44";
             this.button44.Size = new System.Drawing.Size(258, 75);
             this.button44.TabIndex = 150;
             this.button44.Text = "一覧表示";
-            this.button44.UseVisualStyleBackColor = true;
+            this.button44.UseVisualStyleBackColor = false;
             // 
             // label65
             // 
             this.label65.AutoSize = true;
             this.label65.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label65.Location = new System.Drawing.Point(1271, 369);
+            this.label65.Location = new System.Drawing.Point(602, 297);
             this.label65.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(117, 26);
@@ -1021,20 +1044,21 @@ namespace SalesManagement_SysDev
             // 
             // button45
             // 
-            this.button45.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button45.Location = new System.Drawing.Point(357, 32);
+            this.button45.BackColor = System.Drawing.Color.White;
+            this.button45.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button45.Location = new System.Drawing.Point(361, 29);
             this.button45.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button45.Name = "button45";
             this.button45.Size = new System.Drawing.Size(260, 75);
             this.button45.TabIndex = 149;
             this.button45.Text = "更新";
-            this.button45.UseVisualStyleBackColor = true;
+            this.button45.UseVisualStyleBackColor = false;
             // 
             // label66
             // 
             this.label66.AutoSize = true;
             this.label66.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label66.Location = new System.Drawing.Point(53, 369);
+            this.label66.Location = new System.Drawing.Point(48, 294);
             this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(117, 26);
@@ -1044,19 +1068,19 @@ namespace SalesManagement_SysDev
             // dataGridView9
             // 
             this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView9.Location = new System.Drawing.Point(38, 401);
+            this.dataGridView9.Location = new System.Drawing.Point(38, 387);
             this.dataGridView9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.RowHeadersWidth = 62;
             this.dataGridView9.RowTemplate.Height = 27;
-            this.dataGridView9.Size = new System.Drawing.Size(1614, 306);
+            this.dataGridView9.Size = new System.Drawing.Size(1050, 310);
             this.dataGridView9.TabIndex = 122;
             // 
             // label67
             // 
             this.label67.AutoSize = true;
             this.label67.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label67.Location = new System.Drawing.Point(53, 309);
+            this.label67.Location = new System.Drawing.Point(48, 234);
             this.label67.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(120, 26);
@@ -1067,7 +1091,7 @@ namespace SalesManagement_SysDev
             // 
             this.label68.AutoSize = true;
             this.label68.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label68.Location = new System.Drawing.Point(53, 250);
+            this.label68.Location = new System.Drawing.Point(48, 175);
             this.label68.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(83, 26);
@@ -1078,7 +1102,7 @@ namespace SalesManagement_SysDev
             // 
             this.label69.AutoSize = true;
             this.label69.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label69.Location = new System.Drawing.Point(333, 323);
+            this.label69.Location = new System.Drawing.Point(328, 248);
             this.label69.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(78, 26);
@@ -1088,15 +1112,20 @@ namespace SalesManagement_SysDev
             // textBox41
             // 
             this.textBox41.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox41.Location = new System.Drawing.Point(1392, 366);
+            this.textBox41.Location = new System.Drawing.Point(723, 294);
             this.textBox41.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox41.Multiline = true;
             this.textBox41.Name = "textBox41";
-            this.textBox41.Size = new System.Drawing.Size(260, 34);
+            this.textBox41.Size = new System.Drawing.Size(720, 66);
             this.textBox41.TabIndex = 139;
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.BackColor = System.Drawing.Color.Azure;
+            this.panel10.Controls.Add(this.dataGridView5);
+            this.panel10.Controls.Add(this.label2);
+            this.panel10.Controls.Add(this.label1);
+            this.panel10.Controls.Add(this.textBox1);
             this.panel10.Controls.Add(this.comboBox10);
             this.panel10.Controls.Add(this.comboBox11);
             this.panel10.Controls.Add(this.comboBox12);
@@ -1104,7 +1133,6 @@ namespace SalesManagement_SysDev
             this.panel10.Controls.Add(this.maruibutton19);
             this.panel10.Controls.Add(this.label70);
             this.panel10.Controls.Add(this.maruibutton20);
-            this.panel10.Controls.Add(this.button46);
             this.panel10.Controls.Add(this.button47);
             this.panel10.Controls.Add(this.button48);
             this.panel10.Controls.Add(this.label71);
@@ -1122,35 +1150,38 @@ namespace SalesManagement_SysDev
             // 
             // comboBox10
             // 
+            this.comboBox10.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Location = new System.Drawing.Point(193, 254);
+            this.comboBox10.Location = new System.Drawing.Point(606, 145);
             this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(166, 23);
+            this.comboBox10.Size = new System.Drawing.Size(166, 34);
             this.comboBox10.TabIndex = 159;
             // 
             // comboBox11
             // 
-            this.comboBox11.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.comboBox11.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Location = new System.Drawing.Point(220, 312);
+            this.comboBox11.Location = new System.Drawing.Point(224, 195);
             this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(138, 23);
+            this.comboBox11.Size = new System.Drawing.Size(167, 34);
             this.comboBox11.TabIndex = 158;
             // 
             // comboBox12
             // 
+            this.comboBox12.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBox12.FormattingEnabled = true;
-            this.comboBox12.Location = new System.Drawing.Point(193, 197);
+            this.comboBox12.Location = new System.Drawing.Point(224, 147);
             this.comboBox12.Name = "comboBox12";
-            this.comboBox12.Size = new System.Drawing.Size(166, 23);
+            this.comboBox12.Size = new System.Drawing.Size(166, 34);
             this.comboBox12.TabIndex = 157;
             // 
             // dateTimePicker3
             // 
             this.dateTimePicker3.CalendarFont = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(177, 372);
+            this.dateTimePicker3.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dateTimePicker3.Location = new System.Drawing.Point(224, 243);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(39323, 23);
+            this.dateTimePicker3.Size = new System.Drawing.Size(233, 34);
             this.dateTimePicker3.TabIndex = 156;
             // 
             // maruibutton19
@@ -1159,9 +1190,9 @@ namespace SalesManagement_SysDev
             this.maruibutton19.FlatAppearance.BorderSize = 0;
             this.maruibutton19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton19.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton19.Location = new System.Drawing.Point(1365, 32);
+            this.maruibutton19.Location = new System.Drawing.Point(1311, 29);
             this.maruibutton19.Name = "maruibutton19";
-            this.maruibutton19.Size = new System.Drawing.Size(120, 95);
+            this.maruibutton19.Size = new System.Drawing.Size(172, 111);
             this.maruibutton19.TabIndex = 155;
             this.maruibutton19.Text = "非表示";
             this.maruibutton19.UseVisualStyleBackColor = false;
@@ -1170,7 +1201,7 @@ namespace SalesManagement_SysDev
             // 
             this.label70.AutoSize = true;
             this.label70.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label70.Location = new System.Drawing.Point(53, 194);
+            this.label70.Location = new System.Drawing.Point(55, 152);
             this.label70.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(78, 26);
@@ -1183,51 +1214,42 @@ namespace SalesManagement_SysDev
             this.maruibutton20.FlatAppearance.BorderSize = 0;
             this.maruibutton20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton20.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton20.Location = new System.Drawing.Point(1508, 32);
+            this.maruibutton20.Location = new System.Drawing.Point(1495, 29);
             this.maruibutton20.Name = "maruibutton20";
-            this.maruibutton20.Size = new System.Drawing.Size(120, 95);
+            this.maruibutton20.Size = new System.Drawing.Size(172, 111);
             this.maruibutton20.TabIndex = 154;
             this.maruibutton20.Text = "非表示リスト";
             this.maruibutton20.UseVisualStyleBackColor = false;
             // 
-            // button46
-            // 
-            this.button46.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button46.Location = new System.Drawing.Point(20, 32);
-            this.button46.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button46.Name = "button46";
-            this.button46.Size = new System.Drawing.Size(260, 75);
-            this.button46.TabIndex = 152;
-            this.button46.Text = "登録";
-            this.button46.UseVisualStyleBackColor = true;
-            // 
             // button47
             // 
-            this.button47.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button47.Location = new System.Drawing.Point(1036, 32);
+            this.button47.BackColor = System.Drawing.Color.White;
+            this.button47.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button47.Location = new System.Drawing.Point(361, 29);
             this.button47.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button47.Name = "button47";
             this.button47.Size = new System.Drawing.Size(258, 75);
             this.button47.TabIndex = 151;
             this.button47.Text = "検索";
-            this.button47.UseVisualStyleBackColor = true;
+            this.button47.UseVisualStyleBackColor = false;
             // 
             // button48
             // 
-            this.button48.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button48.Location = new System.Drawing.Point(698, 32);
+            this.button48.BackColor = System.Drawing.Color.White;
+            this.button48.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button48.Location = new System.Drawing.Point(23, 29);
             this.button48.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button48.Name = "button48";
             this.button48.Size = new System.Drawing.Size(258, 75);
             this.button48.TabIndex = 150;
             this.button48.Text = "一覧表示";
-            this.button48.UseVisualStyleBackColor = true;
+            this.button48.UseVisualStyleBackColor = false;
             // 
             // label71
             // 
             this.label71.AutoSize = true;
             this.label71.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label71.Location = new System.Drawing.Point(1271, 369);
+            this.label71.Location = new System.Drawing.Point(55, 299);
             this.label71.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(117, 26);
@@ -1236,20 +1258,22 @@ namespace SalesManagement_SysDev
             // 
             // button49
             // 
-            this.button49.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button49.Location = new System.Drawing.Point(357, 32);
+            this.button49.BackColor = System.Drawing.Color.White;
+            this.button49.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button49.ForeColor = System.Drawing.Color.Red;
+            this.button49.Location = new System.Drawing.Point(1000, 29);
             this.button49.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button49.Name = "button49";
             this.button49.Size = new System.Drawing.Size(260, 75);
             this.button49.TabIndex = 149;
-            this.button49.Text = "更新";
-            this.button49.UseVisualStyleBackColor = true;
+            this.button49.Text = "入庫確定";
+            this.button49.UseVisualStyleBackColor = false;
             // 
             // label72
             // 
             this.label72.AutoSize = true;
             this.label72.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label72.Location = new System.Drawing.Point(53, 369);
+            this.label72.Location = new System.Drawing.Point(55, 248);
             this.label72.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(117, 26);
@@ -1259,19 +1283,19 @@ namespace SalesManagement_SysDev
             // dataGridView10
             // 
             this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView10.Location = new System.Drawing.Point(38, 401);
+            this.dataGridView10.Location = new System.Drawing.Point(38, 387);
             this.dataGridView10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView10.Name = "dataGridView10";
             this.dataGridView10.RowHeadersWidth = 62;
             this.dataGridView10.RowTemplate.Height = 27;
-            this.dataGridView10.Size = new System.Drawing.Size(1614, 306);
+            this.dataGridView10.Size = new System.Drawing.Size(1050, 310);
             this.dataGridView10.TabIndex = 122;
             // 
             // label73
             // 
             this.label73.AutoSize = true;
             this.label73.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label73.Location = new System.Drawing.Point(53, 309);
+            this.label73.Location = new System.Drawing.Point(55, 200);
             this.label73.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label73.Name = "label73";
             this.label73.Size = new System.Drawing.Size(162, 26);
@@ -1282,7 +1306,7 @@ namespace SalesManagement_SysDev
             // 
             this.label74.AutoSize = true;
             this.label74.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label74.Location = new System.Drawing.Point(53, 251);
+            this.label74.Location = new System.Drawing.Point(443, 147);
             this.label74.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label74.Name = "label74";
             this.label74.Size = new System.Drawing.Size(78, 26);
@@ -1292,15 +1316,17 @@ namespace SalesManagement_SysDev
             // textBox42
             // 
             this.textBox42.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox42.Location = new System.Drawing.Point(1392, 366);
+            this.textBox42.Location = new System.Drawing.Point(224, 291);
             this.textBox42.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox42.Multiline = true;
             this.textBox42.Name = "textBox42";
-            this.textBox42.Size = new System.Drawing.Size(260, 34);
+            this.textBox42.Size = new System.Drawing.Size(720, 66);
             this.textBox42.TabIndex = 139;
             // 
             // panelSyukko
             // 
             this.panelSyukko.BackColor = System.Drawing.Color.Azure;
+            this.panelSyukko.Controls.Add(this.labelSySearchTitle);
             this.panelSyukko.Controls.Add(this.dataGridViewSyukkoDetail);
             this.panelSyukko.Controls.Add(this.labelSySalesOfficeName);
             this.panelSyukko.Controls.Add(this.textBoxSySalesOfficeName);
@@ -1338,7 +1364,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelSySalesOfficeName.AutoSize = true;
             this.labelSySalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSySalesOfficeName.Location = new System.Drawing.Point(368, 228);
+            this.labelSySalesOfficeName.Location = new System.Drawing.Point(368, 215);
             this.labelSySalesOfficeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSySalesOfficeName.Name = "labelSySalesOfficeName";
             this.labelSySalesOfficeName.Size = new System.Drawing.Size(96, 26);
@@ -1348,7 +1374,7 @@ namespace SalesManagement_SysDev
             // textBoxSySalesOfficeName
             // 
             this.textBoxSySalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSySalesOfficeName.Location = new System.Drawing.Point(476, 226);
+            this.textBoxSySalesOfficeName.Location = new System.Drawing.Point(476, 213);
             this.textBoxSySalesOfficeName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSySalesOfficeName.Multiline = true;
             this.textBoxSySalesOfficeName.Name = "textBoxSySalesOfficeName";
@@ -1359,7 +1385,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxSySalesOfficeID.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxSySalesOfficeID.FormattingEnabled = true;
-            this.comboBoxSySalesOfficeID.Location = new System.Drawing.Point(176, 223);
+            this.comboBoxSySalesOfficeID.Location = new System.Drawing.Point(176, 210);
             this.comboBoxSySalesOfficeID.Name = "comboBoxSySalesOfficeID";
             this.comboBoxSySalesOfficeID.Size = new System.Drawing.Size(166, 34);
             this.comboBoxSySalesOfficeID.TabIndex = 172;
@@ -1368,7 +1394,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelSySalesOfficeID.AutoSize = true;
             this.labelSySalesOfficeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSySalesOfficeID.Location = new System.Drawing.Point(36, 227);
+            this.labelSySalesOfficeID.Location = new System.Drawing.Point(36, 214);
             this.labelSySalesOfficeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSySalesOfficeID.Name = "labelSySalesOfficeID";
             this.labelSySalesOfficeID.Size = new System.Drawing.Size(99, 26);
@@ -1379,7 +1405,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelSyClientName.AutoSize = true;
             this.labelSyClientName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSyClientName.Location = new System.Drawing.Point(1061, 181);
+            this.labelSyClientName.Location = new System.Drawing.Point(1061, 168);
             this.labelSyClientName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSyClientName.Name = "labelSyClientName";
             this.labelSyClientName.Size = new System.Drawing.Size(75, 26);
@@ -1389,7 +1415,7 @@ namespace SalesManagement_SysDev
             // textBoxSyClientName
             // 
             this.textBoxSyClientName.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSyClientName.Location = new System.Drawing.Point(1153, 180);
+            this.textBoxSyClientName.Location = new System.Drawing.Point(1153, 167);
             this.textBoxSyClientName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSyClientName.Multiline = true;
             this.textBoxSyClientName.Name = "textBoxSyClientName";
@@ -1400,7 +1426,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelSyEmployeeName.AutoSize = true;
             this.labelSyEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSyEmployeeName.Location = new System.Drawing.Point(368, 180);
+            this.labelSyEmployeeName.Location = new System.Drawing.Point(368, 167);
             this.labelSyEmployeeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSyEmployeeName.Name = "labelSyEmployeeName";
             this.labelSyEmployeeName.Size = new System.Drawing.Size(75, 26);
@@ -1410,7 +1436,7 @@ namespace SalesManagement_SysDev
             // textBoxSyEmployeeName
             // 
             this.textBoxSyEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSyEmployeeName.Location = new System.Drawing.Point(476, 178);
+            this.textBoxSyEmployeeName.Location = new System.Drawing.Point(476, 165);
             this.textBoxSyEmployeeName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSyEmployeeName.Multiline = true;
             this.textBoxSyEmployeeName.Name = "textBoxSyEmployeeName";
@@ -1421,7 +1447,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxSyClientID.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxSyClientID.FormattingEnabled = true;
-            this.comboBoxSyClientID.Location = new System.Drawing.Point(872, 178);
+            this.comboBoxSyClientID.Location = new System.Drawing.Point(872, 165);
             this.comboBoxSyClientID.Name = "comboBoxSyClientID";
             this.comboBoxSyClientID.Size = new System.Drawing.Size(166, 34);
             this.comboBoxSyClientID.TabIndex = 164;
@@ -1430,7 +1456,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelSyClientID.AutoSize = true;
             this.labelSyClientID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSyClientID.Location = new System.Drawing.Point(773, 178);
+            this.labelSyClientID.Location = new System.Drawing.Point(773, 165);
             this.labelSyClientID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSyClientID.Name = "labelSyClientID";
             this.labelSyClientID.Size = new System.Drawing.Size(78, 26);
@@ -1441,7 +1467,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxSyEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxSyEmployeeID.FormattingEnabled = true;
-            this.comboBoxSyEmployeeID.Location = new System.Drawing.Point(176, 175);
+            this.comboBoxSyEmployeeID.Location = new System.Drawing.Point(176, 162);
             this.comboBoxSyEmployeeID.Name = "comboBoxSyEmployeeID";
             this.comboBoxSyEmployeeID.Size = new System.Drawing.Size(166, 34);
             this.comboBoxSyEmployeeID.TabIndex = 162;
@@ -1450,7 +1476,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelSyEmployeeID.AutoSize = true;
             this.labelSyEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSyEmployeeID.Location = new System.Drawing.Point(36, 178);
+            this.labelSyEmployeeID.Location = new System.Drawing.Point(36, 165);
             this.labelSyEmployeeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSyEmployeeID.Name = "labelSyEmployeeID";
             this.labelSyEmployeeID.Size = new System.Drawing.Size(78, 26);
@@ -1462,19 +1488,19 @@ namespace SalesManagement_SysDev
             this.buttonSySyukkoConfirm.BackColor = System.Drawing.Color.White;
             this.buttonSySyukkoConfirm.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSySyukkoConfirm.ForeColor = System.Drawing.Color.Red;
-            this.buttonSySyukkoConfirm.Location = new System.Drawing.Point(936, 32);
+            this.buttonSySyukkoConfirm.Location = new System.Drawing.Point(1000, 29);
             this.buttonSySyukkoConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSySyukkoConfirm.Name = "buttonSySyukkoConfirm";
             this.buttonSySyukkoConfirm.Size = new System.Drawing.Size(258, 75);
             this.buttonSySyukkoConfirm.TabIndex = 160;
-            this.buttonSySyukkoConfirm.Text = "確定";
+            this.buttonSySyukkoConfirm.Text = "出庫確定";
             this.buttonSySyukkoConfirm.UseVisualStyleBackColor = false;
             // 
             // comboBoxSyOrderID
             // 
             this.comboBoxSyOrderID.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxSyOrderID.FormattingEnabled = true;
-            this.comboBoxSyOrderID.Location = new System.Drawing.Point(476, 129);
+            this.comboBoxSyOrderID.Location = new System.Drawing.Point(476, 116);
             this.comboBoxSyOrderID.Name = "comboBoxSyOrderID";
             this.comboBoxSyOrderID.Size = new System.Drawing.Size(166, 34);
             this.comboBoxSyOrderID.TabIndex = 159;
@@ -1483,7 +1509,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxSySyukkoID.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxSySyukkoID.FormattingEnabled = true;
-            this.comboBoxSySyukkoID.Location = new System.Drawing.Point(176, 127);
+            this.comboBoxSySyukkoID.Location = new System.Drawing.Point(176, 114);
             this.comboBoxSySyukkoID.Name = "comboBoxSySyukkoID";
             this.comboBoxSySyukkoID.Size = new System.Drawing.Size(166, 34);
             this.comboBoxSySyukkoID.TabIndex = 157;
@@ -1492,7 +1518,7 @@ namespace SalesManagement_SysDev
             // 
             this.dateTimePickerSyukko.CalendarFont = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.dateTimePickerSyukko.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePickerSyukko.Location = new System.Drawing.Point(176, 271);
+            this.dateTimePickerSyukko.Location = new System.Drawing.Point(176, 258);
             this.dateTimePickerSyukko.Name = "dateTimePickerSyukko";
             this.dateTimePickerSyukko.Size = new System.Drawing.Size(240, 35);
             this.dateTimePickerSyukko.TabIndex = 156;
@@ -1503,9 +1529,9 @@ namespace SalesManagement_SysDev
             this.buttonSyNDisplay.FlatAppearance.BorderSize = 0;
             this.buttonSyNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSyNDisplay.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSyNDisplay.Location = new System.Drawing.Point(1365, 32);
+            this.buttonSyNDisplay.Location = new System.Drawing.Point(1311, 29);
             this.buttonSyNDisplay.Name = "buttonSyNDisplay";
-            this.buttonSyNDisplay.Size = new System.Drawing.Size(120, 95);
+            this.buttonSyNDisplay.Size = new System.Drawing.Size(172, 111);
             this.buttonSyNDisplay.TabIndex = 155;
             this.buttonSyNDisplay.Text = "非表示";
             this.buttonSyNDisplay.UseVisualStyleBackColor = false;
@@ -1514,7 +1540,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelSySyukkoID.AutoSize = true;
             this.labelSySyukkoID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSySyukkoID.Location = new System.Drawing.Point(36, 129);
+            this.labelSySyukkoID.Location = new System.Drawing.Point(36, 116);
             this.labelSySyukkoID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSySyukkoID.Name = "labelSySyukkoID";
             this.labelSySyukkoID.Size = new System.Drawing.Size(78, 26);
@@ -1527,9 +1553,9 @@ namespace SalesManagement_SysDev
             this.buttonSyNDisplayList.FlatAppearance.BorderSize = 0;
             this.buttonSyNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSyNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSyNDisplayList.Location = new System.Drawing.Point(1508, 32);
+            this.buttonSyNDisplayList.Location = new System.Drawing.Point(1495, 29);
             this.buttonSyNDisplayList.Name = "buttonSyNDisplayList";
-            this.buttonSyNDisplayList.Size = new System.Drawing.Size(120, 95);
+            this.buttonSyNDisplayList.Size = new System.Drawing.Size(172, 111);
             this.buttonSyNDisplayList.TabIndex = 154;
             this.buttonSyNDisplayList.Text = "非表示リスト";
             this.buttonSyNDisplayList.UseVisualStyleBackColor = false;
@@ -1538,7 +1564,7 @@ namespace SalesManagement_SysDev
             // 
             this.buttonSySearch.BackColor = System.Drawing.Color.White;
             this.buttonSySearch.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSySearch.Location = new System.Drawing.Point(383, 27);
+            this.buttonSySearch.Location = new System.Drawing.Point(361, 29);
             this.buttonSySearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSySearch.Name = "buttonSySearch";
             this.buttonSySearch.Size = new System.Drawing.Size(258, 75);
@@ -1550,7 +1576,7 @@ namespace SalesManagement_SysDev
             // 
             this.buttonSyDisplay.BackColor = System.Drawing.Color.White;
             this.buttonSyDisplay.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSyDisplay.Location = new System.Drawing.Point(44, 27);
+            this.buttonSyDisplay.Location = new System.Drawing.Point(23, 29);
             this.buttonSyDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSyDisplay.Name = "buttonSyDisplay";
             this.buttonSyDisplay.Size = new System.Drawing.Size(258, 75);
@@ -1562,7 +1588,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelSyRsn.AutoSize = true;
             this.labelSyRsn.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSyRsn.Location = new System.Drawing.Point(36, 325);
+            this.labelSyRsn.Location = new System.Drawing.Point(36, 312);
             this.labelSyRsn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSyRsn.Name = "labelSyRsn";
             this.labelSyRsn.Size = new System.Drawing.Size(117, 26);
@@ -1573,7 +1599,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelSyDateTime.AutoSize = true;
             this.labelSyDateTime.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSyDateTime.Location = new System.Drawing.Point(36, 276);
+            this.labelSyDateTime.Location = new System.Drawing.Point(36, 263);
             this.labelSyDateTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSyDateTime.Name = "labelSyDateTime";
             this.labelSyDateTime.Size = new System.Drawing.Size(117, 26);
@@ -1583,19 +1609,19 @@ namespace SalesManagement_SysDev
             // dataGridViewSyukko
             // 
             this.dataGridViewSyukko.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSyukko.Location = new System.Drawing.Point(38, 401);
+            this.dataGridViewSyukko.Location = new System.Drawing.Point(38, 387);
             this.dataGridViewSyukko.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewSyukko.Name = "dataGridViewSyukko";
             this.dataGridViewSyukko.RowHeadersWidth = 62;
             this.dataGridViewSyukko.RowTemplate.Height = 27;
-            this.dataGridViewSyukko.Size = new System.Drawing.Size(1016, 306);
+            this.dataGridViewSyukko.Size = new System.Drawing.Size(1050, 310);
             this.dataGridViewSyukko.TabIndex = 122;
             // 
             // labelSyOrderID
             // 
             this.labelSyOrderID.AutoSize = true;
             this.labelSyOrderID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSyOrderID.Location = new System.Drawing.Point(368, 132);
+            this.labelSyOrderID.Location = new System.Drawing.Point(368, 119);
             this.labelSyOrderID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSyOrderID.Name = "labelSyOrderID";
             this.labelSyOrderID.Size = new System.Drawing.Size(78, 26);
@@ -1605,16 +1631,17 @@ namespace SalesManagement_SysDev
             // textBoxSyRsn
             // 
             this.textBoxSyRsn.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSyRsn.Location = new System.Drawing.Point(176, 320);
+            this.textBoxSyRsn.Location = new System.Drawing.Point(176, 307);
             this.textBoxSyRsn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSyRsn.Multiline = true;
             this.textBoxSyRsn.Name = "textBoxSyRsn";
-            this.textBoxSyRsn.Size = new System.Drawing.Size(818, 64);
+            this.textBoxSyRsn.Size = new System.Drawing.Size(720, 66);
             this.textBoxSyRsn.TabIndex = 139;
             // 
             // panelChumon
             // 
             this.panelChumon.BackColor = System.Drawing.Color.Azure;
+            this.panelChumon.Controls.Add(this.labelChSearchTitle);
             this.panelChumon.Controls.Add(this.dataGridView4);
             this.panelChumon.Controls.Add(this.labelChClientName);
             this.panelChumon.Controls.Add(this.textBoxChClientName);
@@ -1651,12 +1678,12 @@ namespace SalesManagement_SysDev
             // dataGridView4
             // 
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(1040, 381);
+            this.dataGridView4.Location = new System.Drawing.Point(1100, 387);
             this.dataGridView4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 62;
             this.dataGridView4.RowTemplate.Height = 27;
-            this.dataGridView4.Size = new System.Drawing.Size(637, 323);
+            this.dataGridView4.Size = new System.Drawing.Size(570, 310);
             this.dataGridView4.TabIndex = 201;
             // 
             // labelChClientName
@@ -1724,12 +1751,12 @@ namespace SalesManagement_SysDev
             this.buttonChChumonConfirm.BackColor = System.Drawing.Color.White;
             this.buttonChChumonConfirm.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonChChumonConfirm.ForeColor = System.Drawing.Color.Red;
-            this.buttonChChumonConfirm.Location = new System.Drawing.Point(1004, 27);
+            this.buttonChChumonConfirm.Location = new System.Drawing.Point(1000, 29);
             this.buttonChChumonConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonChChumonConfirm.Name = "buttonChChumonConfirm";
             this.buttonChChumonConfirm.Size = new System.Drawing.Size(258, 75);
             this.buttonChChumonConfirm.TabIndex = 194;
-            this.buttonChChumonConfirm.Text = "確定";
+            this.buttonChChumonConfirm.Text = "注文確定";
             this.buttonChChumonConfirm.UseVisualStyleBackColor = false;
             // 
             // comboBoxChSalesOfficeID
@@ -1825,9 +1852,9 @@ namespace SalesManagement_SysDev
             this.buttonChNDisplay.FlatAppearance.BorderSize = 0;
             this.buttonChNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonChNDisplay.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonChNDisplay.Location = new System.Drawing.Point(1365, 32);
+            this.buttonChNDisplay.Location = new System.Drawing.Point(1311, 29);
             this.buttonChNDisplay.Name = "buttonChNDisplay";
-            this.buttonChNDisplay.Size = new System.Drawing.Size(120, 95);
+            this.buttonChNDisplay.Size = new System.Drawing.Size(172, 111);
             this.buttonChNDisplay.TabIndex = 155;
             this.buttonChNDisplay.Text = "非表示";
             this.buttonChNDisplay.UseVisualStyleBackColor = false;
@@ -1849,9 +1876,9 @@ namespace SalesManagement_SysDev
             this.buttonChNDisplayList.FlatAppearance.BorderSize = 0;
             this.buttonChNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonChNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonChNDisplayList.Location = new System.Drawing.Point(1508, 32);
+            this.buttonChNDisplayList.Location = new System.Drawing.Point(1495, 29);
             this.buttonChNDisplayList.Name = "buttonChNDisplayList";
-            this.buttonChNDisplayList.Size = new System.Drawing.Size(120, 95);
+            this.buttonChNDisplayList.Size = new System.Drawing.Size(172, 111);
             this.buttonChNDisplayList.TabIndex = 154;
             this.buttonChNDisplayList.Text = "非表示リスト";
             this.buttonChNDisplayList.UseVisualStyleBackColor = false;
@@ -1860,7 +1887,7 @@ namespace SalesManagement_SysDev
             // 
             this.buttonChSearch.BackColor = System.Drawing.Color.White;
             this.buttonChSearch.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonChSearch.Location = new System.Drawing.Point(376, 27);
+            this.buttonChSearch.Location = new System.Drawing.Point(361, 29);
             this.buttonChSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonChSearch.Name = "buttonChSearch";
             this.buttonChSearch.Size = new System.Drawing.Size(258, 75);
@@ -1872,7 +1899,7 @@ namespace SalesManagement_SysDev
             // 
             this.buttonChDisplay.BackColor = System.Drawing.Color.White;
             this.buttonChDisplay.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonChDisplay.Location = new System.Drawing.Point(38, 27);
+            this.buttonChDisplay.Location = new System.Drawing.Point(23, 29);
             this.buttonChDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonChDisplay.Name = "buttonChDisplay";
             this.buttonChDisplay.Size = new System.Drawing.Size(258, 75);
@@ -1905,12 +1932,12 @@ namespace SalesManagement_SysDev
             // dataGridView13
             // 
             this.dataGridView13.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView13.Location = new System.Drawing.Point(38, 381);
+            this.dataGridView13.Location = new System.Drawing.Point(38, 387);
             this.dataGridView13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView13.Name = "dataGridView13";
             this.dataGridView13.RowHeadersWidth = 62;
             this.dataGridView13.RowTemplate.Height = 27;
-            this.dataGridView13.Size = new System.Drawing.Size(977, 323);
+            this.dataGridView13.Size = new System.Drawing.Size(1050, 310);
             this.dataGridView13.TabIndex = 122;
             // 
             // labelChEmployeeID
@@ -1936,7 +1963,8 @@ namespace SalesManagement_SysDev
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BackColor = System.Drawing.Color.Azure;
+            this.panel3.Controls.Add(this.labelCiSearchTitle);
             this.panel3.Controls.Add(this.comboBox31);
             this.panel3.Controls.Add(this.comboBox32);
             this.panel3.Controls.Add(this.dataGridView14);
@@ -1969,7 +1997,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBox31.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBox31.FormattingEnabled = true;
-            this.comboBox31.Location = new System.Drawing.Point(599, 175);
+            this.comboBox31.Location = new System.Drawing.Point(529, 127);
             this.comboBox31.Name = "comboBox31";
             this.comboBox31.Size = new System.Drawing.Size(253, 32);
             this.comboBox31.TabIndex = 126;
@@ -1978,7 +2006,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBox32.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBox32.FormattingEnabled = true;
-            this.comboBox32.Location = new System.Drawing.Point(182, 175);
+            this.comboBox32.Location = new System.Drawing.Point(112, 127);
             this.comboBox32.Name = "comboBox32";
             this.comboBox32.Size = new System.Drawing.Size(253, 32);
             this.comboBox32.TabIndex = 125;
@@ -1986,12 +2014,12 @@ namespace SalesManagement_SysDev
             // dataGridView14
             // 
             this.dataGridView14.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView14.Location = new System.Drawing.Point(33, 390);
+            this.dataGridView14.Location = new System.Drawing.Point(38, 387);
             this.dataGridView14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView14.Name = "dataGridView14";
             this.dataGridView14.RowHeadersWidth = 62;
             this.dataGridView14.RowTemplate.Height = 27;
-            this.dataGridView14.Size = new System.Drawing.Size(1614, 325);
+            this.dataGridView14.Size = new System.Drawing.Size(1600, 310);
             this.dataGridView14.TabIndex = 124;
             // 
             // maruibutton27
@@ -2000,9 +2028,9 @@ namespace SalesManagement_SysDev
             this.maruibutton27.FlatAppearance.BorderSize = 0;
             this.maruibutton27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton27.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton27.Location = new System.Drawing.Point(1508, 32);
+            this.maruibutton27.Location = new System.Drawing.Point(1495, 29);
             this.maruibutton27.Name = "maruibutton27";
-            this.maruibutton27.Size = new System.Drawing.Size(120, 95);
+            this.maruibutton27.Size = new System.Drawing.Size(172, 111);
             this.maruibutton27.TabIndex = 51;
             this.maruibutton27.Text = "非表示リスト";
             this.maruibutton27.UseVisualStyleBackColor = false;
@@ -2013,9 +2041,9 @@ namespace SalesManagement_SysDev
             this.maruibutton28.FlatAppearance.BorderSize = 0;
             this.maruibutton28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton28.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton28.Location = new System.Drawing.Point(1365, 32);
+            this.maruibutton28.Location = new System.Drawing.Point(1311, 29);
             this.maruibutton28.Name = "maruibutton28";
-            this.maruibutton28.Size = new System.Drawing.Size(120, 95);
+            this.maruibutton28.Size = new System.Drawing.Size(172, 111);
             this.maruibutton28.TabIndex = 50;
             this.maruibutton28.Text = "非表示";
             this.maruibutton28.UseVisualStyleBackColor = false;
@@ -2024,7 +2052,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBox36.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBox36.FormattingEnabled = true;
-            this.comboBox36.Location = new System.Drawing.Point(1041, 175);
+            this.comboBox36.Location = new System.Drawing.Point(991, 122);
             this.comboBox36.Name = "comboBox36";
             this.comboBox36.Size = new System.Drawing.Size(253, 32);
             this.comboBox36.TabIndex = 49;
@@ -2033,7 +2061,7 @@ namespace SalesManagement_SysDev
             // 
             this.label102.AutoSize = true;
             this.label102.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label102.Location = new System.Drawing.Point(932, 328);
+            this.label102.Location = new System.Drawing.Point(788, 234);
             this.label102.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label102.Name = "label102";
             this.label102.Size = new System.Drawing.Size(105, 24);
@@ -2044,7 +2072,7 @@ namespace SalesManagement_SysDev
             // 
             this.label103.AutoSize = true;
             this.label103.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label103.Location = new System.Drawing.Point(99, 328);
+            this.label103.Location = new System.Drawing.Point(51, 279);
             this.label103.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label103.Name = "label103";
             this.label103.Size = new System.Drawing.Size(46, 24);
@@ -2055,7 +2083,7 @@ namespace SalesManagement_SysDev
             // 
             this.label104.AutoSize = true;
             this.label104.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label104.Location = new System.Drawing.Point(927, 242);
+            this.label104.Location = new System.Drawing.Point(877, 189);
             this.label104.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label104.Name = "label104";
             this.label104.Size = new System.Drawing.Size(86, 24);
@@ -2066,7 +2094,7 @@ namespace SalesManagement_SysDev
             // 
             this.label105.AutoSize = true;
             this.label105.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label105.Location = new System.Drawing.Point(512, 328);
+            this.label105.Location = new System.Drawing.Point(442, 280);
             this.label105.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label105.Name = "label105";
             this.label105.Size = new System.Drawing.Size(86, 24);
@@ -2077,7 +2105,7 @@ namespace SalesManagement_SysDev
             // 
             this.label106.AutoSize = true;
             this.label106.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label106.Location = new System.Drawing.Point(97, 249);
+            this.label106.Location = new System.Drawing.Point(49, 200);
             this.label106.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label106.Name = "label106";
             this.label106.Size = new System.Drawing.Size(48, 24);
@@ -2088,7 +2116,7 @@ namespace SalesManagement_SysDev
             // 
             this.label107.AutoSize = true;
             this.label107.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label107.Location = new System.Drawing.Point(927, 178);
+            this.label107.Location = new System.Drawing.Point(877, 125);
             this.label107.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label107.Name = "label107";
             this.label107.Size = new System.Drawing.Size(67, 24);
@@ -2099,7 +2127,7 @@ namespace SalesManagement_SysDev
             // 
             this.label108.AutoSize = true;
             this.label108.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label108.Location = new System.Drawing.Point(509, 178);
+            this.label108.Location = new System.Drawing.Point(439, 130);
             this.label108.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label108.Name = "label108";
             this.label108.Size = new System.Drawing.Size(89, 24);
@@ -2110,7 +2138,7 @@ namespace SalesManagement_SysDev
             // 
             this.label109.AutoSize = true;
             this.label109.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label109.Location = new System.Drawing.Point(97, 178);
+            this.label109.Location = new System.Drawing.Point(27, 130);
             this.label109.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label109.Name = "label109";
             this.label109.Size = new System.Drawing.Size(70, 24);
@@ -2120,16 +2148,17 @@ namespace SalesManagement_SysDev
             // textBox27
             // 
             this.textBox27.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox27.Location = new System.Drawing.Point(1041, 325);
+            this.textBox27.Location = new System.Drawing.Point(897, 231);
             this.textBox27.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox27.Multiline = true;
             this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(371, 32);
+            this.textBox27.Size = new System.Drawing.Size(720, 66);
             this.textBox27.TabIndex = 37;
             // 
             // textBox28
             // 
             this.textBox28.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox28.Location = new System.Drawing.Point(182, 325);
+            this.textBox28.Location = new System.Drawing.Point(112, 277);
             this.textBox28.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox28.Name = "textBox28";
             this.textBox28.Size = new System.Drawing.Size(321, 32);
@@ -2138,7 +2167,7 @@ namespace SalesManagement_SysDev
             // textBox30
             // 
             this.textBox30.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox30.Location = new System.Drawing.Point(1041, 234);
+            this.textBox30.Location = new System.Drawing.Point(991, 181);
             this.textBox30.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox30.Name = "textBox30";
             this.textBox30.Size = new System.Drawing.Size(321, 32);
@@ -2147,7 +2176,7 @@ namespace SalesManagement_SysDev
             // textBox49
             // 
             this.textBox49.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox49.Location = new System.Drawing.Point(607, 325);
+            this.textBox49.Location = new System.Drawing.Point(537, 277);
             this.textBox49.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox49.Name = "textBox49";
             this.textBox49.Size = new System.Drawing.Size(321, 32);
@@ -2156,7 +2185,7 @@ namespace SalesManagement_SysDev
             // textBox50
             // 
             this.textBox50.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox50.Location = new System.Drawing.Point(182, 242);
+            this.textBox50.Location = new System.Drawing.Point(112, 194);
             this.textBox50.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox50.Name = "textBox50";
             this.textBox50.Size = new System.Drawing.Size(557, 32);
@@ -2164,51 +2193,58 @@ namespace SalesManagement_SysDev
             // 
             // button64
             // 
-            this.button64.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button64.Location = new System.Drawing.Point(1036, 35);
+            this.button64.BackColor = System.Drawing.Color.White;
+            this.button64.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button64.Location = new System.Drawing.Point(1035, 29);
             this.button64.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button64.Name = "button64";
             this.button64.Size = new System.Drawing.Size(260, 79);
             this.button64.TabIndex = 29;
             this.button64.Text = "検索";
-            this.button64.UseVisualStyleBackColor = true;
+            this.button64.UseVisualStyleBackColor = false;
             // 
             // button65
             // 
-            this.button65.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button65.Location = new System.Drawing.Point(696, 35);
+            this.button65.BackColor = System.Drawing.Color.White;
+            this.button65.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button65.Location = new System.Drawing.Point(699, 29);
             this.button65.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button65.Name = "button65";
             this.button65.Size = new System.Drawing.Size(260, 79);
             this.button65.TabIndex = 28;
             this.button65.Text = "一覧表示";
-            this.button65.UseVisualStyleBackColor = true;
+            this.button65.UseVisualStyleBackColor = false;
             // 
             // button66
             // 
-            this.button66.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button66.Location = new System.Drawing.Point(357, 35);
+            this.button66.BackColor = System.Drawing.Color.White;
+            this.button66.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button66.Location = new System.Drawing.Point(361, 29);
             this.button66.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button66.Name = "button66";
             this.button66.Size = new System.Drawing.Size(260, 79);
             this.button66.TabIndex = 27;
             this.button66.Text = "更新";
-            this.button66.UseVisualStyleBackColor = true;
+            this.button66.UseVisualStyleBackColor = false;
             // 
             // button67
             // 
-            this.button67.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button67.Location = new System.Drawing.Point(21, 35);
+            this.button67.BackColor = System.Drawing.Color.White;
+            this.button67.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button67.Location = new System.Drawing.Point(23, 29);
             this.button67.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button67.Name = "button67";
             this.button67.Size = new System.Drawing.Size(260, 79);
             this.button67.TabIndex = 26;
             this.button67.Text = "登録";
-            this.button67.UseVisualStyleBackColor = true;
+            this.button67.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
+            this.panel5.BackColor = System.Drawing.Color.Azure;
+            this.panel5.Controls.Add(this.labelStSearchTitle);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.textBox2);
             this.panel5.Controls.Add(this.textBox3);
             this.panel5.Controls.Add(this.label111);
             this.panel5.Controls.Add(this.comboBox44);
@@ -2233,7 +2269,7 @@ namespace SalesManagement_SysDev
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox3.Location = new System.Drawing.Point(626, 303);
+            this.textBox3.Location = new System.Drawing.Point(628, 271);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(198, 34);
@@ -2243,7 +2279,7 @@ namespace SalesManagement_SysDev
             // 
             this.label111.AutoSize = true;
             this.label111.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label111.Location = new System.Drawing.Point(559, 303);
+            this.label111.Location = new System.Drawing.Point(561, 271);
             this.label111.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label111.Name = "label111";
             this.label111.Size = new System.Drawing.Size(75, 26);
@@ -2253,7 +2289,7 @@ namespace SalesManagement_SysDev
             // comboBox44
             // 
             this.comboBox44.FormattingEnabled = true;
-            this.comboBox44.Location = new System.Drawing.Point(383, 308);
+            this.comboBox44.Location = new System.Drawing.Point(385, 276);
             this.comboBox44.Name = "comboBox44";
             this.comboBox44.Size = new System.Drawing.Size(149, 20);
             this.comboBox44.TabIndex = 154;
@@ -2261,7 +2297,7 @@ namespace SalesManagement_SysDev
             // comboBox45
             // 
             this.comboBox45.FormattingEnabled = true;
-            this.comboBox45.Location = new System.Drawing.Point(119, 308);
+            this.comboBox45.Location = new System.Drawing.Point(121, 276);
             this.comboBox45.Name = "comboBox45";
             this.comboBox45.Size = new System.Drawing.Size(162, 20);
             this.comboBox45.TabIndex = 153;
@@ -2269,24 +2305,25 @@ namespace SalesManagement_SysDev
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 366);
+            this.dataGridView1.Location = new System.Drawing.Point(38, 387);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1614, 325);
+            this.dataGridView1.Size = new System.Drawing.Size(1600, 310);
             this.dataGridView1.TabIndex = 123;
             // 
             // button4
             // 
-            this.button4.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button4.Location = new System.Drawing.Point(20, 32);
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button4.Location = new System.Drawing.Point(23, 29);
             this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(260, 75);
             this.button4.TabIndex = 108;
             this.button4.Text = "登録";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // maruibutton3
             // 
@@ -2294,9 +2331,9 @@ namespace SalesManagement_SysDev
             this.maruibutton3.FlatAppearance.BorderSize = 0;
             this.maruibutton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton3.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton3.Location = new System.Drawing.Point(1508, 32);
+            this.maruibutton3.Location = new System.Drawing.Point(1495, 29);
             this.maruibutton3.Name = "maruibutton3";
-            this.maruibutton3.Size = new System.Drawing.Size(120, 95);
+            this.maruibutton3.Size = new System.Drawing.Size(172, 111);
             this.maruibutton3.TabIndex = 74;
             this.maruibutton3.Text = "非表示リスト";
             this.maruibutton3.UseVisualStyleBackColor = false;
@@ -2307,9 +2344,9 @@ namespace SalesManagement_SysDev
             this.maruibutton4.FlatAppearance.BorderSize = 0;
             this.maruibutton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton4.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton4.Location = new System.Drawing.Point(1365, 32);
+            this.maruibutton4.Location = new System.Drawing.Point(1311, 29);
             this.maruibutton4.Name = "maruibutton4";
-            this.maruibutton4.Size = new System.Drawing.Size(120, 95);
+            this.maruibutton4.Size = new System.Drawing.Size(172, 111);
             this.maruibutton4.TabIndex = 73;
             this.maruibutton4.Text = "非表示";
             this.maruibutton4.UseVisualStyleBackColor = false;
@@ -2318,7 +2355,7 @@ namespace SalesManagement_SysDev
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.Location = new System.Drawing.Point(1138, 304);
+            this.label5.Location = new System.Drawing.Point(1140, 272);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(33, 26);
@@ -2329,7 +2366,7 @@ namespace SalesManagement_SysDev
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label6.Location = new System.Drawing.Point(857, 304);
+            this.label6.Location = new System.Drawing.Point(859, 272);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 26);
@@ -2339,7 +2376,7 @@ namespace SalesManagement_SysDev
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox4.Location = new System.Drawing.Point(936, 301);
+            this.textBox4.Location = new System.Drawing.Point(938, 269);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(198, 34);
@@ -2349,7 +2386,7 @@ namespace SalesManagement_SysDev
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label7.Location = new System.Drawing.Point(300, 304);
+            this.label7.Location = new System.Drawing.Point(302, 272);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 26);
@@ -2360,7 +2397,7 @@ namespace SalesManagement_SysDev
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label8.Location = new System.Drawing.Point(36, 304);
+            this.label8.Location = new System.Drawing.Point(38, 272);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 26);
@@ -2369,82 +2406,87 @@ namespace SalesManagement_SysDev
             // 
             // button15
             // 
-            this.button15.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button15.Location = new System.Drawing.Point(1036, 32);
+            this.button15.BackColor = System.Drawing.Color.White;
+            this.button15.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button15.Location = new System.Drawing.Point(1035, 29);
             this.button15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(258, 75);
             this.button15.TabIndex = 63;
             this.button15.Text = "検索";
-            this.button15.UseVisualStyleBackColor = true;
+            this.button15.UseVisualStyleBackColor = false;
             // 
             // button16
             // 
-            this.button16.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button16.Location = new System.Drawing.Point(698, 32);
+            this.button16.BackColor = System.Drawing.Color.White;
+            this.button16.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button16.Location = new System.Drawing.Point(699, 29);
             this.button16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(258, 75);
             this.button16.TabIndex = 62;
             this.button16.Text = "一覧表示";
-            this.button16.UseVisualStyleBackColor = true;
+            this.button16.UseVisualStyleBackColor = false;
             // 
             // button17
             // 
-            this.button17.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button17.Location = new System.Drawing.Point(357, 32);
+            this.button17.BackColor = System.Drawing.Color.White;
+            this.button17.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button17.Location = new System.Drawing.Point(361, 29);
             this.button17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(260, 75);
             this.button17.TabIndex = 61;
             this.button17.Text = "更新";
-            this.button17.UseVisualStyleBackColor = true;
+            this.button17.UseVisualStyleBackColor = false;
             // 
-            // panel15
+            // panelShSearchTitle
             // 
-            this.panel15.BackColor = System.Drawing.Color.White;
-            this.panel15.Controls.Add(this.button22);
-            this.panel15.Controls.Add(this.label9);
-            this.panel15.Controls.Add(this.textBox5);
-            this.panel15.Controls.Add(this.comboBox46);
-            this.panel15.Controls.Add(this.label10);
-            this.panel15.Controls.Add(this.comboBox47);
-            this.panel15.Controls.Add(this.label11);
-            this.panel15.Controls.Add(this.comboBox48);
-            this.panel15.Controls.Add(this.label12);
-            this.panel15.Controls.Add(this.comboBox49);
-            this.panel15.Controls.Add(this.comboBox50);
-            this.panel15.Controls.Add(this.comboBox51);
-            this.panel15.Controls.Add(this.dateTimePicker7);
-            this.panel15.Controls.Add(this.maruibutton5);
-            this.panel15.Controls.Add(this.label25);
-            this.panel15.Controls.Add(this.maruibutton6);
-            this.panel15.Controls.Add(this.button23);
-            this.panel15.Controls.Add(this.button25);
-            this.panel15.Controls.Add(this.button68);
-            this.panel15.Controls.Add(this.label26);
-            this.panel15.Controls.Add(this.button69);
-            this.panel15.Controls.Add(this.label27);
-            this.panel15.Controls.Add(this.dataGridView3);
-            this.panel15.Controls.Add(this.label28);
-            this.panel15.Controls.Add(this.label110);
-            this.panel15.Controls.Add(this.textBox6);
-            this.panel15.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.panel15.Location = new System.Drawing.Point(207, 285);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(1685, 738);
-            this.panel15.TabIndex = 214;
+            this.panelShSearchTitle.BackColor = System.Drawing.Color.Azure;
+            this.panelShSearchTitle.Controls.Add(this.label29);
+            this.panelShSearchTitle.Controls.Add(this.dataGridView7);
+            this.panelShSearchTitle.Controls.Add(this.button22);
+            this.panelShSearchTitle.Controls.Add(this.label9);
+            this.panelShSearchTitle.Controls.Add(this.textBox5);
+            this.panelShSearchTitle.Controls.Add(this.comboBox46);
+            this.panelShSearchTitle.Controls.Add(this.label10);
+            this.panelShSearchTitle.Controls.Add(this.comboBox47);
+            this.panelShSearchTitle.Controls.Add(this.label11);
+            this.panelShSearchTitle.Controls.Add(this.comboBox48);
+            this.panelShSearchTitle.Controls.Add(this.label12);
+            this.panelShSearchTitle.Controls.Add(this.comboBox49);
+            this.panelShSearchTitle.Controls.Add(this.comboBox50);
+            this.panelShSearchTitle.Controls.Add(this.comboBox51);
+            this.panelShSearchTitle.Controls.Add(this.dateTimePicker7);
+            this.panelShSearchTitle.Controls.Add(this.maruibutton5);
+            this.panelShSearchTitle.Controls.Add(this.label25);
+            this.panelShSearchTitle.Controls.Add(this.maruibutton6);
+            this.panelShSearchTitle.Controls.Add(this.button25);
+            this.panelShSearchTitle.Controls.Add(this.button68);
+            this.panelShSearchTitle.Controls.Add(this.label26);
+            this.panelShSearchTitle.Controls.Add(this.label27);
+            this.panelShSearchTitle.Controls.Add(this.dataGridView3);
+            this.panelShSearchTitle.Controls.Add(this.label28);
+            this.panelShSearchTitle.Controls.Add(this.label110);
+            this.panelShSearchTitle.Controls.Add(this.textBox6);
+            this.panelShSearchTitle.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.panelShSearchTitle.Location = new System.Drawing.Point(207, 285);
+            this.panelShSearchTitle.Name = "panelShSearchTitle";
+            this.panelShSearchTitle.Size = new System.Drawing.Size(1685, 738);
+            this.panelShSearchTitle.TabIndex = 214;
             // 
             // button22
             // 
-            this.button22.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button22.Location = new System.Drawing.Point(1036, 130);
+            this.button22.BackColor = System.Drawing.Color.White;
+            this.button22.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button22.ForeColor = System.Drawing.Color.Red;
+            this.button22.Location = new System.Drawing.Point(1000, 29);
             this.button22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(258, 75);
             this.button22.TabIndex = 194;
-            this.button22.Text = "確定";
-            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Text = "出荷確定";
+            this.button22.UseVisualStyleBackColor = false;
             // 
             // label9
             // 
@@ -2469,7 +2511,7 @@ namespace SalesManagement_SysDev
             // comboBox46
             // 
             this.comboBox46.FormattingEnabled = true;
-            this.comboBox46.Location = new System.Drawing.Point(472, 309);
+            this.comboBox46.Location = new System.Drawing.Point(467, 237);
             this.comboBox46.Name = "comboBox46";
             this.comboBox46.Size = new System.Drawing.Size(166, 23);
             this.comboBox46.TabIndex = 166;
@@ -2478,7 +2520,7 @@ namespace SalesManagement_SysDev
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label10.Location = new System.Drawing.Point(372, 309);
+            this.label10.Location = new System.Drawing.Point(367, 237);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(99, 26);
@@ -2488,7 +2530,7 @@ namespace SalesManagement_SysDev
             // comboBox47
             // 
             this.comboBox47.FormattingEnabled = true;
-            this.comboBox47.Location = new System.Drawing.Point(472, 251);
+            this.comboBox47.Location = new System.Drawing.Point(467, 179);
             this.comboBox47.Name = "comboBox47";
             this.comboBox47.Size = new System.Drawing.Size(166, 23);
             this.comboBox47.TabIndex = 164;
@@ -2497,7 +2539,7 @@ namespace SalesManagement_SysDev
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label11.Location = new System.Drawing.Point(372, 251);
+            this.label11.Location = new System.Drawing.Point(367, 179);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(78, 26);
@@ -2507,7 +2549,7 @@ namespace SalesManagement_SysDev
             // comboBox48
             // 
             this.comboBox48.FormattingEnabled = true;
-            this.comboBox48.Location = new System.Drawing.Point(472, 197);
+            this.comboBox48.Location = new System.Drawing.Point(467, 125);
             this.comboBox48.Name = "comboBox48";
             this.comboBox48.Size = new System.Drawing.Size(166, 23);
             this.comboBox48.TabIndex = 162;
@@ -2516,7 +2558,7 @@ namespace SalesManagement_SysDev
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label12.Location = new System.Drawing.Point(372, 194);
+            this.label12.Location = new System.Drawing.Point(367, 122);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(78, 26);
@@ -2526,7 +2568,7 @@ namespace SalesManagement_SysDev
             // comboBox49
             // 
             this.comboBox49.FormattingEnabled = true;
-            this.comboBox49.Location = new System.Drawing.Point(177, 254);
+            this.comboBox49.Location = new System.Drawing.Point(172, 182);
             this.comboBox49.Name = "comboBox49";
             this.comboBox49.Size = new System.Drawing.Size(166, 23);
             this.comboBox49.TabIndex = 159;
@@ -2535,7 +2577,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBox50.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBox50.FormattingEnabled = true;
-            this.comboBox50.Location = new System.Drawing.Point(177, 312);
+            this.comboBox50.Location = new System.Drawing.Point(172, 240);
             this.comboBox50.Name = "comboBox50";
             this.comboBox50.Size = new System.Drawing.Size(165, 23);
             this.comboBox50.TabIndex = 158;
@@ -2543,7 +2585,7 @@ namespace SalesManagement_SysDev
             // comboBox51
             // 
             this.comboBox51.FormattingEnabled = true;
-            this.comboBox51.Location = new System.Drawing.Point(177, 197);
+            this.comboBox51.Location = new System.Drawing.Point(172, 125);
             this.comboBox51.Name = "comboBox51";
             this.comboBox51.Size = new System.Drawing.Size(166, 23);
             this.comboBox51.TabIndex = 157;
@@ -2551,9 +2593,9 @@ namespace SalesManagement_SysDev
             // dateTimePicker7
             // 
             this.dateTimePicker7.CalendarFont = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker7.Location = new System.Drawing.Point(177, 361);
+            this.dateTimePicker7.Location = new System.Drawing.Point(172, 289);
             this.dateTimePicker7.Name = "dateTimePicker7";
-            this.dateTimePicker7.Size = new System.Drawing.Size(11957, 23);
+            this.dateTimePicker7.Size = new System.Drawing.Size(100, 23);
             this.dateTimePicker7.TabIndex = 156;
             // 
             // maruibutton5
@@ -2562,9 +2604,9 @@ namespace SalesManagement_SysDev
             this.maruibutton5.FlatAppearance.BorderSize = 0;
             this.maruibutton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton5.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton5.Location = new System.Drawing.Point(1365, 32);
+            this.maruibutton5.Location = new System.Drawing.Point(1311, 29);
             this.maruibutton5.Name = "maruibutton5";
-            this.maruibutton5.Size = new System.Drawing.Size(120, 95);
+            this.maruibutton5.Size = new System.Drawing.Size(172, 111);
             this.maruibutton5.TabIndex = 155;
             this.maruibutton5.Text = "非表示";
             this.maruibutton5.UseVisualStyleBackColor = false;
@@ -2573,7 +2615,7 @@ namespace SalesManagement_SysDev
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label25.Location = new System.Drawing.Point(53, 194);
+            this.label25.Location = new System.Drawing.Point(48, 122);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(78, 26);
@@ -2586,73 +2628,53 @@ namespace SalesManagement_SysDev
             this.maruibutton6.FlatAppearance.BorderSize = 0;
             this.maruibutton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton6.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton6.Location = new System.Drawing.Point(1508, 32);
+            this.maruibutton6.Location = new System.Drawing.Point(1495, 29);
             this.maruibutton6.Name = "maruibutton6";
-            this.maruibutton6.Size = new System.Drawing.Size(120, 95);
+            this.maruibutton6.Size = new System.Drawing.Size(172, 111);
             this.maruibutton6.TabIndex = 154;
             this.maruibutton6.Text = "非表示リスト";
             this.maruibutton6.UseVisualStyleBackColor = false;
             // 
-            // button23
-            // 
-            this.button23.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button23.Location = new System.Drawing.Point(20, 32);
-            this.button23.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(260, 75);
-            this.button23.TabIndex = 152;
-            this.button23.Text = "登録";
-            this.button23.UseVisualStyleBackColor = true;
-            // 
             // button25
             // 
-            this.button25.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button25.Location = new System.Drawing.Point(1036, 32);
+            this.button25.BackColor = System.Drawing.Color.White;
+            this.button25.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button25.Location = new System.Drawing.Point(361, 29);
             this.button25.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(258, 75);
             this.button25.TabIndex = 151;
             this.button25.Text = "検索";
-            this.button25.UseVisualStyleBackColor = true;
+            this.button25.UseVisualStyleBackColor = false;
             // 
             // button68
             // 
-            this.button68.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button68.Location = new System.Drawing.Point(698, 32);
+            this.button68.BackColor = System.Drawing.Color.White;
+            this.button68.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button68.Location = new System.Drawing.Point(23, 29);
             this.button68.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button68.Name = "button68";
             this.button68.Size = new System.Drawing.Size(258, 75);
             this.button68.TabIndex = 150;
             this.button68.Text = "一覧表示";
-            this.button68.UseVisualStyleBackColor = true;
+            this.button68.UseVisualStyleBackColor = false;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label26.Location = new System.Drawing.Point(776, 359);
+            this.label26.Location = new System.Drawing.Point(655, 226);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(117, 26);
             this.label26.TabIndex = 144;
             this.label26.Text = "非表示理由";
             // 
-            // button69
-            // 
-            this.button69.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button69.Location = new System.Drawing.Point(357, 32);
-            this.button69.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button69.Name = "button69";
-            this.button69.Size = new System.Drawing.Size(260, 75);
-            this.button69.TabIndex = 149;
-            this.button69.Text = "更新";
-            this.button69.UseVisualStyleBackColor = true;
-            // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label27.Location = new System.Drawing.Point(46, 353);
+            this.label27.Location = new System.Drawing.Point(41, 281);
             this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(117, 26);
@@ -2662,19 +2684,19 @@ namespace SalesManagement_SysDev
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(38, 401);
+            this.dataGridView3.Location = new System.Drawing.Point(38, 387);
             this.dataGridView3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 62;
             this.dataGridView3.RowTemplate.Height = 27;
-            this.dataGridView3.Size = new System.Drawing.Size(1614, 306);
+            this.dataGridView3.Size = new System.Drawing.Size(1050, 310);
             this.dataGridView3.TabIndex = 122;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label28.Location = new System.Drawing.Point(53, 309);
+            this.label28.Location = new System.Drawing.Point(48, 237);
             this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(78, 26);
@@ -2685,7 +2707,7 @@ namespace SalesManagement_SysDev
             // 
             this.label110.AutoSize = true;
             this.label110.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label110.Location = new System.Drawing.Point(53, 251);
+            this.label110.Location = new System.Drawing.Point(48, 179);
             this.label110.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label110.Name = "label110";
             this.label110.Size = new System.Drawing.Size(78, 26);
@@ -2695,10 +2717,11 @@ namespace SalesManagement_SysDev
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox6.Location = new System.Drawing.Point(897, 355);
+            this.textBox6.Location = new System.Drawing.Point(776, 222);
             this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(404, 34);
+            this.textBox6.Size = new System.Drawing.Size(720, 66);
             this.textBox6.TabIndex = 139;
             // 
             // panel14
@@ -2721,7 +2744,8 @@ namespace SalesManagement_SysDev
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.BackColor = System.Drawing.Color.Azure;
+            this.panel4.Controls.Add(this.labelPrSearchTitle);
             this.panel4.Controls.Add(this.button70);
             this.panel4.Controls.Add(this.dateTimePicker8);
             this.panel4.Controls.Add(this.comboBox37);
@@ -2760,14 +2784,15 @@ namespace SalesManagement_SysDev
             // 
             // button70
             // 
-            this.button70.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button70.Location = new System.Drawing.Point(22, 262);
+            this.button70.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.button70.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button70.Location = new System.Drawing.Point(23, 259);
             this.button70.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button70.Name = "button70";
             this.button70.Size = new System.Drawing.Size(260, 111);
             this.button70.TabIndex = 112;
-            this.button70.Text = "メーカ登録";
-            this.button70.UseVisualStyleBackColor = true;
+            this.button70.Text = "メーカ管理";
+            this.button70.UseVisualStyleBackColor = false;
             this.button70.Click += new System.EventHandler(this.button70_Click);
             // 
             // dateTimePicker8
@@ -2807,9 +2832,9 @@ namespace SalesManagement_SysDev
             this.maruibutton7.FlatAppearance.BorderSize = 0;
             this.maruibutton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton7.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton7.Location = new System.Drawing.Point(1508, 32);
+            this.maruibutton7.Location = new System.Drawing.Point(1495, 29);
             this.maruibutton7.Name = "maruibutton7";
-            this.maruibutton7.Size = new System.Drawing.Size(120, 95);
+            this.maruibutton7.Size = new System.Drawing.Size(172, 111);
             this.maruibutton7.TabIndex = 107;
             this.maruibutton7.Text = "非表示リスト";
             this.maruibutton7.UseVisualStyleBackColor = false;
@@ -2820,56 +2845,60 @@ namespace SalesManagement_SysDev
             this.maruibutton8.FlatAppearance.BorderSize = 0;
             this.maruibutton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton8.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton8.Location = new System.Drawing.Point(1365, 32);
+            this.maruibutton8.Location = new System.Drawing.Point(1311, 29);
             this.maruibutton8.Name = "maruibutton8";
-            this.maruibutton8.Size = new System.Drawing.Size(120, 95);
+            this.maruibutton8.Size = new System.Drawing.Size(172, 111);
             this.maruibutton8.TabIndex = 106;
             this.maruibutton8.Text = "非表示";
             this.maruibutton8.UseVisualStyleBackColor = false;
             // 
             // button14
             // 
-            this.button14.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button14.Location = new System.Drawing.Point(1036, 35);
+            this.button14.BackColor = System.Drawing.Color.White;
+            this.button14.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button14.Location = new System.Drawing.Point(1035, 29);
             this.button14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(260, 75);
             this.button14.TabIndex = 105;
             this.button14.Text = "検索";
-            this.button14.UseVisualStyleBackColor = true;
+            this.button14.UseVisualStyleBackColor = false;
             // 
             // button19
             // 
-            this.button19.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button19.Location = new System.Drawing.Point(696, 35);
+            this.button19.BackColor = System.Drawing.Color.White;
+            this.button19.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button19.Location = new System.Drawing.Point(699, 29);
             this.button19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(260, 75);
             this.button19.TabIndex = 104;
             this.button19.Text = "一覧表示";
-            this.button19.UseVisualStyleBackColor = true;
+            this.button19.UseVisualStyleBackColor = false;
             // 
             // button20
             // 
-            this.button20.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button20.Location = new System.Drawing.Point(357, 35);
+            this.button20.BackColor = System.Drawing.Color.White;
+            this.button20.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button20.Location = new System.Drawing.Point(361, 29);
             this.button20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(260, 75);
             this.button20.TabIndex = 103;
             this.button20.Text = "更新";
-            this.button20.UseVisualStyleBackColor = true;
+            this.button20.UseVisualStyleBackColor = false;
             // 
             // button39
             // 
-            this.button39.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button39.Location = new System.Drawing.Point(21, 131);
+            this.button39.BackColor = System.Drawing.Color.PaleGoldenrod;
+            this.button39.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button39.Location = new System.Drawing.Point(23, 128);
             this.button39.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button39.Name = "button39";
             this.button39.Size = new System.Drawing.Size(260, 111);
             this.button39.TabIndex = 102;
-            this.button39.Text = "商品分類登録";
-            this.button39.UseVisualStyleBackColor = true;
+            this.button39.Text = "商品分類管理";
+            this.button39.UseVisualStyleBackColor = false;
             this.button39.Click += new System.EventHandler(this.button39_Click_2);
             // 
             // label13
@@ -2898,7 +2927,7 @@ namespace SalesManagement_SysDev
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label15.Location = new System.Drawing.Point(957, 339);
+            this.label15.Location = new System.Drawing.Point(702, 328);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(117, 26);
@@ -2908,10 +2937,11 @@ namespace SalesManagement_SysDev
             // textBox12
             // 
             this.textBox12.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox12.Location = new System.Drawing.Point(1091, 333);
+            this.textBox12.Location = new System.Drawing.Point(835, 310);
             this.textBox12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(312, 34);
+            this.textBox12.Size = new System.Drawing.Size(720, 66);
             this.textBox12.TabIndex = 95;
             // 
             // label16
@@ -3030,12 +3060,12 @@ namespace SalesManagement_SysDev
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(28, 395);
+            this.dataGridView2.Location = new System.Drawing.Point(38, 387);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 62;
             this.dataGridView2.RowTemplate.Height = 27;
-            this.dataGridView2.Size = new System.Drawing.Size(1624, 320);
+            this.dataGridView2.Size = new System.Drawing.Size(1600, 310);
             this.dataGridView2.TabIndex = 79;
             // 
             // label23
@@ -3071,51 +3101,53 @@ namespace SalesManagement_SysDev
             // 
             // button21
             // 
-            this.button21.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button21.Location = new System.Drawing.Point(21, 35);
+            this.button21.BackColor = System.Drawing.Color.White;
+            this.button21.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.button21.Location = new System.Drawing.Point(23, 29);
             this.button21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(260, 75);
             this.button21.TabIndex = 71;
             this.button21.Text = "登録";
-            this.button21.UseVisualStyleBackColor = true;
+            this.button21.UseVisualStyleBackColor = false;
             // 
-            // panel6
+            // panelProduct
             // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.labelEmPositionName);
-            this.panel6.Controls.Add(this.textBoxEmPositionName);
-            this.panel6.Controls.Add(this.labelEmSalesOfficeName);
-            this.panel6.Controls.Add(this.textBoxEmSalesOfficeName);
-            this.panel6.Controls.Add(this.buttonEmPositionManaOpen);
-            this.panel6.Controls.Add(this.buttonEmSOManaOpen);
-            this.panel6.Controls.Add(this.dateTimePickerEmployee);
-            this.panel6.Controls.Add(this.comboBoxEmSalesOfficeID);
-            this.panel6.Controls.Add(this.comboBoxEmPositionID);
-            this.panel6.Controls.Add(this.comboBoxEmEmployeeID);
-            this.panel6.Controls.Add(this.buttonEmRegist);
-            this.panel6.Controls.Add(this.buttonEmSearch);
-            this.panel6.Controls.Add(this.buttonEmDisplay);
-            this.panel6.Controls.Add(this.buttonEmUpdate);
-            this.panel6.Controls.Add(this.buttonEmNdisplayList);
-            this.panel6.Controls.Add(this.buttonEmNdisplay);
-            this.panel6.Controls.Add(this.labelDateTimeEmployee);
-            this.panel6.Controls.Add(this.textBoxEmEmployeePhone);
-            this.panel6.Controls.Add(this.labelEmPositionID);
-            this.panel6.Controls.Add(this.textBoxEmEmployeePass);
-            this.panel6.Controls.Add(this.labelEmSalesOfficeID);
-            this.panel6.Controls.Add(this.labelEmEmployeePass);
-            this.panel6.Controls.Add(this.textBoxEmEmployeeRsn);
-            this.panel6.Controls.Add(this.labelEmEmployeePhone);
-            this.panel6.Controls.Add(this.labelEmEmployeeRsn);
-            this.panel6.Controls.Add(this.dataGridViewEmMana);
-            this.panel6.Controls.Add(this.labelEmEmployeeName);
-            this.panel6.Controls.Add(this.labelEmEmployeeID);
-            this.panel6.Controls.Add(this.textBoxEmEmployeeName);
-            this.panel6.Location = new System.Drawing.Point(207, 285);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1685, 738);
-            this.panel6.TabIndex = 216;
+            this.panelProduct.BackColor = System.Drawing.Color.Azure;
+            this.panelProduct.Controls.Add(this.labelEmSearchTitle);
+            this.panelProduct.Controls.Add(this.labelEmPositionName);
+            this.panelProduct.Controls.Add(this.textBoxEmPositionName);
+            this.panelProduct.Controls.Add(this.labelEmSalesOfficeName);
+            this.panelProduct.Controls.Add(this.textBoxEmSalesOfficeName);
+            this.panelProduct.Controls.Add(this.buttonEmPositionManaOpen);
+            this.panelProduct.Controls.Add(this.buttonEmSOManaOpen);
+            this.panelProduct.Controls.Add(this.dateTimePickerEmployee);
+            this.panelProduct.Controls.Add(this.comboBoxEmSalesOfficeID);
+            this.panelProduct.Controls.Add(this.comboBoxEmPositionID);
+            this.panelProduct.Controls.Add(this.comboBoxEmEmployeeID);
+            this.panelProduct.Controls.Add(this.buttonEmRegist);
+            this.panelProduct.Controls.Add(this.buttonEmSearch);
+            this.panelProduct.Controls.Add(this.buttonEmDisplay);
+            this.panelProduct.Controls.Add(this.buttonEmUpdate);
+            this.panelProduct.Controls.Add(this.buttonEmNdisplayList);
+            this.panelProduct.Controls.Add(this.buttonEmNdisplay);
+            this.panelProduct.Controls.Add(this.labelDateTimeEmployee);
+            this.panelProduct.Controls.Add(this.textBoxEmEmployeePhone);
+            this.panelProduct.Controls.Add(this.labelEmPositionID);
+            this.panelProduct.Controls.Add(this.textBoxEmEmployeePass);
+            this.panelProduct.Controls.Add(this.labelEmSalesOfficeID);
+            this.panelProduct.Controls.Add(this.labelEmEmployeePass);
+            this.panelProduct.Controls.Add(this.textBoxEmEmployeeRsn);
+            this.panelProduct.Controls.Add(this.labelEmEmployeePhone);
+            this.panelProduct.Controls.Add(this.labelEmEmployeeRsn);
+            this.panelProduct.Controls.Add(this.dataGridViewEmMana);
+            this.panelProduct.Controls.Add(this.labelEmEmployeeName);
+            this.panelProduct.Controls.Add(this.labelEmEmployeeID);
+            this.panelProduct.Controls.Add(this.textBoxEmEmployeeName);
+            this.panelProduct.Location = new System.Drawing.Point(207, 285);
+            this.panelProduct.Name = "panelProduct";
+            this.panelProduct.Size = new System.Drawing.Size(1685, 738);
+            this.panelProduct.TabIndex = 216;
             // 
             // labelEmPositionName
             // 
@@ -3160,11 +3192,11 @@ namespace SalesManagement_SysDev
             // buttonEmPositionManaOpen
             // 
             this.buttonEmPositionManaOpen.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.buttonEmPositionManaOpen.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonEmPositionManaOpen.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonEmPositionManaOpen.Location = new System.Drawing.Point(23, 128);
             this.buttonEmPositionManaOpen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonEmPositionManaOpen.Name = "buttonEmPositionManaOpen";
-            this.buttonEmPositionManaOpen.Size = new System.Drawing.Size(260, 109);
+            this.buttonEmPositionManaOpen.Size = new System.Drawing.Size(260, 111);
             this.buttonEmPositionManaOpen.TabIndex = 129;
             this.buttonEmPositionManaOpen.Text = "役職管理";
             this.buttonEmPositionManaOpen.UseVisualStyleBackColor = false;
@@ -3173,11 +3205,11 @@ namespace SalesManagement_SysDev
             // buttonEmSOManaOpen
             // 
             this.buttonEmSOManaOpen.BackColor = System.Drawing.Color.PaleGoldenrod;
-            this.buttonEmSOManaOpen.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonEmSOManaOpen.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonEmSOManaOpen.Location = new System.Drawing.Point(23, 259);
             this.buttonEmSOManaOpen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonEmSOManaOpen.Name = "buttonEmSOManaOpen";
-            this.buttonEmSOManaOpen.Size = new System.Drawing.Size(260, 109);
+            this.buttonEmSOManaOpen.Size = new System.Drawing.Size(260, 111);
             this.buttonEmSOManaOpen.TabIndex = 128;
             this.buttonEmSOManaOpen.Text = "営業所管理";
             this.buttonEmSOManaOpen.UseVisualStyleBackColor = false;
@@ -3220,8 +3252,8 @@ namespace SalesManagement_SysDev
             // 
             // buttonEmRegist
             // 
-            this.buttonEmRegist.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonEmRegist.Font = new System.Drawing.Font("Meiryo UI", 21.25F);
+            this.buttonEmRegist.BackColor = System.Drawing.Color.White;
+            this.buttonEmRegist.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonEmRegist.Location = new System.Drawing.Point(23, 29);
             this.buttonEmRegist.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonEmRegist.Name = "buttonEmRegist";
@@ -3232,9 +3264,9 @@ namespace SalesManagement_SysDev
             // 
             // buttonEmSearch
             // 
-            this.buttonEmSearch.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonEmSearch.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonEmSearch.Location = new System.Drawing.Point(1036, 32);
+            this.buttonEmSearch.BackColor = System.Drawing.Color.White;
+            this.buttonEmSearch.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.buttonEmSearch.Location = new System.Drawing.Point(1035, 29);
             this.buttonEmSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonEmSearch.Name = "buttonEmSearch";
             this.buttonEmSearch.Size = new System.Drawing.Size(258, 75);
@@ -3244,9 +3276,9 @@ namespace SalesManagement_SysDev
             // 
             // buttonEmDisplay
             // 
-            this.buttonEmDisplay.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonEmDisplay.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonEmDisplay.Location = new System.Drawing.Point(698, 32);
+            this.buttonEmDisplay.BackColor = System.Drawing.Color.White;
+            this.buttonEmDisplay.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.buttonEmDisplay.Location = new System.Drawing.Point(699, 29);
             this.buttonEmDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonEmDisplay.Name = "buttonEmDisplay";
             this.buttonEmDisplay.Size = new System.Drawing.Size(258, 75);
@@ -3256,9 +3288,9 @@ namespace SalesManagement_SysDev
             // 
             // buttonEmUpdate
             // 
-            this.buttonEmUpdate.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonEmUpdate.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonEmUpdate.Location = new System.Drawing.Point(357, 32);
+            this.buttonEmUpdate.BackColor = System.Drawing.Color.White;
+            this.buttonEmUpdate.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.buttonEmUpdate.Location = new System.Drawing.Point(361, 29);
             this.buttonEmUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonEmUpdate.Name = "buttonEmUpdate";
             this.buttonEmUpdate.Size = new System.Drawing.Size(260, 75);
@@ -3272,7 +3304,7 @@ namespace SalesManagement_SysDev
             this.buttonEmNdisplayList.FlatAppearance.BorderSize = 0;
             this.buttonEmNdisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEmNdisplayList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonEmNdisplayList.Location = new System.Drawing.Point(1495, 32);
+            this.buttonEmNdisplayList.Location = new System.Drawing.Point(1495, 29);
             this.buttonEmNdisplayList.Name = "buttonEmNdisplayList";
             this.buttonEmNdisplayList.Size = new System.Drawing.Size(172, 111);
             this.buttonEmNdisplayList.TabIndex = 120;
@@ -3285,7 +3317,7 @@ namespace SalesManagement_SysDev
             this.buttonEmNdisplay.FlatAppearance.BorderSize = 0;
             this.buttonEmNdisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEmNdisplay.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonEmNdisplay.Location = new System.Drawing.Point(1311, 32);
+            this.buttonEmNdisplay.Location = new System.Drawing.Point(1311, 29);
             this.buttonEmNdisplay.Name = "buttonEmNdisplay";
             this.buttonEmNdisplay.Size = new System.Drawing.Size(172, 111);
             this.buttonEmNdisplay.TabIndex = 119;
@@ -3296,7 +3328,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelDateTimeEmployee.AutoSize = true;
             this.labelDateTimeEmployee.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelDateTimeEmployee.Location = new System.Drawing.Point(694, 292);
+            this.labelDateTimeEmployee.Location = new System.Drawing.Point(697, 292);
             this.labelDateTimeEmployee.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDateTimeEmployee.Name = "labelDateTimeEmployee";
             this.labelDateTimeEmployee.Size = new System.Drawing.Size(117, 26);
@@ -3326,7 +3358,7 @@ namespace SalesManagement_SysDev
             // textBoxEmEmployeePass
             // 
             this.textBoxEmEmployeePass.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxEmEmployeePass.Location = new System.Drawing.Point(1276, 287);
+            this.textBoxEmEmployeePass.Location = new System.Drawing.Point(481, 333);
             this.textBoxEmEmployeePass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxEmEmployeePass.Name = "textBoxEmEmployeePass";
             this.textBoxEmEmployeePass.Size = new System.Drawing.Size(184, 34);
@@ -3336,7 +3368,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelEmSalesOfficeID.AutoSize = true;
             this.labelEmSalesOfficeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmSalesOfficeID.Location = new System.Drawing.Point(353, 186);
+            this.labelEmSalesOfficeID.Location = new System.Drawing.Point(352, 186);
             this.labelEmSalesOfficeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmSalesOfficeID.Name = "labelEmSalesOfficeID";
             this.labelEmSalesOfficeID.Size = new System.Drawing.Size(99, 26);
@@ -3347,7 +3379,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelEmEmployeePass.AutoSize = true;
             this.labelEmEmployeePass.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmEmployeePass.Location = new System.Drawing.Point(1147, 291);
+            this.labelEmEmployeePass.Location = new System.Drawing.Point(352, 337);
             this.labelEmEmployeePass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmEmployeePass.Name = "labelEmEmployeePass";
             this.labelEmEmployeePass.Size = new System.Drawing.Size(94, 26);
@@ -3357,11 +3389,11 @@ namespace SalesManagement_SysDev
             // textBoxEmEmployeeRsn
             // 
             this.textBoxEmEmployeeRsn.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxEmEmployeeRsn.Location = new System.Drawing.Point(481, 337);
+            this.textBoxEmEmployeeRsn.Location = new System.Drawing.Point(1269, 183);
             this.textBoxEmEmployeeRsn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxEmEmployeeRsn.Multiline = true;
             this.textBoxEmEmployeeRsn.Name = "textBoxEmEmployeeRsn";
-            this.textBoxEmEmployeeRsn.Size = new System.Drawing.Size(895, 56);
+            this.textBoxEmEmployeeRsn.Size = new System.Drawing.Size(380, 150);
             this.textBoxEmEmployeeRsn.TabIndex = 108;
             // 
             // labelEmEmployeePhone
@@ -3379,7 +3411,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelEmEmployeeRsn.AutoSize = true;
             this.labelEmEmployeeRsn.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmEmployeeRsn.Location = new System.Drawing.Point(348, 340);
+            this.labelEmEmployeeRsn.Location = new System.Drawing.Point(1148, 243);
             this.labelEmEmployeeRsn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmEmployeeRsn.Name = "labelEmEmployeeRsn";
             this.labelEmEmployeeRsn.Size = new System.Drawing.Size(117, 26);
@@ -3389,19 +3421,19 @@ namespace SalesManagement_SysDev
             // dataGridViewEmMana
             // 
             this.dataGridViewEmMana.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEmMana.Location = new System.Drawing.Point(23, 408);
+            this.dataGridViewEmMana.Location = new System.Drawing.Point(23, 387);
             this.dataGridViewEmMana.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewEmMana.Name = "dataGridViewEmMana";
             this.dataGridViewEmMana.RowHeadersWidth = 62;
             this.dataGridViewEmMana.RowTemplate.Height = 27;
-            this.dataGridViewEmMana.Size = new System.Drawing.Size(1629, 307);
+            this.dataGridViewEmMana.Size = new System.Drawing.Size(1600, 310);
             this.dataGridViewEmMana.TabIndex = 102;
             // 
             // labelEmEmployeeName
             // 
             this.labelEmEmployeeName.AutoSize = true;
             this.labelEmEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmEmployeeName.Location = new System.Drawing.Point(694, 132);
+            this.labelEmEmployeeName.Location = new System.Drawing.Point(697, 132);
             this.labelEmEmployeeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmEmployeeName.Name = "labelEmEmployeeName";
             this.labelEmEmployeeName.Size = new System.Drawing.Size(75, 26);
@@ -3428,46 +3460,47 @@ namespace SalesManagement_SysDev
             this.textBoxEmEmployeeName.Size = new System.Drawing.Size(217, 34);
             this.textBoxEmEmployeeName.TabIndex = 99;
             // 
-            // panelSalesOffice
+            // panelSale
             // 
-            this.panelSalesOffice.BackColor = System.Drawing.Color.White;
-            this.panelSalesOffice.Controls.Add(this.labelSaOrderEmployeeName);
-            this.panelSalesOffice.Controls.Add(this.textBoxSaOrderEmployeeName);
-            this.panelSalesOffice.Controls.Add(this.labelSaSalesOfficeName);
-            this.panelSalesOffice.Controls.Add(this.textBoxSaSalesOfficeName);
-            this.panelSalesOffice.Controls.Add(this.labelSaClientName);
-            this.panelSalesOffice.Controls.Add(this.textBoxSaClientName);
-            this.panelSalesOffice.Controls.Add(this.dateTimePickerSaDate);
-            this.panelSalesOffice.Controls.Add(this.comboBoxSaOrderID);
-            this.panelSalesOffice.Controls.Add(this.comboBoxSaSaleID);
-            this.panelSalesOffice.Controls.Add(this.comboBoxSaSalesOfficeID);
-            this.panelSalesOffice.Controls.Add(this.comboBoxSaOrderEmployeeID);
-            this.panelSalesOffice.Controls.Add(this.comboBoxSaClientID);
-            this.panelSalesOffice.Controls.Add(this.buttonSaNDisplayList);
-            this.panelSalesOffice.Controls.Add(this.buttonSaNDisplay);
-            this.panelSalesOffice.Controls.Add(this.buttonSaSearch);
-            this.panelSalesOffice.Controls.Add(this.buttonSaDisplay);
-            this.panelSalesOffice.Controls.Add(this.dataGridViewSaDetail);
-            this.panelSalesOffice.Controls.Add(this.dataGridViewSa);
-            this.panelSalesOffice.Controls.Add(this.labelSaRsn);
-            this.panelSalesOffice.Controls.Add(this.labelSaDate);
-            this.panelSalesOffice.Controls.Add(this.labelSaOrderID);
-            this.panelSalesOffice.Controls.Add(this.textBoxSaRsn);
-            this.panelSalesOffice.Controls.Add(this.labelSaOrderEmployeeID);
-            this.panelSalesOffice.Controls.Add(this.labelSaSaleID);
-            this.panelSalesOffice.Controls.Add(this.labelSaSalesOfficeID);
-            this.panelSalesOffice.Controls.Add(this.labelSaClientID);
-            this.panelSalesOffice.Location = new System.Drawing.Point(207, 285);
-            this.panelSalesOffice.Name = "panelSalesOffice";
-            this.panelSalesOffice.Size = new System.Drawing.Size(1685, 738);
-            this.panelSalesOffice.TabIndex = 208;
+            this.panelSale.BackColor = System.Drawing.Color.Azure;
+            this.panelSale.Controls.Add(this.labelSaSearchTitle);
+            this.panelSale.Controls.Add(this.labelSaOrderEmployeeName);
+            this.panelSale.Controls.Add(this.textBoxSaOrderEmployeeName);
+            this.panelSale.Controls.Add(this.labelSaSalesOfficeName);
+            this.panelSale.Controls.Add(this.textBoxSaSalesOfficeName);
+            this.panelSale.Controls.Add(this.labelSaClientName);
+            this.panelSale.Controls.Add(this.textBoxSaClientName);
+            this.panelSale.Controls.Add(this.dateTimePickerSaDate);
+            this.panelSale.Controls.Add(this.comboBoxSaOrderID);
+            this.panelSale.Controls.Add(this.comboBoxSaSaleID);
+            this.panelSale.Controls.Add(this.comboBoxSaSalesOfficeID);
+            this.panelSale.Controls.Add(this.comboBoxSaOrderEmployeeID);
+            this.panelSale.Controls.Add(this.comboBoxSaClientID);
+            this.panelSale.Controls.Add(this.buttonSaNDisplayList);
+            this.panelSale.Controls.Add(this.buttonSaNDisplay);
+            this.panelSale.Controls.Add(this.buttonSaSearch);
+            this.panelSale.Controls.Add(this.buttonSaDisplay);
+            this.panelSale.Controls.Add(this.dataGridViewSaDetail);
+            this.panelSale.Controls.Add(this.dataGridViewSa);
+            this.panelSale.Controls.Add(this.labelSaRsn);
+            this.panelSale.Controls.Add(this.labelSaDate);
+            this.panelSale.Controls.Add(this.labelSaOrderID);
+            this.panelSale.Controls.Add(this.textBoxSaRsn);
+            this.panelSale.Controls.Add(this.labelSaOrderEmployeeID);
+            this.panelSale.Controls.Add(this.labelSaSaleID);
+            this.panelSale.Controls.Add(this.labelSaSalesOfficeID);
+            this.panelSale.Controls.Add(this.labelSaClientID);
+            this.panelSale.Location = new System.Drawing.Point(207, 285);
+            this.panelSale.Name = "panelSale";
+            this.panelSale.Size = new System.Drawing.Size(1685, 738);
+            this.panelSale.TabIndex = 208;
             // 
             // labelSaOrderEmployeeName
             // 
             this.labelSaOrderEmployeeName.AutoSize = true;
-            this.labelSaOrderEmployeeName.BackColor = System.Drawing.Color.White;
+            this.labelSaOrderEmployeeName.BackColor = System.Drawing.Color.Azure;
             this.labelSaOrderEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSaOrderEmployeeName.Location = new System.Drawing.Point(367, 232);
+            this.labelSaOrderEmployeeName.Location = new System.Drawing.Point(1133, 184);
             this.labelSaOrderEmployeeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSaOrderEmployeeName.Name = "labelSaOrderEmployeeName";
             this.labelSaOrderEmployeeName.Size = new System.Drawing.Size(117, 26);
@@ -3477,7 +3510,7 @@ namespace SalesManagement_SysDev
             // textBoxSaOrderEmployeeName
             // 
             this.textBoxSaOrderEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSaOrderEmployeeName.Location = new System.Drawing.Point(513, 232);
+            this.textBoxSaOrderEmployeeName.Location = new System.Drawing.Point(1257, 184);
             this.textBoxSaOrderEmployeeName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSaOrderEmployeeName.Name = "textBoxSaOrderEmployeeName";
             this.textBoxSaOrderEmployeeName.Size = new System.Drawing.Size(292, 34);
@@ -3486,7 +3519,7 @@ namespace SalesManagement_SysDev
             // labelSaSalesOfficeName
             // 
             this.labelSaSalesOfficeName.AutoSize = true;
-            this.labelSaSalesOfficeName.BackColor = System.Drawing.Color.White;
+            this.labelSaSalesOfficeName.BackColor = System.Drawing.Color.Azure;
             this.labelSaSalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelSaSalesOfficeName.Location = new System.Drawing.Point(367, 178);
             this.labelSaSalesOfficeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -3498,7 +3531,7 @@ namespace SalesManagement_SysDev
             // textBoxSaSalesOfficeName
             // 
             this.textBoxSaSalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSaSalesOfficeName.Location = new System.Drawing.Point(513, 178);
+            this.textBoxSaSalesOfficeName.Location = new System.Drawing.Point(476, 177);
             this.textBoxSaSalesOfficeName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSaSalesOfficeName.Name = "textBoxSaSalesOfficeName";
             this.textBoxSaSalesOfficeName.Size = new System.Drawing.Size(292, 34);
@@ -3507,9 +3540,9 @@ namespace SalesManagement_SysDev
             // labelSaClientName
             // 
             this.labelSaClientName.AutoSize = true;
-            this.labelSaClientName.BackColor = System.Drawing.Color.White;
+            this.labelSaClientName.BackColor = System.Drawing.Color.Azure;
             this.labelSaClientName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSaClientName.Location = new System.Drawing.Point(742, 133);
+            this.labelSaClientName.Location = new System.Drawing.Point(367, 231);
             this.labelSaClientName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSaClientName.Name = "labelSaClientName";
             this.labelSaClientName.Size = new System.Drawing.Size(75, 26);
@@ -3519,7 +3552,7 @@ namespace SalesManagement_SysDev
             // textBoxSaClientName
             // 
             this.textBoxSaClientName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSaClientName.Location = new System.Drawing.Point(832, 130);
+            this.textBoxSaClientName.Location = new System.Drawing.Point(476, 226);
             this.textBoxSaClientName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSaClientName.Name = "textBoxSaClientName";
             this.textBoxSaClientName.Size = new System.Drawing.Size(292, 34);
@@ -3529,7 +3562,7 @@ namespace SalesManagement_SysDev
             // 
             this.dateTimePickerSaDate.CalendarFont = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.dateTimePickerSaDate.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePickerSaDate.Location = new System.Drawing.Point(513, 288);
+            this.dateTimePickerSaDate.Location = new System.Drawing.Point(912, 228);
             this.dateTimePickerSaDate.Name = "dateTimePickerSaDate";
             this.dateTimePickerSaDate.Size = new System.Drawing.Size(251, 28);
             this.dateTimePickerSaDate.TabIndex = 157;
@@ -3538,7 +3571,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxSaOrderID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxSaOrderID.FormattingEnabled = true;
-            this.comboBoxSaOrderID.Location = new System.Drawing.Point(146, 280);
+            this.comboBoxSaOrderID.Location = new System.Drawing.Point(476, 125);
             this.comboBoxSaOrderID.Name = "comboBoxSaOrderID";
             this.comboBoxSaOrderID.Size = new System.Drawing.Size(199, 34);
             this.comboBoxSaOrderID.TabIndex = 156;
@@ -3565,7 +3598,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxSaOrderEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxSaOrderEmployeeID.FormattingEnabled = true;
-            this.comboBoxSaOrderEmployeeID.Location = new System.Drawing.Point(146, 227);
+            this.comboBoxSaOrderEmployeeID.Location = new System.Drawing.Point(912, 184);
             this.comboBoxSaOrderEmployeeID.Name = "comboBoxSaOrderEmployeeID";
             this.comboBoxSaOrderEmployeeID.Size = new System.Drawing.Size(199, 34);
             this.comboBoxSaOrderEmployeeID.TabIndex = 153;
@@ -3574,9 +3607,9 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxSaClientID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxSaClientID.FormattingEnabled = true;
-            this.comboBoxSaClientID.Location = new System.Drawing.Point(513, 128);
+            this.comboBoxSaClientID.Location = new System.Drawing.Point(146, 227);
             this.comboBoxSaClientID.Name = "comboBoxSaClientID";
-            this.comboBoxSaClientID.Size = new System.Drawing.Size(197, 34);
+            this.comboBoxSaClientID.Size = new System.Drawing.Size(199, 34);
             this.comboBoxSaClientID.TabIndex = 152;
             // 
             // buttonSaNDisplayList
@@ -3585,9 +3618,9 @@ namespace SalesManagement_SysDev
             this.buttonSaNDisplayList.FlatAppearance.BorderSize = 0;
             this.buttonSaNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSaNDisplayList.Location = new System.Drawing.Point(1508, 32);
+            this.buttonSaNDisplayList.Location = new System.Drawing.Point(1495, 29);
             this.buttonSaNDisplayList.Name = "buttonSaNDisplayList";
-            this.buttonSaNDisplayList.Size = new System.Drawing.Size(144, 111);
+            this.buttonSaNDisplayList.Size = new System.Drawing.Size(172, 111);
             this.buttonSaNDisplayList.TabIndex = 130;
             this.buttonSaNDisplayList.Text = "非表示リスト";
             this.buttonSaNDisplayList.UseVisualStyleBackColor = false;
@@ -3598,18 +3631,18 @@ namespace SalesManagement_SysDev
             this.buttonSaNDisplay.FlatAppearance.BorderSize = 0;
             this.buttonSaNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaNDisplay.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSaNDisplay.Location = new System.Drawing.Point(1339, 32);
+            this.buttonSaNDisplay.Location = new System.Drawing.Point(1311, 29);
             this.buttonSaNDisplay.Name = "buttonSaNDisplay";
-            this.buttonSaNDisplay.Size = new System.Drawing.Size(144, 111);
+            this.buttonSaNDisplay.Size = new System.Drawing.Size(172, 111);
             this.buttonSaNDisplay.TabIndex = 129;
             this.buttonSaNDisplay.Text = "非表示";
             this.buttonSaNDisplay.UseVisualStyleBackColor = false;
             // 
             // buttonSaSearch
             // 
-            this.buttonSaSearch.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonSaSearch.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSaSearch.Location = new System.Drawing.Point(359, 28);
+            this.buttonSaSearch.BackColor = System.Drawing.Color.White;
+            this.buttonSaSearch.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.buttonSaSearch.Location = new System.Drawing.Point(361, 29);
             this.buttonSaSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSaSearch.Name = "buttonSaSearch";
             this.buttonSaSearch.Size = new System.Drawing.Size(258, 75);
@@ -3619,9 +3652,9 @@ namespace SalesManagement_SysDev
             // 
             // buttonSaDisplay
             // 
-            this.buttonSaDisplay.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonSaDisplay.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSaDisplay.Location = new System.Drawing.Point(22, 28);
+            this.buttonSaDisplay.BackColor = System.Drawing.Color.White;
+            this.buttonSaDisplay.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.buttonSaDisplay.Location = new System.Drawing.Point(22, 29);
             this.buttonSaDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonSaDisplay.Name = "buttonSaDisplay";
             this.buttonSaDisplay.Size = new System.Drawing.Size(258, 75);
@@ -3632,31 +3665,31 @@ namespace SalesManagement_SysDev
             // dataGridViewSaDetail
             // 
             this.dataGridViewSaDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSaDetail.Location = new System.Drawing.Point(985, 423);
+            this.dataGridViewSaDetail.Location = new System.Drawing.Point(1100, 387);
             this.dataGridViewSaDetail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewSaDetail.Name = "dataGridViewSaDetail";
             this.dataGridViewSaDetail.RowHeadersWidth = 62;
             this.dataGridViewSaDetail.RowTemplate.Height = 27;
-            this.dataGridViewSaDetail.Size = new System.Drawing.Size(682, 292);
+            this.dataGridViewSaDetail.Size = new System.Drawing.Size(570, 310);
             this.dataGridViewSaDetail.TabIndex = 94;
             // 
             // dataGridViewSa
             // 
             this.dataGridViewSa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSa.Location = new System.Drawing.Point(28, 423);
+            this.dataGridViewSa.Location = new System.Drawing.Point(38, 387);
             this.dataGridViewSa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewSa.Name = "dataGridViewSa";
             this.dataGridViewSa.RowHeadersWidth = 62;
             this.dataGridViewSa.RowTemplate.Height = 27;
-            this.dataGridViewSa.Size = new System.Drawing.Size(942, 292);
+            this.dataGridViewSa.Size = new System.Drawing.Size(1050, 310);
             this.dataGridViewSa.TabIndex = 92;
             // 
             // labelSaRsn
             // 
             this.labelSaRsn.AutoSize = true;
-            this.labelSaRsn.BackColor = System.Drawing.Color.White;
+            this.labelSaRsn.BackColor = System.Drawing.Color.Azure;
             this.labelSaRsn.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSaRsn.Location = new System.Drawing.Point(20, 337);
+            this.labelSaRsn.Location = new System.Drawing.Point(20, 283);
             this.labelSaRsn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSaRsn.Name = "labelSaRsn";
             this.labelSaRsn.Size = new System.Drawing.Size(117, 26);
@@ -3666,9 +3699,9 @@ namespace SalesManagement_SysDev
             // labelSaDate
             // 
             this.labelSaDate.AutoSize = true;
-            this.labelSaDate.BackColor = System.Drawing.Color.White;
+            this.labelSaDate.BackColor = System.Drawing.Color.Azure;
             this.labelSaDate.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSaDate.Location = new System.Drawing.Point(367, 284);
+            this.labelSaDate.Location = new System.Drawing.Point(780, 232);
             this.labelSaDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSaDate.Name = "labelSaDate";
             this.labelSaDate.Size = new System.Drawing.Size(96, 26);
@@ -3678,9 +3711,9 @@ namespace SalesManagement_SysDev
             // labelSaOrderID
             // 
             this.labelSaOrderID.AutoSize = true;
-            this.labelSaOrderID.BackColor = System.Drawing.Color.White;
+            this.labelSaOrderID.BackColor = System.Drawing.Color.Azure;
             this.labelSaOrderID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSaOrderID.Location = new System.Drawing.Point(20, 283);
+            this.labelSaOrderID.Location = new System.Drawing.Point(367, 129);
             this.labelSaOrderID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSaOrderID.Name = "labelSaOrderID";
             this.labelSaOrderID.Size = new System.Drawing.Size(78, 26);
@@ -3690,19 +3723,19 @@ namespace SalesManagement_SysDev
             // textBoxSaRsn
             // 
             this.textBoxSaRsn.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSaRsn.Location = new System.Drawing.Point(146, 333);
+            this.textBoxSaRsn.Location = new System.Drawing.Point(146, 279);
             this.textBoxSaRsn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSaRsn.Multiline = true;
             this.textBoxSaRsn.Name = "textBoxSaRsn";
-            this.textBoxSaRsn.Size = new System.Drawing.Size(848, 71);
+            this.textBoxSaRsn.Size = new System.Drawing.Size(720, 66);
             this.textBoxSaRsn.TabIndex = 81;
             // 
             // labelSaOrderEmployeeID
             // 
             this.labelSaOrderEmployeeID.AutoSize = true;
-            this.labelSaOrderEmployeeID.BackColor = System.Drawing.Color.White;
+            this.labelSaOrderEmployeeID.BackColor = System.Drawing.Color.Azure;
             this.labelSaOrderEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSaOrderEmployeeID.Location = new System.Drawing.Point(20, 230);
+            this.labelSaOrderEmployeeID.Location = new System.Drawing.Point(780, 186);
             this.labelSaOrderEmployeeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSaOrderEmployeeID.Name = "labelSaOrderEmployeeID";
             this.labelSaOrderEmployeeID.Size = new System.Drawing.Size(120, 26);
@@ -3712,7 +3745,7 @@ namespace SalesManagement_SysDev
             // labelSaSaleID
             // 
             this.labelSaSaleID.AutoSize = true;
-            this.labelSaSaleID.BackColor = System.Drawing.Color.White;
+            this.labelSaSaleID.BackColor = System.Drawing.Color.Azure;
             this.labelSaSaleID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelSaSaleID.Location = new System.Drawing.Point(20, 127);
             this.labelSaSaleID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -3724,7 +3757,7 @@ namespace SalesManagement_SysDev
             // labelSaSalesOfficeID
             // 
             this.labelSaSalesOfficeID.AutoSize = true;
-            this.labelSaSalesOfficeID.BackColor = System.Drawing.Color.White;
+            this.labelSaSalesOfficeID.BackColor = System.Drawing.Color.Azure;
             this.labelSaSalesOfficeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelSaSalesOfficeID.Location = new System.Drawing.Point(20, 178);
             this.labelSaSalesOfficeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -3736,9 +3769,9 @@ namespace SalesManagement_SysDev
             // labelSaClientID
             // 
             this.labelSaClientID.AutoSize = true;
-            this.labelSaClientID.BackColor = System.Drawing.Color.White;
+            this.labelSaClientID.BackColor = System.Drawing.Color.Azure;
             this.labelSaClientID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSaClientID.Location = new System.Drawing.Point(367, 129);
+            this.labelSaClientID.Location = new System.Drawing.Point(20, 227);
             this.labelSaClientID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSaClientID.Name = "labelSaClientID";
             this.labelSaClientID.Size = new System.Drawing.Size(78, 26);
@@ -3747,7 +3780,7 @@ namespace SalesManagement_SysDev
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.BackColor = System.Drawing.Color.Azure;
             this.panel8.Controls.Add(this.labelOrderSearchItem);
             this.panel8.Controls.Add(this.textBoxOrClientManager);
             this.panel8.Controls.Add(this.textBoxOrClientName);
@@ -3786,7 +3819,7 @@ namespace SalesManagement_SysDev
             // labelOrderSearchItem
             // 
             this.labelOrderSearchItem.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelOrderSearchItem.Location = new System.Drawing.Point(380, 11);
+            this.labelOrderSearchItem.Location = new System.Drawing.Point(362, 3);
             this.labelOrderSearchItem.Name = "labelOrderSearchItem";
             this.labelOrderSearchItem.Size = new System.Drawing.Size(257, 24);
             this.labelOrderSearchItem.TabIndex = 164;
@@ -3813,7 +3846,7 @@ namespace SalesManagement_SysDev
             // labelOrClientName
             // 
             this.labelOrClientName.AutoSize = true;
-            this.labelOrClientName.BackColor = System.Drawing.Color.White;
+            this.labelOrClientName.BackColor = System.Drawing.Color.Azure;
             this.labelOrClientName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelOrClientName.Location = new System.Drawing.Point(999, 178);
             this.labelOrClientName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -3834,7 +3867,7 @@ namespace SalesManagement_SysDev
             // labelOrSalesOfficeName
             // 
             this.labelOrSalesOfficeName.AutoSize = true;
-            this.labelOrSalesOfficeName.BackColor = System.Drawing.Color.White;
+            this.labelOrSalesOfficeName.BackColor = System.Drawing.Color.Azure;
             this.labelOrSalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelOrSalesOfficeName.Location = new System.Drawing.Point(673, 132);
             this.labelOrSalesOfficeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -3846,7 +3879,7 @@ namespace SalesManagement_SysDev
             // dateTimePickerOrder
             // 
             this.dateTimePickerOrder.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePickerOrder.Location = new System.Drawing.Point(158, 216);
+            this.dateTimePickerOrder.Location = new System.Drawing.Point(162, 241);
             this.dateTimePickerOrder.Name = "dateTimePickerOrder";
             this.dateTimePickerOrder.Size = new System.Drawing.Size(233, 34);
             this.dateTimePickerOrder.TabIndex = 155;
@@ -3857,9 +3890,9 @@ namespace SalesManagement_SysDev
             this.buttonOrNDisplayList.FlatAppearance.BorderSize = 0;
             this.buttonOrNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOrNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonOrNDisplayList.Location = new System.Drawing.Point(1508, 32);
+            this.buttonOrNDisplayList.Location = new System.Drawing.Point(1495, 29);
             this.buttonOrNDisplayList.Name = "buttonOrNDisplayList";
-            this.buttonOrNDisplayList.Size = new System.Drawing.Size(120, 95);
+            this.buttonOrNDisplayList.Size = new System.Drawing.Size(172, 111);
             this.buttonOrNDisplayList.TabIndex = 154;
             this.buttonOrNDisplayList.Text = "非表示リスト";
             this.buttonOrNDisplayList.UseVisualStyleBackColor = false;
@@ -3870,18 +3903,18 @@ namespace SalesManagement_SysDev
             this.buttonOrNDisplay.FlatAppearance.BorderSize = 0;
             this.buttonOrNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOrNDisplay.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonOrNDisplay.Location = new System.Drawing.Point(1365, 32);
+            this.buttonOrNDisplay.Location = new System.Drawing.Point(1311, 29);
             this.buttonOrNDisplay.Name = "buttonOrNDisplay";
-            this.buttonOrNDisplay.Size = new System.Drawing.Size(120, 95);
+            this.buttonOrNDisplay.Size = new System.Drawing.Size(172, 111);
             this.buttonOrNDisplay.TabIndex = 153;
             this.buttonOrNDisplay.Text = "非表示";
             this.buttonOrNDisplay.UseVisualStyleBackColor = false;
             // 
             // buttonOrSearch
             // 
-            this.buttonOrSearch.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonOrSearch.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonOrSearch.Location = new System.Drawing.Point(380, 37);
+            this.buttonOrSearch.BackColor = System.Drawing.Color.White;
+            this.buttonOrSearch.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.buttonOrSearch.Location = new System.Drawing.Point(361, 29);
             this.buttonOrSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonOrSearch.Name = "buttonOrSearch";
             this.buttonOrSearch.Size = new System.Drawing.Size(258, 75);
@@ -3891,9 +3924,9 @@ namespace SalesManagement_SysDev
             // 
             // buttonOrDisplay
             // 
-            this.buttonOrDisplay.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonOrDisplay.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonOrDisplay.Location = new System.Drawing.Point(42, 37);
+            this.buttonOrDisplay.BackColor = System.Drawing.Color.White;
+            this.buttonOrDisplay.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.buttonOrDisplay.Location = new System.Drawing.Point(23, 29);
             this.buttonOrDisplay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonOrDisplay.Name = "buttonOrDisplay";
             this.buttonOrDisplay.Size = new System.Drawing.Size(258, 75);
@@ -3903,9 +3936,10 @@ namespace SalesManagement_SysDev
             // 
             // buttonOrOrderConfirm
             // 
-            this.buttonOrOrderConfirm.BackColor = System.Drawing.Color.Violet;
-            this.buttonOrOrderConfirm.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonOrOrderConfirm.Location = new System.Drawing.Point(1004, 37);
+            this.buttonOrOrderConfirm.BackColor = System.Drawing.Color.White;
+            this.buttonOrOrderConfirm.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.buttonOrOrderConfirm.ForeColor = System.Drawing.Color.Red;
+            this.buttonOrOrderConfirm.Location = new System.Drawing.Point(1000, 29);
             this.buttonOrOrderConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonOrOrderConfirm.Name = "buttonOrOrderConfirm";
             this.buttonOrOrderConfirm.Size = new System.Drawing.Size(260, 75);
@@ -3953,12 +3987,12 @@ namespace SalesManagement_SysDev
             // dataGridViewOrderDetail
             // 
             this.dataGridViewOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewOrderDetail.Location = new System.Drawing.Point(1018, 401);
+            this.dataGridViewOrderDetail.Location = new System.Drawing.Point(1100, 387);
             this.dataGridViewOrderDetail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewOrderDetail.Name = "dataGridViewOrderDetail";
             this.dataGridViewOrderDetail.RowHeadersWidth = 62;
             this.dataGridViewOrderDetail.RowTemplate.Height = 27;
-            this.dataGridViewOrderDetail.Size = new System.Drawing.Size(634, 306);
+            this.dataGridViewOrderDetail.Size = new System.Drawing.Size(570, 310);
             this.dataGridViewOrderDetail.TabIndex = 143;
             // 
             // buttonOrSelectProduct
@@ -3968,7 +4002,7 @@ namespace SalesManagement_SysDev
             this.buttonOrSelectProduct.Location = new System.Drawing.Point(38, 302);
             this.buttonOrSelectProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonOrSelectProduct.Name = "buttonOrSelectProduct";
-            this.buttonOrSelectProduct.Size = new System.Drawing.Size(1274, 87);
+            this.buttonOrSelectProduct.Size = new System.Drawing.Size(1632, 65);
             this.buttonOrSelectProduct.TabIndex = 142;
             this.buttonOrSelectProduct.Text = "商品選択";
             this.buttonOrSelectProduct.UseVisualStyleBackColor = false;
@@ -3980,7 +4014,7 @@ namespace SalesManagement_SysDev
             this.labelOrProductSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.labelOrProductSum.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelOrProductSum.ForeColor = System.Drawing.Color.Red;
-            this.labelOrProductSum.Location = new System.Drawing.Point(533, 218);
+            this.labelOrProductSum.Location = new System.Drawing.Point(537, 243);
             this.labelOrProductSum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelOrProductSum.Name = "labelOrProductSum";
             this.labelOrProductSum.Size = new System.Drawing.Size(207, 28);
@@ -3989,10 +4023,10 @@ namespace SalesManagement_SysDev
             // labelOrTotalMoney
             // 
             this.labelOrTotalMoney.AutoSize = true;
-            this.labelOrTotalMoney.BackColor = System.Drawing.Color.White;
+            this.labelOrTotalMoney.BackColor = System.Drawing.Color.Azure;
             this.labelOrTotalMoney.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelOrTotalMoney.ForeColor = System.Drawing.Color.Red;
-            this.labelOrTotalMoney.Location = new System.Drawing.Point(427, 220);
+            this.labelOrTotalMoney.Location = new System.Drawing.Point(431, 245);
             this.labelOrTotalMoney.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelOrTotalMoney.Name = "labelOrTotalMoney";
             this.labelOrTotalMoney.Size = new System.Drawing.Size(96, 26);
@@ -4002,7 +4036,7 @@ namespace SalesManagement_SysDev
             // labelOrOrderID
             // 
             this.labelOrOrderID.AutoSize = true;
-            this.labelOrOrderID.BackColor = System.Drawing.Color.White;
+            this.labelOrOrderID.BackColor = System.Drawing.Color.Azure;
             this.labelOrOrderID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelOrOrderID.Location = new System.Drawing.Point(36, 128);
             this.labelOrOrderID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -4014,7 +4048,7 @@ namespace SalesManagement_SysDev
             // labelOrEmployeeID
             // 
             this.labelOrEmployeeID.AutoSize = true;
-            this.labelOrEmployeeID.BackColor = System.Drawing.Color.White;
+            this.labelOrEmployeeID.BackColor = System.Drawing.Color.Azure;
             this.labelOrEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelOrEmployeeID.Location = new System.Drawing.Point(36, 170);
             this.labelOrEmployeeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -4026,7 +4060,7 @@ namespace SalesManagement_SysDev
             // labelOrSalesOfficeID
             // 
             this.labelOrSalesOfficeID.AutoSize = true;
-            this.labelOrSalesOfficeID.BackColor = System.Drawing.Color.White;
+            this.labelOrSalesOfficeID.BackColor = System.Drawing.Color.Azure;
             this.labelOrSalesOfficeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelOrSalesOfficeID.Location = new System.Drawing.Point(333, 131);
             this.labelOrSalesOfficeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -4038,7 +4072,7 @@ namespace SalesManagement_SysDev
             // labelOrClientID
             // 
             this.labelOrClientID.AutoSize = true;
-            this.labelOrClientID.BackColor = System.Drawing.Color.White;
+            this.labelOrClientID.BackColor = System.Drawing.Color.Azure;
             this.labelOrClientID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelOrClientID.Location = new System.Drawing.Point(753, 178);
             this.labelOrClientID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -4050,9 +4084,9 @@ namespace SalesManagement_SysDev
             // labelOrRsn
             // 
             this.labelOrRsn.AutoSize = true;
-            this.labelOrRsn.BackColor = System.Drawing.Color.White;
+            this.labelOrRsn.BackColor = System.Drawing.Color.Azure;
             this.labelOrRsn.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelOrRsn.Location = new System.Drawing.Point(758, 218);
+            this.labelOrRsn.Location = new System.Drawing.Point(758, 243);
             this.labelOrRsn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelOrRsn.Name = "labelOrRsn";
             this.labelOrRsn.Size = new System.Drawing.Size(117, 26);
@@ -4072,20 +4106,20 @@ namespace SalesManagement_SysDev
             // dataGridViewOrder
             // 
             this.dataGridViewOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewOrder.Location = new System.Drawing.Point(38, 401);
+            this.dataGridViewOrder.Location = new System.Drawing.Point(38, 387);
             this.dataGridViewOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewOrder.Name = "dataGridViewOrder";
             this.dataGridViewOrder.RowHeadersWidth = 62;
             this.dataGridViewOrder.RowTemplate.Height = 27;
-            this.dataGridViewOrder.Size = new System.Drawing.Size(943, 306);
+            this.dataGridViewOrder.Size = new System.Drawing.Size(1050, 310);
             this.dataGridViewOrder.TabIndex = 122;
             // 
             // labelOrDateTime
             // 
             this.labelOrDateTime.AutoSize = true;
-            this.labelOrDateTime.BackColor = System.Drawing.Color.White;
+            this.labelOrDateTime.BackColor = System.Drawing.Color.Azure;
             this.labelOrDateTime.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelOrDateTime.Location = new System.Drawing.Point(36, 218);
+            this.labelOrDateTime.Location = new System.Drawing.Point(40, 243);
             this.labelOrDateTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelOrDateTime.Name = "labelOrDateTime";
             this.labelOrDateTime.Size = new System.Drawing.Size(117, 26);
@@ -4095,7 +4129,7 @@ namespace SalesManagement_SysDev
             // labelOrClientManager
             // 
             this.labelOrClientManager.AutoSize = true;
-            this.labelOrClientManager.BackColor = System.Drawing.Color.White;
+            this.labelOrClientManager.BackColor = System.Drawing.Color.Azure;
             this.labelOrClientManager.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelOrClientManager.Location = new System.Drawing.Point(333, 178);
             this.labelOrClientManager.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -4107,6 +4141,7 @@ namespace SalesManagement_SysDev
             // panelArrival
             // 
             this.panelArrival.BackColor = System.Drawing.Color.Azure;
+            this.panelArrival.Controls.Add(this.labelArSearchTitle);
             this.panelArrival.Controls.Add(this.dataGridViewArrivalDetail);
             this.panelArrival.Controls.Add(this.labelArArrivalEmployeeName);
             this.panelArrival.Controls.Add(this.textBoxArArrivalEmployeeName);
@@ -4147,19 +4182,19 @@ namespace SalesManagement_SysDev
             // dataGridViewArrivalDetail
             // 
             this.dataGridViewArrivalDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewArrivalDetail.Location = new System.Drawing.Point(1070, 401);
+            this.dataGridViewArrivalDetail.Location = new System.Drawing.Point(1100, 387);
             this.dataGridViewArrivalDetail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewArrivalDetail.Name = "dataGridViewArrivalDetail";
             this.dataGridViewArrivalDetail.RowHeadersWidth = 62;
             this.dataGridViewArrivalDetail.RowTemplate.Height = 27;
-            this.dataGridViewArrivalDetail.Size = new System.Drawing.Size(577, 306);
+            this.dataGridViewArrivalDetail.Size = new System.Drawing.Size(570, 310);
             this.dataGridViewArrivalDetail.TabIndex = 202;
             // 
             // labelArArrivalEmployeeName
             // 
             this.labelArArrivalEmployeeName.AutoSize = true;
             this.labelArArrivalEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelArArrivalEmployeeName.Location = new System.Drawing.Point(1137, 225);
+            this.labelArArrivalEmployeeName.Location = new System.Drawing.Point(1137, 215);
             this.labelArArrivalEmployeeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelArArrivalEmployeeName.Name = "labelArArrivalEmployeeName";
             this.labelArArrivalEmployeeName.Size = new System.Drawing.Size(159, 26);
@@ -4169,7 +4204,7 @@ namespace SalesManagement_SysDev
             // textBoxArArrivalEmployeeName
             // 
             this.textBoxArArrivalEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxArArrivalEmployeeName.Location = new System.Drawing.Point(1300, 222);
+            this.textBoxArArrivalEmployeeName.Location = new System.Drawing.Point(1300, 212);
             this.textBoxArArrivalEmployeeName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxArArrivalEmployeeName.Name = "textBoxArArrivalEmployeeName";
             this.textBoxArArrivalEmployeeName.Size = new System.Drawing.Size(314, 34);
@@ -4179,7 +4214,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelArClientName.AutoSize = true;
             this.labelArClientName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelArClientName.Location = new System.Drawing.Point(330, 230);
+            this.labelArClientName.Location = new System.Drawing.Point(330, 220);
             this.labelArClientName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelArClientName.Name = "labelArClientName";
             this.labelArClientName.Size = new System.Drawing.Size(75, 26);
@@ -4189,7 +4224,7 @@ namespace SalesManagement_SysDev
             // textBoxArClientName
             // 
             this.textBoxArClientName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxArClientName.Location = new System.Drawing.Point(431, 224);
+            this.textBoxArClientName.Location = new System.Drawing.Point(431, 214);
             this.textBoxArClientName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxArClientName.Name = "textBoxArClientName";
             this.textBoxArClientName.Size = new System.Drawing.Size(314, 34);
@@ -4199,7 +4234,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelArEmployeeName.AutoSize = true;
             this.labelArEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelArEmployeeName.Location = new System.Drawing.Point(1079, 180);
+            this.labelArEmployeeName.Location = new System.Drawing.Point(1079, 170);
             this.labelArEmployeeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelArEmployeeName.Name = "labelArEmployeeName";
             this.labelArEmployeeName.Size = new System.Drawing.Size(75, 26);
@@ -4209,7 +4244,7 @@ namespace SalesManagement_SysDev
             // textBoxArEmployeeName
             // 
             this.textBoxArEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxArEmployeeName.Location = new System.Drawing.Point(1180, 174);
+            this.textBoxArEmployeeName.Location = new System.Drawing.Point(1180, 164);
             this.textBoxArEmployeeName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxArEmployeeName.Name = "textBoxArEmployeeName";
             this.textBoxArEmployeeName.Size = new System.Drawing.Size(314, 34);
@@ -4219,7 +4254,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelArSalesOfficeName.AutoSize = true;
             this.labelArSalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelArSalesOfficeName.Location = new System.Drawing.Point(330, 180);
+            this.labelArSalesOfficeName.Location = new System.Drawing.Point(330, 170);
             this.labelArSalesOfficeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelArSalesOfficeName.Name = "labelArSalesOfficeName";
             this.labelArSalesOfficeName.Size = new System.Drawing.Size(96, 26);
@@ -4229,7 +4264,7 @@ namespace SalesManagement_SysDev
             // textBoxArSalesOfficeName
             // 
             this.textBoxArSalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxArSalesOfficeName.Location = new System.Drawing.Point(431, 175);
+            this.textBoxArSalesOfficeName.Location = new System.Drawing.Point(431, 165);
             this.textBoxArSalesOfficeName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxArSalesOfficeName.Name = "textBoxArSalesOfficeName";
             this.textBoxArSalesOfficeName.Size = new System.Drawing.Size(314, 34);
@@ -4239,7 +4274,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxArSalesOfficeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxArSalesOfficeID.FormattingEnabled = true;
-            this.comboBoxArSalesOfficeID.Location = new System.Drawing.Point(130, 176);
+            this.comboBoxArSalesOfficeID.Location = new System.Drawing.Point(130, 166);
             this.comboBoxArSalesOfficeID.Name = "comboBoxArSalesOfficeID";
             this.comboBoxArSalesOfficeID.Size = new System.Drawing.Size(166, 34);
             this.comboBoxArSalesOfficeID.TabIndex = 166;
@@ -4248,7 +4283,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelArSalesOfficeID.AutoSize = true;
             this.labelArSalesOfficeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelArSalesOfficeID.Location = new System.Drawing.Point(26, 180);
+            this.labelArSalesOfficeID.Location = new System.Drawing.Point(26, 170);
             this.labelArSalesOfficeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelArSalesOfficeID.Name = "labelArSalesOfficeID";
             this.labelArSalesOfficeID.Size = new System.Drawing.Size(99, 26);
@@ -4259,7 +4294,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxArClientID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxArClientID.FormattingEnabled = true;
-            this.comboBoxArClientID.Location = new System.Drawing.Point(130, 228);
+            this.comboBoxArClientID.Location = new System.Drawing.Point(130, 218);
             this.comboBoxArClientID.Name = "comboBoxArClientID";
             this.comboBoxArClientID.Size = new System.Drawing.Size(166, 34);
             this.comboBoxArClientID.TabIndex = 164;
@@ -4268,7 +4303,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelArClientID.AutoSize = true;
             this.labelArClientID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelArClientID.Location = new System.Drawing.Point(26, 228);
+            this.labelArClientID.Location = new System.Drawing.Point(26, 218);
             this.labelArClientID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelArClientID.Name = "labelArClientID";
             this.labelArClientID.Size = new System.Drawing.Size(78, 26);
@@ -4279,7 +4314,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxArEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxArEmployeeID.FormattingEnabled = true;
-            this.comboBoxArEmployeeID.Location = new System.Drawing.Point(879, 176);
+            this.comboBoxArEmployeeID.Location = new System.Drawing.Point(879, 166);
             this.comboBoxArEmployeeID.Name = "comboBoxArEmployeeID";
             this.comboBoxArEmployeeID.Size = new System.Drawing.Size(165, 34);
             this.comboBoxArEmployeeID.TabIndex = 162;
@@ -4288,7 +4323,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelArEmployeeID.AutoSize = true;
             this.labelArEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelArEmployeeID.Location = new System.Drawing.Point(775, 179);
+            this.labelArEmployeeID.Location = new System.Drawing.Point(775, 169);
             this.labelArEmployeeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelArEmployeeID.Name = "labelArEmployeeID";
             this.labelArEmployeeID.Size = new System.Drawing.Size(78, 26);
@@ -4305,14 +4340,14 @@ namespace SalesManagement_SysDev
             this.buttonArArrivalConfirm.Name = "buttonArArrivalConfirm";
             this.buttonArArrivalConfirm.Size = new System.Drawing.Size(258, 75);
             this.buttonArArrivalConfirm.TabIndex = 160;
-            this.buttonArArrivalConfirm.Text = "確定";
+            this.buttonArArrivalConfirm.Text = "入荷確定";
             this.buttonArArrivalConfirm.UseVisualStyleBackColor = false;
             // 
             // comboBoxArOrderID
             // 
             this.comboBoxArOrderID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxArOrderID.FormattingEnabled = true;
-            this.comboBoxArOrderID.Location = new System.Drawing.Point(431, 128);
+            this.comboBoxArOrderID.Location = new System.Drawing.Point(431, 118);
             this.comboBoxArOrderID.Name = "comboBoxArOrderID";
             this.comboBoxArOrderID.Size = new System.Drawing.Size(166, 34);
             this.comboBoxArOrderID.TabIndex = 159;
@@ -4321,7 +4356,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxArArrivalEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxArArrivalEmployeeID.FormattingEnabled = true;
-            this.comboBoxArArrivalEmployeeID.Location = new System.Drawing.Point(943, 220);
+            this.comboBoxArArrivalEmployeeID.Location = new System.Drawing.Point(943, 210);
             this.comboBoxArArrivalEmployeeID.Name = "comboBoxArArrivalEmployeeID";
             this.comboBoxArArrivalEmployeeID.Size = new System.Drawing.Size(165, 34);
             this.comboBoxArArrivalEmployeeID.TabIndex = 158;
@@ -4330,7 +4365,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxArArrivalID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxArArrivalID.FormattingEnabled = true;
-            this.comboBoxArArrivalID.Location = new System.Drawing.Point(130, 128);
+            this.comboBoxArArrivalID.Location = new System.Drawing.Point(130, 118);
             this.comboBoxArArrivalID.Name = "comboBoxArArrivalID";
             this.comboBoxArArrivalID.Size = new System.Drawing.Size(165, 34);
             this.comboBoxArArrivalID.TabIndex = 157;
@@ -4339,7 +4374,7 @@ namespace SalesManagement_SysDev
             // 
             this.dateTimePickerAr.CalendarFont = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.dateTimePickerAr.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePickerAr.Location = new System.Drawing.Point(157, 272);
+            this.dateTimePickerAr.Location = new System.Drawing.Point(157, 262);
             this.dateTimePickerAr.Name = "dateTimePickerAr";
             this.dateTimePickerAr.Size = new System.Drawing.Size(259, 34);
             this.dateTimePickerAr.TabIndex = 156;
@@ -4350,9 +4385,9 @@ namespace SalesManagement_SysDev
             this.buttonArNDisplay.FlatAppearance.BorderSize = 0;
             this.buttonArNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonArNDisplay.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonArNDisplay.Location = new System.Drawing.Point(1365, 32);
+            this.buttonArNDisplay.Location = new System.Drawing.Point(1311, 29);
             this.buttonArNDisplay.Name = "buttonArNDisplay";
-            this.buttonArNDisplay.Size = new System.Drawing.Size(120, 95);
+            this.buttonArNDisplay.Size = new System.Drawing.Size(172, 111);
             this.buttonArNDisplay.TabIndex = 155;
             this.buttonArNDisplay.Text = "非表示";
             this.buttonArNDisplay.UseVisualStyleBackColor = false;
@@ -4361,7 +4396,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelArArrivalID.AutoSize = true;
             this.labelArArrivalID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelArArrivalID.Location = new System.Drawing.Point(26, 130);
+            this.labelArArrivalID.Location = new System.Drawing.Point(26, 120);
             this.labelArArrivalID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelArArrivalID.Name = "labelArArrivalID";
             this.labelArArrivalID.Size = new System.Drawing.Size(78, 26);
@@ -4374,9 +4409,9 @@ namespace SalesManagement_SysDev
             this.buttonArNDisplayList.FlatAppearance.BorderSize = 0;
             this.buttonArNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonArNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonArNDisplayList.Location = new System.Drawing.Point(1508, 32);
+            this.buttonArNDisplayList.Location = new System.Drawing.Point(1495, 29);
             this.buttonArNDisplayList.Name = "buttonArNDisplayList";
-            this.buttonArNDisplayList.Size = new System.Drawing.Size(120, 95);
+            this.buttonArNDisplayList.Size = new System.Drawing.Size(172, 111);
             this.buttonArNDisplayList.TabIndex = 154;
             this.buttonArNDisplayList.Text = "非表示リスト";
             this.buttonArNDisplayList.UseVisualStyleBackColor = false;
@@ -4409,7 +4444,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelArRsn.AutoSize = true;
             this.labelArRsn.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelArRsn.Location = new System.Drawing.Point(26, 320);
+            this.labelArRsn.Location = new System.Drawing.Point(26, 310);
             this.labelArRsn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelArRsn.Name = "labelArRsn";
             this.labelArRsn.Size = new System.Drawing.Size(117, 26);
@@ -4420,7 +4455,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelArDateTime.AutoSize = true;
             this.labelArDateTime.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelArDateTime.Location = new System.Drawing.Point(26, 275);
+            this.labelArDateTime.Location = new System.Drawing.Point(26, 265);
             this.labelArDateTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelArDateTime.Name = "labelArDateTime";
             this.labelArDateTime.Size = new System.Drawing.Size(117, 26);
@@ -4430,19 +4465,19 @@ namespace SalesManagement_SysDev
             // dataGridViewArrival
             // 
             this.dataGridViewArrival.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewArrival.Location = new System.Drawing.Point(38, 401);
+            this.dataGridViewArrival.Location = new System.Drawing.Point(38, 387);
             this.dataGridViewArrival.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewArrival.Name = "dataGridViewArrival";
             this.dataGridViewArrival.RowHeadersWidth = 62;
             this.dataGridViewArrival.RowTemplate.Height = 27;
-            this.dataGridViewArrival.Size = new System.Drawing.Size(999, 306);
+            this.dataGridViewArrival.Size = new System.Drawing.Size(1050, 310);
             this.dataGridViewArrival.TabIndex = 122;
             // 
             // labelArArrivalEmployeeID
             // 
             this.labelArArrivalEmployeeID.AutoSize = true;
             this.labelArArrivalEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelArArrivalEmployeeID.Location = new System.Drawing.Point(776, 226);
+            this.labelArArrivalEmployeeID.Location = new System.Drawing.Point(776, 216);
             this.labelArArrivalEmployeeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelArArrivalEmployeeID.Name = "labelArArrivalEmployeeID";
             this.labelArArrivalEmployeeID.Size = new System.Drawing.Size(162, 26);
@@ -4453,7 +4488,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelArOrderID.AutoSize = true;
             this.labelArOrderID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelArOrderID.Location = new System.Drawing.Point(330, 132);
+            this.labelArOrderID.Location = new System.Drawing.Point(330, 122);
             this.labelArOrderID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelArOrderID.Name = "labelArOrderID";
             this.labelArOrderID.Size = new System.Drawing.Size(78, 26);
@@ -4463,11 +4498,11 @@ namespace SalesManagement_SysDev
             // textBoxArRsn
             // 
             this.textBoxArRsn.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxArRsn.Location = new System.Drawing.Point(157, 317);
+            this.textBoxArRsn.Location = new System.Drawing.Point(157, 307);
             this.textBoxArRsn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxArRsn.Multiline = true;
             this.textBoxArRsn.Name = "textBoxArRsn";
-            this.textBoxArRsn.Size = new System.Drawing.Size(718, 67);
+            this.textBoxArRsn.Size = new System.Drawing.Size(720, 66);
             this.textBoxArRsn.TabIndex = 139;
             // 
             // maruibutton10
@@ -4535,13 +4570,186 @@ namespace SalesManagement_SysDev
             // dataGridViewSyukkoDetail
             // 
             this.dataGridViewSyukkoDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSyukkoDetail.Location = new System.Drawing.Point(1080, 400);
+            this.dataGridViewSyukkoDetail.Location = new System.Drawing.Point(1100, 387);
             this.dataGridViewSyukkoDetail.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewSyukkoDetail.Name = "dataGridViewSyukkoDetail";
             this.dataGridViewSyukkoDetail.RowHeadersWidth = 62;
             this.dataGridViewSyukkoDetail.RowTemplate.Height = 27;
-            this.dataGridViewSyukkoDetail.Size = new System.Drawing.Size(587, 306);
+            this.dataGridViewSyukkoDetail.Size = new System.Drawing.Size(570, 310);
             this.dataGridViewSyukkoDetail.TabIndex = 175;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Location = new System.Drawing.Point(443, 193);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 26);
+            this.label1.TabIndex = 161;
+            this.label1.Text = "入庫確認社員名";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBox1.Location = new System.Drawing.Point(606, 190);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(332, 34);
+            this.textBox1.TabIndex = 160;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(362, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(255, 27);
+            this.label2.TabIndex = 162;
+            this.label2.Text = "label2";
+            // 
+            // dataGridView5
+            // 
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Location = new System.Drawing.Point(1100, 387);
+            this.dataGridView5.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.RowHeadersWidth = 62;
+            this.dataGridView5.RowTemplate.Height = 27;
+            this.dataGridView5.Size = new System.Drawing.Size(570, 310);
+            this.dataGridView5.TabIndex = 163;
+            // 
+            // dataGridView6
+            // 
+            this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView6.Location = new System.Drawing.Point(1100, 387);
+            this.dataGridView6.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView6.Name = "dataGridView6";
+            this.dataGridView6.RowHeadersWidth = 62;
+            this.dataGridView6.RowTemplate.Height = 27;
+            this.dataGridView6.Size = new System.Drawing.Size(570, 310);
+            this.dataGridView6.TabIndex = 161;
+            // 
+            // labelArSearchTitle
+            // 
+            this.labelArSearchTitle.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArSearchTitle.Location = new System.Drawing.Point(372, 3);
+            this.labelArSearchTitle.Name = "labelArSearchTitle";
+            this.labelArSearchTitle.Size = new System.Drawing.Size(258, 24);
+            this.labelArSearchTitle.TabIndex = 203;
+            this.labelArSearchTitle.Text = "label3";
+            // 
+            // labelChSearchTitle
+            // 
+            this.labelChSearchTitle.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelChSearchTitle.Location = new System.Drawing.Point(361, 4);
+            this.labelChSearchTitle.Name = "labelChSearchTitle";
+            this.labelChSearchTitle.Size = new System.Drawing.Size(256, 23);
+            this.labelChSearchTitle.TabIndex = 202;
+            this.labelChSearchTitle.Text = "label3";
+            // 
+            // labelSySearchTitle
+            // 
+            this.labelSySearchTitle.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelSySearchTitle.Location = new System.Drawing.Point(361, 3);
+            this.labelSySearchTitle.Name = "labelSySearchTitle";
+            this.labelSySearchTitle.Size = new System.Drawing.Size(256, 24);
+            this.labelSySearchTitle.TabIndex = 176;
+            this.labelSySearchTitle.Text = "label3";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label3.Location = new System.Drawing.Point(1036, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(257, 24);
+            this.label3.TabIndex = 162;
+            this.label3.Text = "label3";
+            // 
+            // labelCiSearchTitle
+            // 
+            this.labelCiSearchTitle.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelCiSearchTitle.Location = new System.Drawing.Point(1036, 4);
+            this.labelCiSearchTitle.Name = "labelCiSearchTitle";
+            this.labelCiSearchTitle.Size = new System.Drawing.Size(258, 23);
+            this.labelCiSearchTitle.TabIndex = 127;
+            this.labelCiSearchTitle.Text = "label4";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label4.Location = new System.Drawing.Point(780, 196);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(117, 26);
+            this.label4.TabIndex = 158;
+            this.label4.Text = "非表示理由";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBox2.Location = new System.Drawing.Point(910, 193);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(720, 66);
+            this.textBox2.TabIndex = 157;
+            // 
+            // labelStSearchTitle
+            // 
+            this.labelStSearchTitle.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelStSearchTitle.Location = new System.Drawing.Point(1036, 3);
+            this.labelStSearchTitle.Name = "labelStSearchTitle";
+            this.labelStSearchTitle.Size = new System.Drawing.Size(257, 23);
+            this.labelStSearchTitle.TabIndex = 159;
+            this.labelStSearchTitle.Text = "label29";
+            // 
+            // dataGridView7
+            // 
+            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView7.Location = new System.Drawing.Point(1100, 387);
+            this.dataGridView7.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView7.Name = "dataGridView7";
+            this.dataGridView7.RowHeadersWidth = 62;
+            this.dataGridView7.RowTemplate.Height = 27;
+            this.dataGridView7.Size = new System.Drawing.Size(570, 310);
+            this.dataGridView7.TabIndex = 195;
+            // 
+            // label29
+            // 
+            this.label29.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label29.Location = new System.Drawing.Point(361, 4);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(256, 22);
+            this.label29.TabIndex = 196;
+            this.label29.Text = "label29";
+            // 
+            // labelPrSearchTitle
+            // 
+            this.labelPrSearchTitle.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPrSearchTitle.Location = new System.Drawing.Point(1036, 3);
+            this.labelPrSearchTitle.Name = "labelPrSearchTitle";
+            this.labelPrSearchTitle.Size = new System.Drawing.Size(257, 23);
+            this.labelPrSearchTitle.TabIndex = 113;
+            this.labelPrSearchTitle.Text = "label30";
+            // 
+            // labelEmSearchTitle
+            // 
+            this.labelEmSearchTitle.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmSearchTitle.Location = new System.Drawing.Point(1036, 4);
+            this.labelEmSearchTitle.Name = "labelEmSearchTitle";
+            this.labelEmSearchTitle.Size = new System.Drawing.Size(257, 23);
+            this.labelEmSearchTitle.TabIndex = 134;
+            this.labelEmSearchTitle.Text = "label30";
+            // 
+            // labelSaSearchTitle
+            // 
+            this.labelSaSearchTitle.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelSaSearchTitle.Location = new System.Drawing.Point(361, 4);
+            this.labelSaSearchTitle.Name = "labelSaSearchTitle";
+            this.labelSaSearchTitle.Size = new System.Drawing.Size(256, 23);
+            this.labelSaSearchTitle.TabIndex = 164;
+            this.labelSaSearchTitle.Text = "label30";
             // 
             // Form1
             // 
@@ -4563,19 +4771,19 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panelArrival);
+            this.Controls.Add(this.panel14);
+            this.Controls.Add(this.panelChumon);
             this.Controls.Add(this.panelSyukko);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel15);
+            this.Controls.Add(this.panelShSearchTitle);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panelSalesOffice);
-            this.Controls.Add(this.panel8);
-            this.Controls.Add(this.panelArrival);
-            this.Controls.Add(this.panel14);
-            this.Controls.Add(this.panelChumon);
+            this.Controls.Add(this.panelProduct);
+            this.Controls.Add(this.panelSale);
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -4602,19 +4810,19 @@ namespace SalesManagement_SysDev
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
+            this.panelShSearchTitle.ResumeLayout(false);
+            this.panelShSearchTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.panelProduct.ResumeLayout(false);
+            this.panelProduct.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmMana)).EndInit();
-            this.panelSalesOffice.ResumeLayout(false);
-            this.panelSalesOffice.PerformLayout();
+            this.panelSale.ResumeLayout(false);
+            this.panelSale.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSaDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSa)).EndInit();
             this.panel8.ResumeLayout(false);
@@ -4626,6 +4834,9 @@ namespace SalesManagement_SysDev
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArrivalDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArrival)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSyukkoDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4704,7 +4915,6 @@ namespace SalesManagement_SysDev
         private maruibutton maruibutton19;
         private System.Windows.Forms.Label label70;
         private maruibutton maruibutton20;
-        private System.Windows.Forms.Button button46;
         private System.Windows.Forms.Button button47;
         private System.Windows.Forms.Button button48;
         private System.Windows.Forms.Label label71;
@@ -4793,7 +5003,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Button buttonShipment;
-        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panelShSearchTitle;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox5;
@@ -4810,11 +5020,9 @@ namespace SalesManagement_SysDev
         private maruibutton maruibutton5;
         private System.Windows.Forms.Label label25;
         private maruibutton maruibutton6;
-        private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button button25;
         private System.Windows.Forms.Button button68;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button button69;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.Label label28;
@@ -4853,7 +5061,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panelProduct;
         private System.Windows.Forms.DateTimePicker dateTimePickerEmployee;
         private System.Windows.Forms.ComboBox comboBoxEmSalesOfficeID;
         private System.Windows.Forms.ComboBox comboBoxEmPositionID;
@@ -4877,7 +5085,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelEmEmployeeName;
         private System.Windows.Forms.Label labelEmEmployeeID;
         private System.Windows.Forms.TextBox textBoxEmEmployeeName;
-        private System.Windows.Forms.Panel panelSalesOffice;
+        private System.Windows.Forms.Panel panelSale;
         private System.Windows.Forms.DateTimePicker dateTimePickerSaDate;
         private System.Windows.Forms.ComboBox comboBoxSaOrderID;
         private System.Windows.Forms.ComboBox comboBoxSaSaleID;
@@ -4992,6 +5200,24 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelSyEmployeeName;
         private System.Windows.Forms.TextBox textBoxSyEmployeeName;
         private System.Windows.Forms.DataGridView dataGridViewSyukkoDetail;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dataGridView6;
+        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.Label labelSySearchTitle;
+        private System.Windows.Forms.Label labelChSearchTitle;
+        private System.Windows.Forms.Label labelArSearchTitle;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelCiSearchTitle;
+        private System.Windows.Forms.Label labelStSearchTitle;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.DataGridView dataGridView7;
+        private System.Windows.Forms.Label labelPrSearchTitle;
+        private System.Windows.Forms.Label labelEmSearchTitle;
+        private System.Windows.Forms.Label labelSaSearchTitle;
     }
 }
 
