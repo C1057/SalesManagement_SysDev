@@ -262,12 +262,12 @@ namespace SalesManagement_SysDev
             // dataGridViewSOMana
             // 
             this.dataGridViewSOMana.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSOMana.Location = new System.Drawing.Point(38, 473);
+            this.dataGridViewSOMana.Location = new System.Drawing.Point(29, 473);
             this.dataGridViewSOMana.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewSOMana.Name = "dataGridViewSOMana";
             this.dataGridViewSOMana.RowHeadersWidth = 62;
             this.dataGridViewSOMana.RowTemplate.Height = 27;
-            this.dataGridViewSOMana.Size = new System.Drawing.Size(1175, 252);
+            this.dataGridViewSOMana.Size = new System.Drawing.Size(1206, 271);
             this.dataGridViewSOMana.TabIndex = 245;
             // 
             // maruibuttonSOManaDeleteList
