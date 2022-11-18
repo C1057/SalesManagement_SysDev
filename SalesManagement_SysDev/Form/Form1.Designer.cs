@@ -349,41 +349,42 @@ namespace SalesManagement_SysDev
             this.dataGridViewOrder = new System.Windows.Forms.DataGridView();
             this.labelOrDateTime = new System.Windows.Forms.Label();
             this.labelOrClientManager = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox19 = new System.Windows.Forms.ComboBox();
-            this.label84 = new System.Windows.Forms.Label();
-            this.comboBox20 = new System.Windows.Forms.ComboBox();
-            this.label85 = new System.Windows.Forms.Label();
-            this.comboBox21 = new System.Windows.Forms.ComboBox();
-            this.label86 = new System.Windows.Forms.Label();
-            this.button55 = new System.Windows.Forms.Button();
-            this.comboBox22 = new System.Windows.Forms.ComboBox();
-            this.comboBox23 = new System.Windows.Forms.ComboBox();
-            this.comboBox24 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.maruibutton23 = new SalesManagement_SysDev.maruibutton();
-            this.label87 = new System.Windows.Forms.Label();
-            this.maruibutton24 = new SalesManagement_SysDev.maruibutton();
-            this.button57 = new System.Windows.Forms.Button();
-            this.button58 = new System.Windows.Forms.Button();
-            this.label88 = new System.Windows.Forms.Label();
-            this.label89 = new System.Windows.Forms.Label();
-            this.dataGridView12 = new System.Windows.Forms.DataGridView();
-            this.label90 = new System.Windows.Forms.Label();
-            this.label91 = new System.Windows.Forms.Label();
-            this.textBox46 = new System.Windows.Forms.TextBox();
+            this.panelArrival = new System.Windows.Forms.Panel();
+            this.labelArArrivalEmployeeName = new System.Windows.Forms.Label();
+            this.textBoxArArrivalEmployeeName = new System.Windows.Forms.TextBox();
+            this.labelArClientName = new System.Windows.Forms.Label();
+            this.textBoxArClientName = new System.Windows.Forms.TextBox();
+            this.labelArEmployeeName = new System.Windows.Forms.Label();
+            this.textBoxArEmployeeName = new System.Windows.Forms.TextBox();
+            this.labelArSalesOfficeName = new System.Windows.Forms.Label();
+            this.textBoxArSalesOfficeName = new System.Windows.Forms.TextBox();
+            this.comboBoxArSalesOfficeID = new System.Windows.Forms.ComboBox();
+            this.labelArSalesOfficeID = new System.Windows.Forms.Label();
+            this.comboBoxArClientID = new System.Windows.Forms.ComboBox();
+            this.labelArClientID = new System.Windows.Forms.Label();
+            this.comboBoxArEmployeeID = new System.Windows.Forms.ComboBox();
+            this.labelArEmployeeID = new System.Windows.Forms.Label();
+            this.buttonArArrivalConfirm = new System.Windows.Forms.Button();
+            this.comboBoxArOrderID = new System.Windows.Forms.ComboBox();
+            this.comboBoxArArrivalEmployeeID = new System.Windows.Forms.ComboBox();
+            this.comboBoxArArrivalID = new System.Windows.Forms.ComboBox();
+            this.dateTimePickerAr = new System.Windows.Forms.DateTimePicker();
+            this.buttonArNDisplay = new SalesManagement_SysDev.maruibutton();
+            this.labelArArrivalID = new System.Windows.Forms.Label();
+            this.buttonArNDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonArSearch = new System.Windows.Forms.Button();
+            this.buttonArDisplay = new System.Windows.Forms.Button();
+            this.labelArRsn = new System.Windows.Forms.Label();
+            this.labelArDateTime = new System.Windows.Forms.Label();
+            this.dataGridViewArrival = new System.Windows.Forms.DataGridView();
+            this.labelArArrivalEmployeeID = new System.Windows.Forms.Label();
+            this.labelArOrderID = new System.Windows.Forms.Label();
+            this.textBoxArRsn = new System.Windows.Forms.TextBox();
             this.maruibutton10 = new SalesManagement_SysDev.maruibutton();
             this.buttonControl = new SalesManagement_SysDev.maruibutton();
             this.buttonLogin = new SalesManagement_SysDev.maruibutton();
             this.buttonLogout = new SalesManagement_SysDev.maruibutton();
+            this.dataGridViewArrivalDetail = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -411,8 +412,9 @@ namespace SalesManagement_SysDev
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).BeginInit();
-            this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).BeginInit();
+            this.panelArrival.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArrival)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArrivalDetail)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNowTime
@@ -4027,357 +4029,360 @@ namespace SalesManagement_SysDev
             this.labelOrClientManager.TabIndex = 136;
             this.labelOrClientManager.Text = "顧客担当者名";
             // 
-            // panel12
+            // panelArrival
             // 
-            this.panel12.BackColor = System.Drawing.Color.White;
-            this.panel12.Controls.Add(this.label4);
-            this.panel12.Controls.Add(this.textBox8);
-            this.panel12.Controls.Add(this.label3);
-            this.panel12.Controls.Add(this.textBox7);
-            this.panel12.Controls.Add(this.label2);
-            this.panel12.Controls.Add(this.textBox2);
-            this.panel12.Controls.Add(this.label1);
-            this.panel12.Controls.Add(this.textBox1);
-            this.panel12.Controls.Add(this.comboBox19);
-            this.panel12.Controls.Add(this.label84);
-            this.panel12.Controls.Add(this.comboBox20);
-            this.panel12.Controls.Add(this.label85);
-            this.panel12.Controls.Add(this.comboBox21);
-            this.panel12.Controls.Add(this.label86);
-            this.panel12.Controls.Add(this.button55);
-            this.panel12.Controls.Add(this.comboBox22);
-            this.panel12.Controls.Add(this.comboBox23);
-            this.panel12.Controls.Add(this.comboBox24);
-            this.panel12.Controls.Add(this.dateTimePicker5);
-            this.panel12.Controls.Add(this.maruibutton23);
-            this.panel12.Controls.Add(this.label87);
-            this.panel12.Controls.Add(this.maruibutton24);
-            this.panel12.Controls.Add(this.button57);
-            this.panel12.Controls.Add(this.button58);
-            this.panel12.Controls.Add(this.label88);
-            this.panel12.Controls.Add(this.label89);
-            this.panel12.Controls.Add(this.dataGridView12);
-            this.panel12.Controls.Add(this.label90);
-            this.panel12.Controls.Add(this.label91);
-            this.panel12.Controls.Add(this.textBox46);
-            this.panel12.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.panel12.Location = new System.Drawing.Point(207, 285);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1685, 738);
-            this.panel12.TabIndex = 208;
+            this.panelArrival.BackColor = System.Drawing.Color.White;
+            this.panelArrival.Controls.Add(this.dataGridViewArrivalDetail);
+            this.panelArrival.Controls.Add(this.labelArArrivalEmployeeName);
+            this.panelArrival.Controls.Add(this.textBoxArArrivalEmployeeName);
+            this.panelArrival.Controls.Add(this.labelArClientName);
+            this.panelArrival.Controls.Add(this.textBoxArClientName);
+            this.panelArrival.Controls.Add(this.labelArEmployeeName);
+            this.panelArrival.Controls.Add(this.textBoxArEmployeeName);
+            this.panelArrival.Controls.Add(this.labelArSalesOfficeName);
+            this.panelArrival.Controls.Add(this.textBoxArSalesOfficeName);
+            this.panelArrival.Controls.Add(this.comboBoxArSalesOfficeID);
+            this.panelArrival.Controls.Add(this.labelArSalesOfficeID);
+            this.panelArrival.Controls.Add(this.comboBoxArClientID);
+            this.panelArrival.Controls.Add(this.labelArClientID);
+            this.panelArrival.Controls.Add(this.comboBoxArEmployeeID);
+            this.panelArrival.Controls.Add(this.labelArEmployeeID);
+            this.panelArrival.Controls.Add(this.buttonArArrivalConfirm);
+            this.panelArrival.Controls.Add(this.comboBoxArOrderID);
+            this.panelArrival.Controls.Add(this.comboBoxArArrivalEmployeeID);
+            this.panelArrival.Controls.Add(this.comboBoxArArrivalID);
+            this.panelArrival.Controls.Add(this.dateTimePickerAr);
+            this.panelArrival.Controls.Add(this.buttonArNDisplay);
+            this.panelArrival.Controls.Add(this.labelArArrivalID);
+            this.panelArrival.Controls.Add(this.buttonArNDisplayList);
+            this.panelArrival.Controls.Add(this.buttonArSearch);
+            this.panelArrival.Controls.Add(this.buttonArDisplay);
+            this.panelArrival.Controls.Add(this.labelArRsn);
+            this.panelArrival.Controls.Add(this.labelArDateTime);
+            this.panelArrival.Controls.Add(this.dataGridViewArrival);
+            this.panelArrival.Controls.Add(this.labelArArrivalEmployeeID);
+            this.panelArrival.Controls.Add(this.labelArOrderID);
+            this.panelArrival.Controls.Add(this.textBoxArRsn);
+            this.panelArrival.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.panelArrival.Location = new System.Drawing.Point(207, 285);
+            this.panelArrival.Name = "panelArrival";
+            this.panelArrival.Size = new System.Drawing.Size(1685, 738);
+            this.panelArrival.TabIndex = 208;
             // 
-            // label4
+            // labelArArrivalEmployeeName
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(1137, 225);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 26);
-            this.label4.TabIndex = 201;
-            this.label4.Text = "入荷確認社員名";
+            this.labelArArrivalEmployeeName.AutoSize = true;
+            this.labelArArrivalEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArArrivalEmployeeName.Location = new System.Drawing.Point(1137, 225);
+            this.labelArArrivalEmployeeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArArrivalEmployeeName.Name = "labelArArrivalEmployeeName";
+            this.labelArArrivalEmployeeName.Size = new System.Drawing.Size(159, 26);
+            this.labelArArrivalEmployeeName.TabIndex = 201;
+            this.labelArArrivalEmployeeName.Text = "入荷確認社員名";
             // 
-            // textBox8
+            // textBoxArArrivalEmployeeName
             // 
-            this.textBox8.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox8.Location = new System.Drawing.Point(1300, 222);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(314, 34);
-            this.textBox8.TabIndex = 200;
+            this.textBoxArArrivalEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxArArrivalEmployeeName.Location = new System.Drawing.Point(1300, 222);
+            this.textBoxArArrivalEmployeeName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxArArrivalEmployeeName.Name = "textBoxArArrivalEmployeeName";
+            this.textBoxArArrivalEmployeeName.Size = new System.Drawing.Size(314, 34);
+            this.textBoxArArrivalEmployeeName.TabIndex = 200;
             // 
-            // label3
+            // labelArClientName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(330, 230);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 26);
-            this.label3.TabIndex = 199;
-            this.label3.Text = "社員名";
+            this.labelArClientName.AutoSize = true;
+            this.labelArClientName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArClientName.Location = new System.Drawing.Point(330, 230);
+            this.labelArClientName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArClientName.Name = "labelArClientName";
+            this.labelArClientName.Size = new System.Drawing.Size(75, 26);
+            this.labelArClientName.TabIndex = 199;
+            this.labelArClientName.Text = "顧客名";
             // 
-            // textBox7
+            // textBoxArClientName
             // 
-            this.textBox7.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox7.Location = new System.Drawing.Point(431, 224);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(314, 34);
-            this.textBox7.TabIndex = 198;
+            this.textBoxArClientName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxArClientName.Location = new System.Drawing.Point(431, 224);
+            this.textBoxArClientName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxArClientName.Name = "textBoxArClientName";
+            this.textBoxArClientName.Size = new System.Drawing.Size(314, 34);
+            this.textBoxArClientName.TabIndex = 198;
             // 
-            // label2
+            // labelArEmployeeName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(1079, 180);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 26);
-            this.label2.TabIndex = 197;
-            this.label2.Text = "社員名";
+            this.labelArEmployeeName.AutoSize = true;
+            this.labelArEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArEmployeeName.Location = new System.Drawing.Point(1079, 180);
+            this.labelArEmployeeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArEmployeeName.Name = "labelArEmployeeName";
+            this.labelArEmployeeName.Size = new System.Drawing.Size(75, 26);
+            this.labelArEmployeeName.TabIndex = 197;
+            this.labelArEmployeeName.Text = "社員名";
             // 
-            // textBox2
+            // textBoxArEmployeeName
             // 
-            this.textBox2.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox2.Location = new System.Drawing.Point(1180, 174);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(314, 34);
-            this.textBox2.TabIndex = 196;
+            this.textBoxArEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxArEmployeeName.Location = new System.Drawing.Point(1180, 174);
+            this.textBoxArEmployeeName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxArEmployeeName.Name = "textBoxArEmployeeName";
+            this.textBoxArEmployeeName.Size = new System.Drawing.Size(314, 34);
+            this.textBoxArEmployeeName.TabIndex = 196;
             // 
-            // label1
+            // labelArSalesOfficeName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(330, 180);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 26);
-            this.label1.TabIndex = 195;
-            this.label1.Text = "営業所名";
+            this.labelArSalesOfficeName.AutoSize = true;
+            this.labelArSalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArSalesOfficeName.Location = new System.Drawing.Point(330, 180);
+            this.labelArSalesOfficeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArSalesOfficeName.Name = "labelArSalesOfficeName";
+            this.labelArSalesOfficeName.Size = new System.Drawing.Size(96, 26);
+            this.labelArSalesOfficeName.TabIndex = 195;
+            this.labelArSalesOfficeName.Text = "営業所名";
             // 
-            // textBox1
+            // textBoxArSalesOfficeName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox1.Location = new System.Drawing.Point(431, 175);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(314, 34);
-            this.textBox1.TabIndex = 194;
+            this.textBoxArSalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxArSalesOfficeName.Location = new System.Drawing.Point(431, 175);
+            this.textBoxArSalesOfficeName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxArSalesOfficeName.Name = "textBoxArSalesOfficeName";
+            this.textBoxArSalesOfficeName.Size = new System.Drawing.Size(314, 34);
+            this.textBoxArSalesOfficeName.TabIndex = 194;
             // 
-            // comboBox19
+            // comboBoxArSalesOfficeID
             // 
-            this.comboBox19.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBox19.FormattingEnabled = true;
-            this.comboBox19.Location = new System.Drawing.Point(130, 176);
-            this.comboBox19.Name = "comboBox19";
-            this.comboBox19.Size = new System.Drawing.Size(166, 34);
-            this.comboBox19.TabIndex = 166;
+            this.comboBoxArSalesOfficeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.comboBoxArSalesOfficeID.FormattingEnabled = true;
+            this.comboBoxArSalesOfficeID.Location = new System.Drawing.Point(130, 176);
+            this.comboBoxArSalesOfficeID.Name = "comboBoxArSalesOfficeID";
+            this.comboBoxArSalesOfficeID.Size = new System.Drawing.Size(166, 34);
+            this.comboBoxArSalesOfficeID.TabIndex = 166;
             // 
-            // label84
+            // labelArSalesOfficeID
             // 
-            this.label84.AutoSize = true;
-            this.label84.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label84.Location = new System.Drawing.Point(26, 180);
-            this.label84.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(99, 26);
-            this.label84.TabIndex = 165;
-            this.label84.Text = "営業所ID";
+            this.labelArSalesOfficeID.AutoSize = true;
+            this.labelArSalesOfficeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArSalesOfficeID.Location = new System.Drawing.Point(26, 180);
+            this.labelArSalesOfficeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArSalesOfficeID.Name = "labelArSalesOfficeID";
+            this.labelArSalesOfficeID.Size = new System.Drawing.Size(99, 26);
+            this.labelArSalesOfficeID.TabIndex = 165;
+            this.labelArSalesOfficeID.Text = "営業所ID";
             // 
-            // comboBox20
+            // comboBoxArClientID
             // 
-            this.comboBox20.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBox20.FormattingEnabled = true;
-            this.comboBox20.Location = new System.Drawing.Point(130, 228);
-            this.comboBox20.Name = "comboBox20";
-            this.comboBox20.Size = new System.Drawing.Size(166, 34);
-            this.comboBox20.TabIndex = 164;
+            this.comboBoxArClientID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.comboBoxArClientID.FormattingEnabled = true;
+            this.comboBoxArClientID.Location = new System.Drawing.Point(130, 228);
+            this.comboBoxArClientID.Name = "comboBoxArClientID";
+            this.comboBoxArClientID.Size = new System.Drawing.Size(166, 34);
+            this.comboBoxArClientID.TabIndex = 164;
             // 
-            // label85
+            // labelArClientID
             // 
-            this.label85.AutoSize = true;
-            this.label85.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label85.Location = new System.Drawing.Point(26, 228);
-            this.label85.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(78, 26);
-            this.label85.TabIndex = 163;
-            this.label85.Text = "顧客ID";
+            this.labelArClientID.AutoSize = true;
+            this.labelArClientID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArClientID.Location = new System.Drawing.Point(26, 228);
+            this.labelArClientID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArClientID.Name = "labelArClientID";
+            this.labelArClientID.Size = new System.Drawing.Size(78, 26);
+            this.labelArClientID.TabIndex = 163;
+            this.labelArClientID.Text = "顧客ID";
             // 
-            // comboBox21
+            // comboBoxArEmployeeID
             // 
-            this.comboBox21.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBox21.FormattingEnabled = true;
-            this.comboBox21.Location = new System.Drawing.Point(879, 176);
-            this.comboBox21.Name = "comboBox21";
-            this.comboBox21.Size = new System.Drawing.Size(165, 34);
-            this.comboBox21.TabIndex = 162;
+            this.comboBoxArEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.comboBoxArEmployeeID.FormattingEnabled = true;
+            this.comboBoxArEmployeeID.Location = new System.Drawing.Point(879, 176);
+            this.comboBoxArEmployeeID.Name = "comboBoxArEmployeeID";
+            this.comboBoxArEmployeeID.Size = new System.Drawing.Size(165, 34);
+            this.comboBoxArEmployeeID.TabIndex = 162;
             // 
-            // label86
+            // labelArEmployeeID
             // 
-            this.label86.AutoSize = true;
-            this.label86.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label86.Location = new System.Drawing.Point(775, 179);
-            this.label86.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(78, 26);
-            this.label86.TabIndex = 161;
-            this.label86.Text = "社員ID";
+            this.labelArEmployeeID.AutoSize = true;
+            this.labelArEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArEmployeeID.Location = new System.Drawing.Point(775, 179);
+            this.labelArEmployeeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArEmployeeID.Name = "labelArEmployeeID";
+            this.labelArEmployeeID.Size = new System.Drawing.Size(78, 26);
+            this.labelArEmployeeID.TabIndex = 161;
+            this.labelArEmployeeID.Text = "社員ID";
             // 
-            // button55
+            // buttonArArrivalConfirm
             // 
-            this.button55.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button55.Location = new System.Drawing.Point(1036, 32);
-            this.button55.Margin = new System.Windows.Forms.Padding(2);
-            this.button55.Name = "button55";
-            this.button55.Size = new System.Drawing.Size(258, 75);
-            this.button55.TabIndex = 160;
-            this.button55.Text = "確定";
-            this.button55.UseVisualStyleBackColor = true;
+            this.buttonArArrivalConfirm.BackColor = System.Drawing.Color.LightCyan;
+            this.buttonArArrivalConfirm.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
+            this.buttonArArrivalConfirm.ForeColor = System.Drawing.Color.Red;
+            this.buttonArArrivalConfirm.Location = new System.Drawing.Point(1036, 32);
+            this.buttonArArrivalConfirm.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonArArrivalConfirm.Name = "buttonArArrivalConfirm";
+            this.buttonArArrivalConfirm.Size = new System.Drawing.Size(258, 75);
+            this.buttonArArrivalConfirm.TabIndex = 160;
+            this.buttonArArrivalConfirm.Text = "確定";
+            this.buttonArArrivalConfirm.UseVisualStyleBackColor = false;
             // 
-            // comboBox22
+            // comboBoxArOrderID
             // 
-            this.comboBox22.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBox22.FormattingEnabled = true;
-            this.comboBox22.Location = new System.Drawing.Point(431, 128);
-            this.comboBox22.Name = "comboBox22";
-            this.comboBox22.Size = new System.Drawing.Size(166, 34);
-            this.comboBox22.TabIndex = 159;
+            this.comboBoxArOrderID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.comboBoxArOrderID.FormattingEnabled = true;
+            this.comboBoxArOrderID.Location = new System.Drawing.Point(431, 128);
+            this.comboBoxArOrderID.Name = "comboBoxArOrderID";
+            this.comboBoxArOrderID.Size = new System.Drawing.Size(166, 34);
+            this.comboBoxArOrderID.TabIndex = 159;
             // 
-            // comboBox23
+            // comboBoxArArrivalEmployeeID
             // 
-            this.comboBox23.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBox23.FormattingEnabled = true;
-            this.comboBox23.Location = new System.Drawing.Point(943, 220);
-            this.comboBox23.Name = "comboBox23";
-            this.comboBox23.Size = new System.Drawing.Size(165, 34);
-            this.comboBox23.TabIndex = 158;
+            this.comboBoxArArrivalEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.comboBoxArArrivalEmployeeID.FormattingEnabled = true;
+            this.comboBoxArArrivalEmployeeID.Location = new System.Drawing.Point(943, 220);
+            this.comboBoxArArrivalEmployeeID.Name = "comboBoxArArrivalEmployeeID";
+            this.comboBoxArArrivalEmployeeID.Size = new System.Drawing.Size(165, 34);
+            this.comboBoxArArrivalEmployeeID.TabIndex = 158;
             // 
-            // comboBox24
+            // comboBoxArArrivalID
             // 
-            this.comboBox24.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBox24.FormattingEnabled = true;
-            this.comboBox24.Location = new System.Drawing.Point(130, 128);
-            this.comboBox24.Name = "comboBox24";
-            this.comboBox24.Size = new System.Drawing.Size(165, 34);
-            this.comboBox24.TabIndex = 157;
+            this.comboBoxArArrivalID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.comboBoxArArrivalID.FormattingEnabled = true;
+            this.comboBoxArArrivalID.Location = new System.Drawing.Point(130, 128);
+            this.comboBoxArArrivalID.Name = "comboBoxArArrivalID";
+            this.comboBoxArArrivalID.Size = new System.Drawing.Size(165, 34);
+            this.comboBoxArArrivalID.TabIndex = 157;
             // 
-            // dateTimePicker5
+            // dateTimePickerAr
             // 
-            this.dateTimePicker5.CalendarFont = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker5.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePicker5.Location = new System.Drawing.Point(157, 272);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(259, 34);
-            this.dateTimePicker5.TabIndex = 156;
+            this.dateTimePickerAr.CalendarFont = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dateTimePickerAr.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dateTimePickerAr.Location = new System.Drawing.Point(157, 272);
+            this.dateTimePickerAr.Name = "dateTimePickerAr";
+            this.dateTimePickerAr.Size = new System.Drawing.Size(259, 34);
+            this.dateTimePickerAr.TabIndex = 156;
             // 
-            // maruibutton23
+            // buttonArNDisplay
             // 
-            this.maruibutton23.BackColor = System.Drawing.Color.Red;
-            this.maruibutton23.FlatAppearance.BorderSize = 0;
-            this.maruibutton23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton23.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton23.Location = new System.Drawing.Point(1365, 32);
-            this.maruibutton23.Name = "maruibutton23";
-            this.maruibutton23.Size = new System.Drawing.Size(120, 95);
-            this.maruibutton23.TabIndex = 155;
-            this.maruibutton23.Text = "非表示";
-            this.maruibutton23.UseVisualStyleBackColor = false;
+            this.buttonArNDisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonArNDisplay.FlatAppearance.BorderSize = 0;
+            this.buttonArNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonArNDisplay.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonArNDisplay.Location = new System.Drawing.Point(1365, 32);
+            this.buttonArNDisplay.Name = "buttonArNDisplay";
+            this.buttonArNDisplay.Size = new System.Drawing.Size(120, 95);
+            this.buttonArNDisplay.TabIndex = 155;
+            this.buttonArNDisplay.Text = "非表示";
+            this.buttonArNDisplay.UseVisualStyleBackColor = false;
             // 
-            // label87
+            // labelArArrivalID
             // 
-            this.label87.AutoSize = true;
-            this.label87.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label87.Location = new System.Drawing.Point(26, 130);
-            this.label87.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(78, 26);
-            this.label87.TabIndex = 154;
-            this.label87.Text = "入荷ID";
+            this.labelArArrivalID.AutoSize = true;
+            this.labelArArrivalID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArArrivalID.Location = new System.Drawing.Point(26, 130);
+            this.labelArArrivalID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArArrivalID.Name = "labelArArrivalID";
+            this.labelArArrivalID.Size = new System.Drawing.Size(78, 26);
+            this.labelArArrivalID.TabIndex = 154;
+            this.labelArArrivalID.Text = "入荷ID";
             // 
-            // maruibutton24
+            // buttonArNDisplayList
             // 
-            this.maruibutton24.BackColor = System.Drawing.Color.Red;
-            this.maruibutton24.FlatAppearance.BorderSize = 0;
-            this.maruibutton24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton24.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton24.Location = new System.Drawing.Point(1508, 32);
-            this.maruibutton24.Name = "maruibutton24";
-            this.maruibutton24.Size = new System.Drawing.Size(120, 95);
-            this.maruibutton24.TabIndex = 154;
-            this.maruibutton24.Text = "非表示リスト";
-            this.maruibutton24.UseVisualStyleBackColor = false;
+            this.buttonArNDisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonArNDisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonArNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonArNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonArNDisplayList.Location = new System.Drawing.Point(1508, 32);
+            this.buttonArNDisplayList.Name = "buttonArNDisplayList";
+            this.buttonArNDisplayList.Size = new System.Drawing.Size(120, 95);
+            this.buttonArNDisplayList.TabIndex = 154;
+            this.buttonArNDisplayList.Text = "非表示リスト";
+            this.buttonArNDisplayList.UseVisualStyleBackColor = false;
             // 
-            // button57
+            // buttonArSearch
             // 
-            this.button57.BackColor = System.Drawing.Color.LightCyan;
-            this.button57.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button57.Location = new System.Drawing.Point(372, 28);
-            this.button57.Margin = new System.Windows.Forms.Padding(2);
-            this.button57.Name = "button57";
-            this.button57.Size = new System.Drawing.Size(258, 75);
-            this.button57.TabIndex = 151;
-            this.button57.Text = "検索";
-            this.button57.UseVisualStyleBackColor = false;
+            this.buttonArSearch.BackColor = System.Drawing.Color.LightCyan;
+            this.buttonArSearch.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonArSearch.Location = new System.Drawing.Point(372, 28);
+            this.buttonArSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonArSearch.Name = "buttonArSearch";
+            this.buttonArSearch.Size = new System.Drawing.Size(258, 75);
+            this.buttonArSearch.TabIndex = 151;
+            this.buttonArSearch.Text = "検索";
+            this.buttonArSearch.UseVisualStyleBackColor = false;
             // 
-            // button58
+            // buttonArDisplay
             // 
-            this.button58.BackColor = System.Drawing.Color.LightCyan;
-            this.button58.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.button58.Location = new System.Drawing.Point(34, 28);
-            this.button58.Margin = new System.Windows.Forms.Padding(2);
-            this.button58.Name = "button58";
-            this.button58.Size = new System.Drawing.Size(258, 75);
-            this.button58.TabIndex = 150;
-            this.button58.Text = "一覧表示";
-            this.button58.UseVisualStyleBackColor = false;
+            this.buttonArDisplay.BackColor = System.Drawing.Color.LightCyan;
+            this.buttonArDisplay.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonArDisplay.Location = new System.Drawing.Point(34, 28);
+            this.buttonArDisplay.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonArDisplay.Name = "buttonArDisplay";
+            this.buttonArDisplay.Size = new System.Drawing.Size(258, 75);
+            this.buttonArDisplay.TabIndex = 150;
+            this.buttonArDisplay.Text = "一覧表示";
+            this.buttonArDisplay.UseVisualStyleBackColor = false;
             // 
-            // label88
+            // labelArRsn
             // 
-            this.label88.AutoSize = true;
-            this.label88.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label88.Location = new System.Drawing.Point(26, 320);
-            this.label88.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(117, 26);
-            this.label88.TabIndex = 144;
-            this.label88.Text = "非表示理由";
+            this.labelArRsn.AutoSize = true;
+            this.labelArRsn.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArRsn.Location = new System.Drawing.Point(26, 320);
+            this.labelArRsn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArRsn.Name = "labelArRsn";
+            this.labelArRsn.Size = new System.Drawing.Size(117, 26);
+            this.labelArRsn.TabIndex = 144;
+            this.labelArRsn.Text = "非表示理由";
             // 
-            // label89
+            // labelArDateTime
             // 
-            this.label89.AutoSize = true;
-            this.label89.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label89.Location = new System.Drawing.Point(26, 275);
-            this.label89.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(117, 26);
-            this.label89.TabIndex = 143;
-            this.label89.Text = "入荷年月日";
+            this.labelArDateTime.AutoSize = true;
+            this.labelArDateTime.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArDateTime.Location = new System.Drawing.Point(26, 275);
+            this.labelArDateTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArDateTime.Name = "labelArDateTime";
+            this.labelArDateTime.Size = new System.Drawing.Size(117, 26);
+            this.labelArDateTime.TabIndex = 143;
+            this.labelArDateTime.Text = "入荷年月日";
             // 
-            // dataGridView12
+            // dataGridViewArrival
             // 
-            this.dataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView12.Location = new System.Drawing.Point(38, 401);
-            this.dataGridView12.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView12.Name = "dataGridView12";
-            this.dataGridView12.RowHeadersWidth = 62;
-            this.dataGridView12.RowTemplate.Height = 27;
-            this.dataGridView12.Size = new System.Drawing.Size(1614, 306);
-            this.dataGridView12.TabIndex = 122;
+            this.dataGridViewArrival.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewArrival.Location = new System.Drawing.Point(38, 401);
+            this.dataGridViewArrival.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewArrival.Name = "dataGridViewArrival";
+            this.dataGridViewArrival.RowHeadersWidth = 62;
+            this.dataGridViewArrival.RowTemplate.Height = 27;
+            this.dataGridViewArrival.Size = new System.Drawing.Size(999, 306);
+            this.dataGridViewArrival.TabIndex = 122;
             // 
-            // label90
+            // labelArArrivalEmployeeID
             // 
-            this.label90.AutoSize = true;
-            this.label90.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label90.Location = new System.Drawing.Point(776, 226);
-            this.label90.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(162, 26);
-            this.label90.TabIndex = 142;
-            this.label90.Text = "入荷確認社員ID";
+            this.labelArArrivalEmployeeID.AutoSize = true;
+            this.labelArArrivalEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArArrivalEmployeeID.Location = new System.Drawing.Point(776, 226);
+            this.labelArArrivalEmployeeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArArrivalEmployeeID.Name = "labelArArrivalEmployeeID";
+            this.labelArArrivalEmployeeID.Size = new System.Drawing.Size(162, 26);
+            this.labelArArrivalEmployeeID.TabIndex = 142;
+            this.labelArArrivalEmployeeID.Text = "入荷確認社員ID";
             // 
-            // label91
+            // labelArOrderID
             // 
-            this.label91.AutoSize = true;
-            this.label91.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label91.Location = new System.Drawing.Point(330, 132);
-            this.label91.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(78, 26);
-            this.label91.TabIndex = 141;
-            this.label91.Text = "受注ID";
+            this.labelArOrderID.AutoSize = true;
+            this.labelArOrderID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelArOrderID.Location = new System.Drawing.Point(330, 132);
+            this.labelArOrderID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelArOrderID.Name = "labelArOrderID";
+            this.labelArOrderID.Size = new System.Drawing.Size(78, 26);
+            this.labelArOrderID.TabIndex = 141;
+            this.labelArOrderID.Text = "受注ID";
             // 
-            // textBox46
+            // textBoxArRsn
             // 
-            this.textBox46.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBox46.Location = new System.Drawing.Point(157, 317);
-            this.textBox46.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox46.Multiline = true;
-            this.textBox46.Name = "textBox46";
-            this.textBox46.Size = new System.Drawing.Size(718, 67);
-            this.textBox46.TabIndex = 139;
+            this.textBoxArRsn.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxArRsn.Location = new System.Drawing.Point(157, 317);
+            this.textBoxArRsn.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxArRsn.Multiline = true;
+            this.textBoxArRsn.Name = "textBoxArRsn";
+            this.textBoxArRsn.Size = new System.Drawing.Size(718, 67);
+            this.textBoxArRsn.TabIndex = 139;
             // 
             // maruibutton10
             // 
@@ -4441,6 +4446,17 @@ namespace SalesManagement_SysDev
             this.buttonLogout.Text = "ログアウト";
             this.buttonLogout.UseVisualStyleBackColor = false;
             // 
+            // dataGridViewArrivalDetail
+            // 
+            this.dataGridViewArrivalDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewArrivalDetail.Location = new System.Drawing.Point(1070, 401);
+            this.dataGridViewArrivalDetail.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewArrivalDetail.Name = "dataGridViewArrivalDetail";
+            this.dataGridViewArrivalDetail.RowHeadersWidth = 62;
+            this.dataGridViewArrivalDetail.RowTemplate.Height = 27;
+            this.dataGridViewArrivalDetail.Size = new System.Drawing.Size(577, 306);
+            this.dataGridViewArrivalDetail.TabIndex = 202;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -4461,7 +4477,7 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel12);
+            this.Controls.Add(this.panelArrival);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel11);
@@ -4518,9 +4534,10 @@ namespace SalesManagement_SysDev
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderDetail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrder)).EndInit();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).EndInit();
+            this.panelArrival.ResumeLayout(false);
+            this.panelArrival.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArrival)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArrivalDetail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4829,29 +4846,29 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.DataGridView dataGridViewOrder;
         private System.Windows.Forms.Label labelOrDateTime;
         private System.Windows.Forms.Label labelOrClientManager;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.ComboBox comboBox19;
-        private System.Windows.Forms.Label label84;
-        private System.Windows.Forms.ComboBox comboBox20;
-        private System.Windows.Forms.Label label85;
-        private System.Windows.Forms.ComboBox comboBox21;
-        private System.Windows.Forms.Label label86;
-        private System.Windows.Forms.Button button55;
-        private System.Windows.Forms.ComboBox comboBox22;
-        private System.Windows.Forms.ComboBox comboBox23;
-        private System.Windows.Forms.ComboBox comboBox24;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
-        private maruibutton maruibutton23;
-        private System.Windows.Forms.Label label87;
-        private maruibutton maruibutton24;
-        private System.Windows.Forms.Button button57;
-        private System.Windows.Forms.Button button58;
-        private System.Windows.Forms.Label label88;
-        private System.Windows.Forms.Label label89;
-        private System.Windows.Forms.DataGridView dataGridView12;
-        private System.Windows.Forms.Label label90;
-        private System.Windows.Forms.Label label91;
-        private System.Windows.Forms.TextBox textBox46;
+        private System.Windows.Forms.Panel panelArrival;
+        private System.Windows.Forms.ComboBox comboBoxArSalesOfficeID;
+        private System.Windows.Forms.Label labelArSalesOfficeID;
+        private System.Windows.Forms.ComboBox comboBoxArClientID;
+        private System.Windows.Forms.Label labelArClientID;
+        private System.Windows.Forms.ComboBox comboBoxArEmployeeID;
+        private System.Windows.Forms.Label labelArEmployeeID;
+        private System.Windows.Forms.Button buttonArArrivalConfirm;
+        private System.Windows.Forms.ComboBox comboBoxArOrderID;
+        private System.Windows.Forms.ComboBox comboBoxArArrivalEmployeeID;
+        private System.Windows.Forms.ComboBox comboBoxArArrivalID;
+        private System.Windows.Forms.DateTimePicker dateTimePickerAr;
+        private maruibutton buttonArNDisplay;
+        private System.Windows.Forms.Label labelArArrivalID;
+        private maruibutton buttonArNDisplayList;
+        private System.Windows.Forms.Button buttonArSearch;
+        private System.Windows.Forms.Button buttonArDisplay;
+        private System.Windows.Forms.Label labelArRsn;
+        private System.Windows.Forms.Label labelArDateTime;
+        private System.Windows.Forms.DataGridView dataGridViewArrival;
+        private System.Windows.Forms.Label labelArArrivalEmployeeID;
+        private System.Windows.Forms.Label labelArOrderID;
+        private System.Windows.Forms.TextBox textBoxArRsn;
         private System.Windows.Forms.Label label111;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button70;
@@ -4873,14 +4890,15 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.TextBox textBoxOrClientName;
         private System.Windows.Forms.Label labelOrClientName;
         private System.Windows.Forms.Label labelOrderSearchItem;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label labelArArrivalEmployeeName;
+        private System.Windows.Forms.TextBox textBoxArArrivalEmployeeName;
+        private System.Windows.Forms.Label labelArClientName;
+        private System.Windows.Forms.TextBox textBoxArClientName;
+        private System.Windows.Forms.Label labelArEmployeeName;
+        private System.Windows.Forms.TextBox textBoxArEmployeeName;
+        private System.Windows.Forms.Label labelArSalesOfficeName;
+        private System.Windows.Forms.TextBox textBoxArSalesOfficeName;
+        private System.Windows.Forms.DataGridView dataGridViewArrivalDetail;
     }
 }
 
