@@ -70,8 +70,9 @@ namespace SalesManagement_SysDev
             // 
             // buttonProSelectConfirm
             // 
-            this.buttonProSelectConfirm.BackColor = System.Drawing.Color.Red;
-            this.buttonProSelectConfirm.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonProSelectConfirm.BackColor = System.Drawing.Color.White;
+            this.buttonProSelectConfirm.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonProSelectConfirm.ForeColor = System.Drawing.Color.Red;
             this.buttonProSelectConfirm.Location = new System.Drawing.Point(1038, 118);
             this.buttonProSelectConfirm.Margin = new System.Windows.Forms.Padding(1);
             this.buttonProSelectConfirm.Name = "buttonProSelectConfirm";
