@@ -45,8 +45,8 @@ namespace SalesManagement_SysDev
             // 
             // pictureBox1
             // 
+            this.pictureBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.pictureBox1.Image = global::SalesManagement_SysDev.Properties.Resources.dffaaaaaqaqadfa;
-            this.pictureBox1.InitialImage = global::SalesManagement_SysDev.Properties.Resources.dffaaaaaqaqadfa;
             this.pictureBox1.Location = new System.Drawing.Point(418, 201);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(212, 204);
