@@ -21,8 +21,8 @@ namespace SalesManagement_SysDev
             InitializeComponent();
 
             new ToolTip().SetToolTip(buttonClear, "入力中の情報が初期状態に戻る");
-            panelList.Add(panel5);
-            panelList.Add(panel3);
+            panelList.Add(panelStock);
+            panelList.Add(panelClient);
             panelList.Add(panel4);
             panelList.Add(panelProduct);
             panelList.Add(panelSale);
@@ -68,7 +68,7 @@ namespace SalesManagement_SysDev
         {
             panelHide();
 
-            panel5.Show();
+            panelStock.Show();
 
             labelManaTitle.Text = ((Button)sender).Text;
         }
@@ -109,7 +109,7 @@ namespace SalesManagement_SysDev
         {
             panelHide();
 
-            panel3.Show();
+            panelClient.Show();
 
             labelManaTitle.Text = ((Button)sender).Text;
         }
@@ -163,14 +163,14 @@ namespace SalesManagement_SysDev
                 flg = !flg;
                 timer3.Stop();
 
-                panel3.Size = new Size(1876, 738);
-                panel3.Location = new Point(12, 285);
+                panelClient.Size = new Size(1876, 738);
+                panelClient.Location = new Point(12, 285);
 
                 panel4.Size = new Size(1876, 738);
                 panel4.Location = new Point(12, 285);
 
-                panel5.Size = new Size(1876, 738);
-                panel5.Location = new Point(12, 285);
+                panelStock.Size = new Size(1876, 738);
+                panelStock.Location = new Point(12, 285);
 
                 panelProduct.Size = new Size(1876, 738);
                 panelProduct.Location = new Point(12, 285);
@@ -205,8 +205,8 @@ namespace SalesManagement_SysDev
                 dataGridView13.Size = new Size(1843, 306);
                 dataGridView13.Location = new Point(16, 401);
 
-                dataGridView1.Size = new Size(1843, 306);
-                dataGridView1.Location = new Point(16, 401);
+                dataGridViewSt.Size = new Size(1843, 306);
+                dataGridViewSt.Location = new Point(16, 401);
 
                 dataGridView2.Size = new Size(1843, 306);
                 dataGridView2.Location = new Point(16, 401);
@@ -234,15 +234,15 @@ namespace SalesManagement_SysDev
                 flg = !flg;
                 timer3.Stop();
 
-                panel3.Size = new Size(1685, 738);
-                panel3.Location = new Point(207, 285);
+                panelClient.Size = new Size(1685, 738);
+                panelClient.Location = new Point(207, 285);
 
 
                 panel4.Size = new Size(1685, 738);
                 panel4.Location = new Point(207, 285);
 
-                panel5.Size = new Size(1685, 738);
-                panel5.Location = new Point(207, 285);
+                panelStock.Size = new Size(1685, 738);
+                panelStock.Location = new Point(207, 285);
 
                 panelProduct.Size = new Size(1685, 738);
                 panelProduct.Location = new Point(207, 285);
@@ -280,8 +280,8 @@ namespace SalesManagement_SysDev
                 dataGridView13.Size = new Size(1614, 306);
                 dataGridView13.Location = new Point(38, 401);
 
-                dataGridView1.Size = new Size(1614, 306);
-                dataGridView1.Location = new Point(38, 401);
+                dataGridViewSt.Size = new Size(1614, 306);
+                dataGridViewSt.Location = new Point(38, 401);
 
                 dataGridView2.Size = new Size(1614, 306);
                 dataGridView2.Location = new Point(38, 401);
