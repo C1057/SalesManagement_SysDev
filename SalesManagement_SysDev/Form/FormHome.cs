@@ -148,163 +148,163 @@ namespace SalesManagement_SysDev
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
-        private void timer3_Tick(object sender, EventArgs e)
-        {
-            if (flg == true && this.panel1.Left > 0 - this.panel1.Size.Width)
-            {
-                this.panel1.Location = new Point(this.panel1.Left - 10, this.panel1.Top);
-            }
-            else if (flg == false && this.panel1.Right < this.panel1.Size.Width)
-            {
-                this.panel1.Location = new Point(this.panel1.Left + 10, this.panel1.Top);
-            }
-            else if (flg == true)
-            {
-                flg = !flg;
-                timer3.Stop();
+        //private void timer3_Tick(object sender, EventArgs e)
+        //{
+            //if (flg == true && this.panel1.Left > 0 - this.panel1.Size.Width)
+            //{
+            //    this.panel1.Location = new Point(this.panel1.Left - 10, this.panel1.Top);
+            //}
+            //else if (flg == false && this.panel1.Right < this.panel1.Size.Width)
+            //{
+            //    this.panel1.Location = new Point(this.panel1.Left + 10, this.panel1.Top);
+            //}
+            //else if (flg == true)
+            //{
+            //    flg = !flg;
+            //    timer3.Stop();
 
-                panelClient.Size = new Size(1876, 738);
-                panelClient.Location = new Point(12, 285);
+            //    panelClient.Size = new Size(1876, 738);
+            //    panelClient.Location = new Point(12, 285);
 
-                panelPrSearchTitle.Size = new Size(1876, 738);
-                panelPrSearchTitle.Location = new Point(12, 285);
+            //    panelPrSearchTitle.Size = new Size(1876, 738);
+            //    panelPrSearchTitle.Location = new Point(12, 285);
 
-                panelStock.Size = new Size(1876, 738);
-                panelStock.Location = new Point(12, 285);
+            //    panelStock.Size = new Size(1876, 738);
+            //    panelStock.Location = new Point(12, 285);
 
-                panelProduct.Size = new Size(1876, 738);
-                panelProduct.Location = new Point(12, 285);
+            //    panelProduct.Size = new Size(1876, 738);
+            //    panelProduct.Location = new Point(12, 285);
 
-                panelSale.Size = new Size(1876, 738);
-                panelSale.Location = new Point(12, 285);
+            //    panelSale.Size = new Size(1876, 738);
+            //    panelSale.Location = new Point(12, 285);
 
-                panelOrder.Size = new Size(1876, 738);
-                panelOrder.Location = new Point(12, 285);
+            //    panelOrder.Size = new Size(1876, 738);
+            //    panelOrder.Location = new Point(12, 285);
 
-                panelHattyu.Size = new Size(1876, 738);
-                panelHattyu.Location = new Point(12, 285);
+            //    panelHattyu.Size = new Size(1876, 738);
+            //    panelHattyu.Location = new Point(12, 285);
 
-                panelWareHousing.Size = new Size(1876, 738);
-                panelWareHousing.Location = new Point(12, 285);
+            //    panelWareHousing.Size = new Size(1876, 738);
+            //    panelWareHousing.Location = new Point(12, 285);
 
-                panelSyukko.Size = new Size(1876, 738);
-                panelSyukko.Location = new Point(12, 285);
+            //    panelSyukko.Size = new Size(1876, 738);
+            //    panelSyukko.Location = new Point(12, 285);
 
-                panelArrival.Size = new Size(1876, 738);
-                panelArrival.Location = new Point(12, 285);
+            //    panelArrival.Size = new Size(1876, 738);
+            //    panelArrival.Location = new Point(12, 285);
 
-                panelChumon.Size = new Size(1876, 738);
-                panelChumon.Location = new Point(12, 285);
+            //    panelChumon.Size = new Size(1876, 738);
+            //    panelChumon.Location = new Point(12, 285);
 
-                panelStart.Size = new Size(1876, 738);
-                panelStart.Location = new Point(12, 285);
+            //    panelStart.Size = new Size(1876, 738);
+            //    panelStart.Location = new Point(12, 285);
 
-                panelShipment.Size = new Size(1876, 738);
-                panelShipment.Location = new Point(12, 285);
+            //    panelShipment.Size = new Size(1876, 738);
+            //    panelShipment.Location = new Point(12, 285);
 
-                dataGridViewChumonMain.Size = new Size(1843, 306);
-                dataGridViewChumonMain.Location = new Point(16, 401);
+            //    dataGridViewChumonMain.Size = new Size(1843, 306);
+            //    dataGridViewChumonMain.Location = new Point(16, 401);
 
-                dataGridViewStock.Size = new Size(1843, 306);
-                dataGridViewStock.Location = new Point(16, 401);
+            //    dataGridViewStock.Size = new Size(1843, 306);
+            //    dataGridViewStock.Location = new Point(16, 401);
 
-                dataGridVieProduct.Size = new Size(1843, 306);
-                dataGridVieProduct.Location = new Point(16, 401);
+            //    dataGridVieProduct.Size = new Size(1843, 306);
+            //    dataGridVieProduct.Location = new Point(16, 401);
 
-                dataGridViewShipmentMain.Size = new Size(1843, 306);
-                dataGridViewShipmentMain.Location = new Point(16, 401);
+            //    dataGridViewShipmentMain.Size = new Size(1843, 306);
+            //    dataGridViewShipmentMain.Location = new Point(16, 401);
 
-                dataGridViewEmMana.Size = new Size(1843, 306);
-                dataGridViewEmMana.Location = new Point(16, 401);
+            //    dataGridViewEmMana.Size = new Size(1843, 306);
+            //    dataGridViewEmMana.Location = new Point(16, 401);
 
-                dataGridViewHattyuMain.Size = new Size(1843, 306);
-                dataGridViewHattyuMain.Location = new Point(16, 401);
+            //    dataGridViewHattyuMain.Size = new Size(1843, 306);
+            //    dataGridViewHattyuMain.Location = new Point(16, 401);
 
-                dataGridViewWareHousingMain.Size = new Size(1843, 306);
-                dataGridViewWareHousingMain.Location = new Point(16, 401);
+            //    dataGridViewWareHousingMain.Size = new Size(1843, 306);
+            //    dataGridViewWareHousingMain.Location = new Point(16, 401);
 
-                dataGridViewSyukkoMain.Size = new Size(1843, 306);
-                dataGridViewSyukkoMain.Location = new Point(16, 401);
+            //    dataGridViewSyukkoMain.Size = new Size(1843, 306);
+            //    dataGridViewSyukkoMain.Location = new Point(16, 401);
 
-                dataGridViewArrivalMain.Size = new Size(1843, 306);
-                dataGridViewArrivalMain.Location = new Point(16, 401);
-            }
-            else if (flg == false)
-            {
-                flg = !flg;
-                timer3.Stop();
+            //    dataGridViewArrivalMain.Size = new Size(1843, 306);
+            //    dataGridViewArrivalMain.Location = new Point(16, 401);
+            //}
+            //else if (flg == false)
+            //{
+            //    flg = !flg;
+            //    timer3.Stop();
 
-                panelClient.Size = new Size(1685, 738);
-                panelClient.Location = new Point(207, 285);
+            //    panelClient.Size = new Size(1685, 738);
+            //    panelClient.Location = new Point(207, 285);
 
 
-                panelPrSearchTitle.Size = new Size(1685, 738);
-                panelPrSearchTitle.Location = new Point(207, 285);
+            //    panelPrSearchTitle.Size = new Size(1685, 738);
+            //    panelPrSearchTitle.Location = new Point(207, 285);
 
-                panelStock.Size = new Size(1685, 738);
-                panelStock.Location = new Point(207, 285);
+            //    panelStock.Size = new Size(1685, 738);
+            //    panelStock.Location = new Point(207, 285);
 
-                panelProduct.Size = new Size(1685, 738);
-                panelProduct.Location = new Point(207, 285);
+            //    panelProduct.Size = new Size(1685, 738);
+        //        panelProduct.Location = new Point(207, 285);
 
-                panelSale.Size = new Size(1685, 738);
-                panelSale.Location = new Point(207, 285);
+        //        panelSale.Size = new Size(1685, 738);
+        //        panelSale.Location = new Point(207, 285);
 
-                panelOrder.Size = new Size(1685, 738);
-                panelOrder.Location = new Point(207, 285);
+        //        panelOrder.Size = new Size(1685, 738);
+        //        panelOrder.Location = new Point(207, 285);
 
-                panelHattyu.Size = new Size(1685, 738);
-                panelHattyu.Location = new Point(207, 285);
+        //        panelHattyu.Size = new Size(1685, 738);
+        //        panelHattyu.Location = new Point(207, 285);
 
-                panelWareHousing.Size = new Size(1685, 738);
-                panelWareHousing.Location = new Point(207, 285);
+        //        panelWareHousing.Size = new Size(1685, 738);
+        //        panelWareHousing.Location = new Point(207, 285);
 
-                panelSyukko.Size = new Size(1685, 738);
-                panelSyukko.Location = new Point(207, 285);
+        //        panelSyukko.Size = new Size(1685, 738);
+        //        panelSyukko.Location = new Point(207, 285);
 
-                panelArrival.Size = new Size(1685, 738);
-                panelArrival.Location = new Point(207, 285);
+        //        panelArrival.Size = new Size(1685, 738);
+        //        panelArrival.Location = new Point(207, 285);
 
-                panelChumon.Size = new Size(1685, 738);
-                panelChumon.Location = new Point(207, 285);
+        //        panelChumon.Size = new Size(1685, 738);
+        //        panelChumon.Location = new Point(207, 285);
 
-                panelStart.Size = new Size(1685, 738);
-                panelStart.Location = new Point(207, 285);
+        //        panelStart.Size = new Size(1685, 738);
+        //        panelStart.Location = new Point(207, 285);
 
-                panelShipment.Size = new Size(1685, 738);
-                panelShipment.Location = new Point(207, 285);
+        //        panelShipment.Size = new Size(1685, 738);
+        //        panelShipment.Location = new Point(207, 285);
 
-                dataGridViewChumonMain.Size = new Size(1614, 306);
-                dataGridViewChumonMain.Location = new Point(38, 401);
+        //        dataGridViewChumonMain.Size = new Size(1614, 306);
+        //        dataGridViewChumonMain.Location = new Point(38, 401);
 
-                dataGridViewChumonMain.Size = new Size(1614, 306);
-                dataGridViewChumonMain.Location = new Point(38, 401);
+        //        dataGridViewChumonMain.Size = new Size(1614, 306);
+        //        dataGridViewChumonMain.Location = new Point(38, 401);
 
-                dataGridViewStock.Size = new Size(1614, 306);
-                dataGridViewStock.Location = new Point(38, 401);
+        //        dataGridViewStock.Size = new Size(1614, 306);
+        //        dataGridViewStock.Location = new Point(38, 401);
 
-                dataGridVieProduct.Size = new Size(1614, 306);
-                dataGridVieProduct.Location = new Point(38, 401);
+        //        dataGridVieProduct.Size = new Size(1614, 306);
+        //        dataGridVieProduct.Location = new Point(38, 401);
 
-                dataGridViewShipmentMain.Size = new Size(1614, 306);
-                dataGridViewShipmentMain.Location = new Point(38, 401);
+        //        dataGridViewShipmentMain.Size = new Size(1614, 306);
+        //        dataGridViewShipmentMain.Location = new Point(38, 401);
 
-                dataGridViewEmMana.Size = new Size(1614, 306);
-                dataGridViewEmMana.Location = new Point(38, 401);
+        //        dataGridViewEmMana.Size = new Size(1614, 306);
+        //        dataGridViewEmMana.Location = new Point(38, 401);
 
-                dataGridViewHattyuMain.Size = new Size(1614, 306);
-                dataGridViewHattyuMain.Location = new Point(38, 401);
+        //        dataGridViewHattyuMain.Size = new Size(1614, 306);
+        //        dataGridViewHattyuMain.Location = new Point(38, 401);
 
-                dataGridViewWareHousingMain.Size = new Size(1614, 306);
-                dataGridViewWareHousingMain.Location = new Point(38, 401);
+        //        dataGridViewWareHousingMain.Size = new Size(1614, 306);
+        //        dataGridViewWareHousingMain.Location = new Point(38, 401);
 
-                dataGridViewSyukkoMain.Size = new Size(1614, 306);
-                dataGridViewSyukkoMain.Location = new Point(38, 401);
+        //        dataGridViewSyukkoMain.Size = new Size(1614, 306);
+        //        dataGridViewSyukkoMain.Location = new Point(38, 401);
 
-                dataGridViewArrivalMain.Size = new Size(1614, 306);
-                dataGridViewArrivalMain.Location = new Point(38, 401);
-            }
-        }
+        //        dataGridViewArrivalMain.Size = new Size(1614, 306);
+        //        dataGridViewArrivalMain.Location = new Point(38, 401);
+        //    }
+        //}
 
         private void button40_Click(object sender, EventArgs e)
         {
