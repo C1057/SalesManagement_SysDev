@@ -57,7 +57,7 @@ namespace SalesManagement_SysDev
             // 
             // labelSOManaTitle
             // 
-            this.labelSOManaTitle.Font = new System.Drawing.Font("Meiryo UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelSOManaTitle.Font = new System.Drawing.Font("Meiryo UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelSOManaTitle.Location = new System.Drawing.Point(428, 26);
             this.labelSOManaTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSOManaTitle.Name = "labelSOManaTitle";
@@ -275,7 +275,7 @@ namespace SalesManagement_SysDev
             this.maruibuttonSOManaDeleteList.BackColor = System.Drawing.Color.Red;
             this.maruibuttonSOManaDeleteList.FlatAppearance.BorderSize = 0;
             this.maruibuttonSOManaDeleteList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibuttonSOManaDeleteList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.maruibuttonSOManaDeleteList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.maruibuttonSOManaDeleteList.Location = new System.Drawing.Point(1028, 119);
             this.maruibuttonSOManaDeleteList.Name = "maruibuttonSOManaDeleteList";
             this.maruibuttonSOManaDeleteList.Size = new System.Drawing.Size(140, 107);
@@ -288,7 +288,7 @@ namespace SalesManagement_SysDev
             this.maruibuttonSOManaDelete.BackColor = System.Drawing.Color.Red;
             this.maruibuttonSOManaDelete.FlatAppearance.BorderSize = 0;
             this.maruibuttonSOManaDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibuttonSOManaDelete.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.maruibuttonSOManaDelete.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.maruibuttonSOManaDelete.Location = new System.Drawing.Point(873, 119);
             this.maruibuttonSOManaDelete.Name = "maruibuttonSOManaDelete";
             this.maruibuttonSOManaDelete.Size = new System.Drawing.Size(140, 107);

@@ -358,7 +358,7 @@ namespace SalesManagement_SysDev
             this.maruibutton7.BackColor = System.Drawing.Color.Red;
             this.maruibutton7.FlatAppearance.BorderSize = 0;
             this.maruibutton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton7.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.maruibutton7.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.maruibutton7.Location = new System.Drawing.Point(1460, 11);
             this.maruibutton7.Name = "maruibutton7";
             this.maruibutton7.Size = new System.Drawing.Size(140, 123);
@@ -371,7 +371,7 @@ namespace SalesManagement_SysDev
             this.maruibutton8.BackColor = System.Drawing.Color.Red;
             this.maruibutton8.FlatAppearance.BorderSize = 0;
             this.maruibutton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton8.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.maruibutton8.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.maruibutton8.Location = new System.Drawing.Point(1314, 11);
             this.maruibutton8.Name = "maruibutton8";
             this.maruibutton8.Size = new System.Drawing.Size(140, 123);
