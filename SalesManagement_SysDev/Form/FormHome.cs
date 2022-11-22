@@ -10,29 +10,29 @@ using System.Windows.Forms;
 
 namespace SalesManagement_SysDev
 {
-    public partial class Form1 : Form
+    public partial class FormHome : Form
     {
         private List<Panel> panelList = new System.Collections.Generic.List<Panel>();
 
         bool flg = true;
 
-        public Form1()
+        public FormHome()
         {
             InitializeComponent();
 
             new ToolTip().SetToolTip(buttonClear, "入力中の情報が初期状態に戻る");
             panelList.Add(panelStock);
             panelList.Add(panelClient);
-            panelList.Add(panel4);
+            panelList.Add(panelPrSearchTitle);
             panelList.Add(panelProduct);
             panelList.Add(panelSale);
             panelList.Add(panel8);
-            panelList.Add(panel9);
-            panelList.Add(panel10);
+            panelList.Add(panelHattyu);
+            panelList.Add(panelWareHousing);
             panelList.Add(panelSyukko);
             panelList.Add(panelArrival);
             panelList.Add(panelChumon);
-            panelList.Add(panelShSearchTitle);
+            panelList.Add(panelShipment);
 
             panelHide();
         }
@@ -51,7 +51,7 @@ namespace SalesManagement_SysDev
             labelNowTime.Text = string.Format("{0:00}:{1:00}:{2:00}", d.Hour, d.Minute, d.Second);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FormHome_Load(object sender, EventArgs e)
         {
             Text = Application.ProductName;
             timer1.Interval = 1000;
@@ -75,7 +75,7 @@ namespace SalesManagement_SysDev
 
         private void maruibutton1_Click(object sender, EventArgs e)
         {
-            panel14.Hide();
+            panelStart.Hide();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -118,7 +118,7 @@ namespace SalesManagement_SysDev
         {
             panelHide();
 
-            panel4.Show();
+            panelPrSearchTitle.Show();
 
             labelManaTitle.Text = ((Button)sender).Text;
         }
@@ -166,8 +166,8 @@ namespace SalesManagement_SysDev
                 panelClient.Size = new Size(1876, 738);
                 panelClient.Location = new Point(12, 285);
 
-                panel4.Size = new Size(1876, 738);
-                panel4.Location = new Point(12, 285);
+                panelPrSearchTitle.Size = new Size(1876, 738);
+                panelPrSearchTitle.Location = new Point(12, 285);
 
                 panelStock.Size = new Size(1876, 738);
                 panelStock.Location = new Point(12, 285);
@@ -181,11 +181,11 @@ namespace SalesManagement_SysDev
                 panel8.Size = new Size(1876, 738);
                 panel8.Location = new Point(12, 285);
 
-                panel9.Size = new Size(1876, 738);
-                panel9.Location = new Point(12, 285);
+                panelHattyu.Size = new Size(1876, 738);
+                panelHattyu.Location = new Point(12, 285);
 
-                panel10.Size = new Size(1876, 738);
-                panel10.Location = new Point(12, 285);
+                panelWareHousing.Size = new Size(1876, 738);
+                panelWareHousing.Location = new Point(12, 285);
 
                 panelSyukko.Size = new Size(1876, 738);
                 panelSyukko.Location = new Point(12, 285);
@@ -196,38 +196,38 @@ namespace SalesManagement_SysDev
                 panelChumon.Size = new Size(1876, 738);
                 panelChumon.Location = new Point(12, 285);
 
-                panel14.Size = new Size(1876, 738);
-                panel14.Location = new Point(12, 285);
+                panelStart.Size = new Size(1876, 738);
+                panelStart.Location = new Point(12, 285);
 
-                panelShSearchTitle.Size = new Size(1876, 738);
-                panelShSearchTitle.Location = new Point(12, 285);
+                panelShipment.Size = new Size(1876, 738);
+                panelShipment.Location = new Point(12, 285);
 
-                dataGridView13.Size = new Size(1843, 306);
-                dataGridView13.Location = new Point(16, 401);
+                dataGridViewChumonMain.Size = new Size(1843, 306);
+                dataGridViewChumonMain.Location = new Point(16, 401);
 
                 dataGridViewSt.Size = new Size(1843, 306);
                 dataGridViewSt.Location = new Point(16, 401);
 
-                dataGridView2.Size = new Size(1843, 306);
-                dataGridView2.Location = new Point(16, 401);
+                dataGridVieProduct.Size = new Size(1843, 306);
+                dataGridVieProduct.Location = new Point(16, 401);
 
-                dataGridView3.Size = new Size(1843, 306);
-                dataGridView3.Location = new Point(16, 401);
+                dataGridViewShipment.Size = new Size(1843, 306);
+                dataGridViewShipment.Location = new Point(16, 401);
 
                 dataGridViewEmMana.Size = new Size(1843, 306);
                 dataGridViewEmMana.Location = new Point(16, 401);
 
-                dataGridView9.Size = new Size(1843, 306);
-                dataGridView9.Location = new Point(16, 401);
+                dataGridViewHattyuMain.Size = new Size(1843, 306);
+                dataGridViewHattyuMain.Location = new Point(16, 401);
 
-                dataGridView10.Size = new Size(1843, 306);
-                dataGridView10.Location = new Point(16, 401);
+                dataGridViewWareHousingMain.Size = new Size(1843, 306);
+                dataGridViewWareHousingMain.Location = new Point(16, 401);
 
-                dataGridViewSyukko.Size = new Size(1843, 306);
-                dataGridViewSyukko.Location = new Point(16, 401);
+                dataGridViewSyukkoMain.Size = new Size(1843, 306);
+                dataGridViewSyukkoMain.Location = new Point(16, 401);
 
-                dataGridViewArrival.Size = new Size(1843, 306);
-                dataGridViewArrival.Location = new Point(16, 401);
+                dataGridViewArrivalMain.Size = new Size(1843, 306);
+                dataGridViewArrivalMain.Location = new Point(16, 401);
             }
             else if (flg == false)
             {
@@ -238,8 +238,8 @@ namespace SalesManagement_SysDev
                 panelClient.Location = new Point(207, 285);
 
 
-                panel4.Size = new Size(1685, 738);
-                panel4.Location = new Point(207, 285);
+                panelPrSearchTitle.Size = new Size(1685, 738);
+                panelPrSearchTitle.Location = new Point(207, 285);
 
                 panelStock.Size = new Size(1685, 738);
                 panelStock.Location = new Point(207, 285);
@@ -253,11 +253,11 @@ namespace SalesManagement_SysDev
                 panel8.Size = new Size(1685, 738);
                 panel8.Location = new Point(207, 285);
 
-                panel9.Size = new Size(1685, 738);
-                panel9.Location = new Point(207, 285);
+                panelHattyu.Size = new Size(1685, 738);
+                panelHattyu.Location = new Point(207, 285);
 
-                panel10.Size = new Size(1685, 738);
-                panel10.Location = new Point(207, 285);
+                panelWareHousing.Size = new Size(1685, 738);
+                panelWareHousing.Location = new Point(207, 285);
 
                 panelSyukko.Size = new Size(1685, 738);
                 panelSyukko.Location = new Point(207, 285);
@@ -268,41 +268,41 @@ namespace SalesManagement_SysDev
                 panelChumon.Size = new Size(1685, 738);
                 panelChumon.Location = new Point(207, 285);
 
-                panel14.Size = new Size(1685, 738);
-                panel14.Location = new Point(207, 285);
+                panelStart.Size = new Size(1685, 738);
+                panelStart.Location = new Point(207, 285);
 
-                panelShSearchTitle.Size = new Size(1685, 738);
-                panelShSearchTitle.Location = new Point(207, 285);
+                panelShipment.Size = new Size(1685, 738);
+                panelShipment.Location = new Point(207, 285);
 
-                dataGridView13.Size = new Size(1614, 306);
-                dataGridView13.Location = new Point(38, 401);
+                dataGridViewChumonMain.Size = new Size(1614, 306);
+                dataGridViewChumonMain.Location = new Point(38, 401);
 
-                dataGridView13.Size = new Size(1614, 306);
-                dataGridView13.Location = new Point(38, 401);
+                dataGridViewChumonMain.Size = new Size(1614, 306);
+                dataGridViewChumonMain.Location = new Point(38, 401);
 
                 dataGridViewSt.Size = new Size(1614, 306);
                 dataGridViewSt.Location = new Point(38, 401);
 
-                dataGridView2.Size = new Size(1614, 306);
-                dataGridView2.Location = new Point(38, 401);
+                dataGridVieProduct.Size = new Size(1614, 306);
+                dataGridVieProduct.Location = new Point(38, 401);
 
-                dataGridView3.Size = new Size(1614, 306);
-                dataGridView3.Location = new Point(38, 401);
+                dataGridViewShipment.Size = new Size(1614, 306);
+                dataGridViewShipment.Location = new Point(38, 401);
 
                 dataGridViewEmMana.Size = new Size(1614, 306);
                 dataGridViewEmMana.Location = new Point(38, 401);
 
-                dataGridView9.Size = new Size(1614, 306);
-                dataGridView9.Location = new Point(38, 401);
+                dataGridViewHattyuMain.Size = new Size(1614, 306);
+                dataGridViewHattyuMain.Location = new Point(38, 401);
 
-                dataGridView10.Size = new Size(1614, 306);
-                dataGridView10.Location = new Point(38, 401);
+                dataGridViewWareHousingMain.Size = new Size(1614, 306);
+                dataGridViewWareHousingMain.Location = new Point(38, 401);
 
-                dataGridViewSyukko.Size = new Size(1614, 306);
-                dataGridViewSyukko.Location = new Point(38, 401);
+                dataGridViewSyukkoMain.Size = new Size(1614, 306);
+                dataGridViewSyukkoMain.Location = new Point(38, 401);
 
-                dataGridViewArrival.Size = new Size(1614, 306);
-                dataGridViewArrival.Location = new Point(38, 401);
+                dataGridViewArrivalMain.Size = new Size(1614, 306);
+                dataGridViewArrivalMain.Location = new Point(38, 401);
             }
         }
 
@@ -315,7 +315,7 @@ namespace SalesManagement_SysDev
         {
             panelHide();
 
-            panel14.Show();
+            panelStart.Show();
 
             labelManaTitle.Text = ((Button)sender).Text;
         }
@@ -333,7 +333,7 @@ namespace SalesManagement_SysDev
         {
             panelHide();
 
-            panel9.Show();
+            panelHattyu.Show();
 
             labelManaTitle.Text = ((Button)sender).Text;
         }
@@ -342,7 +342,7 @@ namespace SalesManagement_SysDev
         {
             panelHide();
 
-            panel10.Show();
+            panelWareHousing.Show();
 
             labelManaTitle.Text = ((Button)sender).Text;
         }
@@ -372,7 +372,7 @@ namespace SalesManagement_SysDev
         {
             panelHide();
 
-            panelShSearchTitle.Show();
+            panelShipment.Show();
 
             labelManaTitle.Text = ((Button)sender).Text;
         }

@@ -20,7 +20,7 @@ namespace SalesManagement_SysDev
 
         private void maruibutton1_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            FormHome form1 = new FormHome();
 
             form1.Show();
         }
