@@ -70,6 +70,10 @@ namespace SalesManagement_SysDev
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.buttonHumberger = new System.Windows.Forms.Button();
             this.panelHattyu = new System.Windows.Forms.Panel();
+            this.labelHaProductName = new System.Windows.Forms.Label();
+            this.textBoxHaProductName = new System.Windows.Forms.TextBox();
+            this.labelHaEmployeeName = new System.Windows.Forms.Label();
+            this.textBoxHaEmployeeName = new System.Windows.Forms.TextBox();
             this.labelHaQuantity = new System.Windows.Forms.Label();
             this.textBoxHaQuantity = new System.Windows.Forms.TextBox();
             this.labelHaSearchTitle = new System.Windows.Forms.Label();
@@ -262,7 +266,7 @@ namespace SalesManagement_SysDev
             this.textBoxShRsn = new System.Windows.Forms.TextBox();
             this.panelStart = new System.Windows.Forms.Panel();
             this.label101 = new System.Windows.Forms.Label();
-            this.panelPrSearchTitle = new System.Windows.Forms.Panel();
+            this.panelProduct = new System.Windows.Forms.Panel();
             this.numericUpDownPrSafeStock = new System.Windows.Forms.NumericUpDown();
             this.labelPrSmallClassName = new System.Windows.Forms.Label();
             this.textBoxPrSmallClassName = new System.Windows.Forms.TextBox();
@@ -276,7 +280,7 @@ namespace SalesManagement_SysDev
             this.textBoxPrMakerName = new System.Windows.Forms.TextBox();
             this.labelPrSearchTitle = new System.Windows.Forms.Label();
             this.buttonPrMakerOpen = new System.Windows.Forms.Button();
-            this.dateTimePickerPrRelease = new System.Windows.Forms.DateTimePicker();
+            this.buttonHidePassword = new System.Windows.Forms.DateTimePicker();
             this.comboBoxPrMakerID = new System.Windows.Forms.ComboBox();
             this.comboBoxPrProductID = new System.Windows.Forms.ComboBox();
             this.buttonPrNDisplayList = new SalesManagement_SysDev.maruibutton();
@@ -303,7 +307,7 @@ namespace SalesManagement_SysDev
             this.labelPrProductID = new System.Windows.Forms.Label();
             this.textBoxPrProductName = new System.Windows.Forms.TextBox();
             this.buttonPrAdd = new System.Windows.Forms.Button();
-            this.panelProduct = new System.Windows.Forms.Panel();
+            this.panelEmployee = new System.Windows.Forms.Panel();
             this.labelEmSearchTitle = new System.Windows.Forms.Label();
             this.labelEmPositionName = new System.Windows.Forms.Label();
             this.textBoxEmPositionName = new System.Windows.Forms.TextBox();
@@ -429,10 +433,6 @@ namespace SalesManagement_SysDev
             this.buttonControl = new SalesManagement_SysDev.maruibutton();
             this.buttonLogin = new SalesManagement_SysDev.maruibutton();
             this.buttonLogout = new SalesManagement_SysDev.maruibutton();
-            this.labelHaEmployeeName = new System.Windows.Forms.Label();
-            this.textBoxHaEmployeeName = new System.Windows.Forms.TextBox();
-            this.labelHaProductName = new System.Windows.Forms.Label();
-            this.textBoxHaProductName = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHattyu.SuspendLayout();
@@ -455,10 +455,10 @@ namespace SalesManagement_SysDev
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShipmentDetail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShipmentMain)).BeginInit();
             this.panelStart.SuspendLayout();
-            this.panelPrSearchTitle.SuspendLayout();
+            this.panelProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrSafeStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVieProduct)).BeginInit();
-            this.panelProduct.SuspendLayout();
+            this.panelEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmMana)).BeginInit();
             this.panelSale.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSaDetail)).BeginInit();
@@ -550,7 +550,7 @@ namespace SalesManagement_SysDev
             this.buttonHome.TabIndex = 49;
             this.buttonHome.Text = "ホーム";
             this.buttonHome.UseVisualStyleBackColor = true;
-            this.buttonHome.Click += new System.EventHandler(this.button38_Click);
+            this.buttonHome.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
             // labelHomeEmployeeIDNow
             // 
@@ -641,7 +641,7 @@ namespace SalesManagement_SysDev
             this.buttonProduct.TabIndex = 43;
             this.buttonProduct.Text = "商品管理";
             this.buttonProduct.UseVisualStyleBackColor = false;
-            this.buttonProduct.Click += new System.EventHandler(this.button24_Click);
+            this.buttonProduct.Click += new System.EventHandler(this.buttonProduct_Click);
             // 
             // buttonArrival
             // 
@@ -654,7 +654,7 @@ namespace SalesManagement_SysDev
             this.buttonArrival.TabIndex = 51;
             this.buttonArrival.Text = "入荷管理";
             this.buttonArrival.UseVisualStyleBackColor = false;
-            this.buttonArrival.Click += new System.EventHandler(this.button5_Click_1);
+            this.buttonArrival.Click += new System.EventHandler(this.buttonArrival_Click);
             // 
             // buttonSyukko
             // 
@@ -667,7 +667,7 @@ namespace SalesManagement_SysDev
             this.buttonSyukko.TabIndex = 52;
             this.buttonSyukko.Text = "出庫管理";
             this.buttonSyukko.UseVisualStyleBackColor = false;
-            this.buttonSyukko.Click += new System.EventHandler(this.button6_Click);
+            this.buttonSyukko.Click += new System.EventHandler(this.buttonSyukko_Click);
             // 
             // buttonHattyu
             // 
@@ -680,7 +680,7 @@ namespace SalesManagement_SysDev
             this.buttonHattyu.TabIndex = 49;
             this.buttonHattyu.Text = "発注管理";
             this.buttonHattyu.UseVisualStyleBackColor = false;
-            this.buttonHattyu.Click += new System.EventHandler(this.button10_Click);
+            this.buttonHattyu.Click += new System.EventHandler(this.buttonHattyu_Click);
             // 
             // buttonWareHousing
             // 
@@ -693,7 +693,7 @@ namespace SalesManagement_SysDev
             this.buttonWareHousing.TabIndex = 50;
             this.buttonWareHousing.Text = "入庫管理";
             this.buttonWareHousing.UseVisualStyleBackColor = false;
-            this.buttonWareHousing.Click += new System.EventHandler(this.button11_Click);
+            this.buttonWareHousing.Click += new System.EventHandler(this.buttonWareHousing_Click);
             // 
             // buttonOrder
             // 
@@ -706,7 +706,7 @@ namespace SalesManagement_SysDev
             this.buttonOrder.TabIndex = 47;
             this.buttonOrder.Text = "受注管理";
             this.buttonOrder.UseVisualStyleBackColor = false;
-            this.buttonOrder.Click += new System.EventHandler(this.button8_Click);
+            this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
             // 
             // buttonChumon
             // 
@@ -719,7 +719,7 @@ namespace SalesManagement_SysDev
             this.buttonChumon.TabIndex = 48;
             this.buttonChumon.Text = "注文管理";
             this.buttonChumon.UseVisualStyleBackColor = false;
-            this.buttonChumon.Click += new System.EventHandler(this.button9_Click);
+            this.buttonChumon.Click += new System.EventHandler(this.buttonChumon_Click);
             // 
             // buttonClient
             // 
@@ -732,7 +732,7 @@ namespace SalesManagement_SysDev
             this.buttonClient.TabIndex = 42;
             this.buttonClient.Text = "顧客管理";
             this.buttonClient.UseVisualStyleBackColor = false;
-            this.buttonClient.Click += new System.EventHandler(this.button3_Click);
+            this.buttonClient.Click += new System.EventHandler(this.buttonClient_Click);
             // 
             // buttonSale
             // 
@@ -746,7 +746,7 @@ namespace SalesManagement_SysDev
             this.buttonSale.TabIndex = 46;
             this.buttonSale.Text = "売上管理";
             this.buttonSale.UseVisualStyleBackColor = false;
-            this.buttonSale.Click += new System.EventHandler(this.button7_Click);
+            this.buttonSale.Click += new System.EventHandler(this.buttonSale_Click);
             // 
             // buttonStock
             // 
@@ -759,7 +759,7 @@ namespace SalesManagement_SysDev
             this.buttonStock.TabIndex = 44;
             this.buttonStock.Text = "在庫管理";
             this.buttonStock.UseVisualStyleBackColor = false;
-            this.buttonStock.Click += new System.EventHandler(this.button5_Click);
+            this.buttonStock.Click += new System.EventHandler(this.buttonStock_Click);
             // 
             // buttonEmployee
             // 
@@ -772,7 +772,7 @@ namespace SalesManagement_SysDev
             this.buttonEmployee.TabIndex = 45;
             this.buttonEmployee.Text = "社員管理";
             this.buttonEmployee.UseVisualStyleBackColor = false;
-            this.buttonEmployee.Click += new System.EventHandler(this.button12_Click);
+            this.buttonEmployee.Click += new System.EventHandler(this.buttonProduct_Click);
             // 
             // buttonClear
             // 
@@ -873,10 +873,6 @@ namespace SalesManagement_SysDev
             this.imageList2.Images.SetKeyName(0, "ハンバーガーメニュー.png");
             this.imageList2.Images.SetKeyName(1, "ハンバーガーメニュー2.png");
             // 
-            // timer3
-            // 
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
             // imageList3
             // 
             this.imageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList3.ImageStream")));
@@ -892,7 +888,6 @@ namespace SalesManagement_SysDev
             this.buttonHumberger.Size = new System.Drawing.Size(47, 34);
             this.buttonHumberger.TabIndex = 52;
             this.buttonHumberger.UseVisualStyleBackColor = true;
-            this.buttonHumberger.Click += new System.EventHandler(this.button40_Click);
             // 
             // panelHattyu
             // 
@@ -930,6 +925,46 @@ namespace SalesManagement_SysDev
             this.panelHattyu.Name = "panelHattyu";
             this.panelHattyu.Size = new System.Drawing.Size(1685, 738);
             this.panelHattyu.TabIndex = 162;
+            // 
+            // labelHaProductName
+            // 
+            this.labelHaProductName.AutoSize = true;
+            this.labelHaProductName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelHaProductName.Location = new System.Drawing.Point(407, 233);
+            this.labelHaProductName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelHaProductName.Name = "labelHaProductName";
+            this.labelHaProductName.Size = new System.Drawing.Size(75, 26);
+            this.labelHaProductName.TabIndex = 168;
+            this.labelHaProductName.Text = "商品名";
+            // 
+            // textBoxHaProductName
+            // 
+            this.textBoxHaProductName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxHaProductName.Location = new System.Drawing.Point(526, 231);
+            this.textBoxHaProductName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxHaProductName.Name = "textBoxHaProductName";
+            this.textBoxHaProductName.Size = new System.Drawing.Size(291, 34);
+            this.textBoxHaProductName.TabIndex = 167;
+            // 
+            // labelHaEmployeeName
+            // 
+            this.labelHaEmployeeName.AutoSize = true;
+            this.labelHaEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelHaEmployeeName.Location = new System.Drawing.Point(407, 180);
+            this.labelHaEmployeeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelHaEmployeeName.Name = "labelHaEmployeeName";
+            this.labelHaEmployeeName.Size = new System.Drawing.Size(117, 26);
+            this.labelHaEmployeeName.TabIndex = 166;
+            this.labelHaEmployeeName.Text = "発注社員名";
+            // 
+            // textBoxHaEmployeeName
+            // 
+            this.textBoxHaEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxHaEmployeeName.Location = new System.Drawing.Point(526, 179);
+            this.textBoxHaEmployeeName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxHaEmployeeName.Name = "textBoxHaEmployeeName";
+            this.textBoxHaEmployeeName.Size = new System.Drawing.Size(291, 34);
+            this.textBoxHaEmployeeName.TabIndex = 165;
             // 
             // labelHaQuantity
             // 
@@ -3108,53 +3143,53 @@ namespace SalesManagement_SysDev
             this.label101.TabIndex = 0;
             this.label101.Text = "ログインしてください";
             // 
-            // panelPrSearchTitle
+            // panelProduct
             // 
-            this.panelPrSearchTitle.BackColor = System.Drawing.Color.Azure;
-            this.panelPrSearchTitle.Controls.Add(this.numericUpDownPrSafeStock);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrSmallClassName);
-            this.panelPrSearchTitle.Controls.Add(this.textBoxPrSmallClassName);
-            this.panelPrSearchTitle.Controls.Add(this.comboBoxPrSmallClassID);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrSmallClassID);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrMajorClassName);
-            this.panelPrSearchTitle.Controls.Add(this.textBoxPrMajorClassName);
-            this.panelPrSearchTitle.Controls.Add(this.comboBoxPrMajorClassID);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrMajorClassID);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrMakerName);
-            this.panelPrSearchTitle.Controls.Add(this.textBoxPrMakerName);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrSearchTitle);
-            this.panelPrSearchTitle.Controls.Add(this.buttonPrMakerOpen);
-            this.panelPrSearchTitle.Controls.Add(this.dateTimePickerPrRelease);
-            this.panelPrSearchTitle.Controls.Add(this.comboBoxPrMakerID);
-            this.panelPrSearchTitle.Controls.Add(this.comboBoxPrProductID);
-            this.panelPrSearchTitle.Controls.Add(this.buttonPrNDisplayList);
-            this.panelPrSearchTitle.Controls.Add(this.buttonPrNDisplay);
-            this.panelPrSearchTitle.Controls.Add(this.buttonPrSearch);
-            this.panelPrSearchTitle.Controls.Add(this.buttonPrDisplay);
-            this.panelPrSearchTitle.Controls.Add(this.buttonPrUpdate);
-            this.panelPrSearchTitle.Controls.Add(this.buttonPrProductClassOpen);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrSafeStockUnit);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrPriceUnit);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrRsn);
-            this.panelPrSearchTitle.Controls.Add(this.textBoxPrRsn);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrColor);
-            this.panelPrSearchTitle.Controls.Add(this.textBoxPrColor);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrRelease);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrSafeStock);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrModelNumber);
-            this.panelPrSearchTitle.Controls.Add(this.textBoxPrModelNumber);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrPrice);
-            this.panelPrSearchTitle.Controls.Add(this.textBoxPrPrice);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrMakerID);
-            this.panelPrSearchTitle.Controls.Add(this.dataGridVieProduct);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrProductName);
-            this.panelPrSearchTitle.Controls.Add(this.labelPrProductID);
-            this.panelPrSearchTitle.Controls.Add(this.textBoxPrProductName);
-            this.panelPrSearchTitle.Controls.Add(this.buttonPrAdd);
-            this.panelPrSearchTitle.Location = new System.Drawing.Point(207, 285);
-            this.panelPrSearchTitle.Name = "panelPrSearchTitle";
-            this.panelPrSearchTitle.Size = new System.Drawing.Size(1685, 738);
-            this.panelPrSearchTitle.TabIndex = 208;
+            this.panelProduct.BackColor = System.Drawing.Color.Azure;
+            this.panelProduct.Controls.Add(this.numericUpDownPrSafeStock);
+            this.panelProduct.Controls.Add(this.labelPrSmallClassName);
+            this.panelProduct.Controls.Add(this.textBoxPrSmallClassName);
+            this.panelProduct.Controls.Add(this.comboBoxPrSmallClassID);
+            this.panelProduct.Controls.Add(this.labelPrSmallClassID);
+            this.panelProduct.Controls.Add(this.labelPrMajorClassName);
+            this.panelProduct.Controls.Add(this.textBoxPrMajorClassName);
+            this.panelProduct.Controls.Add(this.comboBoxPrMajorClassID);
+            this.panelProduct.Controls.Add(this.labelPrMajorClassID);
+            this.panelProduct.Controls.Add(this.labelPrMakerName);
+            this.panelProduct.Controls.Add(this.textBoxPrMakerName);
+            this.panelProduct.Controls.Add(this.labelPrSearchTitle);
+            this.panelProduct.Controls.Add(this.buttonPrMakerOpen);
+            this.panelProduct.Controls.Add(this.buttonHidePassword);
+            this.panelProduct.Controls.Add(this.comboBoxPrMakerID);
+            this.panelProduct.Controls.Add(this.comboBoxPrProductID);
+            this.panelProduct.Controls.Add(this.buttonPrNDisplayList);
+            this.panelProduct.Controls.Add(this.buttonPrNDisplay);
+            this.panelProduct.Controls.Add(this.buttonPrSearch);
+            this.panelProduct.Controls.Add(this.buttonPrDisplay);
+            this.panelProduct.Controls.Add(this.buttonPrUpdate);
+            this.panelProduct.Controls.Add(this.buttonPrProductClassOpen);
+            this.panelProduct.Controls.Add(this.labelPrSafeStockUnit);
+            this.panelProduct.Controls.Add(this.labelPrPriceUnit);
+            this.panelProduct.Controls.Add(this.labelPrRsn);
+            this.panelProduct.Controls.Add(this.textBoxPrRsn);
+            this.panelProduct.Controls.Add(this.labelPrColor);
+            this.panelProduct.Controls.Add(this.textBoxPrColor);
+            this.panelProduct.Controls.Add(this.labelPrRelease);
+            this.panelProduct.Controls.Add(this.labelPrSafeStock);
+            this.panelProduct.Controls.Add(this.labelPrModelNumber);
+            this.panelProduct.Controls.Add(this.textBoxPrModelNumber);
+            this.panelProduct.Controls.Add(this.labelPrPrice);
+            this.panelProduct.Controls.Add(this.textBoxPrPrice);
+            this.panelProduct.Controls.Add(this.labelPrMakerID);
+            this.panelProduct.Controls.Add(this.dataGridVieProduct);
+            this.panelProduct.Controls.Add(this.labelPrProductName);
+            this.panelProduct.Controls.Add(this.labelPrProductID);
+            this.panelProduct.Controls.Add(this.textBoxPrProductName);
+            this.panelProduct.Controls.Add(this.buttonPrAdd);
+            this.panelProduct.Location = new System.Drawing.Point(207, 285);
+            this.panelProduct.Name = "panelProduct";
+            this.panelProduct.Size = new System.Drawing.Size(1685, 738);
+            this.panelProduct.TabIndex = 208;
             // 
             // numericUpDownPrSafeStock
             // 
@@ -3286,13 +3321,13 @@ namespace SalesManagement_SysDev
             this.buttonPrMakerOpen.UseVisualStyleBackColor = false;
             this.buttonPrMakerOpen.Click += new System.EventHandler(this.button70_Click);
             // 
-            // dateTimePickerPrRelease
+            // buttonHidePassword
             // 
-            this.dateTimePickerPrRelease.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePickerPrRelease.Location = new System.Drawing.Point(1092, 260);
-            this.dateTimePickerPrRelease.Name = "dateTimePickerPrRelease";
-            this.dateTimePickerPrRelease.Size = new System.Drawing.Size(205, 34);
-            this.dateTimePickerPrRelease.TabIndex = 111;
+            this.buttonHidePassword.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonHidePassword.Location = new System.Drawing.Point(1092, 260);
+            this.buttonHidePassword.Name = "buttonHidePassword";
+            this.buttonHidePassword.Size = new System.Drawing.Size(205, 34);
+            this.buttonHidePassword.TabIndex = 111;
             // 
             // comboBoxPrMakerID
             // 
@@ -3577,43 +3612,43 @@ namespace SalesManagement_SysDev
             this.buttonPrAdd.Text = "登録";
             this.buttonPrAdd.UseVisualStyleBackColor = false;
             // 
-            // panelProduct
+            // panelEmployee
             // 
-            this.panelProduct.BackColor = System.Drawing.Color.Azure;
-            this.panelProduct.Controls.Add(this.labelEmSearchTitle);
-            this.panelProduct.Controls.Add(this.labelEmPositionName);
-            this.panelProduct.Controls.Add(this.textBoxEmPositionName);
-            this.panelProduct.Controls.Add(this.labelEmSalesOfficeName);
-            this.panelProduct.Controls.Add(this.textBoxEmSalesOfficeName);
-            this.panelProduct.Controls.Add(this.buttonEmPositionManaOpen);
-            this.panelProduct.Controls.Add(this.buttonEmSOManaOpen);
-            this.panelProduct.Controls.Add(this.dateTimePickerEmployee);
-            this.panelProduct.Controls.Add(this.comboBoxEmSalesOfficeID);
-            this.panelProduct.Controls.Add(this.comboBoxEmPositionID);
-            this.panelProduct.Controls.Add(this.comboBoxEmEmployeeID);
-            this.panelProduct.Controls.Add(this.buttonEmRegist);
-            this.panelProduct.Controls.Add(this.buttonEmSearch);
-            this.panelProduct.Controls.Add(this.buttonEmDisplay);
-            this.panelProduct.Controls.Add(this.buttonEmUpdate);
-            this.panelProduct.Controls.Add(this.buttonEmNdisplayList);
-            this.panelProduct.Controls.Add(this.buttonEmNdisplay);
-            this.panelProduct.Controls.Add(this.labelDateTimeEmployee);
-            this.panelProduct.Controls.Add(this.textBoxEmEmployeePhone);
-            this.panelProduct.Controls.Add(this.labelEmPositionID);
-            this.panelProduct.Controls.Add(this.textBoxEmEmployeePass);
-            this.panelProduct.Controls.Add(this.labelEmSalesOfficeID);
-            this.panelProduct.Controls.Add(this.labelEmEmployeePass);
-            this.panelProduct.Controls.Add(this.textBoxEmEmployeeRsn);
-            this.panelProduct.Controls.Add(this.labelEmEmployeePhone);
-            this.panelProduct.Controls.Add(this.labelEmEmployeeRsn);
-            this.panelProduct.Controls.Add(this.dataGridViewEmMana);
-            this.panelProduct.Controls.Add(this.labelEmEmployeeName);
-            this.panelProduct.Controls.Add(this.labelEmEmployeeID);
-            this.panelProduct.Controls.Add(this.textBoxEmEmployeeName);
-            this.panelProduct.Location = new System.Drawing.Point(207, 285);
-            this.panelProduct.Name = "panelProduct";
-            this.panelProduct.Size = new System.Drawing.Size(1685, 738);
-            this.panelProduct.TabIndex = 216;
+            this.panelEmployee.BackColor = System.Drawing.Color.Azure;
+            this.panelEmployee.Controls.Add(this.labelEmSearchTitle);
+            this.panelEmployee.Controls.Add(this.labelEmPositionName);
+            this.panelEmployee.Controls.Add(this.textBoxEmPositionName);
+            this.panelEmployee.Controls.Add(this.labelEmSalesOfficeName);
+            this.panelEmployee.Controls.Add(this.textBoxEmSalesOfficeName);
+            this.panelEmployee.Controls.Add(this.buttonEmPositionManaOpen);
+            this.panelEmployee.Controls.Add(this.buttonEmSOManaOpen);
+            this.panelEmployee.Controls.Add(this.dateTimePickerEmployee);
+            this.panelEmployee.Controls.Add(this.comboBoxEmSalesOfficeID);
+            this.panelEmployee.Controls.Add(this.comboBoxEmPositionID);
+            this.panelEmployee.Controls.Add(this.comboBoxEmEmployeeID);
+            this.panelEmployee.Controls.Add(this.buttonEmRegist);
+            this.panelEmployee.Controls.Add(this.buttonEmSearch);
+            this.panelEmployee.Controls.Add(this.buttonEmDisplay);
+            this.panelEmployee.Controls.Add(this.buttonEmUpdate);
+            this.panelEmployee.Controls.Add(this.buttonEmNdisplayList);
+            this.panelEmployee.Controls.Add(this.buttonEmNdisplay);
+            this.panelEmployee.Controls.Add(this.labelDateTimeEmployee);
+            this.panelEmployee.Controls.Add(this.textBoxEmEmployeePhone);
+            this.panelEmployee.Controls.Add(this.labelEmPositionID);
+            this.panelEmployee.Controls.Add(this.textBoxEmEmployeePass);
+            this.panelEmployee.Controls.Add(this.labelEmSalesOfficeID);
+            this.panelEmployee.Controls.Add(this.labelEmEmployeePass);
+            this.panelEmployee.Controls.Add(this.textBoxEmEmployeeRsn);
+            this.panelEmployee.Controls.Add(this.labelEmEmployeePhone);
+            this.panelEmployee.Controls.Add(this.labelEmEmployeeRsn);
+            this.panelEmployee.Controls.Add(this.dataGridViewEmMana);
+            this.panelEmployee.Controls.Add(this.labelEmEmployeeName);
+            this.panelEmployee.Controls.Add(this.labelEmEmployeeID);
+            this.panelEmployee.Controls.Add(this.textBoxEmEmployeeName);
+            this.panelEmployee.Location = new System.Drawing.Point(207, 285);
+            this.panelEmployee.Name = "panelEmployee";
+            this.panelEmployee.Size = new System.Drawing.Size(1685, 738);
+            this.panelEmployee.TabIndex = 216;
             // 
             // labelEmSearchTitle
             // 
@@ -5013,8 +5048,8 @@ namespace SalesManagement_SysDev
             this.maruibutton10.TabIndex = 53;
             this.maruibutton10.UseVisualStyleBackColor = false;
             this.maruibutton10.Click += new System.EventHandler(this.maruibutton10_Click);
-            this.maruibutton10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.maruibutton10_MouseDown);
-            this.maruibutton10.MouseUp += new System.Windows.Forms.MouseEventHandler(this.maruibutton10_MouseUp);
+            this.maruibutton10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonHidePassword_MouseDown);
+            this.maruibutton10.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonHidePassword_MouseUp);
             // 
             // buttonControl
             // 
@@ -5044,7 +5079,7 @@ namespace SalesManagement_SysDev
             this.buttonLogin.TabIndex = 41;
             this.buttonLogin.Text = "ログイン";
             this.buttonLogin.UseVisualStyleBackColor = false;
-            this.buttonLogin.Click += new System.EventHandler(this.maruibutton1_Click);
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // buttonLogout
             // 
@@ -5059,46 +5094,6 @@ namespace SalesManagement_SysDev
             this.buttonLogout.TabIndex = 40;
             this.buttonLogout.Text = "ログアウト";
             this.buttonLogout.UseVisualStyleBackColor = false;
-            // 
-            // labelHaEmployeeName
-            // 
-            this.labelHaEmployeeName.AutoSize = true;
-            this.labelHaEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelHaEmployeeName.Location = new System.Drawing.Point(407, 180);
-            this.labelHaEmployeeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelHaEmployeeName.Name = "labelHaEmployeeName";
-            this.labelHaEmployeeName.Size = new System.Drawing.Size(117, 26);
-            this.labelHaEmployeeName.TabIndex = 166;
-            this.labelHaEmployeeName.Text = "発注社員名";
-            // 
-            // textBoxHaEmployeeName
-            // 
-            this.textBoxHaEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxHaEmployeeName.Location = new System.Drawing.Point(526, 179);
-            this.textBoxHaEmployeeName.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxHaEmployeeName.Name = "textBoxHaEmployeeName";
-            this.textBoxHaEmployeeName.Size = new System.Drawing.Size(291, 34);
-            this.textBoxHaEmployeeName.TabIndex = 165;
-            // 
-            // labelHaProductName
-            // 
-            this.labelHaProductName.AutoSize = true;
-            this.labelHaProductName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelHaProductName.Location = new System.Drawing.Point(407, 233);
-            this.labelHaProductName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelHaProductName.Name = "labelHaProductName";
-            this.labelHaProductName.Size = new System.Drawing.Size(75, 26);
-            this.labelHaProductName.TabIndex = 168;
-            this.labelHaProductName.Text = "商品名";
-            // 
-            // textBoxHaProductName
-            // 
-            this.textBoxHaProductName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxHaProductName.Location = new System.Drawing.Point(526, 231);
-            this.textBoxHaProductName.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxHaProductName.Name = "textBoxHaProductName";
-            this.textBoxHaProductName.Size = new System.Drawing.Size(291, 34);
-            this.textBoxHaProductName.TabIndex = 167;
             // 
             // FormHome
             // 
@@ -5120,6 +5115,9 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelProduct);
+            this.Controls.Add(this.panelEmployee);
+            this.Controls.Add(this.panelSale);
             this.Controls.Add(this.panelOrder);
             this.Controls.Add(this.panelArrival);
             this.Controls.Add(this.panelStart);
@@ -5130,9 +5128,6 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelClient);
             this.Controls.Add(this.panelStock);
             this.Controls.Add(this.panelShipment);
-            this.Controls.Add(this.panelPrSearchTitle);
-            this.Controls.Add(this.panelProduct);
-            this.Controls.Add(this.panelSale);
             this.Name = "FormHome";
             this.Text = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -5168,12 +5163,12 @@ namespace SalesManagement_SysDev
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewShipmentMain)).EndInit();
             this.panelStart.ResumeLayout(false);
             this.panelStart.PerformLayout();
-            this.panelPrSearchTitle.ResumeLayout(false);
-            this.panelPrSearchTitle.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrSafeStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridVieProduct)).EndInit();
             this.panelProduct.ResumeLayout(false);
             this.panelProduct.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPrSafeStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridVieProduct)).EndInit();
+            this.panelEmployee.ResumeLayout(false);
+            this.panelEmployee.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmMana)).EndInit();
             this.panelSale.ResumeLayout(false);
             this.panelSale.PerformLayout();
@@ -5375,8 +5370,8 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.TextBox textBoxShRsn;
         private System.Windows.Forms.Panel panelStart;
         private System.Windows.Forms.Label label101;
-        private System.Windows.Forms.Panel panelPrSearchTitle;
-        private System.Windows.Forms.DateTimePicker dateTimePickerPrRelease;
+        private System.Windows.Forms.Panel panelProduct;
+        private System.Windows.Forms.DateTimePicker buttonHidePassword;
         private System.Windows.Forms.ComboBox comboBoxPrMakerID;
         private System.Windows.Forms.ComboBox comboBoxPrProductID;
         private maruibutton buttonPrNDisplayList;
@@ -5403,7 +5398,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelPrProductID;
         private System.Windows.Forms.TextBox textBoxPrProductName;
         private System.Windows.Forms.Button buttonPrAdd;
-        private System.Windows.Forms.Panel panelProduct;
+        private System.Windows.Forms.Panel panelEmployee;
         private System.Windows.Forms.DateTimePicker dateTimePickerEmployee;
         private System.Windows.Forms.ComboBox comboBoxEmSalesOfficeID;
         private System.Windows.Forms.ComboBox comboBoxEmPositionID;

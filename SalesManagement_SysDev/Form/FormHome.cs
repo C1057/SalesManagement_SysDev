@@ -12,6 +12,7 @@ namespace SalesManagement_SysDev
 {
     public partial class FormHome : Form
     {
+        //各パネルをList型のPanelに代入する
         private List<Panel> panelList = new System.Collections.Generic.List<Panel>();
 
         bool flg = true;
@@ -23,8 +24,8 @@ namespace SalesManagement_SysDev
             new ToolTip().SetToolTip(buttonClear, "入力中の情報が初期状態に戻る");
             panelList.Add(panelStock);
             panelList.Add(panelClient);
-            panelList.Add(panelPrSearchTitle);
             panelList.Add(panelProduct);
+            panelList.Add(panelEmployee);
             panelList.Add(panelSale);
             panelList.Add(panelOrder);
             panelList.Add(panelHattyu);
@@ -37,6 +38,7 @@ namespace SalesManagement_SysDev
             panelHide();
         }
 
+        //全てのパネルを隠すメソッド
         private void panelHide()
         {
             foreach (Panel panel in panelList)
@@ -45,12 +47,16 @@ namespace SalesManagement_SysDev
             }
         }
 
+        //時間表示機能//
+        //時間、分、秒を表示する
         private void timer1_Tick(object sender, EventArgs e)
         {
             DateTime d = DateTime.Now;
             labelNowTime.Text = string.Format("{0:00}:{1:00}:{2:00}", d.Hour, d.Minute, d.Second);
         }
 
+        //フォームロードイベント//
+        //タイマーへの初期設定
         private void FormHome_Load(object sender, EventArgs e)
         {
             Text = Application.ProductName;
@@ -64,65 +70,74 @@ namespace SalesManagement_SysDev
             timer3.Interval = 1;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        //在庫管理ボタン
+        private void buttonStock_Click(object sender, EventArgs e)
         {
+            //在庫管理画面を表示する
             panelHide();
-
             panelStock.Show();
-
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
-        private void maruibutton1_Click(object sender, EventArgs e)
+        //ログインボタン
+        private void buttonLogin_Click(object sender, EventArgs e)
         {
             panelStart.Hide();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        //出庫管理ボタン
+        private void buttonSyukko_Click(object sender, EventArgs e)
         {
+            //出庫管理画面を表示する
             panelHide();
-
             panelSyukko.Show();
-
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        //社員管理ボタン
+        private void buttonEmployee_Click(object sender, EventArgs e)
         {
+            //社員管理画面を表示する
             panelHide();
-
-            panelProduct.Show();
-
+            panelEmployee.Show();
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
-        private void button5_Click_1(object sender, EventArgs e)
+        //入荷管理ボタン
+        private void buttonArrival_Click(object sender, EventArgs e)
         {
+            //入荷管理画面を表示する
             panelHide();
-
             panelArrival.Show();
-
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        //顧客管理ボタン
+        private void buttonClient_Click(object sender, EventArgs e)
         {
+            //顧客管理画面を表示する
             panelHide();
-
             panelClient.Show();
-
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
-        private void button24_Click(object sender, EventArgs e)
+        //
+        private void buttonProduct_Click(object sender, EventArgs e)
         {
+            //商品管理画面を表示する
             panelHide();
-
-            panelPrSearchTitle.Show();
-
+            panelProduct.Show();
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
+        //時間表示機能//
+        //年、月、日を表示する
         private void timer2_Tick(object sender, EventArgs e)
         {
             DateTime d = DateTime.Now;
@@ -130,21 +145,23 @@ namespace SalesManagement_SysDev
             labelNowDays.Text += d.ToString("(ddd)");
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        //受注管理ボタン
+        private void buttonOrder_Click(object sender, EventArgs e)
         {
+            //受注管理画面を表示する
             panelHide();
-
             panelOrder.Show();
-
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        //売上管理ボタン
+        private void buttonSale_Click(object sender, EventArgs e)
         {
+            //売上管理画面を表示する
             panelHide();
-
             panelSale.Show();
-
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
@@ -306,66 +323,78 @@ namespace SalesManagement_SysDev
         //    }
         //}
 
-        private void button40_Click(object sender, EventArgs e)
-        {
-            timer3.Start();
-        }
+        //private void button40_Click(object sender, EventArgs e)
+        //{
+        //    timer3.Start();
+        //}
 
-        private void button38_Click(object sender, EventArgs e)
+        //ログアウトボタン
+        private void buttonLogout_Click(object sender, EventArgs e)
         {
+            //ログアウト、スタート画面を表示する
             panelHide();
-
             panelStart.Show();
-
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        //注文管理ボタン
+        private void buttonChumon_Click(object sender, EventArgs e)
         {
+            //注文管理画面を表示する
             panelHide();
-
             panelChumon.Show();
-
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        //発注管理ボタン
+        private void buttonHattyu_Click(object sender, EventArgs e)
         {
+            //発注管理画面を表示する
             panelHide();
-
             panelHattyu.Show();
-
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        //入庫管理ボタン
+        private void buttonWareHousing_Click(object sender, EventArgs e)
         {
+            //入庫管理画面を表示する
             panelHide();
-
             panelWareHousing.Show();
-
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
-
+                
+        //ツールチップ機能
         private void maruibutton10_Click(object sender, EventArgs e)
         {
             new ToolTip().SetToolTip(buttonClear, "パスワードを表示");
         }
 
-        private void maruibutton10_MouseUp(object sender, MouseEventArgs e)
+        //パスワードを隠す
+        private void buttonHidePassword_MouseUp(object sender, MouseEventArgs e)
         {
+            //buttonHidePasswordのクリックが解除された場合パスワードを見えなくする
             textBoxHomePassword.PasswordChar = (char)'*';
         }
 
-        private void maruibutton10_MouseDown(object sender, MouseEventArgs e)
+        //パスワードを可視化する
+        private void buttonHidePassword_MouseDown(object sender, MouseEventArgs e)
         {
+            //buttonHidePasswordをクリックしてる間パスワードを見えるようにする
             textBoxHomePassword.PasswordChar = (char)'\0';
         }
 
+        //クリアボタン
         private void button2_Click(object sender, EventArgs e)
         {
             textBoxHomeLoginID.ResetText();
             textBoxHomePassword.ResetText();
+
+            ClearText(this);
         }
 
         private void button18_Click(object sender, EventArgs e)
@@ -424,7 +453,7 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public static void ClearTextBox(Control hParent)
+        public static void ClearText(Control hParent)
         {
             // hParent 内のすべてのコントロールを列挙する
             foreach (Control cControl in hParent.Controls)
@@ -432,16 +461,11 @@ namespace SalesManagement_SysDev
                 // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
                 if (cControl.HasChildren == true)
                 {
-                    ClearTextBox(cControl);
+                    ClearText(cControl);
                 }
 
                 // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
-                if (cControl is TextBoxBase)
-                {
-                    cControl.Text = string.Empty;
-                }
-
-                if (cControl is ComboBox)
+                if (cControl is TextBoxBase || cControl is ComboBox)
                 {
                     cControl.Text = string.Empty;
                 }
@@ -456,7 +480,7 @@ namespace SalesManagement_SysDev
                 // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
                 if (cControl.HasChildren == true)
                 {
-                    ClearTextBox(cControl);
+                    EnabledChangedfalsebutton(cControl);
                 }
 
                 // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
@@ -478,7 +502,7 @@ namespace SalesManagement_SysDev
                 // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
                 if (cControl.HasChildren == true)
                 {
-                    ClearTextBox(cControl);
+                    EnabledChangedtruebutton(cControl);
                 }
 
                 // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
