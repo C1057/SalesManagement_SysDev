@@ -235,7 +235,7 @@ namespace SalesManagement_SysDev
             // buttonProSelectReturn
             // 
             this.buttonProSelectReturn.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.buttonProSelectReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonProSelectReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonProSelectReturn.Location = new System.Drawing.Point(1038, 19);
             this.buttonProSelectReturn.Margin = new System.Windows.Forms.Padding(1);
             this.buttonProSelectReturn.Name = "buttonProSelectReturn";

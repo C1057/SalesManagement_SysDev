@@ -68,7 +68,7 @@ namespace SalesManagement_SysDev
             // buttonManaMakerReturn
             // 
             this.buttonManaMakerReturn.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.buttonManaMakerReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonManaMakerReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonManaMakerReturn.Location = new System.Drawing.Point(1029, 24);
             this.buttonManaMakerReturn.Margin = new System.Windows.Forms.Padding(1);
             this.buttonManaMakerReturn.Name = "buttonManaMakerReturn";
@@ -276,7 +276,7 @@ namespace SalesManagement_SysDev
             this.buttonManaMakerDeleteList.BackColor = System.Drawing.Color.Red;
             this.buttonManaMakerDeleteList.FlatAppearance.BorderSize = 0;
             this.buttonManaMakerDeleteList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonManaMakerDeleteList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonManaMakerDeleteList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonManaMakerDeleteList.Location = new System.Drawing.Point(1029, 105);
             this.buttonManaMakerDeleteList.Name = "buttonManaMakerDeleteList";
             this.buttonManaMakerDeleteList.Size = new System.Drawing.Size(140, 107);
@@ -289,7 +289,7 @@ namespace SalesManagement_SysDev
             this.buttonManaMakerDelete.BackColor = System.Drawing.Color.Red;
             this.buttonManaMakerDelete.FlatAppearance.BorderSize = 0;
             this.buttonManaMakerDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonManaMakerDelete.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonManaMakerDelete.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonManaMakerDelete.Location = new System.Drawing.Point(874, 105);
             this.buttonManaMakerDelete.Name = "buttonManaMakerDelete";
             this.buttonManaMakerDelete.Size = new System.Drawing.Size(140, 107);

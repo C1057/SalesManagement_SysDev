@@ -272,7 +272,7 @@ namespace SalesManagement_SysDev
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.button1.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button1.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(1417, 11);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
@@ -358,10 +358,10 @@ namespace SalesManagement_SysDev
             this.maruibutton7.BackColor = System.Drawing.Color.Red;
             this.maruibutton7.FlatAppearance.BorderSize = 0;
             this.maruibutton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton7.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton7.Location = new System.Drawing.Point(1460, 11);
+            this.maruibutton7.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.maruibutton7.Location = new System.Drawing.Point(1495, 29);
             this.maruibutton7.Name = "maruibutton7";
-            this.maruibutton7.Size = new System.Drawing.Size(140, 123);
+            this.maruibutton7.Size = new System.Drawing.Size(172, 111);
             this.maruibutton7.TabIndex = 114;
             this.maruibutton7.Text = "非表示リスト";
             this.maruibutton7.UseVisualStyleBackColor = false;
@@ -371,10 +371,10 @@ namespace SalesManagement_SysDev
             this.maruibutton8.BackColor = System.Drawing.Color.Red;
             this.maruibutton8.FlatAppearance.BorderSize = 0;
             this.maruibutton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton8.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton8.Location = new System.Drawing.Point(1314, 11);
+            this.maruibutton8.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.maruibutton8.Location = new System.Drawing.Point(1311, 29);
             this.maruibutton8.Name = "maruibutton8";
-            this.maruibutton8.Size = new System.Drawing.Size(140, 123);
+            this.maruibutton8.Size = new System.Drawing.Size(172, 111);
             this.maruibutton8.TabIndex = 113;
             this.maruibutton8.Text = "非表示";
             this.maruibutton8.UseVisualStyleBackColor = false;
