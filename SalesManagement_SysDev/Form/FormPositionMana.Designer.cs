@@ -97,8 +97,8 @@ namespace SalesManagement_SysDev
             // 
             // labelPositionManaTitle
             // 
-            this.labelPositionManaTitle.Font = new System.Drawing.Font("Meiryo UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPositionManaTitle.Location = new System.Drawing.Point(372, 9);
+            this.labelPositionManaTitle.Font = new System.Drawing.Font("Meiryo UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPositionManaTitle.Location = new System.Drawing.Point(461, 19);
             this.labelPositionManaTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPositionManaTitle.Name = "labelPositionManaTitle";
             this.labelPositionManaTitle.Size = new System.Drawing.Size(296, 89);
@@ -166,7 +166,7 @@ namespace SalesManagement_SysDev
             // buttonPositionManaReturn
             // 
             this.buttonPositionManaReturn.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.buttonPositionManaReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonPositionManaReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonPositionManaReturn.Location = new System.Drawing.Point(1039, 26);
             this.buttonPositionManaReturn.Margin = new System.Windows.Forms.Padding(1);
             this.buttonPositionManaReturn.Name = "buttonPositionManaReturn";
@@ -189,7 +189,7 @@ namespace SalesManagement_SysDev
             this.buttonPositionManaDeleteList.BackColor = System.Drawing.Color.Red;
             this.buttonPositionManaDeleteList.FlatAppearance.BorderSize = 0;
             this.buttonPositionManaDeleteList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPositionManaDeleteList.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonPositionManaDeleteList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonPositionManaDeleteList.Location = new System.Drawing.Point(1029, 142);
             this.buttonPositionManaDeleteList.Name = "buttonPositionManaDeleteList";
             this.buttonPositionManaDeleteList.Size = new System.Drawing.Size(140, 107);
@@ -202,7 +202,7 @@ namespace SalesManagement_SysDev
             this.buttonPositionManaDelete.BackColor = System.Drawing.Color.Red;
             this.buttonPositionManaDelete.FlatAppearance.BorderSize = 0;
             this.buttonPositionManaDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPositionManaDelete.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonPositionManaDelete.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonPositionManaDelete.Location = new System.Drawing.Point(874, 142);
             this.buttonPositionManaDelete.Name = "buttonPositionManaDelete";
             this.buttonPositionManaDelete.Size = new System.Drawing.Size(140, 107);

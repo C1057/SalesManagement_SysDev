@@ -35,7 +35,7 @@ namespace SalesManagement_SysDev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 633);
+            this.ClientSize = new System.Drawing.Size(1259, 755);
             this.Name = "Form3";
             this.Text = "Form3";
             this.ResumeLayout(false);

@@ -185,7 +185,7 @@ namespace SalesManagement_SysDev
             // labelProSelectQuantity
             // 
             this.labelProSelectQuantity.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelProSelectQuantity.Location = new System.Drawing.Point(383, 375);
+            this.labelProSelectQuantity.Location = new System.Drawing.Point(381, 377);
             this.labelProSelectQuantity.Name = "labelProSelectQuantity";
             this.labelProSelectQuantity.Size = new System.Drawing.Size(70, 33);
             this.labelProSelectQuantity.TabIndex = 224;
@@ -235,7 +235,7 @@ namespace SalesManagement_SysDev
             // buttonProSelectReturn
             // 
             this.buttonProSelectReturn.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.buttonProSelectReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonProSelectReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonProSelectReturn.Location = new System.Drawing.Point(1038, 19);
             this.buttonProSelectReturn.Margin = new System.Windows.Forms.Padding(1);
             this.buttonProSelectReturn.Name = "buttonProSelectReturn";
@@ -286,7 +286,7 @@ namespace SalesManagement_SysDev
             // 
             // labelProSelectTitle
             // 
-            this.labelProSelectTitle.Font = new System.Drawing.Font("Meiryo UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelProSelectTitle.Font = new System.Drawing.Font("Meiryo UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelProSelectTitle.Location = new System.Drawing.Point(461, 19);
             this.labelProSelectTitle.Name = "labelProSelectTitle";
             this.labelProSelectTitle.Size = new System.Drawing.Size(295, 81);
