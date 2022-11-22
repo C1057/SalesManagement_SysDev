@@ -12,6 +12,12 @@ namespace SalesManagement_SysDev
 {
     public partial class FormHome : Form
     {
+        //各フォームのインスタンス化
+        Form4 form4 = new Form4();                                                      //商品分類管理フォーム
+        MakerMana formMaker = new MakerMana();                                          //メーカ管理フォーム
+        FormProductSelect formproductselect = new FormProductSelect();                  //商品選択フォーム
+        FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();                     //営業所管理フォーム
+
         //各パネルをList型のPanelに代入する
         private List<Panel> panelList = new System.Collections.Generic.List<Panel>();
 
@@ -126,7 +132,7 @@ namespace SalesManagement_SysDev
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
-        //
+        //商品管理ボタン
         private void buttonProduct_Click(object sender, EventArgs e)
         {
             //商品管理画面を表示する
@@ -389,52 +395,50 @@ namespace SalesManagement_SysDev
         }
 
         //クリアボタン
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonClear_Click(object sender, EventArgs e)
         {
-            textBoxHomeLoginID.ResetText();
-            textBoxHomePassword.ResetText();
-
+            //FormHomeに配置されている全てのテキストボックスとコンボボックスのTextプロパティをリセットする
             ClearText(this);
         }
 
-        private void button18_Click(object sender, EventArgs e)
+        //出荷管理ボタン
+        private void buttonShipment_Click(object sender, EventArgs e)
         {
+            //出荷管理画面を表示する
             panelHide();
-
             panelShipment.Show();
-
+            //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
 
-        private void button39_Click_2(object sender, EventArgs e)
+        //商品分類管理ボタン
+        private void buttonPrProductClassOpen_Click(object sender, EventArgs e)
         {
-            Form4 form4 = new Form4();
-
-            form4.Show();
+            //商品管理画面に遷移する
+            form4.Visible = true;
         }
 
-        private void button70_Click(object sender, EventArgs e)
+        //メーカ管理ボタン
+        private void buttonPrMakerOpen_Click(object sender, EventArgs e)
         {
-            MakerMana formMaker = new MakerMana();
-
-            formMaker.Show();
+            //メーカ管理画面に遷移する
+            formMaker.Visible = true;
         }
 
-        private void button41_Click(object sender, EventArgs e)
+        //商品選択ボタン
+        private void buttonOrSelectProduct_Click(object sender, EventArgs e)
         {
-            FormProductSelect formproductselect = new FormProductSelect();
-
-            formproductselect.Show();
+            //商品選択画面に遷移する
+            formproductselect.Visible = true;
         }
 
         private void button71_Click(object sender, EventArgs e)
         {
-            FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();
-
-            formSOMana.Show();
+            //メーカ管理画面に遷移する
+            formSOMana.Visible = true;
         }
 
-        private void button72_Click(object sender, EventArgs e)
+        private void buttonEmSOManaOpen_Click(object sender, EventArgs e)
         {
             FormPositionMana formPositionMana = new FormPositionMana();
 

@@ -629,7 +629,7 @@ namespace SalesManagement_SysDev
             this.buttonShipment.TabIndex = 53;
             this.buttonShipment.Text = "出荷管理";
             this.buttonShipment.UseVisualStyleBackColor = false;
-            this.buttonShipment.Click += new System.EventHandler(this.button18_Click);
+            this.buttonShipment.Click += new System.EventHandler(this.buttonShipment_Click);
             // 
             // buttonProduct
             // 
@@ -772,7 +772,7 @@ namespace SalesManagement_SysDev
             this.buttonEmployee.TabIndex = 45;
             this.buttonEmployee.Text = "社員管理";
             this.buttonEmployee.UseVisualStyleBackColor = false;
-            this.buttonEmployee.Click += new System.EventHandler(this.buttonProduct_Click);
+            this.buttonEmployee.Click += new System.EventHandler(this.buttonEmployee_Click);
             // 
             // buttonClear
             // 
@@ -785,7 +785,7 @@ namespace SalesManagement_SysDev
             this.buttonClear.TabIndex = 37;
             this.buttonClear.Text = "クリア";
             this.buttonClear.UseVisualStyleBackColor = false;
-            this.buttonClear.Click += new System.EventHandler(this.button2_Click);
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // labelHomePassword
             // 
@@ -3319,7 +3319,7 @@ namespace SalesManagement_SysDev
             this.buttonPrMakerOpen.TabIndex = 112;
             this.buttonPrMakerOpen.Text = "メーカ管理";
             this.buttonPrMakerOpen.UseVisualStyleBackColor = false;
-            this.buttonPrMakerOpen.Click += new System.EventHandler(this.button70_Click);
+            this.buttonPrMakerOpen.Click += new System.EventHandler(this.buttonPrMakerOpen_Click);
             // 
             // buttonHidePassword
             // 
@@ -3420,7 +3420,7 @@ namespace SalesManagement_SysDev
             this.buttonPrProductClassOpen.TabIndex = 102;
             this.buttonPrProductClassOpen.Text = "商品分類管理";
             this.buttonPrProductClassOpen.UseVisualStyleBackColor = false;
-            this.buttonPrProductClassOpen.Click += new System.EventHandler(this.button39_Click_2);
+            this.buttonPrProductClassOpen.Click += new System.EventHandler(this.buttonPrProductClassOpen_Click);
             // 
             // labelPrSafeStockUnit
             // 
@@ -3710,7 +3710,7 @@ namespace SalesManagement_SysDev
             this.buttonEmPositionManaOpen.TabIndex = 129;
             this.buttonEmPositionManaOpen.Text = "役職管理";
             this.buttonEmPositionManaOpen.UseVisualStyleBackColor = false;
-            this.buttonEmPositionManaOpen.Click += new System.EventHandler(this.button72_Click);
+            this.buttonEmPositionManaOpen.Click += new System.EventHandler(this.buttonEmSOManaOpen_Click);
             // 
             // buttonEmSOManaOpen
             // 
@@ -4080,10 +4080,10 @@ namespace SalesManagement_SysDev
             // dateTimePickerSaDate
             // 
             this.dateTimePickerSaDate.CalendarFont = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePickerSaDate.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dateTimePickerSaDate.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.dateTimePickerSaDate.Location = new System.Drawing.Point(912, 233);
             this.dateTimePickerSaDate.Name = "dateTimePickerSaDate";
-            this.dateTimePickerSaDate.Size = new System.Drawing.Size(207, 28);
+            this.dateTimePickerSaDate.Size = new System.Drawing.Size(207, 34);
             this.dateTimePickerSaDate.TabIndex = 157;
             // 
             // comboBoxSaOrderID
@@ -4525,7 +4525,7 @@ namespace SalesManagement_SysDev
             this.buttonOrSelectProduct.TabIndex = 142;
             this.buttonOrSelectProduct.Text = "商品選択";
             this.buttonOrSelectProduct.UseVisualStyleBackColor = false;
-            this.buttonOrSelectProduct.Click += new System.EventHandler(this.button41_Click);
+            this.buttonOrSelectProduct.Click += new System.EventHandler(this.buttonOrSelectProduct_Click);
             // 
             // labelOrProductSum
             // 
@@ -5115,7 +5115,6 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelProduct);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelSale);
             this.Controls.Add(this.panelOrder);
@@ -5128,6 +5127,7 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelClient);
             this.Controls.Add(this.panelStock);
             this.Controls.Add(this.panelShipment);
+            this.Controls.Add(this.panelProduct);
             this.Name = "FormHome";
             this.Text = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
