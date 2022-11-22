@@ -185,7 +185,7 @@ namespace SalesManagement_SysDev
             // labelProSelectQuantity
             // 
             this.labelProSelectQuantity.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelProSelectQuantity.Location = new System.Drawing.Point(383, 375);
+            this.labelProSelectQuantity.Location = new System.Drawing.Point(381, 377);
             this.labelProSelectQuantity.Name = "labelProSelectQuantity";
             this.labelProSelectQuantity.Size = new System.Drawing.Size(70, 33);
             this.labelProSelectQuantity.TabIndex = 224;
