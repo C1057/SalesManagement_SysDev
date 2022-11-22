@@ -26,7 +26,7 @@ namespace SalesManagement_SysDev
             panelList.Add(panelPrSearchTitle);
             panelList.Add(panelProduct);
             panelList.Add(panelSale);
-            panelList.Add(panel8);
+            panelList.Add(panelOrder);
             panelList.Add(panelHattyu);
             panelList.Add(panelWareHousing);
             panelList.Add(panelSyukko);
@@ -134,7 +134,7 @@ namespace SalesManagement_SysDev
         {
             panelHide();
 
-            panel8.Show();
+            panelOrder.Show();
 
             labelManaTitle.Text = ((Button)sender).Text;
         }
@@ -178,8 +178,8 @@ namespace SalesManagement_SysDev
                 panelSale.Size = new Size(1876, 738);
                 panelSale.Location = new Point(12, 285);
 
-                panel8.Size = new Size(1876, 738);
-                panel8.Location = new Point(12, 285);
+                panelOrder.Size = new Size(1876, 738);
+                panelOrder.Location = new Point(12, 285);
 
                 panelHattyu.Size = new Size(1876, 738);
                 panelHattyu.Location = new Point(12, 285);
@@ -205,14 +205,14 @@ namespace SalesManagement_SysDev
                 dataGridViewChumonMain.Size = new Size(1843, 306);
                 dataGridViewChumonMain.Location = new Point(16, 401);
 
-                dataGridViewSt.Size = new Size(1843, 306);
-                dataGridViewSt.Location = new Point(16, 401);
+                dataGridViewStock.Size = new Size(1843, 306);
+                dataGridViewStock.Location = new Point(16, 401);
 
                 dataGridVieProduct.Size = new Size(1843, 306);
                 dataGridVieProduct.Location = new Point(16, 401);
 
-                dataGridViewShipment.Size = new Size(1843, 306);
-                dataGridViewShipment.Location = new Point(16, 401);
+                dataGridViewShipmentMain.Size = new Size(1843, 306);
+                dataGridViewShipmentMain.Location = new Point(16, 401);
 
                 dataGridViewEmMana.Size = new Size(1843, 306);
                 dataGridViewEmMana.Location = new Point(16, 401);
@@ -250,8 +250,8 @@ namespace SalesManagement_SysDev
                 panelSale.Size = new Size(1685, 738);
                 panelSale.Location = new Point(207, 285);
 
-                panel8.Size = new Size(1685, 738);
-                panel8.Location = new Point(207, 285);
+                panelOrder.Size = new Size(1685, 738);
+                panelOrder.Location = new Point(207, 285);
 
                 panelHattyu.Size = new Size(1685, 738);
                 panelHattyu.Location = new Point(207, 285);
@@ -280,14 +280,14 @@ namespace SalesManagement_SysDev
                 dataGridViewChumonMain.Size = new Size(1614, 306);
                 dataGridViewChumonMain.Location = new Point(38, 401);
 
-                dataGridViewSt.Size = new Size(1614, 306);
-                dataGridViewSt.Location = new Point(38, 401);
+                dataGridViewStock.Size = new Size(1614, 306);
+                dataGridViewStock.Location = new Point(38, 401);
 
                 dataGridVieProduct.Size = new Size(1614, 306);
                 dataGridVieProduct.Location = new Point(38, 401);
 
-                dataGridViewShipment.Size = new Size(1614, 306);
-                dataGridViewShipment.Location = new Point(38, 401);
+                dataGridViewShipmentMain.Size = new Size(1614, 306);
+                dataGridViewShipmentMain.Location = new Point(38, 401);
 
                 dataGridViewEmMana.Size = new Size(1614, 306);
                 dataGridViewEmMana.Location = new Point(38, 401);
@@ -416,11 +416,11 @@ namespace SalesManagement_SysDev
         {
             if (string.IsNullOrEmpty(comboBoxOrOrderID.Text))
             {
-                EnabledChangedtruebutton(panel8);
+                EnabledChangedtruebutton(panelOrder);
             }
             else
             {
-                EnabledChangedfalsebutton(panel8);
+                EnabledChangedfalsebutton(panelOrder);
             }
         }
 
