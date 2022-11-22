@@ -128,7 +128,7 @@ namespace SalesManagement_SysDev
             // labelManaMakerID
             // 
             this.labelManaMakerID.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelManaMakerID.Location = new System.Drawing.Point(14, 227);
+            this.labelManaMakerID.Location = new System.Drawing.Point(7, 227);
             this.labelManaMakerID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelManaMakerID.Name = "labelManaMakerID";
             this.labelManaMakerID.Size = new System.Drawing.Size(87, 36);
@@ -186,7 +186,7 @@ namespace SalesManagement_SysDev
             // labelManaMakerAdress
             // 
             this.labelManaMakerAdress.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelManaMakerAdress.Location = new System.Drawing.Point(14, 277);
+            this.labelManaMakerAdress.Location = new System.Drawing.Point(7, 277);
             this.labelManaMakerAdress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelManaMakerAdress.Name = "labelManaMakerAdress";
             this.labelManaMakerAdress.Size = new System.Drawing.Size(79, 36);
