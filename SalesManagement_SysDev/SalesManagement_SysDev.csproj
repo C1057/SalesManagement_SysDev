@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\M_MajorCassification.cs" />
+    <Compile Include="Entity\M_Message.cs" />
     <Compile Include="Entity\M_Product.cs" />
     <Compile Include="Form\FormHome.cs">
       <SubType>Form</SubType>

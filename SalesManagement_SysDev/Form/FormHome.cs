@@ -525,5 +525,14 @@ namespace SalesManagement_SysDev
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SalesManagement_DevContext context = new SalesManagement_DevContext();
+            context.SaveChanges();
+            context.Dispose();
+
+            MessageBox.Show("データベース生成完了");
+        }
     }
 }

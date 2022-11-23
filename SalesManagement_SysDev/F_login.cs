@@ -21,7 +21,7 @@ namespace SalesManagement_SysDev
         {
             //データベースの生成を行います．
             //再度実行する場合には，必ずデータベースの削除をしてから実行してください．
-            
+
             //役職マスタを生成するサンプル（1件目に管理者を追加する例）
             M_Position FirstPosition = new M_Position()
             {
