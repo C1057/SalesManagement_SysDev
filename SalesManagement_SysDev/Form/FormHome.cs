@@ -17,6 +17,7 @@ namespace SalesManagement_SysDev
         MakerMana formMaker = new MakerMana();                                          //メーカ管理フォーム
         FormProductSelect formproductselect = new FormProductSelect();                  //商品選択フォーム
         FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();                     //営業所管理フォーム
+        FormPositionMana formPositionMana = new FormPositionMana();                     //役職管理フォーム
 
         //各パネルをList型のPanelに代入する
         private List<Panel> panelList = new System.Collections.Generic.List<Panel>();
@@ -432,20 +433,22 @@ namespace SalesManagement_SysDev
             formproductselect.Visible = true;
         }
 
-        private void button71_Click(object sender, EventArgs e)
-        {
-            //メーカ管理画面に遷移する
+        //営業所管理ボタン
+        private void buttonEmSOManaOpen_Click(object sender, EventArgs e)
+        {            
+            //営業所管理画面に遷移する
             formSOMana.Visible = true;
         }
 
-        private void buttonEmSOManaOpen_Click(object sender, EventArgs e)
+        //役職管理ボタン
+        private void buttonEmPositionManaOpen_Click(object sender, EventArgs e)
         {
-            FormPositionMana formPositionMana = new FormPositionMana();
-
-            formPositionMana.Show();
+            //役職管理画面に遷移する
+            formPositionMana.Visible = true;
         }
 
-        private void comboBox5_TextChanged(object sender, EventArgs e)
+        //受注IDコンボボックスに入力がある場合登録ボタンを使えなくする
+        private void comboBoxOrOrderID_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(comboBoxOrOrderID.Text))
             {
@@ -457,6 +460,7 @@ namespace SalesManagement_SysDev
             }
         }
 
+        //全てのテキストボックスとコンボボックスの入力をクリアする
         public static void ClearText(Control hParent)
         {
             // hParent 内のすべてのコントロールを列挙する
@@ -476,6 +480,7 @@ namespace SalesManagement_SysDev
             }
         }
 
+        //登録ボタンを使用不能にするメソッド
         public static void EnabledChangedfalsebutton(Control hParent)
         {
             // hParent 内のすべてのコントロールを列挙する
@@ -498,6 +503,7 @@ namespace SalesManagement_SysDev
             }
         }
 
+        //登録ボタンを使用可能にするメソッド
         public static void EnabledChangedtruebutton(Control hParent)
         {
             // hParent 内のすべてのコントロールを列挙する

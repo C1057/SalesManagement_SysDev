@@ -32,7 +32,7 @@ namespace SalesManagement_SysDev
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             this.labelNowTime = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelHeader = new System.Windows.Forms.Panel();
             this.labelHomeHumanName = new System.Windows.Forms.Label();
             this.labelHomeEmployeeID = new System.Windows.Forms.Label();
             this.labelHomePositionName = new System.Windows.Forms.Label();
@@ -433,7 +433,7 @@ namespace SalesManagement_SysDev
             this.buttonControl = new SalesManagement_SysDev.maruibutton();
             this.buttonLogin = new SalesManagement_SysDev.maruibutton();
             this.buttonLogout = new SalesManagement_SysDev.maruibutton();
-            this.panel2.SuspendLayout();
+            this.panelHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHattyu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHattyuDetail)).BeginInit();
@@ -481,25 +481,25 @@ namespace SalesManagement_SysDev
             this.labelNowTime.TabIndex = 0;
             this.labelNowTime.Text = "label3";
             // 
-            // panel2
+            // panelHeader
             // 
-            this.panel2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.labelHomeHumanName);
-            this.panel2.Controls.Add(this.labelHomeEmployeeID);
-            this.panel2.Controls.Add(this.labelHomePositionName);
-            this.panel2.Controls.Add(this.labelHomeHumanNameNow);
-            this.panel2.Controls.Add(this.buttonHome);
-            this.panel2.Controls.Add(this.labelHomeEmployeeIDNow);
-            this.panel2.Controls.Add(this.labelHomePositionNameNow);
-            this.panel2.Controls.Add(this.labelNowDays);
-            this.panel2.Controls.Add(this.labelSystemTitle);
-            this.panel2.Controls.Add(this.labelNowTime);
-            this.panel2.Location = new System.Drawing.Point(0, -3);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1907, 131);
-            this.panel2.TabIndex = 22;
+            this.panelHeader.BackColor = System.Drawing.Color.RoyalBlue;
+            this.panelHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelHeader.Controls.Add(this.labelHomeHumanName);
+            this.panelHeader.Controls.Add(this.labelHomeEmployeeID);
+            this.panelHeader.Controls.Add(this.labelHomePositionName);
+            this.panelHeader.Controls.Add(this.labelHomeHumanNameNow);
+            this.panelHeader.Controls.Add(this.buttonHome);
+            this.panelHeader.Controls.Add(this.labelHomeEmployeeIDNow);
+            this.panelHeader.Controls.Add(this.labelHomePositionNameNow);
+            this.panelHeader.Controls.Add(this.labelNowDays);
+            this.panelHeader.Controls.Add(this.labelSystemTitle);
+            this.panelHeader.Controls.Add(this.labelNowTime);
+            this.panelHeader.Location = new System.Drawing.Point(0, -3);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(2);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(1907, 131);
+            this.panelHeader.TabIndex = 22;
             // 
             // labelHomeHumanName
             // 
@@ -3710,7 +3710,7 @@ namespace SalesManagement_SysDev
             this.buttonEmPositionManaOpen.TabIndex = 129;
             this.buttonEmPositionManaOpen.Text = "役職管理";
             this.buttonEmPositionManaOpen.UseVisualStyleBackColor = false;
-            this.buttonEmPositionManaOpen.Click += new System.EventHandler(this.buttonEmSOManaOpen_Click);
+            this.buttonEmPositionManaOpen.Click += new System.EventHandler(this.buttonEmPositionManaOpen_Click);
             // 
             // buttonEmSOManaOpen
             // 
@@ -3723,7 +3723,7 @@ namespace SalesManagement_SysDev
             this.buttonEmSOManaOpen.TabIndex = 128;
             this.buttonEmSOManaOpen.Text = "営業所管理";
             this.buttonEmSOManaOpen.UseVisualStyleBackColor = false;
-            this.buttonEmSOManaOpen.Click += new System.EventHandler(this.button71_Click);
+            this.buttonEmSOManaOpen.Click += new System.EventHandler(this.buttonEmSOManaOpen_Click);
             // 
             // dateTimePickerEmployee
             // 
@@ -4474,7 +4474,7 @@ namespace SalesManagement_SysDev
             this.comboBoxOrOrderID.Name = "comboBoxOrOrderID";
             this.comboBoxOrOrderID.Size = new System.Drawing.Size(148, 34);
             this.comboBoxOrOrderID.TabIndex = 148;
-            this.comboBoxOrOrderID.TextChanged += new System.EventHandler(this.comboBox5_TextChanged);
+            this.comboBoxOrOrderID.TextChanged += new System.EventHandler(this.comboBoxOrOrderID_TextChanged);
             // 
             // comboBoxOrSalesOfficeID
             // 
@@ -5113,9 +5113,8 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.labelHomeLoginID);
             this.Controls.Add(this.textBoxHomePassword);
             this.Controls.Add(this.textBoxHomeLoginID);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelSale);
             this.Controls.Add(this.panelOrder);
             this.Controls.Add(this.panelArrival);
@@ -5128,12 +5127,13 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelStock);
             this.Controls.Add(this.panelShipment);
             this.Controls.Add(this.panelProduct);
+            this.Controls.Add(this.panelEmployee);
             this.Name = "FormHome";
             this.Text = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormHome_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panelHattyu.ResumeLayout(false);
             this.panelHattyu.PerformLayout();
@@ -5190,7 +5190,7 @@ namespace SalesManagement_SysDev
         #endregion
 
         private System.Windows.Forms.Label labelNowTime;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonClear;
