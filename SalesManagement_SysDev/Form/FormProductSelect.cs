@@ -23,5 +23,10 @@ namespace SalesManagement_SysDev
 
             labelProSelectTotalMoney.Text = n.ToString("C");
         }
+
+        private void buttonProSelectReturn_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+        }
     }
 }

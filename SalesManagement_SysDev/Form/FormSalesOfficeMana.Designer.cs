@@ -124,6 +124,7 @@ namespace SalesManagement_SysDev
             this.buttonSOManaReturn.TabIndex = 230;
             this.buttonSOManaReturn.Text = "戻る";
             this.buttonSOManaReturn.UseVisualStyleBackColor = false;
+            this.buttonSOManaReturn.Click += new System.EventHandler(this.buttonSOManaReturn_Click);
             // 
             // textBoxProSelectOrderID
             // 

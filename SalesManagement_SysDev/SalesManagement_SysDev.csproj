@@ -56,19 +56,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="common\DataInputCheck.cs" />
     <Compile Include="common\MessageDsp.cs" />
     <Compile Include="common\PasswordHash.cs" />
     <Compile Include="DataAccess\ArrivalDateAccess.cs" />
     <Compile Include="DataAccess\ChumonDateAccess.cs" />
     <Compile Include="DataAccess\ClientDataAccess.cs" />
-    <Compile Include="DataAccess\DataInputCheck.cs" />
     <Compile Include="DataAccess\EmployeeDateAccess.cs" />
     <Compile Include="DataAccess\HattyuDataAccess.cs" />
     <Compile Include="DataAccess\LoginDataAccess.cs" />
     <Compile Include="DataAccess\MajorClassDataAccess.cs" />
     <Compile Include="DataAccess\OrderDateAccess.cs" />
+    <Compile Include="DataAccess\PositionDataAccess.cs" />
     <Compile Include="DataAccess\ProductDataAccess.cs" />
     <Compile Include="DataAccess\SaleDateAccess.cs" />
+    <Compile Include="DataAccess\SalesOfficeDataAccess.cs" />
     <Compile Include="DataAccess\SmallClassDataAccess.cs" />
     <Compile Include="DataAccess\StockDateAccess.cs" />
     <Compile Include="DataAccess\SyukkaDateAccess.cs" />
@@ -83,23 +85,17 @@
     <Compile Include="Form\FormHome.Designer.cs">
       <DependentUpon>FormHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\Form2.cs">
+    <Compile Include="Form\FormOpening.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Form\FormOpening.Designer.cs">
+      <DependentUpon>FormOpening.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\Form3.cs">
+    <Compile Include="Form\FormClassMana.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form\Form4.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form\Form4.Designer.cs">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <Compile Include="Form\FormClassMana.Designer.cs">
+      <DependentUpon>FormClassMana.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\FormPositionMana.cs">
       <SubType>Form</SubType>
@@ -166,14 +162,11 @@
     <EmbeddedResource Include="Form\FormHome.resx">
       <DependentUpon>FormHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Form\FormOpening.resx">
+      <DependentUpon>FormOpening.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\Form4.resx">
-      <DependentUpon>Form4.cs</DependentUpon>
+    <EmbeddedResource Include="Form\FormClassMana.resx">
+      <DependentUpon>FormClassMana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FormPositionMana.resx">
       <DependentUpon>FormPositionMana.cs</DependentUpon>

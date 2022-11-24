@@ -174,6 +174,7 @@ namespace SalesManagement_SysDev
             this.buttonPositionManaReturn.TabIndex = 247;
             this.buttonPositionManaReturn.Text = "戻る";
             this.buttonPositionManaReturn.UseVisualStyleBackColor = false;
+            this.buttonPositionManaReturn.Click += new System.EventHandler(this.buttonPositionManaReturn_Click);
             // 
             // dataGridViewPositionMana
             // 

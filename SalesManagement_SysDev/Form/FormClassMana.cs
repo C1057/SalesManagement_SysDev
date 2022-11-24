@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace SalesManagement_SysDev
 {
-    public partial class Form4 : Form
+    public partial class FormClassMana : Form
     {
 
         private List<Panel> panelList = new System.Collections.Generic.List<Panel>();
 
         //bool flg = true;
 
-        public Form4()
+        public FormClassMana()
         {
             InitializeComponent();
 
@@ -124,7 +124,7 @@ namespace SalesManagement_SysDev
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Visible = false;
         }
 
         private void label61_Click(object sender, EventArgs e)

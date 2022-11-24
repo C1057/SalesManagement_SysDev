@@ -16,5 +16,10 @@ namespace SalesManagement_SysDev
         {
             InitializeComponent();
         }
+
+        private void buttonPositionManaReturn_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+        }
     }
 }

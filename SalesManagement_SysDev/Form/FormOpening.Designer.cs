@@ -1,7 +1,7 @@
 ﻿
 namespace SalesManagement_SysDev
 {
-    partial class Form2
+    partial class FormOpening
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace SalesManagement_SysDev
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOpening));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.maruibutton1 = new SalesManagement_SysDev.maruibutton();
@@ -66,7 +66,7 @@ namespace SalesManagement_SysDev
             this.maruibutton1.UseVisualStyleBackColor = true;
             this.maruibutton1.Click += new System.EventHandler(this.maruibutton1_Click);
             // 
-            // Form2
+            // FormOpening
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -74,8 +74,8 @@ namespace SalesManagement_SysDev
             this.ClientSize = new System.Drawing.Size(928, 616);
             this.Controls.Add(this.maruibutton1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "FormOpening";
+            this.Text = "FormOpening";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

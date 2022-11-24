@@ -13,7 +13,7 @@ namespace SalesManagement_SysDev
     public partial class FormHome : Form
     {
         //各フォームのインスタンス化
-        Form4 form4 = new Form4();                                                      //商品分類管理フォーム
+        FormClassMana form4 = new FormClassMana();                                                      //商品分類管理フォーム
         MakerMana formMaker = new MakerMana();                                          //メーカ管理フォーム
         FormProductSelect formproductselect = new FormProductSelect();                  //商品選択フォーム
         FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();                     //営業所管理フォーム

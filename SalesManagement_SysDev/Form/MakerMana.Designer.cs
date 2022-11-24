@@ -76,6 +76,7 @@ namespace SalesManagement_SysDev
             this.buttonManaMakerReturn.TabIndex = 207;
             this.buttonManaMakerReturn.Text = "戻る";
             this.buttonManaMakerReturn.UseVisualStyleBackColor = false;
+            this.buttonManaMakerReturn.Click += new System.EventHandler(this.buttonManaMakerReturn_Click);
             // 
             // buttonAddMaker
             // 

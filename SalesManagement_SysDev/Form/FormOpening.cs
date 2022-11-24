@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace SalesManagement_SysDev
 {
-    public partial class Form2 : Form
+    public partial class FormOpening : Form
     {
        
-        public Form2()
+        public FormOpening()
         {
             InitializeComponent();
         }

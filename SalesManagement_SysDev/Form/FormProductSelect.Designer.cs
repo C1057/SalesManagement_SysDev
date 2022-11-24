@@ -243,6 +243,7 @@ namespace SalesManagement_SysDev
             this.buttonProSelectReturn.TabIndex = 229;
             this.buttonProSelectReturn.Text = "戻る";
             this.buttonProSelectReturn.UseVisualStyleBackColor = false;
+            this.buttonProSelectReturn.Click += new System.EventHandler(this.buttonProSelectReturn_Click);
             // 
             // labelProSelectMajor
             // 
