@@ -31,8 +31,8 @@ namespace SalesManagement_SysDev
         {
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.maruibutton1 = new SalesManagement_SysDev.maruibutton();
-            this.maruibutton3 = new SalesManagement_SysDev.maruibutton();
+            this.buttonCsManaMajorClassOpen = new SalesManagement_SysDev.maruibutton();
+            this.buttonCsManaSmallClassOpen = new SalesManagement_SysDev.maruibutton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -73,33 +73,33 @@ namespace SalesManagement_SysDev
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // maruibutton1
+            // buttonCsManaMajorClassOpen
             // 
-            this.maruibutton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.maruibutton1.FlatAppearance.BorderSize = 0;
-            this.maruibutton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton1.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton1.Location = new System.Drawing.Point(12, 12);
-            this.maruibutton1.Name = "maruibutton1";
-            this.maruibutton1.Size = new System.Drawing.Size(236, 157);
-            this.maruibutton1.TabIndex = 0;
-            this.maruibutton1.Text = "大分類";
-            this.maruibutton1.UseVisualStyleBackColor = false;
-            this.maruibutton1.Click += new System.EventHandler(this.maruibutton1_Click);
+            this.buttonCsManaMajorClassOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.buttonCsManaMajorClassOpen.FlatAppearance.BorderSize = 0;
+            this.buttonCsManaMajorClassOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCsManaMajorClassOpen.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonCsManaMajorClassOpen.Location = new System.Drawing.Point(12, 12);
+            this.buttonCsManaMajorClassOpen.Name = "buttonCsManaMajorClassOpen";
+            this.buttonCsManaMajorClassOpen.Size = new System.Drawing.Size(236, 157);
+            this.buttonCsManaMajorClassOpen.TabIndex = 0;
+            this.buttonCsManaMajorClassOpen.Text = "大分類";
+            this.buttonCsManaMajorClassOpen.UseVisualStyleBackColor = false;
+            this.buttonCsManaMajorClassOpen.Click += new System.EventHandler(this.maruibutton1_Click);
             // 
-            // maruibutton3
+            // buttonCsManaSmallClassOpen
             // 
-            this.maruibutton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.maruibutton3.FlatAppearance.BorderSize = 0;
-            this.maruibutton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton3.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton3.Location = new System.Drawing.Point(266, 12);
-            this.maruibutton3.Name = "maruibutton3";
-            this.maruibutton3.Size = new System.Drawing.Size(236, 157);
-            this.maruibutton3.TabIndex = 1;
-            this.maruibutton3.Text = "小分類";
-            this.maruibutton3.UseVisualStyleBackColor = false;
-            this.maruibutton3.Click += new System.EventHandler(this.maruibutton3_Click);
+            this.buttonCsManaSmallClassOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.buttonCsManaSmallClassOpen.FlatAppearance.BorderSize = 0;
+            this.buttonCsManaSmallClassOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCsManaSmallClassOpen.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonCsManaSmallClassOpen.Location = new System.Drawing.Point(266, 12);
+            this.buttonCsManaSmallClassOpen.Name = "buttonCsManaSmallClassOpen";
+            this.buttonCsManaSmallClassOpen.Size = new System.Drawing.Size(236, 157);
+            this.buttonCsManaSmallClassOpen.TabIndex = 1;
+            this.buttonCsManaSmallClassOpen.Text = "小分類";
+            this.buttonCsManaSmallClassOpen.UseVisualStyleBackColor = false;
+            this.buttonCsManaSmallClassOpen.Click += new System.EventHandler(this.maruibutton3_Click);
             // 
             // label1
             // 
@@ -453,8 +453,8 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label61);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.maruibutton1);
-            this.Controls.Add(this.maruibutton3);
+            this.Controls.Add(this.buttonCsManaMajorClassOpen);
+            this.Controls.Add(this.buttonCsManaSmallClassOpen);
             this.Name = "FormClassMana";
             this.Text = "FormClassMana";
             this.Load += new System.EventHandler(this.Form4_Load);
@@ -471,9 +471,9 @@ namespace SalesManagement_SysDev
 
         #endregion
 
-        private maruibutton maruibutton1;
+        private maruibutton buttonCsManaMajorClassOpen;
         private System.Windows.Forms.Timer timer1;
-        private maruibutton maruibutton3;
+        private maruibutton buttonCsManaSmallClassOpen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView2;
