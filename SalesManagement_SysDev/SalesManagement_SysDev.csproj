@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="common\CheckExistence.cs" />
     <Compile Include="common\DataInputCheck.cs" />
     <Compile Include="common\MessageDsp.cs" />
     <Compile Include="common\PasswordHash.cs" />

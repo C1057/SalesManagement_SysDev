@@ -5115,6 +5115,11 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelClient);
+            this.Controls.Add(this.panelStock);
+            this.Controls.Add(this.panelShipment);
+            this.Controls.Add(this.panelProduct);
+            this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelSale);
             this.Controls.Add(this.panelOrder);
             this.Controls.Add(this.panelArrival);
@@ -5123,11 +5128,6 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelSyukko);
             this.Controls.Add(this.panelWareHousing);
             this.Controls.Add(this.panelHattyu);
-            this.Controls.Add(this.panelClient);
-            this.Controls.Add(this.panelStock);
-            this.Controls.Add(this.panelShipment);
-            this.Controls.Add(this.panelProduct);
-            this.Controls.Add(this.panelEmployee);
             this.Name = "FormHome";
             this.Text = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -8,5 +8,6 @@ namespace SalesManagement_SysDev
 {
     class ClientDataAccess
     {
+        
     }
 }
