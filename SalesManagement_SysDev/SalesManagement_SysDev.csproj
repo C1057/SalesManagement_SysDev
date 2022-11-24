@@ -57,6 +57,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="common\MessageDsp.cs" />
+    <Compile Include="common\PasswordHash.cs" />
+    <Compile Include="DataAccess\ArrivalDateAccess.cs" />
+    <Compile Include="DataAccess\ChumonDateAccess.cs" />
+    <Compile Include="DataAccess\ClientDataAccess.cs" />
+    <Compile Include="DataAccess\DataInputCheck.cs" />
+    <Compile Include="DataAccess\EmployeeDateAccess.cs" />
+    <Compile Include="DataAccess\HattyuDataAccess.cs" />
+    <Compile Include="DataAccess\LoginDataAccess.cs" />
+    <Compile Include="DataAccess\MajorClassDataAccess.cs" />
+    <Compile Include="DataAccess\OrderDateAccess.cs" />
+    <Compile Include="DataAccess\ProductDataAccess.cs" />
+    <Compile Include="DataAccess\SaleDateAccess.cs" />
+    <Compile Include="DataAccess\SmallClassDataAccess.cs" />
+    <Compile Include="DataAccess\StockDateAccess.cs" />
+    <Compile Include="DataAccess\SyukkaDateAccess.cs" />
+    <Compile Include="DataAccess\SyukkoDateAccess.cs" />
+    <Compile Include="DataAccess\WarehosingDateAccess.cs" />
     <Compile Include="Entity\M_MajorCassification.cs" />
     <Compile Include="Entity\M_Message.cs" />
     <Compile Include="Entity\M_Product.cs" />
