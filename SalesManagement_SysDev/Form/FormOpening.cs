@@ -12,7 +12,8 @@ namespace SalesManagement_SysDev
 {
     public partial class FormOpening : Form
     {
-       
+        FormHome formhome = new FormHome();        
+
         public FormOpening()
         {
             InitializeComponent();
@@ -20,15 +21,13 @@ namespace SalesManagement_SysDev
 
         private void maruibutton1_Click(object sender, EventArgs e)
         {
-            FormHome form1 = new FormHome();
-
-            form1.Show();
+            this.Visible = false;
+            formhome.Visible = true;
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
-
+            formhome.Show();
         }
     }
 }

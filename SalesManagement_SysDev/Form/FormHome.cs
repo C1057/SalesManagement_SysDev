@@ -11,13 +11,16 @@ using System.Windows.Forms;
 namespace SalesManagement_SysDev
 {
     public partial class FormHome : Form
-    {
+    {      
+
         //各フォームのインスタンス化
         FormClassMana form4 = new FormClassMana();                                                      //商品分類管理フォーム
         MakerMana formMaker = new MakerMana();                                          //メーカ管理フォーム
         FormProductSelect formproductselect = new FormProductSelect();                  //商品選択フォーム
         FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();                     //営業所管理フォーム
         FormPositionMana formPositionMana = new FormPositionMana();                     //役職管理フォーム
+
+        List<M_Client> ClientList;
 
         //各パネルをList型のPanelに代入する
         private List<Panel> panelList = new System.Collections.Generic.List<Panel>();
@@ -66,6 +69,8 @@ namespace SalesManagement_SysDev
         //タイマーへの初期設定
         private void FormHome_Load(object sender, EventArgs e)
         {
+            this.Visible = false;                                       //システム起動時　FormHomeをロードしながら自分自身を見えなくする
+
             Text = Application.ProductName;
             timer1.Interval = 1000;
             timer1.Enabled = true;
@@ -76,6 +81,7 @@ namespace SalesManagement_SysDev
 
             timer3.Interval = 1;
 
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
 
             /// <summry>
             /// 顧客管理画面データグリッドビュー設定
@@ -120,6 +126,8 @@ namespace SalesManagement_SysDev
             }
 
             dataGridViewCI.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
+            ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
         }
 
         //在庫管理ボタン
@@ -221,160 +229,7 @@ namespace SalesManagement_SysDev
 
         //private void timer3_Tick(object sender, EventArgs e)
         //{
-            //if (flg == true && this.panel1.Left > 0 - this.panel1.Size.Width)
-            //{
-            //    this.panel1.Location = new Point(this.panel1.Left - 10, this.panel1.Top);
-            //}
-            //else if (flg == false && this.panel1.Right < this.panel1.Size.Width)
-            //{
-            //    this.panel1.Location = new Point(this.panel1.Left + 10, this.panel1.Top);
-            //}
-            //else if (flg == true)
-            //{
-            //    flg = !flg;
-            //    timer3.Stop();
 
-            //    panelClient.Size = new Size(1876, 738);
-            //    panelClient.Location = new Point(12, 285);
-
-            //    panelPrSearchTitle.Size = new Size(1876, 738);
-            //    panelPrSearchTitle.Location = new Point(12, 285);
-
-            //    panelStock.Size = new Size(1876, 738);
-            //    panelStock.Location = new Point(12, 285);
-
-            //    panelProduct.Size = new Size(1876, 738);
-            //    panelProduct.Location = new Point(12, 285);
-
-            //    panelSale.Size = new Size(1876, 738);
-            //    panelSale.Location = new Point(12, 285);
-
-            //    panelOrder.Size = new Size(1876, 738);
-            //    panelOrder.Location = new Point(12, 285);
-
-            //    panelHattyu.Size = new Size(1876, 738);
-            //    panelHattyu.Location = new Point(12, 285);
-
-            //    panelWareHousing.Size = new Size(1876, 738);
-            //    panelWareHousing.Location = new Point(12, 285);
-
-            //    panelSyukko.Size = new Size(1876, 738);
-            //    panelSyukko.Location = new Point(12, 285);
-
-            //    panelArrival.Size = new Size(1876, 738);
-            //    panelArrival.Location = new Point(12, 285);
-
-            //    panelChumon.Size = new Size(1876, 738);
-            //    panelChumon.Location = new Point(12, 285);
-
-            //    panelStart.Size = new Size(1876, 738);
-            //    panelStart.Location = new Point(12, 285);
-
-            //    panelShipment.Size = new Size(1876, 738);
-            //    panelShipment.Location = new Point(12, 285);
-
-            //    dataGridViewChumonMain.Size = new Size(1843, 306);
-            //    dataGridViewChumonMain.Location = new Point(16, 401);
-
-            //    dataGridViewStock.Size = new Size(1843, 306);
-            //    dataGridViewStock.Location = new Point(16, 401);
-
-            //    dataGridVieProduct.Size = new Size(1843, 306);
-            //    dataGridVieProduct.Location = new Point(16, 401);
-
-            //    dataGridViewShipmentMain.Size = new Size(1843, 306);
-            //    dataGridViewShipmentMain.Location = new Point(16, 401);
-
-            //    dataGridViewEmMana.Size = new Size(1843, 306);
-            //    dataGridViewEmMana.Location = new Point(16, 401);
-
-            //    dataGridViewHattyuMain.Size = new Size(1843, 306);
-            //    dataGridViewHattyuMain.Location = new Point(16, 401);
-
-            //    dataGridViewWareHousingMain.Size = new Size(1843, 306);
-            //    dataGridViewWareHousingMain.Location = new Point(16, 401);
-
-            //    dataGridViewSyukkoMain.Size = new Size(1843, 306);
-            //    dataGridViewSyukkoMain.Location = new Point(16, 401);
-
-            //    dataGridViewArrivalMain.Size = new Size(1843, 306);
-            //    dataGridViewArrivalMain.Location = new Point(16, 401);
-            //}
-            //else if (flg == false)
-            //{
-            //    flg = !flg;
-            //    timer3.Stop();
-
-            //    panelClient.Size = new Size(1685, 738);
-            //    panelClient.Location = new Point(207, 285);
-
-
-            //    panelPrSearchTitle.Size = new Size(1685, 738);
-            //    panelPrSearchTitle.Location = new Point(207, 285);
-
-            //    panelStock.Size = new Size(1685, 738);
-            //    panelStock.Location = new Point(207, 285);
-
-            //    panelProduct.Size = new Size(1685, 738);
-        //        panelProduct.Location = new Point(207, 285);
-
-        //        panelSale.Size = new Size(1685, 738);
-        //        panelSale.Location = new Point(207, 285);
-
-        //        panelOrder.Size = new Size(1685, 738);
-        //        panelOrder.Location = new Point(207, 285);
-
-        //        panelHattyu.Size = new Size(1685, 738);
-        //        panelHattyu.Location = new Point(207, 285);
-
-        //        panelWareHousing.Size = new Size(1685, 738);
-        //        panelWareHousing.Location = new Point(207, 285);
-
-        //        panelSyukko.Size = new Size(1685, 738);
-        //        panelSyukko.Location = new Point(207, 285);
-
-        //        panelArrival.Size = new Size(1685, 738);
-        //        panelArrival.Location = new Point(207, 285);
-
-        //        panelChumon.Size = new Size(1685, 738);
-        //        panelChumon.Location = new Point(207, 285);
-
-        //        panelStart.Size = new Size(1685, 738);
-        //        panelStart.Location = new Point(207, 285);
-
-        //        panelShipment.Size = new Size(1685, 738);
-        //        panelShipment.Location = new Point(207, 285);
-
-        //        dataGridViewChumonMain.Size = new Size(1614, 306);
-        //        dataGridViewChumonMain.Location = new Point(38, 401);
-
-        //        dataGridViewChumonMain.Size = new Size(1614, 306);
-        //        dataGridViewChumonMain.Location = new Point(38, 401);
-
-        //        dataGridViewStock.Size = new Size(1614, 306);
-        //        dataGridViewStock.Location = new Point(38, 401);
-
-        //        dataGridVieProduct.Size = new Size(1614, 306);
-        //        dataGridVieProduct.Location = new Point(38, 401);
-
-        //        dataGridViewShipmentMain.Size = new Size(1614, 306);
-        //        dataGridViewShipmentMain.Location = new Point(38, 401);
-
-        //        dataGridViewEmMana.Size = new Size(1614, 306);
-        //        dataGridViewEmMana.Location = new Point(38, 401);
-
-        //        dataGridViewHattyuMain.Size = new Size(1614, 306);
-        //        dataGridViewHattyuMain.Location = new Point(38, 401);
-
-        //        dataGridViewWareHousingMain.Size = new Size(1614, 306);
-        //        dataGridViewWareHousingMain.Location = new Point(38, 401);
-
-        //        dataGridViewSyukkoMain.Size = new Size(1614, 306);
-        //        dataGridViewSyukkoMain.Location = new Point(38, 401);
-
-        //        dataGridViewArrivalMain.Size = new Size(1614, 306);
-        //        dataGridViewArrivalMain.Location = new Point(38, 401);
-        //    }
         //}
 
         //private void button40_Click(object sender, EventArgs e)
@@ -590,8 +445,8 @@ namespace SalesManagement_SysDev
         private void ListClient()
         {
             dataGridViewCI.Rows.Clear();                        //データグリッドビューをクリアする
-            var context = new SalesManagement_DevContext();     //SalesManagement_DevContextクラスのインスタンス化
-            foreach (var p in context.M_Clients)                //顧客マスタのデータを1行ずつ取得する
+            //var context = new SalesManagement_DevContext();     //SalesManagement_DevContextクラスのインスタンス化
+            foreach (var p in ClientList)                           //顧客マスタのデータを1行ずつ取得する
             {
                 if (p.ClFlag == 0)                              //顧客管理フラグが0の場合表示する
                 {
@@ -599,7 +454,13 @@ namespace SalesManagement_SysDev
                     dataGridViewCI.Rows.Add(p.ClID, p.SoID, p.ClName, p.ClAddress, p.ClPhone, p.ClPostal, p.ClFAX, Convert.ToBoolean(p.ClFlag), p.ClHidden);
                 }
             }
-            context.Dispose();                                  //contextを解放する
+            //context.Dispose();                                  //contextを解放する
+        }
+
+        //販売在庫管理システムを終了する
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

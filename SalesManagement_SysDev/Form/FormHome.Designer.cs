@@ -433,6 +433,7 @@ namespace SalesManagement_SysDev
             this.buttonControl = new SalesManagement_SysDev.maruibutton();
             this.buttonLogin = new SalesManagement_SysDev.maruibutton();
             this.buttonLogout = new SalesManagement_SysDev.maruibutton();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHattyu.SuspendLayout();
@@ -485,6 +486,7 @@ namespace SalesManagement_SysDev
             // 
             this.panelHeader.BackColor = System.Drawing.Color.RoyalBlue;
             this.panelHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelHeader.Controls.Add(this.buttonClose);
             this.panelHeader.Controls.Add(this.labelHomeHumanName);
             this.panelHeader.Controls.Add(this.labelHomeEmployeeID);
             this.panelHeader.Controls.Add(this.labelHomePositionName);
@@ -505,7 +507,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelHomeHumanName.AutoSize = true;
             this.labelHomeHumanName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHomeHumanName.Location = new System.Drawing.Point(1560, 73);
+            this.labelHomeHumanName.Location = new System.Drawing.Point(1436, 71);
             this.labelHomeHumanName.Name = "labelHomeHumanName";
             this.labelHomeHumanName.Size = new System.Drawing.Size(91, 26);
             this.labelHomeHumanName.TabIndex = 48;
@@ -515,7 +517,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelHomeEmployeeID.AutoSize = true;
             this.labelHomeEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHomeEmployeeID.Location = new System.Drawing.Point(1557, 47);
+            this.labelHomeEmployeeID.Location = new System.Drawing.Point(1433, 45);
             this.labelHomeEmployeeID.Name = "labelHomeEmployeeID";
             this.labelHomeEmployeeID.Size = new System.Drawing.Size(94, 26);
             this.labelHomeEmployeeID.TabIndex = 47;
@@ -525,7 +527,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelHomePositionName.AutoSize = true;
             this.labelHomePositionName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHomePositionName.Location = new System.Drawing.Point(1560, 22);
+            this.labelHomePositionName.Location = new System.Drawing.Point(1436, 20);
             this.labelHomePositionName.Name = "labelHomePositionName";
             this.labelHomePositionName.Size = new System.Drawing.Size(91, 26);
             this.labelHomePositionName.TabIndex = 46;
@@ -535,7 +537,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelHomeHumanNameNow.AutoSize = true;
             this.labelHomeHumanNameNow.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHomeHumanNameNow.Location = new System.Drawing.Point(1648, 73);
+            this.labelHomeHumanNameNow.Location = new System.Drawing.Point(1524, 71);
             this.labelHomeHumanNameNow.Name = "labelHomeHumanNameNow";
             this.labelHomeHumanNameNow.Size = new System.Drawing.Size(85, 26);
             this.labelHomeHumanNameNow.TabIndex = 45;
@@ -544,7 +546,7 @@ namespace SalesManagement_SysDev
             // buttonHome
             // 
             this.buttonHome.Font = new System.Drawing.Font("HGS創英角ﾎﾟｯﾌﾟ体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonHome.Location = new System.Drawing.Point(1787, 21);
+            this.buttonHome.Location = new System.Drawing.Point(1660, 25);
             this.buttonHome.Name = "buttonHome";
             this.buttonHome.Size = new System.Drawing.Size(113, 68);
             this.buttonHome.TabIndex = 49;
@@ -556,7 +558,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelHomeEmployeeIDNow.AutoSize = true;
             this.labelHomeEmployeeIDNow.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHomeEmployeeIDNow.Location = new System.Drawing.Point(1648, 48);
+            this.labelHomeEmployeeIDNow.Location = new System.Drawing.Point(1524, 46);
             this.labelHomeEmployeeIDNow.Name = "labelHomeEmployeeIDNow";
             this.labelHomeEmployeeIDNow.Size = new System.Drawing.Size(85, 26);
             this.labelHomeEmployeeIDNow.TabIndex = 44;
@@ -566,7 +568,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelHomePositionNameNow.AutoSize = true;
             this.labelHomePositionNameNow.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHomePositionNameNow.Location = new System.Drawing.Point(1648, 22);
+            this.labelHomePositionNameNow.Location = new System.Drawing.Point(1524, 20);
             this.labelHomePositionNameNow.Name = "labelHomePositionNameNow";
             this.labelHomePositionNameNow.Size = new System.Drawing.Size(85, 26);
             this.labelHomePositionNameNow.TabIndex = 43;
@@ -5095,6 +5097,17 @@ namespace SalesManagement_SysDev
             this.buttonLogout.Text = "ログアウト";
             this.buttonLogout.UseVisualStyleBackColor = false;
             // 
+            // buttonClose
+            // 
+            this.buttonClose.Font = new System.Drawing.Font("HGS創英角ﾎﾟｯﾌﾟ体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonClose.Location = new System.Drawing.Point(1786, 25);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(113, 68);
+            this.buttonClose.TabIndex = 50;
+            this.buttonClose.Text = "終了";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -5591,6 +5604,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.TextBox textBoxHaProductName;
         private System.Windows.Forms.Label labelHaEmployeeName;
         private System.Windows.Forms.TextBox textBoxHaEmployeeName;
+        private System.Windows.Forms.Button buttonClose;
     }
 }
 
