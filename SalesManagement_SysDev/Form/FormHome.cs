@@ -22,7 +22,7 @@ namespace SalesManagement_SysDev
         //各パネルをList型のPanelに代入する
         private List<Panel> panelList = new System.Collections.Generic.List<Panel>();
 
-        bool flg = true;
+        //bool flg = true;
 
         public FormHome()
         {
@@ -75,6 +75,51 @@ namespace SalesManagement_SysDev
             timer2.Enabled = true;
 
             timer3.Interval = 1;
+
+
+            /// <summry>
+            /// 顧客管理画面データグリッドビュー設定
+            /// </summry>
+            var columnText = new string[]                       //各列のヘッダーテキストを設定
+            {
+                "顧客ID","営業所ID ","顧客名","住所","電話番号","郵便番号","FAX","非表示フラグ","非表示理由"
+            };
+
+            var ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
+            {
+                    true,true,true,true,true,true,true,false,true
+            };
+
+            var ColumnSize = new int[]                          //各列のWidthを設定
+            {
+                    100,100,150,250,150,100,100,100,485
+            };
+
+            var columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
+            {
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewCheckBoxCell(),
+                new DataGridViewTextBoxCell(),
+            };
+
+            for (int i = 0; i < columnText.Length; i++)                 //各列の設定を適用し追加する
+            {
+                var viewColumn = new DataGridViewColumn();
+                viewColumn.HeaderText = columnText[i];                   //ヘッダーに表示される名称
+                viewColumn.ReadOnly = ReadOnlySet[i];                   //読み取り可否
+                viewColumn.Width = ColumnSize[i];                       //Width設定
+                viewColumn.CellTemplate = columnCellType[i];  //セルのタイプ
+
+                dataGridViewCI.Columns.Add(viewColumn);          //列の追加
+            }
+
+            dataGridViewCI.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
         }
 
         //在庫管理ボタン
@@ -131,6 +176,8 @@ namespace SalesManagement_SysDev
             panelClient.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
+            //データグリッドビューにデータを表示する
+            ListClient();
         }
 
         //商品管理ボタン
@@ -533,6 +580,26 @@ namespace SalesManagement_SysDev
             context.Dispose();
 
             MessageBox.Show("データベース生成完了");
+        }
+
+        /// <summary>
+        /// 顧客情報一覧表示モジュール
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void ListClient()
+        {
+            dataGridViewCI.Rows.Clear();                        //データグリッドビューをクリアする
+            var context = new SalesManagement_DevContext();     //SalesManagement_DevContextクラスのインスタンス化
+            foreach (var p in context.M_Clients)                //顧客マスタのデータを1行ずつ取得する
+            {
+                if (p.ClFlag == 0)                              //顧客管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewCI.Rows.Add(p.ClID, p.SoID, p.ClName, p.ClAddress, p.ClPhone, p.ClPostal, p.ClFAX, Convert.ToBoolean(p.ClFlag), p.ClHidden);
+                }
+            }
+            context.Dispose();                                  //contextを解放する
         }
     }
 }
