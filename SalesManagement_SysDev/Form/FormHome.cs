@@ -20,7 +20,7 @@ namespace SalesManagement_SysDev
         FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();                     //営業所管理フォーム
         FormPositionMana formPositionMana = new FormPositionMana();                     //役職管理フォーム
 
-        List<M_Client> ClientList;
+        //List<M_Client> ClientList;
 
         //各パネルをList型のPanelに代入する
         private List<Panel> panelList = new System.Collections.Generic.List<Panel>();
@@ -127,7 +127,7 @@ namespace SalesManagement_SysDev
 
             dataGridViewCI.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
 
-            ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
         }
 
         //在庫管理ボタン
@@ -185,7 +185,7 @@ namespace SalesManagement_SysDev
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
             //データグリッドビューにデータを表示する
-            ListClient();
+            //ListClient();
         }
 
         //商品管理ボタン
