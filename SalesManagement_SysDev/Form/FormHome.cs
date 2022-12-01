@@ -442,20 +442,20 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param>なし</param>
         /// <returns>なし</returns>
-        private void ListClient()
-        {
-            dataGridViewCI.Rows.Clear();                        //データグリッドビューをクリアする
-            //var context = new SalesManagement_DevContext();     //SalesManagement_DevContextクラスのインスタンス化
-            foreach (var p in ClientList)                           //顧客マスタのデータを1行ずつ取得する
-            {
-                if (p.ClFlag == 0)                              //顧客管理フラグが0の場合表示する
-                {
-                    //データグリッドビューにデータを追加する
-                    dataGridViewCI.Rows.Add(p.ClID, p.SoID, p.ClName, p.ClAddress, p.ClPhone, p.ClPostal, p.ClFAX, Convert.ToBoolean(p.ClFlag), p.ClHidden);
-                }
-            }
-            //context.Dispose();                                  //contextを解放する
-        }
+        //private void ListClient()
+        //{
+        //    dataGridViewCI.Rows.Clear();                        //データグリッドビューをクリアする
+        //    //var context = new SalesManagement_DevContext();     //SalesManagement_DevContextクラスのインスタンス化
+        //    foreach (var p in ClientList)                           //顧客マスタのデータを1行ずつ取得する
+        //    {
+        //        if (p.ClFlag == 0)                              //顧客管理フラグが0の場合表示する
+        //        {
+        //            //データグリッドビューにデータを追加する
+        //            dataGridViewCI.Rows.Add(p.ClID, p.SoID, p.ClName, p.ClAddress, p.ClPhone, p.ClPostal, p.ClFAX, Convert.ToBoolean(p.ClFlag), p.ClHidden);
+        //        }
+        //    }
+        //    //context.Dispose();                                  //contextを解放する
+        //}
 
         //販売在庫管理システムを終了する
         private void buttonClose_Click(object sender, EventArgs e)
