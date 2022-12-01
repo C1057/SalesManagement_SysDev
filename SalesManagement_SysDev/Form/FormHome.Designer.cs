@@ -33,6 +33,7 @@ namespace SalesManagement_SysDev
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHome));
             this.labelNowTime = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.labelHomeHumanName = new System.Windows.Forms.Label();
             this.labelHomeEmployeeID = new System.Windows.Forms.Label();
             this.labelHomePositionName = new System.Windows.Forms.Label();
@@ -433,7 +434,6 @@ namespace SalesManagement_SysDev
             this.buttonControl = new SalesManagement_SysDev.maruibutton();
             this.buttonLogin = new SalesManagement_SysDev.maruibutton();
             this.buttonLogout = new SalesManagement_SysDev.maruibutton();
-            this.buttonClose = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHattyu.SuspendLayout();
@@ -502,6 +502,17 @@ namespace SalesManagement_SysDev
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(1907, 131);
             this.panelHeader.TabIndex = 22;
+            // 
+            // buttonClose
+            // 
+            this.buttonClose.Font = new System.Drawing.Font("HGS創英角ﾎﾟｯﾌﾟ体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonClose.Location = new System.Drawing.Point(1786, 25);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(113, 68);
+            this.buttonClose.TabIndex = 50;
+            this.buttonClose.Text = "終了";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // labelHomeHumanName
             // 
@@ -637,9 +648,9 @@ namespace SalesManagement_SysDev
             // 
             this.buttonProduct.BackColor = System.Drawing.Color.White;
             this.buttonProduct.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonProduct.Location = new System.Drawing.Point(28, 131);
+            this.buttonProduct.Location = new System.Drawing.Point(12, 131);
             this.buttonProduct.Name = "buttonProduct";
-            this.buttonProduct.Size = new System.Drawing.Size(135, 64);
+            this.buttonProduct.Size = new System.Drawing.Size(169, 64);
             this.buttonProduct.TabIndex = 43;
             this.buttonProduct.Text = "商品管理";
             this.buttonProduct.UseVisualStyleBackColor = false;
@@ -650,9 +661,9 @@ namespace SalesManagement_SysDev
             this.buttonArrival.BackColor = System.Drawing.Color.White;
             this.buttonArrival.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonArrival.ForeColor = System.Drawing.Color.Black;
-            this.buttonArrival.Location = new System.Drawing.Point(28, 743);
+            this.buttonArrival.Location = new System.Drawing.Point(12, 743);
             this.buttonArrival.Name = "buttonArrival";
-            this.buttonArrival.Size = new System.Drawing.Size(135, 64);
+            this.buttonArrival.Size = new System.Drawing.Size(169, 64);
             this.buttonArrival.TabIndex = 51;
             this.buttonArrival.Text = "入荷管理";
             this.buttonArrival.UseVisualStyleBackColor = false;
@@ -663,9 +674,9 @@ namespace SalesManagement_SysDev
             this.buttonSyukko.BackColor = System.Drawing.Color.White;
             this.buttonSyukko.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSyukko.ForeColor = System.Drawing.Color.Black;
-            this.buttonSyukko.Location = new System.Drawing.Point(28, 675);
+            this.buttonSyukko.Location = new System.Drawing.Point(12, 675);
             this.buttonSyukko.Name = "buttonSyukko";
-            this.buttonSyukko.Size = new System.Drawing.Size(135, 64);
+            this.buttonSyukko.Size = new System.Drawing.Size(169, 64);
             this.buttonSyukko.TabIndex = 52;
             this.buttonSyukko.Text = "出庫管理";
             this.buttonSyukko.UseVisualStyleBackColor = false;
@@ -676,9 +687,9 @@ namespace SalesManagement_SysDev
             this.buttonHattyu.BackColor = System.Drawing.Color.White;
             this.buttonHattyu.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonHattyu.ForeColor = System.Drawing.Color.Black;
-            this.buttonHattyu.Location = new System.Drawing.Point(28, 539);
+            this.buttonHattyu.Location = new System.Drawing.Point(12, 539);
             this.buttonHattyu.Name = "buttonHattyu";
-            this.buttonHattyu.Size = new System.Drawing.Size(135, 64);
+            this.buttonHattyu.Size = new System.Drawing.Size(169, 64);
             this.buttonHattyu.TabIndex = 49;
             this.buttonHattyu.Text = "発注管理";
             this.buttonHattyu.UseVisualStyleBackColor = false;
@@ -689,9 +700,9 @@ namespace SalesManagement_SysDev
             this.buttonWareHousing.BackColor = System.Drawing.Color.White;
             this.buttonWareHousing.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonWareHousing.ForeColor = System.Drawing.Color.Black;
-            this.buttonWareHousing.Location = new System.Drawing.Point(28, 607);
+            this.buttonWareHousing.Location = new System.Drawing.Point(12, 607);
             this.buttonWareHousing.Name = "buttonWareHousing";
-            this.buttonWareHousing.Size = new System.Drawing.Size(135, 64);
+            this.buttonWareHousing.Size = new System.Drawing.Size(169, 64);
             this.buttonWareHousing.TabIndex = 50;
             this.buttonWareHousing.Text = "入庫管理";
             this.buttonWareHousing.UseVisualStyleBackColor = false;
@@ -702,9 +713,9 @@ namespace SalesManagement_SysDev
             this.buttonOrder.BackColor = System.Drawing.Color.White;
             this.buttonOrder.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonOrder.ForeColor = System.Drawing.Color.Black;
-            this.buttonOrder.Location = new System.Drawing.Point(28, 403);
+            this.buttonOrder.Location = new System.Drawing.Point(12, 403);
             this.buttonOrder.Name = "buttonOrder";
-            this.buttonOrder.Size = new System.Drawing.Size(135, 64);
+            this.buttonOrder.Size = new System.Drawing.Size(169, 64);
             this.buttonOrder.TabIndex = 47;
             this.buttonOrder.Text = "受注管理";
             this.buttonOrder.UseVisualStyleBackColor = false;
@@ -715,9 +726,9 @@ namespace SalesManagement_SysDev
             this.buttonChumon.BackColor = System.Drawing.Color.White;
             this.buttonChumon.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonChumon.ForeColor = System.Drawing.Color.Black;
-            this.buttonChumon.Location = new System.Drawing.Point(28, 471);
+            this.buttonChumon.Location = new System.Drawing.Point(12, 471);
             this.buttonChumon.Name = "buttonChumon";
-            this.buttonChumon.Size = new System.Drawing.Size(135, 64);
+            this.buttonChumon.Size = new System.Drawing.Size(169, 64);
             this.buttonChumon.TabIndex = 48;
             this.buttonChumon.Text = "注文管理";
             this.buttonChumon.UseVisualStyleBackColor = false;
@@ -728,9 +739,9 @@ namespace SalesManagement_SysDev
             this.buttonClient.BackColor = System.Drawing.Color.White;
             this.buttonClient.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonClient.ForeColor = System.Drawing.Color.Black;
-            this.buttonClient.Location = new System.Drawing.Point(28, 63);
+            this.buttonClient.Location = new System.Drawing.Point(12, 63);
             this.buttonClient.Name = "buttonClient";
-            this.buttonClient.Size = new System.Drawing.Size(135, 64);
+            this.buttonClient.Size = new System.Drawing.Size(169, 64);
             this.buttonClient.TabIndex = 42;
             this.buttonClient.Text = "顧客管理";
             this.buttonClient.UseVisualStyleBackColor = false;
@@ -741,10 +752,10 @@ namespace SalesManagement_SysDev
             this.buttonSale.BackColor = System.Drawing.Color.White;
             this.buttonSale.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSale.ForeColor = System.Drawing.Color.Black;
-            this.buttonSale.Location = new System.Drawing.Point(28, 335);
+            this.buttonSale.Location = new System.Drawing.Point(12, 335);
             this.buttonSale.Name = "buttonSale";
             this.buttonSale.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.buttonSale.Size = new System.Drawing.Size(135, 64);
+            this.buttonSale.Size = new System.Drawing.Size(169, 64);
             this.buttonSale.TabIndex = 46;
             this.buttonSale.Text = "売上管理";
             this.buttonSale.UseVisualStyleBackColor = false;
@@ -755,9 +766,9 @@ namespace SalesManagement_SysDev
             this.buttonStock.BackColor = System.Drawing.Color.White;
             this.buttonStock.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonStock.ForeColor = System.Drawing.Color.Black;
-            this.buttonStock.Location = new System.Drawing.Point(28, 199);
+            this.buttonStock.Location = new System.Drawing.Point(12, 199);
             this.buttonStock.Name = "buttonStock";
-            this.buttonStock.Size = new System.Drawing.Size(135, 64);
+            this.buttonStock.Size = new System.Drawing.Size(169, 64);
             this.buttonStock.TabIndex = 44;
             this.buttonStock.Text = "在庫管理";
             this.buttonStock.UseVisualStyleBackColor = false;
@@ -768,9 +779,9 @@ namespace SalesManagement_SysDev
             this.buttonEmployee.BackColor = System.Drawing.Color.White;
             this.buttonEmployee.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonEmployee.ForeColor = System.Drawing.Color.Black;
-            this.buttonEmployee.Location = new System.Drawing.Point(28, 267);
+            this.buttonEmployee.Location = new System.Drawing.Point(12, 267);
             this.buttonEmployee.Name = "buttonEmployee";
-            this.buttonEmployee.Size = new System.Drawing.Size(135, 64);
+            this.buttonEmployee.Size = new System.Drawing.Size(169, 64);
             this.buttonEmployee.TabIndex = 45;
             this.buttonEmployee.Text = "社員管理";
             this.buttonEmployee.UseVisualStyleBackColor = false;
@@ -5096,17 +5107,6 @@ namespace SalesManagement_SysDev
             this.buttonLogout.TabIndex = 40;
             this.buttonLogout.Text = "ログアウト";
             this.buttonLogout.UseVisualStyleBackColor = false;
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.Font = new System.Drawing.Font("HGS創英角ﾎﾟｯﾌﾟ体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonClose.Location = new System.Drawing.Point(1786, 25);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(113, 68);
-            this.buttonClose.TabIndex = 50;
-            this.buttonClose.Text = "終了";
-            this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // FormHome
             // 
