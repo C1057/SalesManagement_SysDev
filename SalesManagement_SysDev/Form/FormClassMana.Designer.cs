@@ -79,10 +79,9 @@ namespace SalesManagement_SysDev
             this.buttonCsManaMajorClassOpen.FlatAppearance.BorderSize = 0;
             this.buttonCsManaMajorClassOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCsManaMajorClassOpen.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCsManaMajorClassOpen.Location = new System.Drawing.Point(20, 18);
-            this.buttonCsManaMajorClassOpen.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.buttonCsManaMajorClassOpen.Location = new System.Drawing.Point(12, 12);
             this.buttonCsManaMajorClassOpen.Name = "buttonCsManaMajorClassOpen";
-            this.buttonCsManaMajorClassOpen.Size = new System.Drawing.Size(393, 236);
+            this.buttonCsManaMajorClassOpen.Size = new System.Drawing.Size(236, 157);
             this.buttonCsManaMajorClassOpen.TabIndex = 0;
             this.buttonCsManaMajorClassOpen.Text = "大分類";
             this.buttonCsManaMajorClassOpen.UseVisualStyleBackColor = false;
@@ -94,10 +93,9 @@ namespace SalesManagement_SysDev
             this.buttonCsManaSmallClassOpen.FlatAppearance.BorderSize = 0;
             this.buttonCsManaSmallClassOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCsManaSmallClassOpen.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCsManaSmallClassOpen.Location = new System.Drawing.Point(443, 18);
-            this.buttonCsManaSmallClassOpen.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.buttonCsManaSmallClassOpen.Location = new System.Drawing.Point(266, 12);
             this.buttonCsManaSmallClassOpen.Name = "buttonCsManaSmallClassOpen";
-            this.buttonCsManaSmallClassOpen.Size = new System.Drawing.Size(393, 236);
+            this.buttonCsManaSmallClassOpen.Size = new System.Drawing.Size(236, 157);
             this.buttonCsManaSmallClassOpen.TabIndex = 1;
             this.buttonCsManaSmallClassOpen.Text = "小分類";
             this.buttonCsManaSmallClassOpen.UseVisualStyleBackColor = false;
@@ -107,10 +105,9 @@ namespace SalesManagement_SysDev
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(1643, 292);
-            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label1.Location = new System.Drawing.Point(986, 195);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 46);
+            this.label1.Size = new System.Drawing.Size(133, 30);
             this.label1.TabIndex = 108;
             this.label1.Text = "非表示理由";
             // 
@@ -130,10 +127,9 @@ namespace SalesManagement_SysDev
             this.panel2.Controls.Add(this.label95);
             this.panel2.Controls.Add(this.label94);
             this.panel2.Controls.Add(this.comboBoxCsManaSmallClassID);
-            this.panel2.Location = new System.Drawing.Point(0, 262);
-            this.panel2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.panel2.Location = new System.Drawing.Point(0, 175);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(2747, 828);
+            this.panel2.Size = new System.Drawing.Size(1648, 552);
             this.panel2.TabIndex = 112;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -141,9 +137,10 @@ namespace SalesManagement_SysDev
             // 
             this.buttonCsManaSmallClassAdd.BackColor = System.Drawing.Color.LightCyan;
             this.buttonCsManaSmallClassAdd.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCsManaSmallClassAdd.Location = new System.Drawing.Point(48, 21);
+            this.buttonCsManaSmallClassAdd.Location = new System.Drawing.Point(29, 14);
+            this.buttonCsManaSmallClassAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCsManaSmallClassAdd.Name = "buttonCsManaSmallClassAdd";
-            this.buttonCsManaSmallClassAdd.Size = new System.Drawing.Size(398, 156);
+            this.buttonCsManaSmallClassAdd.Size = new System.Drawing.Size(239, 104);
             this.buttonCsManaSmallClassAdd.TabIndex = 207;
             this.buttonCsManaSmallClassAdd.Text = "登録";
             this.buttonCsManaSmallClassAdd.UseVisualStyleBackColor = false;
@@ -154,10 +151,9 @@ namespace SalesManagement_SysDev
             this.maruibutton5.FlatAppearance.BorderSize = 0;
             this.maruibutton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton5.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton5.Location = new System.Drawing.Point(2438, 21);
-            this.maruibutton5.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.maruibutton5.Location = new System.Drawing.Point(1463, 14);
             this.maruibutton5.Name = "maruibutton5";
-            this.maruibutton5.Size = new System.Drawing.Size(233, 184);
+            this.maruibutton5.Size = new System.Drawing.Size(140, 123);
             this.maruibutton5.TabIndex = 209;
             this.maruibutton5.Text = "非表示リスト";
             this.maruibutton5.UseVisualStyleBackColor = false;
@@ -166,9 +162,10 @@ namespace SalesManagement_SysDev
             // 
             this.buttonCsManaSmallClassUodate.BackColor = System.Drawing.Color.LightCyan;
             this.buttonCsManaSmallClassUodate.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCsManaSmallClassUodate.Location = new System.Drawing.Point(553, 21);
+            this.buttonCsManaSmallClassUodate.Location = new System.Drawing.Point(332, 14);
+            this.buttonCsManaSmallClassUodate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCsManaSmallClassUodate.Name = "buttonCsManaSmallClassUodate";
-            this.buttonCsManaSmallClassUodate.Size = new System.Drawing.Size(398, 156);
+            this.buttonCsManaSmallClassUodate.Size = new System.Drawing.Size(239, 104);
             this.buttonCsManaSmallClassUodate.TabIndex = 208;
             this.buttonCsManaSmallClassUodate.Text = "更新";
             this.buttonCsManaSmallClassUodate.UseVisualStyleBackColor = false;
@@ -177,9 +174,10 @@ namespace SalesManagement_SysDev
             // 
             this.buttonCsManaSmallClassList.BackColor = System.Drawing.Color.LightCyan;
             this.buttonCsManaSmallClassList.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCsManaSmallClassList.Location = new System.Drawing.Point(1047, 21);
+            this.buttonCsManaSmallClassList.Location = new System.Drawing.Point(628, 14);
+            this.buttonCsManaSmallClassList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCsManaSmallClassList.Name = "buttonCsManaSmallClassList";
-            this.buttonCsManaSmallClassList.Size = new System.Drawing.Size(398, 156);
+            this.buttonCsManaSmallClassList.Size = new System.Drawing.Size(239, 104);
             this.buttonCsManaSmallClassList.TabIndex = 209;
             this.buttonCsManaSmallClassList.Text = "一覧表示";
             this.buttonCsManaSmallClassList.UseVisualStyleBackColor = false;
@@ -190,10 +188,9 @@ namespace SalesManagement_SysDev
             this.maruibutton6.FlatAppearance.BorderSize = 0;
             this.maruibutton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton6.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton6.Location = new System.Drawing.Point(2195, 16);
-            this.maruibutton6.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.maruibutton6.Location = new System.Drawing.Point(1317, 11);
             this.maruibutton6.Name = "maruibutton6";
-            this.maruibutton6.Size = new System.Drawing.Size(233, 184);
+            this.maruibutton6.Size = new System.Drawing.Size(140, 123);
             this.maruibutton6.TabIndex = 208;
             this.maruibutton6.Text = "非表示";
             this.maruibutton6.UseVisualStyleBackColor = false;
@@ -201,58 +198,56 @@ namespace SalesManagement_SysDev
             // textBoxCsManaSmallClassHidden
             // 
             this.textBoxCsManaSmallClassHidden.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxCsManaSmallClassHidden.Location = new System.Drawing.Point(1875, 297);
-            this.textBoxCsManaSmallClassHidden.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textBoxCsManaSmallClassHidden.Location = new System.Drawing.Point(1125, 198);
             this.textBoxCsManaSmallClassHidden.Name = "textBoxCsManaSmallClassHidden";
-            this.textBoxCsManaSmallClassHidden.Size = new System.Drawing.Size(794, 36);
+            this.textBoxCsManaSmallClassHidden.Size = new System.Drawing.Size(478, 27);
             this.textBoxCsManaSmallClassHidden.TabIndex = 207;
             // 
             // textBoxCsManaSmallClassName
             // 
             this.textBoxCsManaSmallClassName.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxCsManaSmallClassName.Location = new System.Drawing.Point(208, 260);
-            this.textBoxCsManaSmallClassName.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textBoxCsManaSmallClassName.Location = new System.Drawing.Point(125, 173);
             this.textBoxCsManaSmallClassName.Name = "textBoxCsManaSmallClassName";
-            this.textBoxCsManaSmallClassName.Size = new System.Drawing.Size(274, 36);
+            this.textBoxCsManaSmallClassName.Size = new System.Drawing.Size(166, 27);
             this.textBoxCsManaSmallClassName.TabIndex = 205;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.Location = new System.Drawing.Point(40, 186);
+            this.label5.Location = new System.Drawing.Point(24, 124);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(151, 41);
+            this.label5.Size = new System.Drawing.Size(99, 26);
             this.label5.TabIndex = 196;
             this.label5.Text = "大分類ID";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(208, 195);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.comboBox1.Location = new System.Drawing.Point(125, 130);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(274, 26);
+            this.comboBox1.Size = new System.Drawing.Size(166, 20);
             this.comboBox1.TabIndex = 197;
             // 
             // dataGridViewSmallClass
             // 
             this.dataGridViewSmallClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSmallClass.Location = new System.Drawing.Point(0, 346);
-            this.dataGridViewSmallClass.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.dataGridViewSmallClass.Location = new System.Drawing.Point(0, 231);
             this.dataGridViewSmallClass.Name = "dataGridViewSmallClass";
             this.dataGridViewSmallClass.RowHeadersWidth = 62;
             this.dataGridViewSmallClass.RowTemplate.Height = 21;
-            this.dataGridViewSmallClass.Size = new System.Drawing.Size(2747, 482);
+            this.dataGridViewSmallClass.Size = new System.Drawing.Size(1648, 321);
             this.dataGridViewSmallClass.TabIndex = 111;
             // 
             // label95
             // 
             this.label95.AutoSize = true;
             this.label95.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label95.Location = new System.Drawing.Point(548, 260);
+            this.label95.Location = new System.Drawing.Point(329, 173);
+            this.label95.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(151, 41);
+            this.label95.Size = new System.Drawing.Size(99, 26);
             this.label95.TabIndex = 194;
             this.label95.Text = "小分類ID";
             // 
@@ -260,19 +255,19 @@ namespace SalesManagement_SysDev
             // 
             this.label94.AutoSize = true;
             this.label94.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label94.Location = new System.Drawing.Point(40, 261);
+            this.label94.Location = new System.Drawing.Point(24, 174);
+            this.label94.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(146, 41);
+            this.label94.Size = new System.Drawing.Size(96, 26);
             this.label94.TabIndex = 196;
             this.label94.Text = "小分類名";
             // 
             // comboBoxCsManaSmallClassID
             // 
             this.comboBoxCsManaSmallClassID.FormattingEnabled = true;
-            this.comboBoxCsManaSmallClassID.Location = new System.Drawing.Point(763, 268);
-            this.comboBoxCsManaSmallClassID.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.comboBoxCsManaSmallClassID.Location = new System.Drawing.Point(458, 179);
             this.comboBoxCsManaSmallClassID.Name = "comboBoxCsManaSmallClassID";
-            this.comboBoxCsManaSmallClassID.Size = new System.Drawing.Size(336, 26);
+            this.comboBoxCsManaSmallClassID.Size = new System.Drawing.Size(203, 20);
             this.comboBoxCsManaSmallClassID.TabIndex = 195;
             // 
             // button1
@@ -280,9 +275,10 @@ namespace SalesManagement_SysDev
             this.button1.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.button1.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(2362, 16);
+            this.button1.Location = new System.Drawing.Point(1417, 11);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(237, 126);
+            this.button1.Size = new System.Drawing.Size(142, 84);
             this.button1.TabIndex = 206;
             this.button1.Text = "戻る";
             this.button1.UseVisualStyleBackColor = false;
@@ -294,10 +290,9 @@ namespace SalesManagement_SysDev
             this.label61.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label61.Font = new System.Drawing.Font("Meiryo UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label61.ForeColor = System.Drawing.Color.Black;
-            this.label61.Location = new System.Drawing.Point(1707, 21);
-            this.label61.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label61.Location = new System.Drawing.Point(1024, 14);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(532, 122);
+            this.label61.Size = new System.Drawing.Size(355, 81);
             this.label61.TabIndex = 207;
             this.label61.Text = "大分類管理";
             this.label61.Click += new System.EventHandler(this.label61_Click);
@@ -316,80 +311,76 @@ namespace SalesManagement_SysDev
             this.panel1.Controls.Add(this.buttonCsManaMajorClassAdd);
             this.panel1.Controls.Add(this.buttonCsManaMajorClassUpdate);
             this.panel1.Controls.Add(this.buttonCsManaMajorClassList);
-            this.panel1.Location = new System.Drawing.Point(0, 262);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.panel1.Location = new System.Drawing.Point(0, 175);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2752, 832);
+            this.panel1.Size = new System.Drawing.Size(1711, 555);
             this.panel1.TabIndex = 209;
             // 
             // labelPositionManaPositionName
             // 
             this.labelPositionManaPositionName.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPositionManaPositionName.Location = new System.Drawing.Point(705, 288);
-            this.labelPositionManaPositionName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelPositionManaPositionName.Location = new System.Drawing.Point(423, 192);
             this.labelPositionManaPositionName.Name = "labelPositionManaPositionName";
-            this.labelPositionManaPositionName.Size = new System.Drawing.Size(192, 50);
+            this.labelPositionManaPositionName.Size = new System.Drawing.Size(115, 33);
             this.labelPositionManaPositionName.TabIndex = 242;
             this.labelPositionManaPositionName.Text = "大分類名";
             // 
             // textboxCsManaMajorClassHidden
             // 
             this.textboxCsManaMajorClassHidden.Font = new System.Drawing.Font("Meiryo UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textboxCsManaMajorClassHidden.Location = new System.Drawing.Point(1870, 297);
-            this.textboxCsManaMajorClassHidden.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.textboxCsManaMajorClassHidden.Location = new System.Drawing.Point(1122, 198);
             this.textboxCsManaMajorClassHidden.Name = "textboxCsManaMajorClassHidden";
-            this.textboxCsManaMajorClassHidden.Size = new System.Drawing.Size(794, 36);
+            this.textboxCsManaMajorClassHidden.Size = new System.Drawing.Size(478, 27);
             this.textboxCsManaMajorClassHidden.TabIndex = 206;
             // 
             // comboBoxCsManaMajorClassID
             // 
             this.comboBoxCsManaMajorClassID.Font = new System.Drawing.Font("Meiryo UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxCsManaMajorClassID.FormattingEnabled = true;
-            this.comboBoxCsManaMajorClassID.ItemHeight = 36;
-            this.comboBoxCsManaMajorClassID.Location = new System.Drawing.Point(292, 291);
+            this.comboBoxCsManaMajorClassID.ItemHeight = 24;
+            this.comboBoxCsManaMajorClassID.Location = new System.Drawing.Point(175, 194);
+            this.comboBoxCsManaMajorClassID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCsManaMajorClassID.Name = "comboBoxCsManaMajorClassID";
-            this.comboBoxCsManaMajorClassID.Size = new System.Drawing.Size(352, 44);
+            this.comboBoxCsManaMajorClassID.Size = new System.Drawing.Size(213, 32);
             this.comboBoxCsManaMajorClassID.TabIndex = 241;
             // 
             // textboxManaMajorClassName
             // 
             this.textboxManaMajorClassName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textboxManaMajorClassName.Location = new System.Drawing.Point(905, 285);
+            this.textboxManaMajorClassName.Location = new System.Drawing.Point(543, 190);
+            this.textboxManaMajorClassName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textboxManaMajorClassName.Multiline = true;
             this.textboxManaMajorClassName.Name = "textboxManaMajorClassName";
-            this.textboxManaMajorClassName.Size = new System.Drawing.Size(406, 54);
+            this.textboxManaMajorClassName.Size = new System.Drawing.Size(245, 37);
             this.textboxManaMajorClassName.TabIndex = 240;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(1638, 292);
-            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label2.Location = new System.Drawing.Point(983, 195);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 46);
+            this.label2.Size = new System.Drawing.Size(133, 30);
             this.label2.TabIndex = 205;
             this.label2.Text = "非表示理由";
             // 
             // labelPositionManaPositionID
             // 
             this.labelPositionManaPositionID.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPositionManaPositionID.Location = new System.Drawing.Point(40, 288);
-            this.labelPositionManaPositionID.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelPositionManaPositionID.Location = new System.Drawing.Point(24, 192);
             this.labelPositionManaPositionID.Name = "labelPositionManaPositionID";
-            this.labelPositionManaPositionID.Size = new System.Drawing.Size(193, 50);
+            this.labelPositionManaPositionID.Size = new System.Drawing.Size(116, 33);
             this.labelPositionManaPositionID.TabIndex = 239;
             this.labelPositionManaPositionID.Text = "大分類ID";
             // 
             // dataGridViewMajorClass
             // 
             this.dataGridViewMajorClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMajorClass.Location = new System.Drawing.Point(2, 346);
-            this.dataGridViewMajorClass.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.dataGridViewMajorClass.Location = new System.Drawing.Point(1, 231);
             this.dataGridViewMajorClass.Name = "dataGridViewMajorClass";
             this.dataGridViewMajorClass.RowHeadersWidth = 62;
             this.dataGridViewMajorClass.RowTemplate.Height = 21;
-            this.dataGridViewMajorClass.Size = new System.Drawing.Size(2750, 482);
+            this.dataGridViewMajorClass.Size = new System.Drawing.Size(1650, 321);
             this.dataGridViewMajorClass.TabIndex = 111;
             // 
             // maruibutton7
@@ -398,10 +389,9 @@ namespace SalesManagement_SysDev
             this.maruibutton7.FlatAppearance.BorderSize = 0;
             this.maruibutton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton7.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton7.Location = new System.Drawing.Point(2492, 44);
-            this.maruibutton7.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.maruibutton7.Location = new System.Drawing.Point(1495, 29);
             this.maruibutton7.Name = "maruibutton7";
-            this.maruibutton7.Size = new System.Drawing.Size(287, 166);
+            this.maruibutton7.Size = new System.Drawing.Size(172, 111);
             this.maruibutton7.TabIndex = 114;
             this.maruibutton7.Text = "非表示リスト";
             this.maruibutton7.UseVisualStyleBackColor = false;
@@ -412,10 +402,9 @@ namespace SalesManagement_SysDev
             this.maruibutton8.FlatAppearance.BorderSize = 0;
             this.maruibutton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibutton8.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton8.Location = new System.Drawing.Point(2185, 44);
-            this.maruibutton8.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.maruibutton8.Location = new System.Drawing.Point(1311, 29);
             this.maruibutton8.Name = "maruibutton8";
-            this.maruibutton8.Size = new System.Drawing.Size(287, 166);
+            this.maruibutton8.Size = new System.Drawing.Size(172, 111);
             this.maruibutton8.TabIndex = 113;
             this.maruibutton8.Text = "非表示";
             this.maruibutton8.UseVisualStyleBackColor = false;
@@ -424,9 +413,10 @@ namespace SalesManagement_SysDev
             // 
             this.buttonCsManaMajorClassAdd.BackColor = System.Drawing.Color.LightCyan;
             this.buttonCsManaMajorClassAdd.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCsManaMajorClassAdd.Location = new System.Drawing.Point(48, 21);
+            this.buttonCsManaMajorClassAdd.Location = new System.Drawing.Point(29, 14);
+            this.buttonCsManaMajorClassAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCsManaMajorClassAdd.Name = "buttonCsManaMajorClassAdd";
-            this.buttonCsManaMajorClassAdd.Size = new System.Drawing.Size(398, 156);
+            this.buttonCsManaMajorClassAdd.Size = new System.Drawing.Size(239, 104);
             this.buttonCsManaMajorClassAdd.TabIndex = 105;
             this.buttonCsManaMajorClassAdd.Text = "登録";
             this.buttonCsManaMajorClassAdd.UseVisualStyleBackColor = false;
@@ -435,9 +425,10 @@ namespace SalesManagement_SysDev
             // 
             this.buttonCsManaMajorClassUpdate.BackColor = System.Drawing.Color.LightCyan;
             this.buttonCsManaMajorClassUpdate.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCsManaMajorClassUpdate.Location = new System.Drawing.Point(553, 21);
+            this.buttonCsManaMajorClassUpdate.Location = new System.Drawing.Point(332, 14);
+            this.buttonCsManaMajorClassUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCsManaMajorClassUpdate.Name = "buttonCsManaMajorClassUpdate";
-            this.buttonCsManaMajorClassUpdate.Size = new System.Drawing.Size(398, 156);
+            this.buttonCsManaMajorClassUpdate.Size = new System.Drawing.Size(239, 104);
             this.buttonCsManaMajorClassUpdate.TabIndex = 106;
             this.buttonCsManaMajorClassUpdate.Text = "更新";
             this.buttonCsManaMajorClassUpdate.UseVisualStyleBackColor = false;
@@ -446,26 +437,26 @@ namespace SalesManagement_SysDev
             // 
             this.buttonCsManaMajorClassList.BackColor = System.Drawing.Color.LightCyan;
             this.buttonCsManaMajorClassList.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCsManaMajorClassList.Location = new System.Drawing.Point(1047, 21);
+            this.buttonCsManaMajorClassList.Location = new System.Drawing.Point(628, 14);
+            this.buttonCsManaMajorClassList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonCsManaMajorClassList.Name = "buttonCsManaMajorClassList";
-            this.buttonCsManaMajorClassList.Size = new System.Drawing.Size(398, 156);
+            this.buttonCsManaMajorClassList.Size = new System.Drawing.Size(239, 104);
             this.buttonCsManaMajorClassList.TabIndex = 107;
             this.buttonCsManaMajorClassList.Text = "一覧表示";
             this.buttonCsManaMajorClassList.UseVisualStyleBackColor = false;
             // 
             // FormClassMana
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1924, 1050);
+            this.ClientSize = new System.Drawing.Size(1711, 745);
             this.Controls.Add(this.label61);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonCsManaMajorClassOpen);
             this.Controls.Add(this.buttonCsManaSmallClassOpen);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "FormClassMana";
             this.Text = "FormClassMana";
             this.Load += new System.EventHandler(this.Form4_Load);
