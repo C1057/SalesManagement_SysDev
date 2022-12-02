@@ -50,6 +50,12 @@ namespace SalesManagement_SysDev
 
         }
 
+
+        /// <summary>
+        /// 社員更新モジュール
+        /// </summary>
+        /// <param name="UpdateData"></param>
+        /// <return>void</return>
         public void  UpdateEmployee (M_Employee UpdateData)
         {
             DialogResult result = msg.MsgDsp("M5024"); //更新確認メッセージ
@@ -72,6 +78,7 @@ namespace SalesManagement_SysDev
                 msg.MsgDsp("M5026");
             }
         }
+
 
 
 
