@@ -81,22 +81,22 @@ namespace SalesManagement_SysDev
         /// <returns>List<M_Client></returns>
         public List<M_Client> SearchClient(int methodflg, string SearchInfo)
         {
-            var context = new SalesManagement_DevContext();
-            List<M_Client> SearchResult = null;
+            var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
+            List<M_Client> SearchResult = null;                                         //検索結果用変数を宣言
 
-            if (methodflg == 1)
+            if (methodflg == 1)                                                         //顧客IDで検索
             {
-                int ClientID = int.Parse(SearchInfo);
-                SearchResult = context.M_Clients.Where(x => x.ClID == ClientID).ToList();
+                int ClientID = int.Parse(SearchInfo);                                   //検索用顧客IDを代入
+                SearchResult = context.M_Clients.Where(x => x.ClID == ClientID).ToList();           //検索
 
-                context.Dispose();
+                context.Dispose();                                                      //contextを解放
             }
-            else if (methodflg == 2)
+            else if (methodflg == 2)                                                    //営業所IDで検索
             {
-                int SalesOfficeID = int.Parse(SearchInfo);
-                SearchResult = context.M_Clients.Where(x => x.SoID == SalesOfficeID).ToList();
+                int SalesOfficeID = int.Parse(SearchInfo);                              //検索用営業所IDを代入
+                SearchResult = context.M_Clients.Where(x => x.SoID == SalesOfficeID).ToList();      //検索
 
-                context.Dispose();
+                context.Dispose();                                                      //contextを解放
             }
 
             return SearchResult;
@@ -109,13 +109,13 @@ namespace SalesManagement_SysDev
         /// <returns>List<M_Client></returns>
         public List<M_Client> SearchClient(string SearchInfo)
         {
-            var context = new SalesManagement_DevContext();
-            List<M_Client> SearchResult = null;
+            var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
+            List<M_Client> SearchResult = null;                                         //検索結果用変数の宣言
 
-            string ClientName = SearchInfo;
-            SearchResult = context.M_Clients.Where(M_Client => M_Client.ClName.Contains(SearchInfo)).ToList();
+            string ClientName = SearchInfo;                                             //検索用顧客名を代入
+            SearchResult = context.M_Clients.Where(M_Client => M_Client.ClName.Contains(SearchInfo)).ToList();      //検索
 
-            context.Dispose();
+            context.Dispose();                                                          //contextをする
 
             return SearchResult;
         }
@@ -125,15 +125,13 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="ClientID"></param>
         /// <returns>List<M_Client></returns>
-        public List<M_Client> DeleteClient(int ClientID)
+        public void DeleteClient(int ClientID)
         {
-            var context = new SalesManagement_DevContext();
-            var Client = context.M_Clients.Single(x => x.ClID == ClientID);
-            Client.ClFlag = 2;
-            context.SaveChanges();
-            context.Dispose();
-
-            return GetData();
+            var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
+            var Client = context.M_Clients.Single(x => x.ClID == ClientID);             //非表示にするレコードの抽出
+            Client.ClFlag = 2;                                                          //顧客管理フラグを2にする
+            context.SaveChanges();                                                      //更新を確定する
+            context.Dispose();                                                          //contextを解放
         }
 
         /// <summary>
@@ -143,8 +141,8 @@ namespace SalesManagement_SysDev
         /// <returns>List<M_Client></returns>
         public List<M_Client> GetData()
         {
-            var context = new SalesManagement_DevContext();
-            return context.M_Clients.ToList();
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
+            return context.M_Clients.ToList();                          //顧客マスタの全データを戻り値として返す
         }
     }
 }
