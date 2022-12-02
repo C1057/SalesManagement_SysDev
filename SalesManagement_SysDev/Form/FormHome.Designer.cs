@@ -636,9 +636,9 @@ namespace SalesManagement_SysDev
             this.buttonShipment.BackColor = System.Drawing.Color.White;
             this.buttonShipment.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonShipment.ForeColor = System.Drawing.Color.Black;
-            this.buttonShipment.Location = new System.Drawing.Point(28, 811);
+            this.buttonShipment.Location = new System.Drawing.Point(12, 811);
             this.buttonShipment.Name = "buttonShipment";
-            this.buttonShipment.Size = new System.Drawing.Size(135, 64);
+            this.buttonShipment.Size = new System.Drawing.Size(169, 64);
             this.buttonShipment.TabIndex = 53;
             this.buttonShipment.Text = "出荷管理";
             this.buttonShipment.UseVisualStyleBackColor = false;
@@ -5113,7 +5113,7 @@ namespace SalesManagement_SysDev
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1924, 916);
+            this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.maruibutton10);
             this.Controls.Add(this.buttonHumberger);
             this.Controls.Add(this.labelWarning);
