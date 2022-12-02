@@ -26,8 +26,8 @@ namespace SalesManagement_SysDev
             }
 
             var context = new SalesManagement_DevContext();
-            var Client = context.T_Hattyus.Single(x => x.HaID == HattyuID);
-            Client.HaFlag = 2;
+            var hattyu = context.T_Hattyus.Single(x => x.HaID == HattyuID);
+            hattyu.HaFlag = 2;
             context.SaveChanges();
             context.Dispose();
 
