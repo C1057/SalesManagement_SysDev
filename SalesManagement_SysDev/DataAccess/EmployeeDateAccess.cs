@@ -17,9 +17,6 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="addData"></param>
         /// <return>void</return>
-        
-        
-
         public void addEmployee(M_Employee addData)
         {
             DialogResult result = msg.MsgDsp("M5021"); //登録確認メッセージ
@@ -95,13 +92,13 @@ namespace SalesManagement_SysDev
                 SearchResult = context.M_Employees.Where(x => x.EmID == EmployeeID).ToList();
             }
 
-            if (methodflg == 2)　//営業所IDで検索
+            else if (methodflg == 2)　//営業所IDで検索
             {
                 int SalesOfficeID = int.Parse(SearchInfo);
                 SearchResult = context.M_Employees.Where(x => x.SoID == SalesOfficeID).ToList();
             }
 
-            if (methodflg == 3)　//役職IDで検索
+            else if (methodflg == 3)　//役職IDで検索
             {
                 int PositionID = int.Parse(SearchInfo);
                 SearchResult = context.M_Employees.Where(x => x.PoID == PositionID).ToList();
