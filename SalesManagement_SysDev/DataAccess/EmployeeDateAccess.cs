@@ -32,8 +32,11 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();
 
-                //パスワードをハッシュ化
-                　
+                //
+                //パスワードをハッシュ化が決まり次第コード記入
+                //
+
+
                 context.M_Employees.Add(addData); //データをセット
                 context.SaveChanges();　　//
                 context.Dispose();  //　contextを開放
@@ -46,5 +49,11 @@ namespace SalesManagement_SysDev
             }
 
         }
+
+
+
+
+
+
     }
 }
