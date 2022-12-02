@@ -51,6 +51,34 @@ namespace SalesManagement_SysDev
         }
 
 
+        /// <summary>
+        /// 社員更新モジュール
+        /// </summary>
+        /// <param name="UpdateData"></param>
+        /// <return>void</return>
+        public void  UpdateEmployee (M_Employee UpdateData)
+        {
+            DialogResult result = msg.MsgDsp("M5024"); //更新確認メッセージ
+            if (result == DialogResult.Cancel)　//更新Cancel　更新モジュールを終了する
+            {
+                return;
+            }
+            try
+            {
+                var context = new SalesManagement_DevContext();
+                var Employee = context.M_Employees.Single(x => x.EmID == UpdateData.EmID);
+                Employee = UpdateData;
+                context.SaveChanges();
+                context.Dispose();
+
+                msg.MsgDsp("M5025");
+            }
+            catch
+            {
+                msg.MsgDsp("M5026");
+            }
+        }
+
 
 
 
