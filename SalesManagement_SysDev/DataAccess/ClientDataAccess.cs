@@ -71,13 +71,80 @@ namespace SalesManagement_SysDev
             catch
             {
                 msg.MsgDsp("M2028");                                //更新失敗メッセージの表示
+            }          
+        }
+
+        /// <summary>
+        /// 顧客情報検索モジュール(ID系統)
+        /// </summary>
+        /// <param name="methodflg , SearchInfo"></param>
+        /// <returns>List<M_Client></returns>
+        public List<M_Client> SearchClient(int methodflg, string SearchInfo)
+        {
+            var context = new SalesManagement_DevContext();
+            List<M_Client> SearchResult = null;
+
+            if (methodflg == 1)
+            {
+                int ClientID = int.Parse(SearchInfo);
+                SearchResult = context.M_Clients.Where(x => x.ClID == ClientID).ToList();
+
+                context.Dispose();
+            }
+            else if (methodflg == 2)
+            {
+                int SalesOfficeID = int.Parse(SearchInfo);
+                SearchResult = context.M_Clients.Where(x => x.SoID == SalesOfficeID).ToList();
+
+                context.Dispose();
             }
 
-            /// <summary>
-            /// 顧客情報更新モジュール
-            /// </summary>
-            /// <param name="UpdateData"></param>
-            /// <returns>なし</returns>
+            return SearchResult;
+        }
+
+        /// <summary>
+        /// 顧客情報検索モジュール(顧客名)
+        /// </summary>
+        /// <param name="SearchInfo"></param>
+        /// <returns>List<M_Client></returns>
+        public List<M_Client> SearchClient(string SearchInfo)
+        {
+            var context = new SalesManagement_DevContext();
+            List<M_Client> SearchResult = null;
+
+            string ClientName = SearchInfo;
+            SearchResult = context.M_Clients.Where(M_Client => M_Client.ClName.Contains(SearchInfo)).ToList();
+
+            context.Dispose();
+
+            return SearchResult;
+        }
+
+        /// <summary>
+        /// 顧客情報非表示機能
+        /// </summary>
+        /// <param name="ClientID"></param>
+        /// <returns>List<M_Client></returns>
+        public List<M_Client> DeleteClient(int ClientID)
+        {
+            var context = new SalesManagement_DevContext();
+            var Client = context.M_Clients.Single(x => x.ClID == ClientID);
+            Client.ClFlag = 2;
+            context.SaveChanges();
+            context.Dispose();
+
+            return GetData();
+        }
+
+        /// <summary>
+        /// 顧客情報取得モジュール
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>List<M_Client></returns>
+        public List<M_Client> GetData()
+        {
+            var context = new SalesManagement_DevContext();
+            return context.M_Clients.ToList();
         }
     }
 }
