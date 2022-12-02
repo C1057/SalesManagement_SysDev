@@ -65,11 +65,11 @@ namespace SalesManagement_SysDev
             }
             try
             {
-                var context = new SalesManagement_DevContext();
-                var Employee = context.M_Employees.Single(x => x.EmID == UpdateData.EmID);
-                Employee = UpdateData;
-                context.SaveChanges();
-                context.Dispose();
+                var context = new SalesManagement_DevContext();       //クラスのインスタンス化
+                var Employee = context.M_Employees.Single(x => x.EmID == UpdateData.EmID);    //更新対象データの取得
+                Employee = UpdateData;  //更新データをセット
+                context.SaveChanges();  //
+                context.Dispose();     //contextを開放
 
                 msg.MsgDsp("M5025");
             }
@@ -77,6 +77,82 @@ namespace SalesManagement_SysDev
             {
                 msg.MsgDsp("M5026");
             }
+        }
+        /// <summary>
+        /// 社員検索モジュール　（ID系）
+        /// </summary>
+        /// <param name="methodflg"></param>
+        /// <param name="SearchInfo"></param>
+        /// <returns>List<M_Employee></returns>
+        public List<M_Employee> SearchEmployee (int methodflg,string SearchInfo)　//IDで検索
+        {
+            var context = new SalesManagement_DevContext();
+            List<M_Employee> SearchResult = null;
+
+            if (methodflg == 1)　//社員IDで検索
+            {
+                int EmployeeID = int.Parse(SearchInfo);
+                SearchResult = context.M_Employees.Where(x => x.EmID == EmployeeID).ToList();
+            }
+
+            if (methodflg == 2)　//営業所IDで検索
+            {
+                int SalesOfficeID = int.Parse(SearchInfo);
+                SearchResult = context.M_Employees.Where(x => x.SoID == SalesOfficeID).ToList();
+            }
+
+            if (methodflg == 3)　//役職IDで検索
+            {
+                int PositionID = int.Parse(SearchInfo);
+                SearchResult = context.M_Employees.Where(x => x.PoID == PositionID).ToList();
+            }
+
+
+            return SearchResult;
+        }
+     
+
+        /// <summary>
+        /// 社員検索モジュール（名前）
+        /// </summary>
+        /// <param name="SearchInfo"></param>
+        /// <returns></returns>
+        public List<M_Employee> SearchEmployee (string SearchInfo)　//名前系で検索
+        {
+            var context = new SalesManagement_DevContext();
+            List<M_Employee> SearchResult = null;
+
+            string ClientName = SearchInfo;
+            SearchResult = context.M_Employees.Where(M_Employee => M_Employee.EmName.Contains(SearchInfo)).ToList();
+
+            context.Dispose();
+
+            return SearchResult;
+        }
+        /// <summary>
+        /// 社員非表示機能
+        /// </summary>
+        /// <param name=""></param>
+        /// <param name="EmployeeID"></param>
+        /// <returns>List<M_Employee></returns>
+        public void DeleteEmployee (int EmployeeID) //非表示
+        {
+            var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
+            var Employee = context.M_Employees.Single(x => x.EmID == EmployeeID);             //非表示にするレコードの抽出
+            Employee.EmFlag = 2;                                                          //社員管理フラグを2にする
+            context.SaveChanges();                                                      //更新を確定する
+            context.Dispose();                                                          //contextを解放
+        }
+
+        /// <summary>
+        /// 社員情報取得モジュール
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>List<M_Employee></returns>
+        public List<M_Employee> GetData()
+        {
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
+            return context.M_Employees.ToList();                          //社員マスタの全データを戻り値として返す
         }
 
 
