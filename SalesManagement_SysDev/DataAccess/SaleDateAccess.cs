@@ -66,5 +66,37 @@ namespace SalesManagement_SysDev
 
 
         }
+
+        /// <summary>
+        /// 売上非表示機能
+        /// </summary>
+        /// <param name=""></param>
+        /// <param name="SaleID"></param>
+        /// <returns>List<T_Sale></returns>
+        public void DeleteSale(int SaleID) //非表示
+        {
+            var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
+            var Sale = context.T_Sale.Single(x => x.SaID == SaleID);             //非表示にするレコードの抽出
+            Sale.SaFlag = 2;                                                          //売上管理フラグを2にする
+            context.SaveChanges();                                                      //更新を確定する
+            context.Dispose();                                                          //contextを解放
+        }
+
+        /// <summary>
+        /// 売上情報取得モジュール
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>List<T_Sale></returns>
+        public List<T_Sale> GetData()
+        {
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
+            return context.T_Sale.ToList();                          //売上テーブルの全データを戻り値として返す
+        }
+
+
+
+
+
+
     }
 }
