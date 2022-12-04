@@ -127,7 +127,7 @@ namespace SalesManagement_SysDev
 
             dataGridViewCI.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
 
-            ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
         }
 
         //在庫管理ボタン
