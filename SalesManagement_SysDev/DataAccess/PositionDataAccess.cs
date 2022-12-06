@@ -25,5 +25,31 @@ namespace SalesManagement_SysDev
 
             msg.MsgDsp("M14002");
         }
+
+        public List<M_Position> SearchPosition(int methodflg, string SearchInfo)
+        {
+            var Context = new SalesManagement_DevContext();
+            List<M_Position> searchresult = null;
+
+            if (methodflg == 1)
+            {
+                int PositionID = int.Parse(SearchInfo);
+                searchresult = Context.M_Positions.Where(x => x.PoFlag == PositionID).ToList();
+                Context.Dispose();
+
+            }
+            return searchresult;
+        }
+
+        public List<M_Position> SearchPosition(string SearchInfo)
+        {
+            var Context = new SalesManagement_DevContext();
+            List < M_Position > = searchresult null;
+            Context.Dispose();
+
+            return searchresult;
+
+        }
     }
 }
+
