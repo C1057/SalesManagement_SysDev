@@ -641,6 +641,10 @@ namespace SalesManagement_SysDev
 
             dataGridViewHattyuDetail.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
 
+            ///<summary>
+            ///次は入庫管理から
+            /// </summary>
+
 
             ///<summary>
             ///各テーブルの表示用データを取得する
