@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SalesManagement_SysDev
 {
-    class ShipmentDateAccess
+    class MakerDataAccess
     {
     }
 }

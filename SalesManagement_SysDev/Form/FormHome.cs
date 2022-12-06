@@ -20,33 +20,48 @@ namespace SalesManagement_SysDev
         FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();                     //営業所管理フォーム
         FormPositionMana formPositionMana = new FormPositionMana();                     //役職管理フォーム
 
-        PositionDataAccess PositionAccess = new PositionDataAccess();                   //役職マスタ操作用クラスのインスタンス化
+        PositionDataAccess PositionAccess = new PositionDataAccess();                   //[役職マスタ]操作用クラスのインスタンス化
+        MakerDataAccess MakerAccess = new MakerDataAccess();                            //[メーカーマスタ]操作用クラスのインスタンス化
+        SalesOfficeDataAccess SalesOfficeAccess = new SalesOfficeDataAccess();          //[営業所マスタ]操作用クラスのインスタンス化
+        ClientDataAccess ClientAccess = new ClientDataAccess();                         //[顧客マスタ]操作用クラスのインスタンス化
+        ProductDataAccess ProductAccess = new ProductDataAccess();                      //[商品マスタ]操作用クラスのインスタンス化
+        MajorClassDataAccess MajorClassAccess = new MajorClassDataAccess();             //[大分類マスタ]操作用クラスのインスタンス化
+        SmallClassDataAccess SmallClassAccess = new SmallClassDataAccess();             //[小分類マスタ]操作用クラスのインスタンス化
+        StockDateAccess StockAcess = new StockDateAccess();                             //[在庫テーブル]操作用クラスのインスタンス化
+        SaleDateAccess SaleAccess = new SaleDateAccess();                               //[売上テーブル]操作用クラスのインスタンス化
+        OrderDateAccess OrderAccess = new OrderDateAccess();                            //[受注テーブル]操作用クラスのインスタンス化
+        ChumonDateAccess ChumonAccess = new ChumonDateAccess();                         //[注文テーブル]操作用クラスのインスタンス化
+        HattyuDataAccess HattyuAccess = new HattyuDataAccess();                         //[発注テーブル]操作用クラスのインスタンス化
+        WarehosingDateAccess WareHousingAccess = new WarehosingDateAccess();            //[入庫テーブル]操作用クラスのインスタンス化
+        SyukkoDateAccess SyukkoAccess = new SyukkoDateAccess();                         //[出庫テーブル]操作用クラスのインスタンス化
+        ArrivalDateAccess ArrivalAccess = new ArrivalDateAccess();                      //[入荷テーブル]操作用クラスのインスタンス化
+        ShipmentDateAccess ShipmentAccess = new ShipmentDateAccess();                   //[出荷テーブル]操作用クラスのインスタンス化
         
 
-        List<M_Position> PositionList;                                                  //表示用役職情報を保持する変数
-        List<M_Maker> MakerList;                                                        //表示用メーカー情報を保持する変数
-        List<M_SalesOffice> SalesOfficeList;                                            //表示用営業所情報を保持する変数
-        List<M_Client> ClientList;                                                      //表示用顧客情報を保持する変数
-        List<M_Product> ProductList;                                                    //表示用商品情報を保持する変数
-        List<M_MajorClassification> MajorClassList;                                     //表示用大分類情報を保持する変数
-        List<M_SmallClassification> SmallClassList;                                     //表示用小分類情報を保持する変数
-        List<T_Stock> StockList;                                                        //表示用在庫情報を保持する変数
-        List<T_Sale> SaleList;                                                          //表示用売上情報を保持する変数
-        List<T_SaleDetail> SaleDetailList;                                              //表示用売上詳細情報を保持する変数
-        List<T_Order> OrderList;                                                        //表示用受注情報を保持する変数
-        List<T_OrderDetail> OrderDetailList;                                            //表示用受注詳細情報を保持する変数
-        List<T_Chumon> ChumonList;                                                      //表示用注文情報を保持する変数
-        List<T_ChumonDetail> ChumonDetailList;                                          //表示用注文詳細情報を保持する変数
-        List<T_Hattyu> HattyuList;                                                      //表示用発注情報を保持する変数
-        List<T_HattyuDetail> HattyuDetailList;                                          //表示用発注詳細情報を保持する変数
-        List<T_Warehousing> WarehousingList;                                            //表示用入庫情報を保持する変数
-        List<T_WarehousingDetail> WarehousingDetailList;                                //表示用入庫詳細情報を保持する変数
-        List<T_Syukko> SyukkoList;                                                      //表示用出庫情報を保持する変数
-        List<T_SyukkoDetail> SyukkoDetailList;                                          //表示用出庫詳細情報を保持する変数
-        List<T_Arrival> ArrivalList;                                                    //表示用入荷情報を保持する変数
-        List<T_ArrivalDetail> ArrivalDetailList;                                        //表示用入荷詳細情報を保持する変数
-        List<T_Shipment> ShipmentList;                                                  //表示用出荷情報を保持する変数
-        List<T_ShipmentDetail> ShipmentDetailList;                                      //表示用出荷詳細情報を保持する変数
+        List<M_Position> PositionList;                                                  //表示用[役職]情報を保持する変数
+        List<M_Maker> MakerList;                                                        //表示用[メーカー]情報を保持する変数
+        List<M_SalesOffice> SalesOfficeList;                                            //表示用[営業所]情報を保持する変数
+        List<M_Client> ClientList;                                                      //表示用[顧客]情報を保持する変数
+        List<M_Product> ProductList;                                                    //表示用[商品]情報を保持する変数
+        List<M_MajorClassification> MajorClassList;                                     //表示用[大分類]情報を保持する変数
+        List<M_SmallClassification> SmallClassList;                                     //表示用[小分類]情報を保持する変数
+        List<T_Stock> StockList;                                                        //表示用[在庫]情報を保持する変数
+        List<T_Sale> SaleList;                                                          //表示用[売上]情報を保持する変数
+        List<T_SaleDetail> SaleDetailList;                                              //表示用[売上詳細]情報を保持する変数
+        List<T_Order> OrderList;                                                        //表示用[受注]情報を保持する変数
+        List<T_OrderDetail> OrderDetailList;                                            //表示用[受注詳細]情報を保持する変数
+        List<T_Chumon> ChumonList;                                                      //表示用[注文]情報を保持する変数
+        List<T_ChumonDetail> ChumonDetailList;                                          //表示用[注文詳細]情報を保持する変数
+        List<T_Hattyu> HattyuList;                                                      //表示用[発注]情報を保持する変数
+        List<T_HattyuDetail> HattyuDetailList;                                          //表示用[発注詳細]情報を保持する変数
+        List<T_Warehousing> WarehousingList;                                            //表示用[入庫]情報を保持する変数
+        List<T_WarehousingDetail> WarehousingDetailList;                                //表示用[入庫詳細]情報を保持する変数
+        List<T_Syukko> SyukkoList;                                                      //表示用[出庫]情報を保持する変数
+        List<T_SyukkoDetail> SyukkoDetailList;                                          //表示用[出庫詳細]情報を保持する変数
+        List<T_Arrival> ArrivalList;                                                    //表示用[入荷]情報を保持する変数
+        List<T_ArrivalDetail> ArrivalDetailList;                                        //表示用[入荷詳細]情報を保持する変数
+        List<T_Shipment> ShipmentList;                                                  //表示用[出荷]情報を保持する変数
+        List<T_ShipmentDetail> ShipmentDetailList;                                      //表示用[出荷詳細]情報を保持する変数
 
 
         //各パネルをList型のPanelに代入する

@@ -67,6 +67,7 @@
     <Compile Include="DataAccess\HattyuDataAccess.cs" />
     <Compile Include="DataAccess\LoginDataAccess.cs" />
     <Compile Include="DataAccess\MajorClassDataAccess.cs" />
+    <Compile Include="DataAccess\MakerDataAccess.cs" />
     <Compile Include="DataAccess\OrderDateAccess.cs" />
     <Compile Include="DataAccess\PositionDataAccess.cs" />
     <Compile Include="DataAccess\ProductDataAccess.cs" />
