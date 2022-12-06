@@ -32,9 +32,7 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();
 
-                //
-                //パスワードをハッシュ化が決まり次第コード記入
-                //
+               
 
 
                 context.M_MajorClassifications.Add(addData); //データをセット
@@ -85,7 +83,7 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name=""></param>
         /// <param name="MajorClassID"></param>
-        /// <returns>List<M_Employee></returns>
+        /// <returns>List<M_MajorClassifcation></returns>
         public void DeleteMajorClass(int MajorClassID) //非表示
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
@@ -93,6 +91,18 @@ namespace SalesManagement_SysDev
             MajorClass.McFlag = 2;                                                          //大分類管理フラグを2にする
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
+        }
+
+
+        /// <summary>
+        /// 大分類情報取得モジュール
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>List<M_MajorClassification></returns>
+        public List<M_MajorClassification> GetData()
+        {
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
+            return context.M_MajorClassifications.ToList();                          //大分類マスタの全データを戻り値として返す
         }
     }
 }
