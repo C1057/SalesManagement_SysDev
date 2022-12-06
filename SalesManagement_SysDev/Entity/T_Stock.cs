@@ -15,6 +15,7 @@ namespace SalesManagement_SysDev
         public int PrID { get; set; }           //商品ID
         public int StQuantity { get; set; }     //在庫数
         public int StFlag { get; set; }	        //在庫管理フラグ
+        public string StHidden { get; set; }    //非表示理由
 
     }
 }
