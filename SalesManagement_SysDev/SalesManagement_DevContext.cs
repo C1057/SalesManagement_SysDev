@@ -13,7 +13,7 @@ namespace SalesManagement_SysDev
     {
         public DbSet<M_Client> M_Clients { get; set; }
         public DbSet<M_Employee> M_Employees { get; set; }
-        public DbSet<M_MajorCassification> M_MajorCassifications { get; set; }
+        public DbSet<M_MajorClassification> M_MajorClassifications { get; set; }
         public DbSet<M_Maker> M_Makers { get; set; }
         public DbSet<M_Position> M_Positions { get; set; }
         public DbSet<M_Product> M_Products { get; set; }

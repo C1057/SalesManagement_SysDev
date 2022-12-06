@@ -86,7 +86,7 @@ namespace SalesManagement_SysDev
             var context = new SalesManagement_DevContext();         //DB接続用クラスのインスタンス化
 
             bool ExistResult;                                       //結果用変数宣言
-            ExistResult = context.M_MajorCassifications.Any(x => x.McID == MajorClassID);       //大分類情報がDBに存在するか検索する
+            ExistResult = context.M_MajorClassifications.Any(x => x.McID == MajorClassID);       //大分類情報がDBに存在するか検索する
             context.Dispose();                                      //contextを解放する
 
             return ExistResult;                                     //結果を返す

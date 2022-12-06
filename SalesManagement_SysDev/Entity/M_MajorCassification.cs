@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SalesManagement_SysDev
 {
-    class M_MajorCassification
+    class M_MajorClassification
     {
         [Key]
         public int McID { get; set; }           //大分類ID

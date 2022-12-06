@@ -20,7 +20,34 @@ namespace SalesManagement_SysDev
         FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();                     //営業所管理フォーム
         FormPositionMana formPositionMana = new FormPositionMana();                     //役職管理フォーム
 
-        List<M_Client> ClientList;
+        PositionDataAccess PositionAccess = new PositionDataAccess();                   //役職マスタ操作用クラスのインスタンス化
+        
+
+        List<M_Position> PositionList;                                                  //表示用役職情報を保持する変数
+        List<M_Maker> MakerList;                                                        //表示用メーカー情報を保持する変数
+        List<M_SalesOffice> SalesOfficeList;                                            //表示用営業所情報を保持する変数
+        List<M_Client> ClientList;                                                      //表示用顧客情報を保持する変数
+        List<M_Product> ProductList;                                                    //表示用商品情報を保持する変数
+        List<M_MajorClassification> MajorClassList;                                     //表示用大分類情報を保持する変数
+        List<M_SmallClassification> SmallClassList;                                     //表示用小分類情報を保持する変数
+        List<T_Stock> StockList;                                                        //表示用在庫情報を保持する変数
+        List<T_Sale> SaleList;                                                          //表示用売上情報を保持する変数
+        List<T_SaleDetail> SaleDetailList;                                              //表示用売上詳細情報を保持する変数
+        List<T_Order> OrderList;                                                        //表示用受注情報を保持する変数
+        List<T_OrderDetail> OrderDetailList;                                            //表示用受注詳細情報を保持する変数
+        List<T_Chumon> ChumonList;                                                      //表示用注文情報を保持する変数
+        List<T_ChumonDetail> ChumonDetailList;                                          //表示用注文詳細情報を保持する変数
+        List<T_Hattyu> HattyuList;                                                      //表示用発注情報を保持する変数
+        List<T_HattyuDetail> HattyuDetailList;                                          //表示用発注詳細情報を保持する変数
+        List<T_Warehousing> WarehousingList;                                            //表示用入庫情報を保持する変数
+        List<T_WarehousingDetail> WarehousingDetailList;                                //表示用入庫詳細情報を保持する変数
+        List<T_Syukko> SyukkoList;                                                      //表示用出庫情報を保持する変数
+        List<T_SyukkoDetail> SyukkoDetailList;                                          //表示用出庫詳細情報を保持する変数
+        List<T_Arrival> ArrivalList;                                                    //表示用入荷情報を保持する変数
+        List<T_ArrivalDetail> ArrivalDetailList;                                        //表示用入荷詳細情報を保持する変数
+        List<T_Shipment> ShipmentList;                                                  //表示用出荷情報を保持する変数
+        List<T_ShipmentDetail> ShipmentDetailList;                                      //表示用出荷詳細情報を保持する変数
+
 
         //各パネルをList型のPanelに代入する
         private List<Panel> panelList = new System.Collections.Generic.List<Panel>();
@@ -127,7 +154,7 @@ namespace SalesManagement_SysDev
 
             dataGridViewCI.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
 
-            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
         }
 
         //在庫管理ボタン
