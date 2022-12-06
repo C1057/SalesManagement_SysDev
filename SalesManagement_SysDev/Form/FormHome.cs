@@ -167,9 +167,111 @@ namespace SalesManagement_SysDev
                 dataGridViewCI.Columns.Add(viewColumn);          //列の追加
             }
 
-            dataGridViewCI.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+            dataGridViewCI.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする  
 
-            ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            /// <summry>
+            /// 受注管理画面データグリッドビュー設定      //受注テーブルデータグリッドビュー
+            /// </summry>
+            columnText=new string[]                      //各列のヘッダーテキストを設定
+            {
+                "受注ID", "営業所ID", "社員ID", "顧客ID", "顧客担当者名", "受注年月日", "確定可否", "受注管理フラグ", "非表示理由"
+            };
+
+            ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
+            {
+                    true,true,true,true,true,true,false,false,true
+            };
+
+            ColumnSize = new int[]                          //各列のWidthを設定
+            {
+                    80,80,80,80,150,150,60,60,245
+            };
+
+            columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
+            {
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewCheckBoxCell(),
+                new DataGridViewCheckBoxCell(),
+                new DataGridViewTextBoxCell(),
+            };
+
+            for (int i = 0; i < columnText.Length; i++)                 //各列の設定を適用し追加する
+            {
+                var viewColumn = new DataGridViewColumn();
+                viewColumn.HeaderText = columnText[i];                   //ヘッダーに表示される名称
+                viewColumn.ReadOnly = ReadOnlySet[i];                   //読み取り可否
+                viewColumn.Width = ColumnSize[i];                       //Width設定
+                viewColumn.CellTemplate = columnCellType[i];  //セルのタイプ
+
+                dataGridViewOrderMain.Columns.Add(viewColumn);          //列の追加
+            }
+
+            dataGridViewOrderMain.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
+            /// <summry>
+            /// 受注管理画面データグリッドビュー設定      //受注詳細テーブルデータグリッドビュー
+            /// </summry>
+            columnText = new string[]                      //各列のヘッダーテキストを設定
+            {
+                "受注詳細ID", "受注ID", "商品ID", "数量", "合計金額"
+            };
+
+            ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
+            {
+                    true,true,true,true,true
+            };
+
+            ColumnSize = new int[]                          //各列のWidthを設定
+            {
+                    80,80,80,80,185
+            };
+
+            columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
+            {
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+            };
+
+            for (int i = 0; i < columnText.Length; i++)                 //各列の設定を適用し追加する
+            {
+                var viewColumn = new DataGridViewColumn();
+                viewColumn.HeaderText = columnText[i];                   //ヘッダーに表示される名称
+                viewColumn.ReadOnly = ReadOnlySet[i];                   //読み取り可否
+                viewColumn.Width = ColumnSize[i];                       //Width設定
+                viewColumn.CellTemplate = columnCellType[i];  //セルのタイプ
+
+                dataGridViewOrderDetail.Columns.Add(viewColumn);          //列の追加
+            }
+
+            dataGridViewOrderDetail.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
+            //PositionList = context.M_Positions.ToList();                //List<M_Position>型のPositionListに[役職]表示用データを代入する
+            //MakerList = context.M_Makers.ToList();                      //List<M_Maker>型のMakerListに[メーカー]表示用データを代入する
+            //SalesOfficeList = context.M_SalesOffices.ToList();          //List<M_SalesOffice>型のSalesOfficeListに[営業所]表示用データを代入する
+            ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに[顧客]表示用データを代入する
+            //ProductList = context.M_Products.ToList();                  //List<M_Product>型のProductListに[商品]表示用データを代入する
+            //MajorClassList = context.M_MajorClassifications.ToList();   //List<M_MajorClassification>型のMajorClassListに[大分類]表示用データを代入する
+            //SmallClassList = context.M_SmallClassifications.ToList();   //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
+            //ClientList = context.M_Clients.ToList();                    //List<M_Client>型のClientListに一覧表示用データを代入する
         }
 
         //在庫管理ボタン
