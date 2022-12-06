@@ -77,7 +77,17 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="SearchInfo"></param>
         /// <returns>List<M_SalesOffice></returns>
-        
+        public void ConformOrder(T_Order ConformData,T_OrderDetail conformDataDetail,string Sql)
+        {
+            DialogResult result = msg.MsgDsp("M7024");
+            if (result == DialogResult.Cancel)                      //resultがCancelの場合受注登録モジュールを終了する
+            {
+                return;
+            }
+
+
+        }
+
 
         /// <summary>
         /// 受注情報非表示機能
