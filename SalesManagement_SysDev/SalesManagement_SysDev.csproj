@@ -75,7 +75,7 @@
     <Compile Include="DataAccess\SalesOfficeDataAccess.cs" />
     <Compile Include="DataAccess\SmallClassDataAccess.cs" />
     <Compile Include="DataAccess\StockDateAccess.cs" />
-    <Compile Include="DataAccess\SyukkaDateAccess.cs" />
+    <Compile Include="DataAccess\ShipmentDateAccess.cs" />
     <Compile Include="DataAccess\SyukkoDateAccess.cs" />
     <Compile Include="DataAccess\WarehosingDateAccess.cs" />
     <Compile Include="Entity\M_MajorCassification.cs" />
