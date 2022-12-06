@@ -19,9 +19,11 @@ namespace SalesManagement_SysDev
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime EmHiredate { get; set; }    //入社年月日
-        [MaxLength(10)]
+        //[MaxLength(10)]
         [Required]
         public String EmPassword { get; set; }      //パスワード
+        [Required]
+        public String EmSalt { get; set; }          //パスワード用ソルト
         [MaxLength(13)]
         [Required]
         public String EmPhone { get; set; }         //電話番号	
