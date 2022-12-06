@@ -44,7 +44,11 @@ namespace SalesManagement_SysDev
         public List<M_Position> SearchPosition(string SearchInfo)
         {
             var Context = new SalesManagement_DevContext();
-            List < M_Position > = searchresult null;
+            List < M_Position >  searchresult　= null;
+
+            string PositionName = SearchInfo;
+            searchresult = Context.M_Positions.Where(M_Position => M_Position.PoName.Contains(PositionName)).ToList();
+
             Context.Dispose();
 
             return searchresult;
