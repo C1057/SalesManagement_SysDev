@@ -17,7 +17,12 @@ namespace SalesManagement_SysDev
         /// <returns>true:全角文字のみ　false:全角文字以外を含む</returns>
         public bool CheckFullWidth(string CheckText)
         {
-            return (Regex.IsMatch(CheckText, @"^[A-Z]+"));
+            int textLength = CheckText.Replace("\r\n", string.Empty).Length;
+            int textByte = Encoding.GetEncoding("Shift_JIS").GetByteCount(CheckText.Replace("\r\n", string.Empty));
+            if (textByte != textLength * 2)
+                return false;
+            else
+                return true;
         }
 
         /// <summary>
