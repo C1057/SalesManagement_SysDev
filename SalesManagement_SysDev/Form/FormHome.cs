@@ -22,6 +22,14 @@ namespace SalesManagement_SysDev
         FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();                     //営業所管理フォーム
         FormPositionMana formPositionMana = new FormPositionMana();                     //役職管理フォーム
 
+        ///<summary>
+        ///共通モジュールのインスタンス化
+        /// </summary>
+        MessageDsp msg = new MessageDsp();                                              //メッセージ表示用クラス
+        CheckExistence Existence = new CheckExistence();                                //IDの存在チェック用クラス
+        DataInputCheck InputCheck = new DataInputCheck();                               //入力チェック用クラス
+        PasswordHash PassHash = new PasswordHash();                                     //パスワードハッシュ化用クラス
+
         /// <summary>
         /// 各テーブルの操作をするためのクラスをインスタンス化する
         /// </summary>
@@ -1296,39 +1304,254 @@ namespace SalesManagement_SysDev
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SalesManagement_DevContext context = new SalesManagement_DevContext();
-            context.SaveChanges();
-            context.Dispose();
-
-            MessageBox.Show("データベース生成完了");
-        }
-
-        /// <summary>
-        /// 顧客情報一覧表示モジュール
-        /// </summary>
-        /// <param>なし</param>
-        /// <returns>なし</returns>
-        private void ListClient()
-        {
-            dataGridViewCI.Rows.Clear();                        //データグリッドビューをクリアする
-            //var context = new SalesManagement_DevContext();     //SalesManagement_DevContextクラスのインスタンス化
-            foreach (var p in ClientList)                           //顧客マスタのデータを1行ずつ取得する
-            {
-                if (p.ClFlag == 0)                              //顧客管理フラグが0の場合表示する
-                {
-                    //データグリッドビューにデータを追加する
-                    dataGridViewCI.Rows.Add(p.ClID, p.SoID, p.ClName, p.ClAddress, p.ClPhone, p.ClPostal, p.ClFAX, Convert.ToBoolean(p.ClFlag), p.ClHidden);
-                }
-            }
-            //context.Dispose();                                  //contextを解放する
-        }
-
         //販売在庫管理システムを終了する
         private void buttonClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        ///////////////////////////////////////////////////
+        ///顧客管理画面コード
+        ///////////////////////////////////////////////////
+
+        /// <summary>
+        /// 顧客情報一覧表示モジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void ListClient()
+        {            
+            dataGridViewCI.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var ClientData in ClientList)
+            {
+                if (ClientData.ClFlag == 0)                     //顧客管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewCI.Rows.Add(ClientData.ClID, ClientData.SoID, ClientData.ClName, ClientData.ClAddress, ClientData.ClPhone,
+                                                ClientData.ClPostal, ClientData.ClFAX, Convert.ToBoolean(ClientData.ClFlag), ClientData.ClHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 顧客情報非表示リストモジュール
+        /// (非表示になっているデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void DeleteListClient()
+        {
+            dataGridViewCI.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var ClientData in ClientList)
+            {
+                if (ClientData.ClFlag == 2)                     //顧客管理フラグが2の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewCI.Rows.Add(ClientData.ClID, ClientData.SoID, ClientData.ClName, ClientData.ClAddress, ClientData.ClPhone,
+                                                ClientData.ClPostal, ClientData.ClFAX, Convert.ToBoolean(ClientData.ClFlag), ClientData.ClHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 顧客情報登録ボタン
+        /// </summary>
+        /// <param>なし</param>
+        /// <return>なし</return>
+        private void buttonCIAdd_Click(object sender, EventArgs e)
+        {
+            //入力チェックメソッドの呼び出し
+            if (!ClientInputCheck())
+            {
+                return;
+            }
+
+            //登録用顧客情報のセット
+            M_Client AddClientData = ClientDataSet();
+
+            //顧客情報の登録
+            ClientAccess.AddClient(AddClientData);
+
+            //顧客情報一覧表示用データの更新
+            ClientList = ClientAccess.GetData();
+
+            //顧客情報再表示
+            ListClient();
+        }
+
+        /// <summary>
+        /// 顧客情報入力チェックメソッド
+        /// </summary>
+        /// <returns>bool</returns>
+        private bool ClientInputCheck()
+        {
+            //顧客管理画面営業所IDの空文字チェック
+            if (string.IsNullOrEmpty(comboBoxCISalesOfficeID.Text))
+            {
+                msg.MsgDsp("M2004");
+                comboBoxCISalesOfficeID.Focus();
+                return false;
+            }
+
+            //顧客管理画面営業所IDの半角数字チェック
+            if (!InputCheck.CheckNumericAndHalfChar(comboBoxCISalesOfficeID.Text))
+            {
+                msg.MsgDsp("M2005");
+                comboBoxCISalesOfficeID.Focus();
+                return false;
+            }
+
+            //顧客管理画面営業所IDの文字数チェック
+            if(comboBoxCISalesOfficeID.Text.Length > 2)
+            {
+                msg.MsgDsp("M2006");
+                comboBoxCISalesOfficeID.Focus();
+                return false;
+            }
+
+            //顧客管理画面顧客名の空文字チェック
+            if (string.IsNullOrEmpty(textBoxCIClientName.Text))
+            {
+                msg.MsgDsp("M2007");
+                textBoxCIClientName.Focus();
+                return false;
+            }
+
+            //顧客管理画面顧客名の全角チェック
+            if (!InputCheck.CheckFullWidth(textBoxCIClientName.Text))
+            {
+                msg.MsgDsp("M2008");
+                textBoxCIClientName.Focus();
+                return false;
+            }
+
+            //顧客管理画面営業所IDの文字数チェック
+            if (textBoxCIClientName.Text.Length > 50)
+            {
+                msg.MsgDsp("M2009");
+                textBoxCIClientName.Focus();
+                return false;
+            }
+
+            //顧客管理画面住所の空文字チェック
+            if (string.IsNullOrEmpty(textBoxCIAddress.Text))
+            {
+                msg.MsgDsp("M2010");
+                textBoxCIAddress.Focus();
+                return false;
+            }
+
+            //顧客管理画面住所の全角チェック
+            if (InputCheck.CheckFullWidth(textBoxCIAddress.Text))
+            {
+                msg.MsgDsp("M2011");
+                textBoxCIAddress.Focus();
+                return false;
+            }
+
+            //顧客管理画面住所の文字数チェック
+            if (textBoxCIAddress.Text.Length > 50)
+            {
+                msg.MsgDsp("M2012");
+                textBoxCIAddress.Focus();
+                return false;
+            }
+
+            //顧客管理画面電話番号の空文字チェック
+            if (string.IsNullOrEmpty(textBoxCIPhone.Text))
+            {
+                msg.MsgDsp("M2013");
+                textBoxCIPhone.FindForm();
+                return false;
+            }
+
+            //顧客管理画面電話番号の半角数字チェック
+            if (!InputCheck.CheckNumericAndHalfChar(textBoxCIPhone.Text))
+            {
+                msg.MsgDsp("M2014");
+                textBoxCIPhone.Focus();
+                return false;
+            }
+
+            //顧客管理画面電話番号の文字数チェック
+            if (textBoxCIPhone.Text.Length != 13)
+            {
+                msg.MsgDsp("M2015");
+                textBoxCIPhone.Focus();
+                return false;
+            }
+
+            //顧客管理画面郵便番号の空文字チェック
+            if (string.IsNullOrEmpty(textBoxCIPostal.Text))
+            {
+                msg.MsgDsp("M2016");
+                textBoxCIPostal.Focus();
+                return false;
+            }
+
+            //顧客管理画面郵便番号の半角数字チェック
+            if (!InputCheck.CheckNumericAndHalfChar(textBoxCIPostal.Text))
+            {
+                msg.MsgDsp("M2017");
+                textBoxCIPostal.Focus();
+                return false;
+            }
+
+            //顧客管理画面郵便番号の文字数チェック
+            if (textBoxCIPostal.Text.Length > 7)
+            {
+                msg.MsgDsp("M2018");
+                textBoxCIPostal.Focus();
+                return false;
+            }
+
+            //顧客管理画面FAXの空文字チェック
+            if (string.IsNullOrEmpty(textBoxCIFax.Text))
+            {
+                msg.MsgDsp("M2019");
+                textBoxCIFax.Focus();
+                return false;
+            }
+
+            //顧客管理画面FAXの半角数字チェック
+            if (!InputCheck.CheckNumericAndHalfChar(textBoxCIFax.Text))
+            {
+                msg.MsgDsp("M2020");
+                textBoxCIFax.Focus();
+                return false;
+            }
+
+            //顧客管理画面FAXの文字数チェック
+            if (textBoxCIFax.Text.Length != 13)
+            {
+                msg.MsgDsp("M2021");
+                textBoxCIFax.Focus();
+                return false;
+            }
+
+            //入力内容に不正なしの場合,trueを返す
+            return true;
+        }
+
+        /// <summary>
+        /// 登録用顧客情報をセットする
+        /// </summary>
+        /// <returns>M_Client</returns>
+        private M_Client ClientDataSet()
+        {
+            return new M_Client
+            {
+                ClID = int.Parse(comboBoxCIClientID.Text),
+                SoID = int.Parse(comboBoxChSalesOfficeID.Text),
+                ClName = textBoxCIClientName.Text,
+                ClAddress = textBoxCIAddress.Text,
+                ClPhone = textBoxCIPhone.Text,
+                ClPostal = textBoxCIPostal.Text,
+                ClFAX = textBoxCIFax.Text,
+                ClFlag = 0,
+                ClHidden = textBoxCIRsn.Text
+            };
         }
     }
 }

@@ -63,5 +63,19 @@ namespace SalesManagement_SysDev
         {
             return (Regex.IsMatch(CheckText, @"^[a-zｱ-ﾝ]*$"));
         }
+
+        ///<summary>
+        ///半角数字チェック
+        /// </summary>
+        /// <param name="="CheckText">対象文字列</param>
+        /// <return>true:半角数字のみ false:半角数字でない</return>
+        public bool CheckNumericAndHalfChar(string CheckText)
+        {
+            if(Regex.IsMatch(CheckText, @"^[1-9]*$") && Regex.IsMatch(CheckText, @"^[a-zｱ-ﾝ]*$"))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
