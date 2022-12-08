@@ -76,7 +76,7 @@ namespace SalesManagement_SysDev
         /// <return>true:半角数字のみ false:半角数字でない</return>
         public bool CheckNumericAndHalfChar(string CheckText)
         {
-            if(Regex.IsMatch(CheckText, @"^[1-9]*$"))
+            if(Regex.IsMatch(CheckText, @"^[0-9]*$"))
             {
                 return true;
             }

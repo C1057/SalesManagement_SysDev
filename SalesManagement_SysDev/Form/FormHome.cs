@@ -1475,7 +1475,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面電話番号の文字数チェック
-            if (textBoxCIPhone.Text.Length != 13)
+            if (textBoxCIPhone.Text.Length > 13)
             {
                 msg.MsgDsp("M2015");
                 textBoxCIPhone.Focus();
@@ -1523,7 +1523,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面FAXの文字数チェック
-            if (textBoxCIFax.Text.Length != 13)
+            if (textBoxCIFax.Text.Length > 13)
             {
                 msg.MsgDsp("M2021");
                 textBoxCIFax.Focus();
