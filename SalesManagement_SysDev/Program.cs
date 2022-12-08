@@ -16,8 +16,8 @@ namespace SalesManagement_SysDev
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormOpening());
-            Application.Run(new F_Login());
+            Application.Run(new FormOpening());
+            //Application.Run(new F_Login());
         }
     }
 }
