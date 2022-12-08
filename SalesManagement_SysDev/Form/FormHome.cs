@@ -642,8 +642,339 @@ namespace SalesManagement_SysDev
             dataGridViewHattyuDetail.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
 
             ///<summary>
-            ///次は入庫管理から
+            ///入庫管理画面データグリッドビュー設定       //入庫テーブルデータグリッドビュー
             /// </summary>
+            columnText = new string[]                      //各列のヘッダーテキストを設定
+            {
+                "入庫ID", "発注ID", "入庫確認社員ID", "入庫年月日", "入庫済フラグ(棚)", "入庫管理フラグ", "非表示理由"
+            };
+
+            ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
+            {
+                    true,true,true,true,false,false,true
+            };
+
+            ColumnSize = new int[]                          //各列のWidthを設定
+            {
+                    100,100,100,150,150,100,285
+            };
+
+            columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
+            {
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewCheckBoxCell(),
+                new DataGridViewCheckBoxCell(),
+                new DataGridViewTextBoxCell(),
+            };
+
+            for (int i = 0; i < columnText.Length; i++)                 //各列の設定を適用し追加する
+            {
+                var viewColumn = new DataGridViewColumn();
+                viewColumn.HeaderText = columnText[i];                   //ヘッダーに表示される名称
+                viewColumn.ReadOnly = ReadOnlySet[i];                   //読み取り可否
+                viewColumn.Width = ColumnSize[i];                       //Width設定
+                viewColumn.CellTemplate = columnCellType[i];  //セルのタイプ
+
+                dataGridViewWareHousingMain.Columns.Add(viewColumn);          //列の追加
+            }
+
+            dataGridViewWareHousingMain.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
+            /// <summry>
+            /// 入庫管理画面データグリッドビュー設定      //入庫詳細テーブルデータグリッドビュー
+            /// </summry>
+            columnText = new string[]                      //各列のヘッダーテキストを設定
+            {
+                "入庫詳細ID", "入庫ID", "商品ID", "商品名", "数量"
+            };
+
+            ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
+            {
+                    true,true,true,true,true
+            };
+
+            ColumnSize = new int[]                          //各列のWidthを設定
+            {
+                   85,85,85,150,100
+            };
+
+            columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
+            {
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell()
+            };
+
+            for (int i = 0; i < columnText.Length; i++)                 //各列の設定を適用し追加する
+            {
+                var viewColumn = new DataGridViewColumn();
+                viewColumn.HeaderText = columnText[i];                   //ヘッダーに表示される名称
+                viewColumn.ReadOnly = ReadOnlySet[i];                   //読み取り可否
+                viewColumn.Width = ColumnSize[i];                       //Width設定
+                viewColumn.CellTemplate = columnCellType[i];  //セルのタイプ
+
+                dataGridViewWareHousingDetail.Columns.Add(viewColumn);          //列の追加
+            }
+
+            dataGridViewWareHousingDetail.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
+            ///<summary>
+            ///出庫管理画面データグリッドビュー設定       //出庫テーブルデータグリッドビュー
+            /// </summary>
+            columnText = new string[]                      //各列のヘッダーテキストを設定
+            {
+                "出庫ID", "社員ID", "顧客ID", "営業所ID", "受注ID", "出庫年月日", "出庫状態フラグ", "出庫管理フラグ", "非表示理由"
+            };
+
+            ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
+            {
+                    true,true,true,true,true,true,false,false,true
+            };
+
+            ColumnSize = new int[]                          //各列のWidthを設定
+            {
+                    80,80,80,80,80,150,95,95,245
+            };
+
+            columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
+            {
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewCheckBoxCell(),
+                new DataGridViewCheckBoxCell(),
+                new DataGridViewTextBoxCell(),
+            };
+
+            for (int i = 0; i < columnText.Length; i++)                 //各列の設定を適用し追加する
+            {
+                var viewColumn = new DataGridViewColumn();
+                viewColumn.HeaderText = columnText[i];                   //ヘッダーに表示される名称
+                viewColumn.ReadOnly = ReadOnlySet[i];                   //読み取り可否
+                viewColumn.Width = ColumnSize[i];                       //Width設定
+                viewColumn.CellTemplate = columnCellType[i];  //セルのタイプ
+
+                dataGridViewSyukkoMain.Columns.Add(viewColumn);          //列の追加
+            }
+
+            dataGridViewSyukkoMain.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
+            /// <summry>
+            /// 出庫管理画面データグリッドビュー設定      //出庫詳細テーブルデータグリッドビュー
+            /// </summry>
+            columnText = new string[]                      //各列のヘッダーテキストを設定
+            {
+                "出庫詳細ID", "出庫ID", "商品ID", "商品名", "数量"
+            };
+
+            ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
+            {
+                    true,true,true,true,true
+            };
+
+            ColumnSize = new int[]                          //各列のWidthを設定
+            {
+                   85,85,85,150,100
+            };
+
+            columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
+            {
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell()
+            };
+
+            for (int i = 0; i < columnText.Length; i++)                 //各列の設定を適用し追加する
+            {
+                var viewColumn = new DataGridViewColumn();
+                viewColumn.HeaderText = columnText[i];                   //ヘッダーに表示される名称
+                viewColumn.ReadOnly = ReadOnlySet[i];                   //読み取り可否
+                viewColumn.Width = ColumnSize[i];                       //Width設定
+                viewColumn.CellTemplate = columnCellType[i];  //セルのタイプ
+
+                dataGridViewSyukkoDetail.Columns.Add(viewColumn);          //列の追加
+            }
+
+            dataGridViewSyukkoDetail.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
+            ///<summary>
+            ///入荷管理画面データグリッドビュー設定       //入荷テーブルデータグリッドビュー
+            /// </summary>
+            columnText = new string[]                      //各列のヘッダーテキストを設定
+            {
+                "入荷ID", "営業所ID", "社員ID", "顧客ID", "受注ID", "入荷年月日", "入荷状態フラグ", "入荷管理フラグ", "非表示理由"
+            };
+
+            ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
+            {
+                    true,true,true,true,true,true,false,false,true
+            };
+
+            ColumnSize = new int[]                          //各列のWidthを設定
+            {
+                    80,80,80,80,80,150,95,95,245
+            };
+
+            columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
+            {
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewCheckBoxCell(),
+                new DataGridViewCheckBoxCell(),
+                new DataGridViewTextBoxCell(),
+            };
+
+            for (int i = 0; i < columnText.Length; i++)                 //各列の設定を適用し追加する
+            {
+                var viewColumn = new DataGridViewColumn();
+                viewColumn.HeaderText = columnText[i];                   //ヘッダーに表示される名称
+                viewColumn.ReadOnly = ReadOnlySet[i];                   //読み取り可否
+                viewColumn.Width = ColumnSize[i];                       //Width設定
+                viewColumn.CellTemplate = columnCellType[i];  //セルのタイプ
+
+                dataGridViewArrivalMain.Columns.Add(viewColumn);          //列の追加
+            }
+
+            dataGridViewArrivalMain.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
+            /// <summry>
+            /// 入荷管理画面データグリッドビュー設定      //入荷詳細テーブルデータグリッドビュー
+            /// </summry>
+            columnText = new string[]                      //各列のヘッダーテキストを設定
+            {
+                "入荷詳細ID", "入荷ID", "商品ID", "商品名", "数量"
+            };
+
+            ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
+            {
+                    true,true,true,true,true
+            };
+
+            ColumnSize = new int[]                          //各列のWidthを設定
+            {
+                   85,85,85,150,100
+            };
+
+            columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
+            {
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell()
+            };
+
+            for (int i = 0; i < columnText.Length; i++)                 //各列の設定を適用し追加する
+            {
+                var viewColumn = new DataGridViewColumn();
+                viewColumn.HeaderText = columnText[i];                   //ヘッダーに表示される名称
+                viewColumn.ReadOnly = ReadOnlySet[i];                   //読み取り可否
+                viewColumn.Width = ColumnSize[i];                       //Width設定
+                viewColumn.CellTemplate = columnCellType[i];  //セルのタイプ
+
+                dataGridViewArrivalDetail.Columns.Add(viewColumn);          //列の追加
+            }
+
+            dataGridViewArrivalDetail.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
+            ///<summary>
+            ///出荷管理画面データグリッドビュー設定       //出荷テーブルデータグリッドビュー
+            /// </summary>
+            columnText = new string[]                      //各列のヘッダーテキストを設定
+            {
+                "出荷ID", "顧客ID", "社員ID", "営業所ID", "受注ID", "出荷状態フラグ", "出荷完了年月日", "出荷管理フラグ", "非表示理由"
+            };
+
+            ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
+            {
+                    true,true,true,true,true,false,true,false,true
+            };
+
+            ColumnSize = new int[]                          //各列のWidthを設定
+            {
+                    80,80,80,80,80,95,150,95,245
+            };
+
+            columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
+            {
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewCheckBoxCell(),
+                new DataGridViewTextBoxCell(),                
+                new DataGridViewCheckBoxCell(),
+                new DataGridViewTextBoxCell(),
+            };
+
+            for (int i = 0; i < columnText.Length; i++)                 //各列の設定を適用し追加する
+            {
+                var viewColumn = new DataGridViewColumn();
+                viewColumn.HeaderText = columnText[i];                   //ヘッダーに表示される名称
+                viewColumn.ReadOnly = ReadOnlySet[i];                   //読み取り可否
+                viewColumn.Width = ColumnSize[i];                       //Width設定
+                viewColumn.CellTemplate = columnCellType[i];  //セルのタイプ
+
+                dataGridViewShipmentMain.Columns.Add(viewColumn);          //列の追加
+            }
+
+            dataGridViewShipmentMain.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
+            /// <summry>
+            /// 出荷管理画面データグリッドビュー設定      //出荷詳細テーブルデータグリッドビュー
+            /// </summry>
+            columnText = new string[]                      //各列のヘッダーテキストを設定
+            {
+                "入荷詳細ID", "入荷ID", "商品ID", "商品名", "数量"
+            };
+
+            ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
+            {
+                    true,true,true,true,true
+            };
+
+            ColumnSize = new int[]                          //各列のWidthを設定
+            {
+                   85,85,85,150,100
+            };
+
+            columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
+            {
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell()
+            };
+
+            for (int i = 0; i < columnText.Length; i++)                 //各列の設定を適用し追加する
+            {
+                var viewColumn = new DataGridViewColumn();
+                viewColumn.HeaderText = columnText[i];                   //ヘッダーに表示される名称
+                viewColumn.ReadOnly = ReadOnlySet[i];                   //読み取り可否
+                viewColumn.Width = ColumnSize[i];                       //Width設定
+                viewColumn.CellTemplate = columnCellType[i];  //セルのタイプ
+
+                dataGridViewShipmentDetail.Columns.Add(viewColumn);          //列の追加
+            }
+
+            dataGridViewShipmentDetail.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
 
 
             ///<summary>
