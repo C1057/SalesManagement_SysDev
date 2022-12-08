@@ -10,7 +10,7 @@ namespace SalesManagement_SysDev
     class WarehosingDateAccess
     {
         MessageDsp msg = new MessageDsp();
-        DateTime now = DateTime.Now;
+        
         
         /// <summary>
         /// 入庫確定処理
