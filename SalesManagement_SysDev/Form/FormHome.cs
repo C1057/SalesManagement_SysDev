@@ -1387,7 +1387,7 @@ namespace SalesManagement_SysDev
         private bool ClientInputCheck()
         {
             //顧客管理画面営業所IDの空文字チェック
-            if (string.IsNullOrEmpty(comboBoxCISalesOfficeID.Text))
+            if (string.IsNullOrEmpty(comboBoxCISalesOfficeID.Text.Trim()))
             {
                 msg.MsgDsp("M2004");
                 comboBoxCISalesOfficeID.Focus();
@@ -1395,7 +1395,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面営業所IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(comboBoxCISalesOfficeID.Text))
+            if (!InputCheck.CheckNumericAndHalfChar(comboBoxCISalesOfficeID.Text.Trim()))
             {
                 msg.MsgDsp("M2005");
                 comboBoxCISalesOfficeID.Focus();
@@ -1403,7 +1403,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面営業所IDの文字数チェック
-            if(comboBoxCISalesOfficeID.Text.Length > 2)
+            if(comboBoxCISalesOfficeID.Text.Trim().Length > 2)
             {
                 msg.MsgDsp("M2006");
                 comboBoxCISalesOfficeID.Focus();
@@ -1411,7 +1411,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面顧客名の空文字チェック
-            if (string.IsNullOrEmpty(textBoxCIClientName.Text))
+            if (string.IsNullOrEmpty(textBoxCIClientName.Text.Trim()))
             {
                 msg.MsgDsp("M2007");
                 textBoxCIClientName.Focus();
@@ -1419,7 +1419,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面顧客名の全角チェック
-            if (!InputCheck.CheckFullWidth(textBoxCIClientName.Text))
+            if (!InputCheck.CheckFullWidth(textBoxCIClientName.Text.Trim()))
             {
                 msg.MsgDsp("M2008");
                 textBoxCIClientName.Focus();
@@ -1427,7 +1427,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面営業所IDの文字数チェック
-            if (textBoxCIClientName.Text.Length > 50)
+            if (textBoxCIClientName.Text.Trim().Length > 50)
             {
                 msg.MsgDsp("M2009");
                 textBoxCIClientName.Focus();
@@ -1435,7 +1435,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面住所の空文字チェック
-            if (string.IsNullOrEmpty(textBoxCIAddress.Text))
+            if (string.IsNullOrEmpty(textBoxCIAddress.Text.Trim()))
             {
                 msg.MsgDsp("M2010");
                 textBoxCIAddress.Focus();
@@ -1443,7 +1443,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面住所の全角チェック
-            if (!InputCheck.CheckFullWidth(textBoxCIAddress.Text))
+            if (!InputCheck.CheckFullWidth(textBoxCIAddress.Text.Trim()))
             {
                 msg.MsgDsp("M2011");
                 textBoxCIAddress.Focus();
@@ -1451,7 +1451,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面住所の文字数チェック
-            if (textBoxCIAddress.Text.Length > 50)
+            if (textBoxCIAddress.Text.Trim().Length > 50)
             {
                 msg.MsgDsp("M2012");
                 textBoxCIAddress.Focus();
@@ -1459,7 +1459,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面電話番号の空文字チェック
-            if (string.IsNullOrEmpty(textBoxCIPhone.Text))
+            if (string.IsNullOrEmpty(textBoxCIPhone.Text.Trim()))
             {
                 msg.MsgDsp("M2013");
                 textBoxCIPhone.FindForm();
@@ -1467,7 +1467,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面電話番号の半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(textBoxCIPhone.Text))
+            if (!InputCheck.CheckNumericAndHalfChar(textBoxCIPhone.Text.Trim()))
             {
                 msg.MsgDsp("M2014");
                 textBoxCIPhone.Focus();
@@ -1475,7 +1475,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面電話番号の文字数チェック
-            if (textBoxCIPhone.Text.Length > 13)
+            if (textBoxCIPhone.Text.Trim().Length > 13)
             {
                 msg.MsgDsp("M2015");
                 textBoxCIPhone.Focus();
@@ -1483,7 +1483,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面郵便番号の空文字チェック
-            if (string.IsNullOrEmpty(textBoxCIPostal.Text))
+            if (string.IsNullOrEmpty(textBoxCIPostal.Text.Trim()))
             {
                 msg.MsgDsp("M2016");
                 textBoxCIPostal.Focus();
@@ -1491,7 +1491,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面郵便番号の半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(textBoxCIPostal.Text))
+            if (!InputCheck.CheckNumericAndHalfChar(textBoxCIPostal.Text.Trim()))
             {
                 msg.MsgDsp("M2017");
                 textBoxCIPostal.Focus();
@@ -1499,7 +1499,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面郵便番号の文字数チェック
-            if (textBoxCIPostal.Text.Length > 7)
+            if (textBoxCIPostal.Text.Trim().Length > 7)
             {
                 msg.MsgDsp("M2018");
                 textBoxCIPostal.Focus();
@@ -1507,7 +1507,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面FAXの空文字チェック
-            if (string.IsNullOrEmpty(textBoxCIFax.Text))
+            if (string.IsNullOrEmpty(textBoxCIFax.Text.Trim()))
             {
                 msg.MsgDsp("M2019");
                 textBoxCIFax.Focus();
@@ -1515,7 +1515,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面FAXの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(textBoxCIFax.Text))
+            if (!InputCheck.CheckNumericAndHalfChar(textBoxCIFax.Text.Trim()))
             {
                 msg.MsgDsp("M2020");
                 textBoxCIFax.Focus();
@@ -1523,7 +1523,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面FAXの文字数チェック
-            if (textBoxCIFax.Text.Length > 13)
+            if (textBoxCIFax.Text.Trim().Length > 13)
             {
                 msg.MsgDsp("M2021");
                 textBoxCIFax.Focus();
@@ -1542,15 +1542,14 @@ namespace SalesManagement_SysDev
         {
             return new M_Client
             {
-                ClID = int.Parse(comboBoxCIClientID.Text),
-                SoID = int.Parse(comboBoxChSalesOfficeID.Text),
-                ClName = textBoxCIClientName.Text,
-                ClAddress = textBoxCIAddress.Text,
-                ClPhone = textBoxCIPhone.Text,
-                ClPostal = textBoxCIPostal.Text,
-                ClFAX = textBoxCIFax.Text,
+                SoID = int.Parse(comboBoxCISalesOfficeID.Text.Trim()),
+                ClName = textBoxCIClientName.Text.Trim(),
+                ClAddress = textBoxCIAddress.Text.Trim(),
+                ClPhone = textBoxCIPhone.Text.Trim(),
+                ClPostal = textBoxCIPostal.Text.Trim(),
+                ClFAX = textBoxCIFax.Text.Trim(),
                 ClFlag = 0,
-                ClHidden = textBoxCIRsn.Text
+                ClHidden = textBoxCIRsn.Text.Trim()
             };
         }
     }
