@@ -1443,7 +1443,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客管理画面住所の全角チェック
-            if (InputCheck.CheckFullWidth(textBoxCIAddress.Text))
+            if (!InputCheck.CheckFullWidth(textBoxCIAddress.Text))
             {
                 msg.MsgDsp("M2011");
                 textBoxCIAddress.Focus();
