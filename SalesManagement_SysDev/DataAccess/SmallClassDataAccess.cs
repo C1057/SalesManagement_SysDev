@@ -60,7 +60,11 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();       //クラスのインスタンス化
                 var SmallClass = context.M_SmallClassifications.Single(x => x.ScID == UpdateData.ScID);    //更新対象データの取得
-                SmallClass = UpdateData;  //更新データをセット
+                //更新データをセット
+                SmallClass.McID = UpdateData.McID;
+                SmallClass.ScName = UpdateData.ScName;
+
+
                 context.SaveChanges();  //
                 context.Dispose();     //contextを開放
 

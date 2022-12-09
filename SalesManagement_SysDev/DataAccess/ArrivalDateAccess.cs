@@ -33,7 +33,7 @@ namespace SalesManagement_SysDev
 
 
 
-            var Arrival = context.T_Arrivals.Single(x => x.ArID == ConfirmData.ArID); //出庫テーブルのデータを変更する
+            var Arrival = context.T_Arrivals.Single(x => x.ArID == ConfirmData.ArID); //入荷テーブルのデータを変更する
             Arrival.EmID = ConfirmData.EmID;
             Arrival.ArFlag = 1;
             Arrival.ArHidden = DateTime.Now.ToString();
@@ -55,7 +55,7 @@ namespace SalesManagement_SysDev
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Arrival = context.T_Arrivals.Single(x => x.ArID == ArrivalID);             //非表示にするレコードの抽出
-            Arrival.ArFlag = 2;                                                          //入庫管理フラグを2にする
+            Arrival.ArFlag = 2;                                                          //入荷管理フラグを2にする
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }

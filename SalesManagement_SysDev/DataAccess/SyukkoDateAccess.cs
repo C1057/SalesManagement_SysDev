@@ -62,7 +62,7 @@ namespace SalesManagement_SysDev
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Syukko = context.T_Syukkos.Single(x => x.SyID == SyukkoID);             //非表示にするレコードの抽出
-            Syukko.SyFlag = 2;                                                          //入庫管理フラグを2にする
+            Syukko.SyFlag = 2;                                                          //出庫管理フラグを2にする
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }
@@ -75,7 +75,7 @@ namespace SalesManagement_SysDev
         public List<T_Syukko> GetData()
         {
             var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
-            return context.T_Syukkos.ToList();                          //入庫テーブルの全データを戻り値として返す
+            return context.T_Syukkos.ToList();                          //出庫テーブルの全データを戻り値として返す
         }
 
 

@@ -62,7 +62,17 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();     //SalesManagement_DevContextクラスのインスタンス化
                 var SalesOffice = context.M_SalesOffices.Single(x => x.SoID == UpdateData.SoID);              //更新対象データを取得する
-                SalesOffice = UpdateData;                                //更新データをセット
+                                                                                                              
+                //更新データをセット
+
+                SalesOffice.SoName = UpdateData.SoName;
+                SalesOffice.SoAddress = UpdateData.SoAddress;
+                SalesOffice.SoPhone = UpdateData.SoPhone;
+                SalesOffice.SoPostal = UpdateData.SoPostal;
+                SalesOffice.SoFAX = UpdateData.SoFAX;
+
+
+
                 context.SaveChanges();                              //データベースへの登録を確定する
                 context.Dispose();                                  //contextを解放する
 

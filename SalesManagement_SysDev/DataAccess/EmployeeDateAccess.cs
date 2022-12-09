@@ -64,7 +64,14 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();       //クラスのインスタンス化
                 var Employee = context.M_Employees.Single(x => x.EmID == UpdateData.EmID);    //更新対象データの取得
-                Employee = UpdateData;  //更新データをセット
+                //更新データをセット
+                Employee.EmName = UpdateData.EmName;
+                Employee.SoID = UpdateData.SoID;
+                Employee.PoID = UpdateData.PoID;
+                Employee.EmHidden = UpdateData.EmHidden;
+                Employee.EmPhone = UpdateData.EmPhone;
+
+
                 context.SaveChanges();  //
                 context.Dispose();     //contextを開放
 
