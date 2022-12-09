@@ -11,7 +11,7 @@ namespace SalesManagement_SysDev
     {
         MessageDsp msg = new MessageDsp();
 
-        public void DeleteChumon(int chumonID) //役職非表示機能
+        public void DeleteChumon(int chumonID) //注文非表示機能
         {
             DialogResult result = msg.MsgDsp("M14001");　//非表示確認メッセージ
             if(result == DialogResult.Cancel)//の場合非表示機能モジュールの実行終了
