@@ -81,7 +81,7 @@ namespace SalesManagement_SysDev
             }            
         }
 
-        public void UpdatePosition(M_Position updateposition)
+        public void UpdatePosition(M_Position updateData)
         {
             DialogResult result = msg.MsgDsp("M5037");
 
@@ -92,8 +92,9 @@ namespace SalesManagement_SysDev
             try
             {
                 var context = new SalesManagement_DevContext();       //クラスのインスタンス化
-                var Position = context.M_Positions.Single(x => x.PoID == updateposition.PoID);    //更新対象データの取得
-                Position = updateposition;  //更新データをセット
+                var Position = context.M_Positions.Single(x => x.PoID == updateData.PoID);    //更新対象データの取得
+                //更新データをセット
+                Position.PoName = updateData.PoName;
                 context.SaveChanges();  //
                 context.Dispose();     //contextを開放
 
