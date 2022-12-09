@@ -1411,6 +1411,14 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
+            //顧客IDの存在チェック
+            if (!Existence.CheckExistenceClient(int.Parse(comboBoxCIClientID.Text)))
+            {
+                msg.MsgDsp("M2029");
+                comboBoxCIClientID.Focus();
+                return false;
+            }
+
             //異常が無い場合trueを返す
             return true;
         }
@@ -1631,6 +1639,74 @@ namespace SalesManagement_SysDev
             ClientList = ClientAccess.GetData();
             //顧客情報再表示
             ListClient();
+        }
+
+        /// <summary>
+        /// 一覧表示ボタン
+        /// </summary>
+        /// <param >なし</param>
+        private void buttonCIDisplay_Click(object sender, EventArgs e)
+        {
+            ListClient();
+        }
+
+        /// <summary>
+        /// 顧客一覧表示ボタン
+        /// (SearchClient呼び出し)
+        /// 引数1:(1:顧客ID, 2:営業所ID, なし:顧客名)
+        /// </summary>
+        /// <param >なし</param>
+        /// <return>なし</return>
+        private void buttonCISearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewCI.Rows.Clear();                        //データグリッドビューの内容を消去する
+
+            if (!string.IsNullOrEmpty(comboBoxCIClientID.Text))             //顧客IDコンボボックスの空文字チェック
+            {
+                foreach (var ClData in ClientAccess.SearchClient(1, comboBoxCIClientID.Text))           //顧客IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewCI.Rows.Add(ClData.ClID, ClData.SoID, ClData.ClName, ClData.ClAddress, ClData.ClPhone, ClData.ClPostal, ClData.ClFAX
+                                                        , Convert.ToBoolean(ClData.ClFlag), ClData.ClHidden);
+                }
+                labelCISearchTitle.Text = "顧客IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(textBoxCIClientName.Text))       //顧客名テキストボックスの空文字チェック
+            {
+                foreach (var ClData in ClientAccess.SearchClient(textBoxCIClientName.Text))             //顧客名で検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewCI.Rows.Add(ClData.ClID, ClData.SoID, ClData.ClName, ClData.ClAddress, ClData.ClPhone, ClData.ClPostal, ClData.ClFAX
+                                                        , Convert.ToBoolean(ClData.ClFlag), ClData.ClHidden);
+                }
+                labelCISearchTitle.Text = "顧客名で検索しました";           //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxCISalesOfficeID.Text))   //営業所IDコンボボックスの空文字チェック
+            {
+                foreach (var ClData in ClientAccess.SearchClient(2, comboBoxCISalesOfficeID.Text))      //営業所IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewCI.Rows.Add(ClData.ClID, ClData.SoID, ClData.ClName, ClData.ClAddress, ClData.ClPhone, ClData.ClPostal, ClData.ClFAX
+                                                        , Convert.ToBoolean(ClData.ClFlag), ClData.ClHidden);
+                }
+                labelCISearchTitle.Text = "営業所IDで検索しました";         //何で検索したかを表示
+            }
+        }
+
+        /// <summary>
+        /// 顧客非表示ボタン
+        /// </summary>
+        /// <param>int ClientID</param>
+        private void buttonCINDisplay_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewCI.Rows.Count; i++)
+            {
+                if ((bool)dataGridViewCI.Rows[i].Cells[7].Value)
+                {
+                    ClientAccess.DeleteClient((int)dataGridViewCI.Rows[i].Cells[0].Value);
+                }
+            }
+            msg.MsgDsp("M14002");
         }
     }
 }

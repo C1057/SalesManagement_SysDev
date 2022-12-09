@@ -8,6 +8,13 @@ namespace SalesManagement_SysDev
 {
     class CheckExistence
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param>int 各ID</param>
+        /// <returns>異常あり:false, 異常なし:true</returns>
+
+
         //入力された役職IDがDBに存在するかチェックする
         public bool CheckExistencePosition(int PositionID)
         {

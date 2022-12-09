@@ -131,14 +131,19 @@ namespace SalesManagement_SysDev
         /// 顧客情報非表示機能
         /// </summary>
         /// <param name="ClientID"></param>
-        /// <returns>List<M_Client></returns>
-        public void DeleteClient(M_Client DeleteClientData)
+        /// <returns>なし</returns>
+        public void DeleteClient(int ClientID)
         {
-            var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
-            var Client = context.M_Clients.Single(x => x.ClID == DeleteClientData.ClID);             //非表示にするレコードの抽出
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
 
-            Client.ClFlag = 2;                                                          //顧客管理フラグを2にする
-            Client.ClHidden = DeleteClientData.ClHidden;                                //非表示理由をセット           
+            var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
+            var Client = context.M_Clients.Single(x => x.ClID == ClientID);             //非表示にするレコードの抽出
+
+            Client.ClFlag = 2;                                                          //顧客管理フラグを2にする          
 
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
