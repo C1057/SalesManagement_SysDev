@@ -434,6 +434,13 @@ namespace SalesManagement_SysDev
             this.buttonWrNDisplayList = new SalesManagement_SysDev.maruibutton();
             this.buttonHaNDisplay = new SalesManagement_SysDev.maruibutton();
             this.buttonHaNDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.labelCIClientIDWarning = new System.Windows.Forms.Label();
+            this.labelCIClientNameWarning = new System.Windows.Forms.Label();
+            this.labelCISalesOfficeIDWarning = new System.Windows.Forms.Label();
+            this.labelCIAddressWarning = new System.Windows.Forms.Label();
+            this.labelCIPhoneWarning = new System.Windows.Forms.Label();
+            this.labelCIPostalWarning = new System.Windows.Forms.Label();
+            this.labelCIFaxWarning = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHattyu.SuspendLayout();
@@ -831,7 +838,7 @@ namespace SalesManagement_SysDev
             this.textBoxHomePassword.Name = "textBoxHomePassword";
             this.textBoxHomePassword.PasswordChar = '*';
             this.textBoxHomePassword.Size = new System.Drawing.Size(206, 32);
-            this.textBoxHomePassword.TabIndex = 34;
+            this.textBoxHomePassword.TabIndex = 2;
             // 
             // textBoxHomeLoginID
             // 
@@ -840,7 +847,7 @@ namespace SalesManagement_SysDev
             this.textBoxHomeLoginID.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxHomeLoginID.Name = "textBoxHomeLoginID";
             this.textBoxHomeLoginID.Size = new System.Drawing.Size(206, 32);
-            this.textBoxHomeLoginID.TabIndex = 33;
+            this.textBoxHomeLoginID.TabIndex = 1;
             // 
             // labelManaTitle
             // 
@@ -2036,6 +2043,13 @@ namespace SalesManagement_SysDev
             // panelClient
             // 
             this.panelClient.BackColor = System.Drawing.Color.Azure;
+            this.panelClient.Controls.Add(this.labelCIFaxWarning);
+            this.panelClient.Controls.Add(this.labelCIPostalWarning);
+            this.panelClient.Controls.Add(this.labelCIPhoneWarning);
+            this.panelClient.Controls.Add(this.labelCIAddressWarning);
+            this.panelClient.Controls.Add(this.labelCISalesOfficeIDWarning);
+            this.panelClient.Controls.Add(this.labelCIClientNameWarning);
+            this.panelClient.Controls.Add(this.labelCIClientIDWarning);
             this.panelClient.Controls.Add(this.textBoxCIClientName);
             this.panelClient.Controls.Add(this.labelCISalesOfficeName);
             this.panelClient.Controls.Add(this.textBoxCISalesOfficeName);
@@ -2070,17 +2084,17 @@ namespace SalesManagement_SysDev
             // textBoxCIClientName
             // 
             this.textBoxCIClientName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxCIClientName.Location = new System.Drawing.Point(510, 125);
+            this.textBoxCIClientName.Location = new System.Drawing.Point(537, 127);
             this.textBoxCIClientName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCIClientName.Name = "textBoxCIClientName";
             this.textBoxCIClientName.Size = new System.Drawing.Size(321, 34);
-            this.textBoxCIClientName.TabIndex = 130;
+            this.textBoxCIClientName.TabIndex = 4;
             // 
             // labelCISalesOfficeName
             // 
             this.labelCISalesOfficeName.AutoSize = true;
             this.labelCISalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCISalesOfficeName.Location = new System.Drawing.Point(415, 175);
+            this.labelCISalesOfficeName.Location = new System.Drawing.Point(446, 178);
             this.labelCISalesOfficeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCISalesOfficeName.Name = "labelCISalesOfficeName";
             this.labelCISalesOfficeName.Size = new System.Drawing.Size(86, 24);
@@ -2090,11 +2104,11 @@ namespace SalesManagement_SysDev
             // textBoxCISalesOfficeName
             // 
             this.textBoxCISalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxCISalesOfficeName.Location = new System.Drawing.Point(510, 172);
+            this.textBoxCISalesOfficeName.Location = new System.Drawing.Point(537, 174);
             this.textBoxCISalesOfficeName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCISalesOfficeName.Name = "textBoxCISalesOfficeName";
             this.textBoxCISalesOfficeName.Size = new System.Drawing.Size(321, 34);
-            this.textBoxCISalesOfficeName.TabIndex = 128;
+            this.textBoxCISalesOfficeName.TabIndex = 6;
             // 
             // labelCISearchTitle
             // 
@@ -2103,7 +2117,6 @@ namespace SalesManagement_SysDev
             this.labelCISearchTitle.Name = "labelCISearchTitle";
             this.labelCISearchTitle.Size = new System.Drawing.Size(258, 23);
             this.labelCISearchTitle.TabIndex = 127;
-            this.labelCISearchTitle.Text = "label4";
             // 
             // comboBoxCISalesOfficeID
             // 
@@ -2112,7 +2125,7 @@ namespace SalesManagement_SysDev
             this.comboBoxCISalesOfficeID.Location = new System.Drawing.Point(146, 171);
             this.comboBoxCISalesOfficeID.Name = "comboBoxCISalesOfficeID";
             this.comboBoxCISalesOfficeID.Size = new System.Drawing.Size(253, 34);
-            this.comboBoxCISalesOfficeID.TabIndex = 126;
+            this.comboBoxCISalesOfficeID.TabIndex = 5;
             // 
             // comboBoxCIClientID
             // 
@@ -2121,7 +2134,7 @@ namespace SalesManagement_SysDev
             this.comboBoxCIClientID.Location = new System.Drawing.Point(146, 127);
             this.comboBoxCIClientID.Name = "comboBoxCIClientID";
             this.comboBoxCIClientID.Size = new System.Drawing.Size(253, 34);
-            this.comboBoxCIClientID.TabIndex = 125;
+            this.comboBoxCIClientID.TabIndex = 3;
             // 
             // dataGridViewCI
             // 
@@ -2149,7 +2162,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelCIFax.AutoSize = true;
             this.labelCIFax.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCIFax.Location = new System.Drawing.Point(499, 258);
+            this.labelCIFax.Location = new System.Drawing.Point(499, 259);
             this.labelCIFax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCIFax.Name = "labelCIFax";
             this.labelCIFax.Size = new System.Drawing.Size(46, 24);
@@ -2171,7 +2184,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelCIPhone.AutoSize = true;
             this.labelCIPhone.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCIPhone.Location = new System.Drawing.Point(718, 218);
+            this.labelCIPhone.Location = new System.Drawing.Point(750, 218);
             this.labelCIPhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCIPhone.Name = "labelCIPhone";
             this.labelCIPhone.Size = new System.Drawing.Size(86, 24);
@@ -2193,7 +2206,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelCIClientName.AutoSize = true;
             this.labelCIClientName.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelCIClientName.Location = new System.Drawing.Point(415, 129);
+            this.labelCIClientName.Location = new System.Drawing.Point(442, 131);
             this.labelCIClientName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCIClientName.Name = "labelCIClientName";
             this.labelCIClientName.Size = new System.Drawing.Size(67, 24);
@@ -2204,7 +2217,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelCISalesOfficeID.AutoSize = true;
             this.labelCISalesOfficeID.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCISalesOfficeID.Location = new System.Drawing.Point(29, 172);
+            this.labelCISalesOfficeID.Location = new System.Drawing.Point(30, 174);
             this.labelCISalesOfficeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCISalesOfficeID.Name = "labelCISalesOfficeID";
             this.labelCISalesOfficeID.Size = new System.Drawing.Size(89, 24);
@@ -2230,7 +2243,7 @@ namespace SalesManagement_SysDev
             this.textBoxCIRsn.Multiline = true;
             this.textBoxCIRsn.Name = "textBoxCIRsn";
             this.textBoxCIRsn.Size = new System.Drawing.Size(720, 66);
-            this.textBoxCIRsn.TabIndex = 37;
+            this.textBoxCIRsn.TabIndex = 11;
             // 
             // textBoxCIFax
             // 
@@ -2239,7 +2252,7 @@ namespace SalesManagement_SysDev
             this.textBoxCIFax.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCIFax.Name = "textBoxCIFax";
             this.textBoxCIFax.Size = new System.Drawing.Size(321, 34);
-            this.textBoxCIFax.TabIndex = 36;
+            this.textBoxCIFax.TabIndex = 10;
             // 
             // textBoxCIPostal
             // 
@@ -2248,16 +2261,16 @@ namespace SalesManagement_SysDev
             this.textBoxCIPostal.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCIPostal.Name = "textBoxCIPostal";
             this.textBoxCIPostal.Size = new System.Drawing.Size(321, 34);
-            this.textBoxCIPostal.TabIndex = 35;
+            this.textBoxCIPostal.TabIndex = 9;
             // 
             // textBoxCIPhone
             // 
             this.textBoxCIPhone.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxCIPhone.Location = new System.Drawing.Point(813, 215);
+            this.textBoxCIPhone.Location = new System.Drawing.Point(845, 215);
             this.textBoxCIPhone.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCIPhone.Name = "textBoxCIPhone";
             this.textBoxCIPhone.Size = new System.Drawing.Size(321, 34);
-            this.textBoxCIPhone.TabIndex = 34;
+            this.textBoxCIPhone.TabIndex = 8;
             // 
             // textBoxCIAddress
             // 
@@ -2266,7 +2279,7 @@ namespace SalesManagement_SysDev
             this.textBoxCIAddress.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCIAddress.Name = "textBoxCIAddress";
             this.textBoxCIAddress.Size = new System.Drawing.Size(557, 34);
-            this.textBoxCIAddress.TabIndex = 33;
+            this.textBoxCIAddress.TabIndex = 7;
             // 
             // buttonCISearch
             // 
@@ -3412,6 +3425,7 @@ namespace SalesManagement_SysDev
             this.buttonPrAdd.TabIndex = 71;
             this.buttonPrAdd.Text = "登録";
             this.buttonPrAdd.UseVisualStyleBackColor = false;
+            this.buttonPrAdd.Click += new System.EventHandler(this.buttonPrAdd_Click);
             // 
             // panelEmployee
             // 
@@ -4804,6 +4818,7 @@ namespace SalesManagement_SysDev
             this.buttonCINDisplayList.TabIndex = 51;
             this.buttonCINDisplayList.Text = "非表示リスト";
             this.buttonCINDisplayList.UseVisualStyleBackColor = false;
+            this.buttonCINDisplayList.Click += new System.EventHandler(this.buttonCINDisplayList_Click);
             // 
             // buttonCINDisplay
             // 
@@ -5105,6 +5120,83 @@ namespace SalesManagement_SysDev
             this.buttonHaNDisplayList.Text = "非表示リスト";
             this.buttonHaNDisplayList.UseVisualStyleBackColor = false;
             // 
+            // labelCIClientIDWarning
+            // 
+            this.labelCIClientIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelCIClientIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelCIClientIDWarning.Location = new System.Drawing.Point(6, 130);
+            this.labelCIClientIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCIClientIDWarning.Name = "labelCIClientIDWarning";
+            this.labelCIClientIDWarning.Size = new System.Drawing.Size(26, 27);
+            this.labelCIClientIDWarning.TabIndex = 217;
+            this.labelCIClientIDWarning.Text = "※";
+            // 
+            // labelCIClientNameWarning
+            // 
+            this.labelCIClientNameWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelCIClientNameWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelCIClientNameWarning.Location = new System.Drawing.Point(412, 131);
+            this.labelCIClientNameWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCIClientNameWarning.Name = "labelCIClientNameWarning";
+            this.labelCIClientNameWarning.Size = new System.Drawing.Size(26, 27);
+            this.labelCIClientNameWarning.TabIndex = 218;
+            this.labelCIClientNameWarning.Text = "※";
+            // 
+            // labelCISalesOfficeIDWarning
+            // 
+            this.labelCISalesOfficeIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelCISalesOfficeIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelCISalesOfficeIDWarning.Location = new System.Drawing.Point(6, 174);
+            this.labelCISalesOfficeIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCISalesOfficeIDWarning.Name = "labelCISalesOfficeIDWarning";
+            this.labelCISalesOfficeIDWarning.Size = new System.Drawing.Size(26, 27);
+            this.labelCISalesOfficeIDWarning.TabIndex = 219;
+            this.labelCISalesOfficeIDWarning.Text = "※";
+            // 
+            // labelCIAddressWarning
+            // 
+            this.labelCIAddressWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelCIAddressWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelCIAddressWarning.Location = new System.Drawing.Point(6, 214);
+            this.labelCIAddressWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCIAddressWarning.Name = "labelCIAddressWarning";
+            this.labelCIAddressWarning.Size = new System.Drawing.Size(26, 27);
+            this.labelCIAddressWarning.TabIndex = 220;
+            this.labelCIAddressWarning.Text = "※";
+            // 
+            // labelCIPhoneWarning
+            // 
+            this.labelCIPhoneWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelCIPhoneWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelCIPhoneWarning.Location = new System.Drawing.Point(723, 217);
+            this.labelCIPhoneWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCIPhoneWarning.Name = "labelCIPhoneWarning";
+            this.labelCIPhoneWarning.Size = new System.Drawing.Size(26, 27);
+            this.labelCIPhoneWarning.TabIndex = 221;
+            this.labelCIPhoneWarning.Text = "※";
+            // 
+            // labelCIPostalWarning
+            // 
+            this.labelCIPostalWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelCIPostalWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelCIPostalWarning.Location = new System.Drawing.Point(6, 256);
+            this.labelCIPostalWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCIPostalWarning.Name = "labelCIPostalWarning";
+            this.labelCIPostalWarning.Size = new System.Drawing.Size(26, 27);
+            this.labelCIPostalWarning.TabIndex = 222;
+            this.labelCIPostalWarning.Text = "※";
+            // 
+            // labelCIFaxWarning
+            // 
+            this.labelCIFaxWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelCIFaxWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelCIFaxWarning.Location = new System.Drawing.Point(472, 259);
+            this.labelCIFaxWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCIFaxWarning.Name = "labelCIFaxWarning";
+            this.labelCIFaxWarning.Size = new System.Drawing.Size(26, 27);
+            this.labelCIFaxWarning.TabIndex = 223;
+            this.labelCIFaxWarning.Text = "※";
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -5125,9 +5217,6 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelClient);
-            this.Controls.Add(this.panelStock);
-            this.Controls.Add(this.panelShipment);
             this.Controls.Add(this.panelProduct);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelSale);
@@ -5138,6 +5227,9 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelSyukko);
             this.Controls.Add(this.panelWareHousing);
             this.Controls.Add(this.panelHattyu);
+            this.Controls.Add(this.panelClient);
+            this.Controls.Add(this.panelStock);
+            this.Controls.Add(this.panelShipment);
             this.Name = "FormHome";
             this.Text = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -5602,6 +5694,13 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.TextBox textBoxHaEmployeeName;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.TextBox textBoxCIClientName;
+        private System.Windows.Forms.Label labelCIFaxWarning;
+        private System.Windows.Forms.Label labelCIPostalWarning;
+        private System.Windows.Forms.Label labelCIPhoneWarning;
+        private System.Windows.Forms.Label labelCIAddressWarning;
+        private System.Windows.Forms.Label labelCISalesOfficeIDWarning;
+        private System.Windows.Forms.Label labelCIClientNameWarning;
+        private System.Windows.Forms.Label labelCIClientIDWarning;
     }
 }
 

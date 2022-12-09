@@ -31,7 +31,7 @@ namespace SalesManagement_SysDev
         /// <param name="pwd"></param>
         /// <param name="salt"></param>
         /// <returns>string</returns>
-        public static string GeneratePasswordHash(string pwd, string salt)
+        public string GeneratePasswordHash(string pwd, string salt)
         {
             var result = "";
             var saltAndPwd = String.Concat(pwd, salt);
