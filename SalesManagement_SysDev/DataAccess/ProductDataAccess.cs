@@ -62,7 +62,22 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();     //SalesManagement_DevContextクラスのインスタンス化
                 var Product = context.M_Products.Single(x => x.PrID == UpdateData.PrID);              //更新対象データを取得する
-                Product = UpdateData;                                //更新データをセット
+
+                //更新データベースをセット
+                Product.MaID = UpdateData.MaID;                      //メーカIDをセット 
+                Product.PrName = UpdateData.PrName;                  //商品をセット
+                Product.Price = UpdateData.Price;            //価格をセット
+                Product.PrSafetyStock = UpdateData.PrSafetyStock;                //安全在庫数をセット
+                Product.ScID = UpdateData.ScID;              //小分類IDをセット
+                Product.PrModelNumber = UpdateData.PrModelNumber;                    //型番をセット                             //更新データをセット
+                Product.PrColor = UpdateData.PrColor;    //色をセット
+                Product.PrReleaseDate = UpdateData.PrReleaseDate;   //発売日をセット
+
+
+
+
+
+
                 context.SaveChanges();                              //データベースへの登録を確定する
                 context.Dispose();                                  //contextを解放する
 
