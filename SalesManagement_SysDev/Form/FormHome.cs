@@ -1619,6 +1619,7 @@ namespace SalesManagement_SysDev
                 ClPhone = textBoxCIPhone.Text,
                 ClPostal = textBoxCIPostal.Text,
                 ClFAX = textBoxCIFax.Text
+                ClHidden=textBoxCIRsn.Text
             };
         }
 
@@ -1781,6 +1782,10 @@ namespace SalesManagement_SysDev
 
         }
 
+        /// <summary>
+        /// 商品管理画面商品IDの入力チェック
+        /// </summary>
+        /// <returns>異常あり:false, 異常なし:true</returns>
         private bool ProductInputprimaryCheck()
         {
             //商品管理画面商品IDの空文字チェック
@@ -1792,7 +1797,7 @@ namespace SalesManagement_SysDev
             }
 
             //商品管理画面商品IDの半角数字チェック
-            if (InputCheck.CheckNumericAndHalfChar(comboBoxPrProductID.Text))
+            if (!InputCheck.CheckNumericAndHalfChar(comboBoxPrProductID.Text))
             {
                 msg.MsgDsp("M3002");
                 comboBoxPrProductID.Focus();
@@ -1808,7 +1813,226 @@ namespace SalesManagement_SysDev
             }
 
             //商品管理画面商品IDの存在チェック
-            if(Existence.CheckExistenceEProduct())
+            if (Existence.CheckExistenceEProduct(int.Parse(comboBoxPrProductID.Text)))
+            {
+                msg.MsgDsp("M3029");
+                comboBoxPrProductID.Focus();
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+        /// <summary>
+        /// 商品情報入力チェックメソッド
+        /// </summary>
+        /// <returns>異常あり:false, 異常なし:true</returns>
+        private bool ProductInputCheck()
+        {
+            //商品管理画面メーカIDの空文字チェック
+            if (string.IsNullOrEmpty(comboBoxPrMakerID.Text)){
+                msg.MsgDsp("M3004");
+                comboBoxPrMakerID.Focus();
+                return false;
+            }
+
+            //商品管理画面メーカIDの半角数字チェック
+            if (!InputCheck.CheckNumericAndHalfChar(comboBoxPrMakerID.Text))
+            {
+                msg.MsgDsp("M3005");
+                comboBoxPrMakerID.Focus();
+                return false;
+            }
+
+            //商品管理画面メーカIDの文字数チェック
+            if (comboBoxPrMakerID.Text.Length > 4)
+            {
+                msg.MsgDsp("M3006");
+                comboBoxPrMakerID.Focus();
+                return false;
+            }
+
+            //商品管理画面メーカIDの存在チェック
+            if (Existence.CheckExistenceMaker(int.Parse(comboBoxPrMakerID.Text)))
+            {
+                msg.MsgDsp("M3076");
+                comboBoxPrMakerID.Focus();
+                return false;
+            }
+
+            //商品間画面商品名の空文字チェック
+            if (string.IsNullOrEmpty(textBoxPrProductName.Text))
+            {
+                msg.MsgDsp("M3007");
+                textBoxPrProductName.Focus();
+                return false;
+            }
+
+            //商品管理画面商品名の全角チェック
+            if (!InputCheck.CheckFullWidth(textBoxPrProductName.Text))
+            {
+                msg.MsgDsp("M3009");
+                textBoxPrProductName.Focus();
+                return false;
+            }
+
+            //商品管理画面商品名の文字数チェック
+            if (textBoxPrProductName.Text.Length > 50)
+            {
+                msg.MsgDsp("M3008");
+                textBoxPrProductName.Focus();
+                return false;
+            }
+
+            //商品管理画面価格の空文字チェック
+            if (string.IsNullOrEmpty(textBoxPrPrice.Text))
+            {
+                msg.MsgDsp("M3010");
+                textBoxPrPrice.Focus();
+                return false;
+            }
+
+            //商品管理画面価格の半角数字チェック
+            if (!InputCheck.CheckNumericAndHalfChar(textBoxPrPrice.Text))
+            {
+                msg.MsgDsp("M3011");
+                textBoxPrPrice.Focus();
+                return false;
+            }
+
+            //商品管理画面価格の文字数チェック
+            if (textBoxPrPrice.Text.Length > 9)
+            {
+                msg.MsgDsp("M3012");
+                textBoxPrPrice.Focus();
+                return false;
+            }
+
+            //商品管理画面安全在庫数の空文字チェック
+            if (string.IsNullOrEmpty(numericUpDownPrSafeStock.Value.ToString()))
+            {
+                msg.MsgDsp("M3013");
+                numericUpDownPrSafeStock.Focus();
+                return false;
+            }
+
+            //商品管理画面安全在庫数の半角数字チェック
+            if (!InputCheck.CheckNumericAndHalfChar(numericUpDownPrSafeStock.Value.ToString()))
+            {
+                msg.MsgDsp("M3014");
+                numericUpDownPrSafeStock.Focus();
+                return false;
+            }
+
+            //商品管理画面安全在庫数の文字数チェック
+            if (numericUpDownPrSafeStock.Value.ToString().Length > 4)
+            {
+                msg.MsgDsp("M3015");
+                numericUpDownPrSafeStock.Focus();
+                return false;
+            }
+
+            //商品管理画面小分類IDの空文字チェック
+            if (string.IsNullOrEmpty(comboBoxPrSmallClassID.Text))
+            {
+                msg.MsgDsp("M3016");
+                comboBoxPrSmallClassID.Focus();
+                return false;
+            }
+
+            //商品管理画面小分類IDの半角数字チェック
+            if (!InputCheck.CheckNumericAndHalfChar(comboBoxPrSmallClassID.Text))
+            {
+                msg.MsgDsp("M3017");
+                comboBoxPrSmallClassID.Focus();
+                return false;
+            }
+
+            //商品管理画面小分類IDの文字数チェック
+            if (comboBoxPrSmallClassID.Text.Length > 2)
+            {
+                msg.MsgDsp("M3018");
+                comboBoxPrSmallClassID.Focus();
+                return false;
+            }
+
+            //商品管理画面色の空文字チェック
+            if (string.IsNullOrEmpty(textBoxPrColor.Text))
+            {
+                msg.MsgDsp("M3019");
+                textBoxPrColor.Focus();
+                return false;
+            }
+
+            //商品管理画面色の全角チェック
+            if (!InputCheck.CheckFullWidth(textBoxPrColor.Text))
+            {
+                msg.MsgDsp("M3020");
+                textBoxPrColor.Focus();
+                return false;
+            }
+
+            //商品管理画面色の文字数チェック
+            if (textBoxPrColor.Text.Length > 20)
+            {
+                msg.MsgDsp("M3021");
+                textBoxPrColor.Focus();
+                return false;
+            }
+
+            //商品管理画面発売日の空文字チェック
+            if (string.IsNullOrEmpty(DateTimePickerProduct.Value.ToString()))
+            {
+                msg.MsgDsp("M3022");
+                DateTimePickerProduct.Focus();
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+        /// <summary>
+        /// 登録用商品情報をセットする
+        /// </summary>
+        /// <returns>M_Product</returns>
+        private M_Product ProductAddDataSet()
+        {
+            return new M_Product
+            {
+                MaID = int.Parse(comboBoxPrMakerID.Text),
+                PrName = textBoxPrProductName.Text,
+                Price = int.Parse(textBoxPrPrice.Text),
+                PrSafetyStock = int.Parse(numericUpDownPrSafeStock.Value.ToString()),
+                ScID = int.Parse(comboBoxPrSmallClassID.Text),
+                PrModelNumber = textBoxPrModelNumber.Text,
+                PrColor = textBoxPrColor.Text,
+                PrReleaseDate = DateTimePickerProduct.Value,
+                PrFlag = 0,
+                PrHidden = textBoxPrRsn.Text                
+            };
+        }
+
+        /// <summary>
+        /// 更新用商品情報をセットする
+        /// </summary>
+        /// <returns>M_Product</returns>
+        private M_Product ProductUpdDataSet()
+        {
+            return new M_Product
+            {
+                PrID=int.Parse(comboBoxPrProductID.Text),
+                MaID = int.Parse(comboBoxPrMakerID.Text),
+                PrName = textBoxPrProductName.Text,
+                Price = int.Parse(textBoxPrPrice.Text),
+                PrSafetyStock = int.Parse(numericUpDownPrSafeStock.Value.ToString()),
+                ScID = int.Parse(comboBoxPrSmallClassID.Text),
+                PrModelNumber = textBoxPrModelNumber.Text,
+                PrColor = textBoxPrColor.Text,
+                PrReleaseDate = DateTimePickerProduct.Value,
+                PrHidden = textBoxPrRsn.Text
+            };
         }
     }
 }

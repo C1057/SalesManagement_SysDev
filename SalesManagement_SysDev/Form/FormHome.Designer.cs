@@ -267,7 +267,7 @@ namespace SalesManagement_SysDev
             this.textBoxPrMakerName = new System.Windows.Forms.TextBox();
             this.labelPrSearchTitle = new System.Windows.Forms.Label();
             this.buttonPrMakerOpen = new System.Windows.Forms.Button();
-            this.buttonHidePassword = new System.Windows.Forms.DateTimePicker();
+            this.DateTimePickerProduct = new System.Windows.Forms.DateTimePicker();
             this.comboBoxPrMakerID = new System.Windows.Forms.ComboBox();
             this.comboBoxPrProductID = new System.Windows.Forms.ComboBox();
             this.buttonPrSearch = new System.Windows.Forms.Button();
@@ -406,7 +406,7 @@ namespace SalesManagement_SysDev
             this.labelArArrivalEmployeeID = new System.Windows.Forms.Label();
             this.labelArOrderID = new System.Windows.Forms.Label();
             this.textBoxArRsn = new System.Windows.Forms.TextBox();
-            this.maruibutton10 = new SalesManagement_SysDev.maruibutton();
+            this.buttonHidePassword = new SalesManagement_SysDev.maruibutton();
             this.buttonControl = new SalesManagement_SysDev.maruibutton();
             this.buttonLogin = new SalesManagement_SysDev.maruibutton();
             this.buttonLogout = new SalesManagement_SysDev.maruibutton();
@@ -2999,7 +2999,7 @@ namespace SalesManagement_SysDev
             this.panelProduct.Controls.Add(this.textBoxPrMakerName);
             this.panelProduct.Controls.Add(this.labelPrSearchTitle);
             this.panelProduct.Controls.Add(this.buttonPrMakerOpen);
-            this.panelProduct.Controls.Add(this.buttonHidePassword);
+            this.panelProduct.Controls.Add(this.DateTimePickerProduct);
             this.panelProduct.Controls.Add(this.comboBoxPrMakerID);
             this.panelProduct.Controls.Add(this.comboBoxPrProductID);
             this.panelProduct.Controls.Add(this.buttonPrNDisplayList);
@@ -3161,13 +3161,13 @@ namespace SalesManagement_SysDev
             this.buttonPrMakerOpen.UseVisualStyleBackColor = false;
             this.buttonPrMakerOpen.Click += new System.EventHandler(this.buttonPrMakerOpen_Click);
             // 
-            // buttonHidePassword
+            // DateTimePickerProduct
             // 
-            this.buttonHidePassword.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonHidePassword.Location = new System.Drawing.Point(1092, 260);
-            this.buttonHidePassword.Name = "buttonHidePassword";
-            this.buttonHidePassword.Size = new System.Drawing.Size(205, 34);
-            this.buttonHidePassword.TabIndex = 111;
+            this.DateTimePickerProduct.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.DateTimePickerProduct.Location = new System.Drawing.Point(1092, 260);
+            this.DateTimePickerProduct.Name = "DateTimePickerProduct";
+            this.DateTimePickerProduct.Size = new System.Drawing.Size(205, 34);
+            this.DateTimePickerProduct.TabIndex = 111;
             // 
             // comboBoxPrMakerID
             // 
@@ -4744,23 +4744,23 @@ namespace SalesManagement_SysDev
             this.textBoxArRsn.Size = new System.Drawing.Size(720, 66);
             this.textBoxArRsn.TabIndex = 139;
             // 
-            // maruibutton10
+            // buttonHidePassword
             // 
-            this.maruibutton10.BackColor = System.Drawing.Color.White;
-            this.maruibutton10.FlatAppearance.BorderSize = 0;
-            this.maruibutton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton10.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton10.ForeColor = System.Drawing.Color.Black;
-            this.maruibutton10.ImageIndex = 0;
-            this.maruibutton10.ImageList = this.imageList3;
-            this.maruibutton10.Location = new System.Drawing.Point(487, 243);
-            this.maruibutton10.Name = "maruibutton10";
-            this.maruibutton10.Size = new System.Drawing.Size(19, 24);
-            this.maruibutton10.TabIndex = 53;
-            this.maruibutton10.UseVisualStyleBackColor = false;
-            this.maruibutton10.Click += new System.EventHandler(this.maruibutton10_Click);
-            this.maruibutton10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonHidePassword_MouseDown);
-            this.maruibutton10.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonHidePassword_MouseUp);
+            this.buttonHidePassword.BackColor = System.Drawing.Color.White;
+            this.buttonHidePassword.FlatAppearance.BorderSize = 0;
+            this.buttonHidePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHidePassword.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonHidePassword.ForeColor = System.Drawing.Color.Black;
+            this.buttonHidePassword.ImageIndex = 0;
+            this.buttonHidePassword.ImageList = this.imageList3;
+            this.buttonHidePassword.Location = new System.Drawing.Point(487, 243);
+            this.buttonHidePassword.Name = "buttonHidePassword";
+            this.buttonHidePassword.Size = new System.Drawing.Size(19, 24);
+            this.buttonHidePassword.TabIndex = 53;
+            this.buttonHidePassword.UseVisualStyleBackColor = false;
+            this.buttonHidePassword.Click += new System.EventHandler(this.maruibutton10_Click);
+            this.buttonHidePassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.buttonHidePassword_MouseDown);
+            this.buttonHidePassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.buttonHidePassword_MouseUp);
             // 
             // buttonControl
             // 
@@ -5203,7 +5203,7 @@ namespace SalesManagement_SysDev
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1924, 1061);
-            this.Controls.Add(this.maruibutton10);
+            this.Controls.Add(this.buttonHidePassword);
             this.Controls.Add(this.buttonHumberger);
             this.Controls.Add(this.labelWarning);
             this.Controls.Add(this.buttonControl);
@@ -5331,7 +5331,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.ImageList imageList2;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.ImageList imageList3;
-        private maruibutton maruibutton10;
+        private maruibutton buttonHidePassword;
         private System.Windows.Forms.Panel panelHattyu;
         private System.Windows.Forms.ComboBox comboBoxHaHattyuID;
         private System.Windows.Forms.ComboBox comboBoxHaMakerID;
@@ -5472,7 +5472,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Panel panelStart;
         private System.Windows.Forms.Label label101;
         private System.Windows.Forms.Panel panelProduct;
-        private System.Windows.Forms.DateTimePicker buttonHidePassword;
+        private System.Windows.Forms.DateTimePicker DateTimePickerProduct;
         private System.Windows.Forms.ComboBox comboBoxPrMakerID;
         private System.Windows.Forms.ComboBox comboBoxPrProductID;
         private maruibutton buttonPrNDisplayList;
