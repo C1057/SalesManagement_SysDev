@@ -17,7 +17,12 @@ namespace SalesManagement_SysDev
         /// <returns>true:全角文字のみ　false:全角文字以外を含む</returns>
         public bool CheckFullWidth(string CheckText)
         {
-            return (Regex.IsMatch(CheckText, @"^[A-Z]+"));
+            int textLength = CheckText.Replace("\r\n", string.Empty).Length;
+            int textByte = Encoding.GetEncoding("Shift_JIS").GetByteCount(CheckText.Replace("\r\n", string.Empty));
+            if (textByte != textLength * 2)
+                return false;
+            else
+                return true;
         }
 
         /// <summary>
@@ -62,6 +67,20 @@ namespace SalesManagement_SysDev
         public bool CheckHalfChar(string CheckText)
         {
             return (Regex.IsMatch(CheckText, @"^[a-zｱ-ﾝ]*$"));
+        }
+
+        ///<summary>
+        ///半角数字チェック
+        /// </summary>
+        /// <param name="="CheckText">対象文字列</param>
+        /// <return>true:半角数字のみ false:半角数字でない</return>
+        public bool CheckNumericAndHalfChar(string CheckText)
+        {
+            if(Regex.IsMatch(CheckText, @"^[0-9]*$"))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

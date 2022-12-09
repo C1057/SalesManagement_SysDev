@@ -77,7 +77,26 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="SearchInfo"></param>
         /// <returns>List<M_SalesOffice></returns>
-        
+        public void ConformOrder(T_Order ConformData,T_OrderDetail ConformDataDetail,string Sql)
+        {
+            DialogResult result = msg.MsgDsp("M7024");
+            if (result == DialogResult.Cancel)                      //resultがCancelの場合受注登録モジュールを終了する
+            {
+                return;
+            }
+
+            var context = new SalesManagement_DevContext();     //SalesManagement_DevContextクラスのインスタンス化
+            context.T_Orders.Add(ConformData);   //登録用データをセット                           //データベースへの登録を確定する
+            context.T_OrderDetails.Add(ConformDataDetail);   //登録用データをセット
+            var Order = context.T_Orders.Single(x => x.OrID == ConformData.OrID);              //更新対象データを取得する
+            Order.OrFlag = 1;
+            context.SaveChanges();
+            context.Dispose();
+
+
+
+        }
+
 
         /// <summary>
         /// 受注情報非表示機能
