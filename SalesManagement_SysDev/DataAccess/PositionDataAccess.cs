@@ -54,6 +54,56 @@ namespace SalesManagement_SysDev
             return searchresult;
 
         }
+
+        public void AddPosition(M_Position addposition)
+        {
+            var Context = new SalesManagement_DevContext();
+            MessageDsp msg = new MessageDsp();
+
+            try
+            {
+                DialogResult result = msg.MsgDsp("M5021");
+                if (result == DialogResult.Cancel)
+                {
+                    Context.Dispose();
+                    return;
+                }
+
+                Context.M_Positions.Add(addposition);
+                Context.SaveChanges();
+                Context.Dispose();
+
+                msg.MsgDsp("M5035");
+            }
+            catch
+            {
+                msg.MsgDsp("M5036");
+            }            
+        }
+
+        public void UpdatePosition(M_Position updateposition)
+        {
+            DialogResult result = msg.MsgDsp("M5037");
+
+            if (result == DialogResult.Cancel) //更新Cancel　更新モジュールを終了する
+            {
+                return;
+            }
+            try
+            {
+                var context = new SalesManagement_DevContext();       //クラスのインスタンス化
+                var Position = context.M_Positions.Single(x => x.PoID == updateposition.PoID);    //更新対象データの取得
+                Position = updateposition;  //更新データをセット
+                context.SaveChanges();  //
+                context.Dispose();     //contextを開放
+
+                msg.MsgDsp("M5038");
+            }
+            catch
+            {
+                msg.MsgDsp("M5039");
+            }
+        }
     }
 }
 
