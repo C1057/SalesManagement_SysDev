@@ -62,7 +62,14 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();     //SalesManagement_DevContextクラスのインスタンス化
                 var Client = context.M_Clients.Single(x => x.ClID == UpdateData.ClID);              //更新対象データを取得する
-                Client = UpdateData;                                //更新データをセット
+                //更新データをセット
+                Client.SoID = UpdateData.SoID;                      //営業所IDをセット 
+                Client.ClName = UpdateData.ClName;                  //顧客名をセット
+                Client.ClAddress = UpdateData.ClAddress;            //住所をセット
+                Client.ClPhone = UpdateData.ClPhone;                //電話番号をセット
+                Client.ClPostal = UpdateData.ClPostal;              //郵便番号をセット
+                Client.ClFAX = UpdateData.ClFAX;                    //FAXをセット
+
                 context.SaveChanges();                              //データベースへの登録を確定する
                 context.Dispose();                                  //contextを解放する
 

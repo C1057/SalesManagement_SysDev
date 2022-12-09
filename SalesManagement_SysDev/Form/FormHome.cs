@@ -117,11 +117,11 @@ namespace SalesManagement_SysDev
 
         //時間表示機能//
         //時間、分、秒を表示する
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            DateTime d = DateTime.Now;
-            labelNowTime.Text = string.Format("{0:00}:{1:00}:{2:00}", d.Hour, d.Minute, d.Second);
-        }
+        //private void timer1_Tick(object sender, EventArgs e)
+        //{
+        //    DateTime d = DateTime.Now;
+        //    labelNowTime.Text = string.Format("{0:00}:{1:00}:{2:00}", d.Hour, d.Minute, d.Second);
+        //}
 
         //フォームロードイベント//
         //タイマーへの初期設定
@@ -1076,12 +1076,12 @@ namespace SalesManagement_SysDev
 
         //時間表示機能//
         //年、月、日を表示する
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            DateTime d = DateTime.Now;
-            labelNowDays.Text = string.Format("{0:00}/{1:00}/{2:00}", d.Year, d.Month, d.Day);
-            labelNowDays.Text += d.ToString("(ddd)");
-        }
+        //private void timer2_Tick(object sender, EventArgs e)
+        //{
+        //    DateTime d = DateTime.Now;
+        //    labelNowDays.Text = string.Format("{0:00}/{1:00}/{2:00}", d.Year, d.Month, d.Day);
+        //    labelNowDays.Text += d.ToString("(ddd)");
+        //}
 
         //受注管理ボタン
         private void buttonOrder_Click(object sender, EventArgs e)
@@ -1310,9 +1310,9 @@ namespace SalesManagement_SysDev
             Application.Exit();
         }
 
-        ///////////////////////////////////////////////////
-        ///顧客管理画面コード
-        ///////////////////////////////////////////////////
+    ///////////////////////////////////////////////////
+    ///顧客管理画面コード
+    ///////////////////////////////////////////////////
 
         /// <summary>
         /// 顧客情報一覧表示モジュール
@@ -1368,7 +1368,7 @@ namespace SalesManagement_SysDev
             }
 
             //登録用顧客情報のセット
-            M_Client AddClientData = ClientDataSet();
+            M_Client AddClientData = ClientAddDataSet();
 
             //顧客情報の登録
             ClientAccess.AddClient(AddClientData);
@@ -1381,9 +1381,44 @@ namespace SalesManagement_SysDev
         }
 
         /// <summary>
+        /// 顧客情報顧客IDチェックメソッド
+        /// (顧客IDのみ)
+        /// </summary>
+        /// <returns>異常あり:false,異常なし:true</returns>
+        private bool ClientInputprimaryCheck()
+        {
+            //顧客管理画面顧客IDの空文字チェック
+            if (string.IsNullOrEmpty(comboBoxCIClientID.Text))
+            {
+                msg.MsgDsp("M2001");
+                comboBoxCIClientID.Focus();
+                return false;
+            }
+
+            //顧客管理画面顧客IDの半角数字チェック
+            if (!InputCheck.CheckNumericAndHalfChar(comboBoxCIClientID.Text))
+            {
+                msg.MsgDsp("M2002");
+                comboBoxCIClientID.Focus();
+                return false;
+            }
+
+            //顧客管理画面顧客IDの文字数チェック
+            if (comboBoxCIClientID.Text.Length > 6)
+            {
+                msg.MsgDsp("M2003");
+                comboBoxCIClientID.Focus();
+                return false;
+            }
+
+            //異常が無い場合trueを返す
+            return true;
+        }
+
+        /// <summary>
         /// 顧客情報入力チェックメソッド
         /// </summary>
-        /// <returns>bool</returns>
+        /// <returns>異常あり:false, 異常なし:true</returns>
         private bool ClientInputCheck()
         {
             //顧客管理画面営業所IDの空文字チェック
@@ -1530,7 +1565,7 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            //入力内容に不正なしの場合,trueを返す
+            //異常が無い場合trueを返す
             return true;
         }
 
@@ -1538,7 +1573,7 @@ namespace SalesManagement_SysDev
         /// 登録用顧客情報をセットする
         /// </summary>
         /// <returns>M_Client</returns>
-        private M_Client ClientDataSet()
+        private M_Client ClientAddDataSet()
         {
             return new M_Client
             {
@@ -1551,6 +1586,51 @@ namespace SalesManagement_SysDev
                 ClFlag = 0,
                 ClHidden = textBoxCIRsn.Text.Trim()
             };
+        }
+
+        /// <summary>
+        /// 更新用顧客情報をセットする
+        /// </summary>
+        /// <returns></returns>
+        private M_Client ClientUpdDataSet()
+        {
+            return new M_Client
+            {
+                ClID = int.Parse(comboBoxCIClientID.Text),
+                SoID = int.Parse(comboBoxCISalesOfficeID.Text),
+                ClName = textBoxCIClientName.Text,
+                ClAddress = textBoxCIAddress.Text,
+                ClPhone = textBoxCIPhone.Text,
+                ClPostal = textBoxCIPostal.Text,
+                ClFAX = textBoxCIFax.Text
+            };
+        }
+
+        /// <summary>
+        /// 顧客情報更新ボタン
+        /// </summary>
+        /// <param>なし</param>
+        private void buttonCIUpdate_Click(object sender, EventArgs e)
+        {
+            //顧客IDの入力チェック
+            if (!ClientInputprimaryCheck())
+            {
+                return;
+            }
+            //顧客ID以外の入力チェック
+            if (!ClientInputCheck())
+            {
+                return;
+            }
+            //更新用顧客情報をセット
+            M_Client updClientData = ClientUpdDataSet();
+            //顧客更新モジュール呼び出し
+            ClientAccess.UpdateClient(updClientData);
+
+            //顧客情報一覧表示用データの更新
+            ClientList = ClientAccess.GetData();
+            //顧客情報再表示
+            ListClient();
         }
     }
 }
