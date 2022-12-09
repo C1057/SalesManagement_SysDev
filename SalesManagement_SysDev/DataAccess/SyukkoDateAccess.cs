@@ -91,7 +91,7 @@ namespace SalesManagement_SysDev
             var context = new SalesManagement_DevContext();
             List<T_Syukko> SearchResult = null;
 
-            if (methodflg == 1)　//社員IDで検索
+            if (methodflg == 1)　//出庫IDで検索
             {
                 int SyukkoID = int.Parse(SearchInfo);
                 SearchResult = context.T_Syukkos.Where(x => x.SyID == SyukkoID).ToList();
