@@ -65,7 +65,12 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();       //クラスのインスタンス化
                 var MajorClass = context.M_MajorClassifications.Single(x => x.McID == UpdateData.McID);    //更新対象データの取得
-                MajorClass = UpdateData;  //更新データをセット
+                //更新データをセット
+                MajorClass.McName = UpdateData.McName;
+                
+
+
+
                 context.SaveChanges();  //
                 context.Dispose();     //contextを開放
 
