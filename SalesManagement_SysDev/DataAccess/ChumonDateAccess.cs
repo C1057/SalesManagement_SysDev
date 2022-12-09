@@ -24,7 +24,7 @@ namespace SalesManagement_SysDev
             context.SaveChanges();　//変更の反映
             context.Dispose();　　//contextの解放
 
-            msg.MsgDsp("M14002");
+            msg.MsgDsp("M14002");　　//非表示完了メッセージ
         }
     }
 }

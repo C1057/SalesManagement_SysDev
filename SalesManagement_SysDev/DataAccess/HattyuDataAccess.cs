@@ -36,27 +36,27 @@ namespace SalesManagement_SysDev
 
         public List<T_Hattyu> SearchHattyu(int methodflg, string SearchInfo)
         {
-            var Context = new SalesManagement_DevContext();
-            List<T_Hattyu> searchresult = null;
+            var Context = new SalesManagement_DevContext();  //クラスのインスタンス化
+            List<T_Hattyu> searchresult = null;              //検索結果用変数を宣言
 
 
             if (methodflg == 1)
             {
                 int HattyuID = int.Parse(SearchInfo);
-                searchresult = Context.T_Hattyus.Where(x => x.HaID == HattyuID).ToList();
+                searchresult = Context.T_Hattyus.Where(x => x.HaID == HattyuID).ToList();  //検索
                 Context.Dispose();
 
             }
             else if (methodflg == 2)
             {
                 int MakerID = int.Parse(SearchInfo);
-                searchresult = Context.T_Hattyus.Where(x => x.MaID == MakerID).ToList();
+                searchresult = Context.T_Hattyus.Where(x => x.MaID == MakerID).ToList();   //検索
                 Context.Dispose();
             }
             else if (methodflg == 3)
             {
                 int EmployeeID = int.Parse(SearchInfo);
-                searchresult = Context.T_Hattyus.Where(x => x.EmID == EmployeeID).ToList();
+                searchresult = Context.T_Hattyus.Where(x => x.EmID == EmployeeID).ToList();　//検索
                 Context.Dispose();
             }
 
