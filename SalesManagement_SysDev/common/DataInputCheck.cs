@@ -55,7 +55,7 @@ namespace SalesManagement_SysDev
         /// <returns>true:数値のみ　false:数値以外を含む</returns>
         public bool CheckNumeric(string CheckText)
         {
-            return (Regex.IsMatch(CheckText, @"^[1-9]*$"));
+            return (Regex.IsMatch(CheckText, @"^[0-9]*$"));
         }
 
         /// <summary>

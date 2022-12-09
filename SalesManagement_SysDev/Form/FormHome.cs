@@ -1453,6 +1453,14 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
+            //顧客管理画面営業所IDの存在チェック
+            if (Existence.CheckExistenceSalesOffice(int.Parse(comboBoxCISalesOfficeID.Text)))
+            {
+                msg.MsgDsp("M5061");
+                comboBoxCISalesOfficeID.Focus();
+                return false;
+            }
+
             //顧客管理画面顧客名の空文字チェック
             if (string.IsNullOrEmpty(textBoxCIClientName.Text.Trim()))
             {
@@ -1647,7 +1655,7 @@ namespace SalesManagement_SysDev
         /// <param >なし</param>
         private void buttonCIDisplay_Click(object sender, EventArgs e)
         {
-            ListClient();
+            ListClient();                   //一覧表示メソッドの呼び出し
         }
 
         /// <summary>
@@ -1695,18 +1703,112 @@ namespace SalesManagement_SysDev
 
         /// <summary>
         /// 顧客非表示ボタン
+        /// (チェックボックスがチェックされているデータを非表示(論理削除)にする)
         /// </summary>
         /// <param>int ClientID</param>
         private void buttonCINDisplay_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridViewCI.Rows.Count; i++)
+            for (int i = 0; i < dataGridViewCI.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
-                if ((bool)dataGridViewCI.Rows[i].Cells[7].Value)
+                if ((bool)dataGridViewCI.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    ClientAccess.DeleteClient((int)dataGridViewCI.Rows[i].Cells[0].Value);
+                    ClientAccess.DeleteClient((int)dataGridViewCI.Rows[i].Cells[0].Value);      //チェックされている場合その行の顧客IDを引数に非表示機能モジュールを呼び出す
                 }
             }
-            msg.MsgDsp("M14002");
+            msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //顧客情報一覧憑依用データを更新
+            ClientList = ClientAccess.GetData();
+            //顧客情報再表示
+            ListClient();
+        }
+
+        /// <summary>
+        /// 顧客非表示リストボタン
+        /// </summary>
+        /// <param >なし</param>
+        private void buttonCINDisplayList_Click(object sender, EventArgs e)
+        {
+            DeleteListClient();                     //非表示リストメソッドの呼び出し
+        }
+
+    ///////////////////////////////////////////////////
+    ///商品管理画面コード
+    ///////////////////////////////////////////////////
+
+        /// <summary>
+        /// 商品情報一覧表示モジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void ListProduct()
+        {
+            dataGridVieProduct.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var ProductData in ProductList)
+            {
+                if (ProductData.PrFlag == 0)                     //商品管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridVieProduct.Rows.Add(ProductData.PrID, ProductData.MaID, ProductData.PrName, ProductData.Price, ProductData.PrSafetyStock, ProductData.ScID, ProductData.PrModelNumber,
+                                                    ProductData.PrColor, ProductData.PrReleaseDate, ProductData.PrFlag, ProductData.PrHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 商品情報非表示リストモジュール
+        /// (非表示になっているデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void DeleteListProduct()
+        {
+            dataGridVieProduct.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var ProductData in ProductList)
+            {
+                if (ProductData.PrFlag == 2)                     //商品管理フラグが2の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridVieProduct.Rows.Add(ProductData.PrID, ProductData.MaID, ProductData.PrName, ProductData.Price, ProductData.PrSafetyStock, ProductData.ScID, ProductData.PrModelNumber,
+                                                    ProductData.PrColor, ProductData.PrReleaseDate, ProductData.PrFlag, ProductData.PrHidden);
+                }
+            }
+        }
+
+        private void buttonPrAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool ProductInputprimaryCheck()
+        {
+            //商品管理画面商品IDの空文字チェック
+            if (string.IsNullOrEmpty(comboBoxPrProductID.Text))
+            {
+                msg.MsgDsp("M3001");
+                comboBoxPrProductID.Focus();
+                return false;
+            }
+
+            //商品管理画面商品IDの半角数字チェック
+            if (InputCheck.CheckNumericAndHalfChar(comboBoxPrProductID.Text))
+            {
+                msg.MsgDsp("M3002");
+                comboBoxPrProductID.Focus();
+                return false;
+            }
+
+            //商品間画面商品IDの文字数チェック
+            if (comboBoxPrProductID.Text.Length > 6)
+            {
+                msg.MsgDsp("M3003");
+                comboBoxPrProductID.Focus();
+                return false;
+            }
+
+            //商品管理画面商品IDの存在チェック
+            if(Existence.CheckExistenceEProduct())
         }
     }
 }
