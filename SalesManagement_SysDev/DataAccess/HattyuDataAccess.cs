@@ -9,7 +9,7 @@ namespace SalesManagement_SysDev
 {
     class HattyuDataAccess
     {
-        MessageDsp msg = new MessageDsp();
+        MessageDsp msg = new MessageDsp();　//クラスのインスタンス化
 
         public List<T_Hattyu> GetDatahattyu()
         {
@@ -19,17 +19,17 @@ namespace SalesManagement_SysDev
 
         public void DeleteHattyu(int HattyuID)
         {
-            DialogResult result = msg.MsgDsp("M14001");
-            if (result == DialogResult.Cancel)
+            DialogResult result = msg.MsgDsp("M14001"); //非表示メッセージ
+            if (result == DialogResult.Cancel)　　//の場合非表示機能モジュールの実行終了
             {
                 return;
             }
 
-            var context = new SalesManagement_DevContext();
+            var context = new SalesManagement_DevContext();  //クラスのインスタンス化
             var hattyu = context.T_Hattyus.Single(x => x.HaID == HattyuID);
             hattyu.HaFlag = 2;
-            context.SaveChanges();
-            context.Dispose();
+            context.SaveChanges();　　　　　　　　　　　　　//変更の反映
+            context.Dispose();                             //contextの解放
 
             msg.MsgDsp("M14002");
         }

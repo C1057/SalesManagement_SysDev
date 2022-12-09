@@ -18,11 +18,11 @@ namespace SalesManagement_SysDev
             {
                 return;　
             }
-            var context = new SalesManagement_DevContext();//クラスのインスタンス化
-            var chumon = context.T_Chumons.Single(x => x.ChID == chumonID);
+            var context = new SalesManagement_DevContext();　　　//クラスのインスタンス化
+            var chumon = context.T_Chumons.Single(x => x.ChID == chumonID);   //検索
             chumon.ChFlag = 2;
-            context.SaveChanges();
-            context.Dispose();
+            context.SaveChanges();　//変更の反映
+            context.Dispose();　　//contextの解放
 
             msg.MsgDsp("M14002");
         }
