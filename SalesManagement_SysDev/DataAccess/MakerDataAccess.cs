@@ -82,7 +82,7 @@ namespace SalesManagement_SysDev
 
         public void Addmaker(M_Maker AddMaker)
         {
-            DialogResult result = msg.MsgDsp("M3068");   //更新しますか
+            DialogResult result = msg.MsgDsp("M3068");   //更新しますかメッセージ
 
             if (result == DialogResult.Cancel) //更新Cancel　更新モジュールを終了する
             {
