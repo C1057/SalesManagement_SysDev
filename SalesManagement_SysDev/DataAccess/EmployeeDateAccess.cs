@@ -71,9 +71,10 @@ namespace SalesManagement_SysDev
                 Employee.PoID = UpdateData.PoID;
                 Employee.EmHidden = UpdateData.EmHidden;
                 Employee.EmPhone = UpdateData.EmPhone;
+                Employee.EmHiredate = UpdateData.EmHiredate;
 
 
-                context.SaveChanges();  //
+                context.SaveChanges();  //更新を確定する
                 context.Dispose();     //contextを開放
 
                 msg.MsgDsp("M5025");
@@ -99,20 +100,18 @@ namespace SalesManagement_SysDev
                 int EmployeeID = int.Parse(SearchInfo);
                 SearchResult = context.M_Employees.Where(x => x.EmID == EmployeeID).ToList();
             }
-
             else if (methodflg == 2)　//営業所IDで検索
             {
                 int SalesOfficeID = int.Parse(SearchInfo);
                 SearchResult = context.M_Employees.Where(x => x.SoID == SalesOfficeID).ToList();
             }
-
             else if (methodflg == 3)　//役職IDで検索
             {
                 int PositionID = int.Parse(SearchInfo);
                 SearchResult = context.M_Employees.Where(x => x.PoID == PositionID).ToList();
             }
 
-
+            context.Dispose();
             return SearchResult;
         }
      
@@ -142,6 +141,12 @@ namespace SalesManagement_SysDev
         /// <returns>List<M_Employee></returns>
         public void DeleteEmployee (int EmployeeID) //非表示
         {
+            DialogResult result = msg.MsgDsp("M14001");             //非表示確認メッセージ
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Employee = context.M_Employees.Single(x => x.EmID == EmployeeID);             //非表示にするレコードの抽出
             Employee.EmFlag = 2;                                                          //社員管理フラグを2にする

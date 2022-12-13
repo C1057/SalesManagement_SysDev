@@ -2065,7 +2065,7 @@ namespace SalesManagement_SysDev
         {
             for (int i = 0; i < dataGridVieProduct.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
-                if ((bool)dataGridVieProduct.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
+                if ((bool)dataGridVieProduct.Rows[i].Cells[9].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
                     ProductAccess.DeleteProduct((int)dataGridVieProduct.Rows[i].Cells[0].Value);      //チェックされている場合その行の商品IDを引数に非表示機能モジュールを呼び出す
                 }
@@ -2222,6 +2222,8 @@ namespace SalesManagement_SysDev
 
         /// <summary>
         /// 在庫情報検索ボタン
+        ///  (SearchStock呼び出し)
+        /// 引数1:(1:在庫ID, 2:商品ID, なし:商品名)
         /// </summary>
         /// <param></param>
         private void buttonStSearch_Click(object sender, EventArgs e)
@@ -2251,7 +2253,7 @@ namespace SalesManagement_SysDev
                     comboBoxStProductID.Focus();
                     return;
                 }
-                foreach (var StData in StockAccess.SearchStock(comboBoxStProductID.Text))             //商品IDで検索する
+                foreach (var StData in StockAccess.SearchStock(2, comboBoxStProductID.Text))             //商品IDで検索する
                 {
                     //データグリッドビューにデータを表示
                     dataGridViewStock.Rows.Add(StData.StID, StData.PrID, StData.StQuantity, Convert.ToBoolean(StData.StFlag), StData.StHidden);
@@ -2260,7 +2262,7 @@ namespace SalesManagement_SysDev
             }
             else if (!string.IsNullOrEmpty(textBoxStProductName.Text))   //商品名テキストボックスの空文字チェック
             {                
-                foreach (var StData in StockAccess.SearchStock(2, textBoxStProductName.Text))      //商品名で検索する
+                foreach (var StData in StockAccess.SearchStock(textBoxStProductName.Text))      //商品名で検索する
                 {
                     //データグリッドビューにデータを表示
                     dataGridViewStock.Rows.Add(StData.StID, StData.PrID, StData.StQuantity, Convert.ToBoolean(StData.StFlag), StData.StHidden);
@@ -2277,7 +2279,7 @@ namespace SalesManagement_SysDev
         {
             for (int i = 0; i < dataGridViewStock.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
-                if ((bool)dataGridViewStock.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
+                if ((bool)dataGridViewStock.Rows[i].Cells[4].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
                     StockAccess.DeleteStock((int)dataGridViewStock.Rows[i].Cells[0].Value);      //チェックされている場合その行の在庫IDを引数に非表示機能モジュールを呼び出す
                 }
@@ -2343,14 +2345,12 @@ namespace SalesManagement_SysDev
             }
         }
 
+        /// <summary>
+        /// 社員情報登録ボタン
+        /// </summary>
+        /// <param></param>
         private void buttonEmRegist_Click(object sender, EventArgs e)
         {
-            //社員IDの入力チェックメソッドの呼びだし
-            if (!InputCheck.EmployeeIDInputCheck(comboBoxEmEmployeeID.Text))
-            {
-                comboBoxEmEmployeeID.Focus();
-                return;
-            }
             //営業所IDの入力チェックメソッド呼び出し
             if (!InputCheck.SalesOfficeIDInputCheck(comboBoxEmSalesOfficeID.Text))
             {
@@ -2369,16 +2369,40 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            //登録用顧客情報のセット
+            //パスワードの空文字チェック
+            if (string.IsNullOrEmpty(textBoxEmEmployeePass.Text))
+            {
+                msg.MsgDsp("M5014");
+                textBoxEmEmployeePass.Focus();
+                return;
+            }
+
+            //パスワードの半角英数字チェック
+            if (!InputCheck.CheckHalfAlphabetNumeric(textBoxEmEmployeePass.Text))
+            {
+                msg.MsgDsp("M5015");
+                textBoxEmEmployeePass.Focus();
+                return;
+            }
+
+            //パスワードの文字数チェック
+            if (textBoxEmEmployeePass.Text.Length > 10)
+            {
+                msg.MsgDsp("M5016");
+                textBoxEmEmployeePass.Focus();
+                return;
+            }
+
+            //登録用社員情報のセット
             M_Employee AddEmployeeData = EmployeeAddDataSet();
 
-            //顧客情報の登録
+            //社員情報の登録
             EmployeeAccess.addEmployee(AddEmployeeData);
 
-            //顧客情報一覧表示用データの更新
+            //社員情報一覧表示用データの更新
             EmployeeList = EmployeeAccess.GetData();
 
-            //顧客情報再表示
+            //社員情報再表示
             ListEmployee();
         }
 
@@ -2414,31 +2438,7 @@ namespace SalesManagement_SysDev
                 msg.MsgDsp("M5013");
                 dateTimePickerEmployee.Focus();
                 return false;
-            }
-
-            //パスワードの空文字チェック
-            if (string.IsNullOrEmpty(textBoxEmEmployeePass.Text))
-            {
-                msg.MsgDsp("M5014");
-                textBoxEmEmployeePass.Focus();
-                return false;
-            }
-
-            //パスワードの半角英数字チェック
-            if (!InputCheck.CheckHalfAlphabetNumeric(textBoxEmEmployeePass.Text))
-            {
-                msg.MsgDsp("M5015");
-                textBoxEmEmployeePass.Focus();
-                return false;
-            }
-
-            //パスワードの文字数チェック
-            if (textBoxEmEmployeePass.Text.Length > 10)
-            {
-                msg.MsgDsp("M5016");
-                textBoxEmEmployeePass.Focus();
-                return false;
-            }
+            }            
 
             //電話番号の空文字チェック
             if (string.IsNullOrEmpty(textBoxEmEmployeePhone.Text))
@@ -2499,10 +2499,154 @@ namespace SalesManagement_SysDev
                 SoID = int.Parse(comboBoxEmSalesOfficeID.Text),
                 PoID = int.Parse(comboBoxEmPositionID.Text),
                 EmHiredate = dateTimePickerEmployee.Value,
-                EmPassword = textBoxEmEmployeePass.Text,
                 EmPhone = textBoxEmEmployeePhone.Text,
                 EmHidden=textBoxEmEmployeeRsn.Text
             };
+        }
+
+        /// <summary>
+        /// 社員情報更新ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonEmUpdate_Click(object sender, EventArgs e)
+        {
+            //社員IDの入力チェックメソッド呼び出し
+            if (!InputCheck.EmployeeIDInputCheck(comboBoxEmEmployeeID.Text))
+            {
+                comboBoxEmEmployeeID.Focus();
+                return;
+            }
+            //営業所IDの入力チェックメソッド呼び出し
+            if (!InputCheck.SalesOfficeIDInputCheck(comboBoxEmSalesOfficeID.Text))
+            {
+                comboBoxEmSalesOfficeID.Focus();
+                return;
+            }
+            //役職IDの入力チェックメソッド呼び出し
+            if (!InputCheck.PositionIDInputCheck(comboBoxEmPositionID.Text))
+            {
+                comboBoxEmPositionID.Focus();
+                return;
+            }
+            //ID以外の入力チェックメソッド呼び出し
+            if (!EmployeeInputCheck())
+            {
+                return;
+            }
+
+            //更新用社員情報をセット
+            M_Employee AddEmployeeData = EmployeeAddDataSet();
+            //社員情報更新モジュール呼び出し
+            EmployeeAccess.addEmployee(AddEmployeeData);
+
+            //社員情報一覧表示用データの更新
+            EmployeeList = EmployeeAccess.GetData();
+            //社員情報再表示
+            ListEmployee();
+        }
+
+        /// <summary>
+        /// 一覧表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonEmDisplay_Click(object sender, EventArgs e)
+        {
+            ListEmployee();
+        }
+
+        /// <summary>
+        /// 社員検索ボタン
+        /// (SearchEmployee呼び出し)
+        /// 引数1:(1:社員ID, 2:営業所ID, 3:役職ID, なし:社員名)
+        /// </summary>
+        private void buttonEmSearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewEmMana.Rows.Clear();                        //データグリッドビューの内容を消去する
+
+            if (!string.IsNullOrEmpty(comboBoxEmEmployeeID.Text))             //社員IDコンボボックスの空文字チェック
+            {
+                //社員IDの入力チェック
+                if (!InputCheck.EmployeeIDInputCheck(comboBoxEmEmployeeID.Text))
+                {
+                    comboBoxEmEmployeeID.Focus();
+                    return;
+                }
+                foreach (var EmData in EmployeeAccess.SearchEmployee(1, comboBoxEmEmployeeID.Text))           //社員IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewEmMana.Rows.Add(EmData.EmID, EmData.EmName, EmData.SoID, EmData.PoID, EmData.EmHiredate, EmData.EmPhone, Convert.ToBoolean(EmData.EmFlag), EmData.EmHidden);
+                }
+                labelEmSearchTitle.Text = "社員IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(textBoxEmEmployeeName.Text))       //社員名テキストボックスの空文字チェック
+            {
+                foreach (var EmData in EmployeeAccess.SearchEmployee(textBoxEmEmployeeName.Text))             //社員名で検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewEmMana.Rows.Add(EmData.EmID, EmData.EmName, EmData.SoID, EmData.PoID, EmData.EmHiredate, EmData.EmPhone, Convert.ToBoolean(EmData.EmFlag), EmData.EmHidden);
+                }
+                labelEmSearchTitle.Text = "社員名で検索しました";           //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxEmSalesOfficeID.Text))   //営業所IDコンボボックスの空文字チェック
+            {
+                //営業所IDの入力チェック
+                if (!InputCheck.SalesOfficeIDInputCheck(comboBoxEmSalesOfficeID.Text))
+                {
+                    comboBoxEmSalesOfficeID.Focus();
+                    return;
+                }
+                foreach (var EmData in EmployeeAccess.SearchEmployee(2, comboBoxEmSalesOfficeID.Text))      //営業所IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewEmMana.Rows.Add(EmData.EmID, EmData.EmName, EmData.SoID, EmData.PoID, EmData.EmHiredate, EmData.EmPhone, Convert.ToBoolean(EmData.EmFlag), EmData.EmHidden);
+                }
+                labelEmSearchTitle.Text = "営業所IDで検索しました";         //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxEmPositionID.Text))
+            {
+                //役職IDの入力チェック
+                if (!InputCheck.PositionIDInputCheck(comboBoxEmPositionID.Text))
+                {
+                    comboBoxEmPositionID.Focus();
+                    return;
+                }
+                foreach (var EmData in EmployeeAccess.SearchEmployee(3, comboBoxEmPositionID.Text))      //役職IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewEmMana.Rows.Add(EmData.EmID, EmData.EmName, EmData.SoID, EmData.PoID, EmData.EmHiredate, EmData.EmPhone, Convert.ToBoolean(EmData.EmFlag), EmData.EmHidden);
+                }
+                labelEmSearchTitle.Text = "役職IDで検索しました";         //何で検索したかを表示
+            }
+        }
+
+        /// <summary>
+        /// 社員非表示ボタン
+        /// </summary>
+        /// <param>EmployeeID</param>
+        private void buttonEmNdisplay_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewEmMana.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridViewEmMana.Rows[i].Cells[6].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    EmployeeAccess.DeleteEmployee((int)dataGridViewEmMana.Rows[i].Cells[0].Value);      //チェックされている場合その行の社員IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+            msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //社員情報一覧表示用データを更新
+            EmployeeList = EmployeeAccess.GetData();
+            //社員情報再表示
+            ListEmployee();
+        }
+
+        /// <summary>
+        /// 社員非表示リストボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonEmNdisplayList_Click(object sender, EventArgs e)
+        {
+            DeleteListEmployee();
         }
     }
 }

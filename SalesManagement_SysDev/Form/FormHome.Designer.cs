@@ -84,9 +84,7 @@ namespace SalesManagement_SysDev
             this.comboBoxHaEmployeeID = new System.Windows.Forms.ComboBox();
             this.comboBoxHaProductID = new System.Windows.Forms.ComboBox();
             this.dateTimePickerHa = new System.Windows.Forms.DateTimePicker();
-            this.buttonHaNDisplay = new SalesManagement_SysDev.maruibutton();
             this.labelHaProductID = new System.Windows.Forms.Label();
-            this.buttonHaNDisplayList = new SalesManagement_SysDev.maruibutton();
             this.buttonHaDisplay = new System.Windows.Forms.Button();
             this.labelHaMakerName = new System.Windows.Forms.Label();
             this.buttonHaConfirm = new System.Windows.Forms.Button();
@@ -108,9 +106,7 @@ namespace SalesManagement_SysDev
             this.comboBoxWrEmployeeiD = new System.Windows.Forms.ComboBox();
             this.comboBoxWrWareHousingID = new System.Windows.Forms.ComboBox();
             this.dateTimePickerWr = new System.Windows.Forms.DateTimePicker();
-            this.buttonWrNDisplay = new SalesManagement_SysDev.maruibutton();
             this.labelWrWareHousingID = new System.Windows.Forms.Label();
-            this.buttonWrNDisplayList = new SalesManagement_SysDev.maruibutton();
             this.buttonWrSearch = new System.Windows.Forms.Button();
             this.buttonWrDisplay = new System.Windows.Forms.Button();
             this.labelWrRsn = new System.Windows.Forms.Label();
@@ -139,9 +135,7 @@ namespace SalesManagement_SysDev
             this.comboBoxSyOrderID = new System.Windows.Forms.ComboBox();
             this.comboBoxSySyukkoID = new System.Windows.Forms.ComboBox();
             this.dateTimePickerSyukko = new System.Windows.Forms.DateTimePicker();
-            this.buttonSyNDisplay = new SalesManagement_SysDev.maruibutton();
             this.labelSySyukkoID = new System.Windows.Forms.Label();
-            this.buttonSyNDisplayList = new SalesManagement_SysDev.maruibutton();
             this.buttonSySearch = new System.Windows.Forms.Button();
             this.buttonSyDisplay = new System.Windows.Forms.Button();
             this.labelSyRsn = new System.Windows.Forms.Label();
@@ -168,9 +162,7 @@ namespace SalesManagement_SysDev
             this.comboBoxChEmployeeID = new System.Windows.Forms.ComboBox();
             this.comboBoxChChumonID = new System.Windows.Forms.ComboBox();
             this.dateTimePickerChumon = new System.Windows.Forms.DateTimePicker();
-            this.buttonChNDisplay = new SalesManagement_SysDev.maruibutton();
             this.labelChChumonID = new System.Windows.Forms.Label();
-            this.buttonChNDisplayList = new SalesManagement_SysDev.maruibutton();
             this.buttonChSearch = new System.Windows.Forms.Button();
             this.buttonChDisplay = new System.Windows.Forms.Button();
             this.labelChRsn = new System.Windows.Forms.Label();
@@ -193,8 +185,6 @@ namespace SalesManagement_SysDev
             this.comboBoxCISalesOfficeID = new System.Windows.Forms.ComboBox();
             this.comboBoxCIClientID = new System.Windows.Forms.ComboBox();
             this.dataGridViewCI = new System.Windows.Forms.DataGridView();
-            this.buttonCINDisplayList = new SalesManagement_SysDev.maruibutton();
-            this.buttonCINDisplay = new SalesManagement_SysDev.maruibutton();
             this.labelCIRsn = new System.Windows.Forms.Label();
             this.labelCIFax = new System.Windows.Forms.Label();
             this.labelCIPostal = new System.Windows.Forms.Label();
@@ -213,6 +203,9 @@ namespace SalesManagement_SysDev
             this.buttonCIUpdate = new System.Windows.Forms.Button();
             this.buttonCIAdd = new System.Windows.Forms.Button();
             this.panelStock = new System.Windows.Forms.Panel();
+            this.labelStInventryWarning = new System.Windows.Forms.Label();
+            this.labelStProductIDWarning = new System.Windows.Forms.Label();
+            this.labelStStockIDWarning = new System.Windows.Forms.Label();
             this.textBoxStSmallClassName = new System.Windows.Forms.TextBox();
             this.labelStSmallClassName = new System.Windows.Forms.Label();
             this.comboBoxStSmallClassID = new System.Windows.Forms.ComboBox();
@@ -230,8 +223,6 @@ namespace SalesManagement_SysDev
             this.comboBoxStStockID = new System.Windows.Forms.ComboBox();
             this.dataGridViewStock = new System.Windows.Forms.DataGridView();
             this.buttonStUpdate = new System.Windows.Forms.Button();
-            this.buttonStNDisplayList = new SalesManagement_SysDev.maruibutton();
-            this.buttonStNDisplay = new SalesManagement_SysDev.maruibutton();
             this.labelStUnit = new System.Windows.Forms.Label();
             this.labelStInventory = new System.Windows.Forms.Label();
             this.textBoxStInventory = new System.Windows.Forms.TextBox();
@@ -261,9 +252,7 @@ namespace SalesManagement_SysDev
             this.comboBoxShEmployeeID = new System.Windows.Forms.ComboBox();
             this.comboBoxShShipmentID = new System.Windows.Forms.ComboBox();
             this.dateTimePickerShipment = new System.Windows.Forms.DateTimePicker();
-            this.buttonShNDisplay = new SalesManagement_SysDev.maruibutton();
             this.labelShShipmentID = new System.Windows.Forms.Label();
-            this.buttonShNDisplayList = new SalesManagement_SysDev.maruibutton();
             this.buttonShSearch = new System.Windows.Forms.Button();
             this.buttonShDisplay = new System.Windows.Forms.Button();
             this.labelShRsn = new System.Windows.Forms.Label();
@@ -300,8 +289,6 @@ namespace SalesManagement_SysDev
             this.DateTimePickerProduct = new System.Windows.Forms.DateTimePicker();
             this.comboBoxPrMakerID = new System.Windows.Forms.ComboBox();
             this.comboBoxPrProductID = new System.Windows.Forms.ComboBox();
-            this.buttonPrNDisplayList = new SalesManagement_SysDev.maruibutton();
-            this.buttonPrNDisplay = new SalesManagement_SysDev.maruibutton();
             this.buttonPrSearch = new System.Windows.Forms.Button();
             this.buttonPrDisplay = new System.Windows.Forms.Button();
             this.buttonPrUpdate = new System.Windows.Forms.Button();
@@ -340,8 +327,6 @@ namespace SalesManagement_SysDev
             this.buttonEmSearch = new System.Windows.Forms.Button();
             this.buttonEmDisplay = new System.Windows.Forms.Button();
             this.buttonEmUpdate = new System.Windows.Forms.Button();
-            this.buttonEmNdisplayList = new SalesManagement_SysDev.maruibutton();
-            this.buttonEmNdisplay = new SalesManagement_SysDev.maruibutton();
             this.labelDateTimeEmployee = new System.Windows.Forms.Label();
             this.textBoxEmEmployeePhone = new System.Windows.Forms.TextBox();
             this.labelEmPositionID = new System.Windows.Forms.Label();
@@ -369,8 +354,6 @@ namespace SalesManagement_SysDev
             this.comboBoxSaSalesOfficeID = new System.Windows.Forms.ComboBox();
             this.comboBoxSaOrderEmployeeID = new System.Windows.Forms.ComboBox();
             this.comboBoxSaClientID = new System.Windows.Forms.ComboBox();
-            this.buttonSaNDisplayList = new SalesManagement_SysDev.maruibutton();
-            this.buttonSaNDisplay = new SalesManagement_SysDev.maruibutton();
             this.buttonSaSearch = new System.Windows.Forms.Button();
             this.buttonSaDisplay = new System.Windows.Forms.Button();
             this.dataGridViewSaDetail = new System.Windows.Forms.DataGridView();
@@ -391,8 +374,6 @@ namespace SalesManagement_SysDev
             this.textBoxOrSalesOfficeName = new System.Windows.Forms.TextBox();
             this.labelOrSalesOfficeName = new System.Windows.Forms.Label();
             this.dateTimePickerOrder = new System.Windows.Forms.DateTimePicker();
-            this.buttonOrNDisplayList = new SalesManagement_SysDev.maruibutton();
-            this.buttonOrNDisplay = new SalesManagement_SysDev.maruibutton();
             this.buttonOrSearch = new System.Windows.Forms.Button();
             this.buttonOrDisplay = new System.Windows.Forms.Button();
             this.buttonOrOrderConfirm = new System.Windows.Forms.Button();
@@ -435,9 +416,7 @@ namespace SalesManagement_SysDev
             this.comboBoxArArrivalEmployeeID = new System.Windows.Forms.ComboBox();
             this.comboBoxArArrivalID = new System.Windows.Forms.ComboBox();
             this.dateTimePickerAr = new System.Windows.Forms.DateTimePicker();
-            this.buttonArNDisplay = new SalesManagement_SysDev.maruibutton();
             this.labelArArrivalID = new System.Windows.Forms.Label();
-            this.buttonArNDisplayList = new SalesManagement_SysDev.maruibutton();
             this.buttonArSearch = new System.Windows.Forms.Button();
             this.buttonArDisplay = new System.Windows.Forms.Button();
             this.labelArRsn = new System.Windows.Forms.Label();
@@ -450,9 +429,37 @@ namespace SalesManagement_SysDev
             this.buttonControl = new SalesManagement_SysDev.maruibutton();
             this.buttonLogin = new SalesManagement_SysDev.maruibutton();
             this.buttonLogout = new SalesManagement_SysDev.maruibutton();
-            this.labelStStockIDWarning = new System.Windows.Forms.Label();
-            this.labelStProductIDWarning = new System.Windows.Forms.Label();
-            this.labelStInventryWarning = new System.Windows.Forms.Label();
+            this.buttonEmNdisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonEmNdisplay = new SalesManagement_SysDev.maruibutton();
+            this.buttonSaNDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonSaNDisplay = new SalesManagement_SysDev.maruibutton();
+            this.buttonOrNDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonOrNDisplay = new SalesManagement_SysDev.maruibutton();
+            this.buttonArNDisplay = new SalesManagement_SysDev.maruibutton();
+            this.buttonArNDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonChNDisplay = new SalesManagement_SysDev.maruibutton();
+            this.buttonChNDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonSyNDisplay = new SalesManagement_SysDev.maruibutton();
+            this.buttonSyNDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonWrNDisplay = new SalesManagement_SysDev.maruibutton();
+            this.buttonWrNDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonHaNDisplay = new SalesManagement_SysDev.maruibutton();
+            this.buttonHaNDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonCINDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonCINDisplay = new SalesManagement_SysDev.maruibutton();
+            this.buttonStNDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonStNDisplay = new SalesManagement_SysDev.maruibutton();
+            this.buttonShNDisplay = new SalesManagement_SysDev.maruibutton();
+            this.buttonShNDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonPrNDisplayList = new SalesManagement_SysDev.maruibutton();
+            this.buttonPrNDisplay = new SalesManagement_SysDev.maruibutton();
+            this.labelEmEmployeeIDWarning = new System.Windows.Forms.Label();
+            this.labelEmEmployeeNameWarning = new System.Windows.Forms.Label();
+            this.labelEmSalesOfficeIDWarning = new System.Windows.Forms.Label();
+            this.labelEmPositionIDWarning = new System.Windows.Forms.Label();
+            this.labelEmPhoneWarning = new System.Windows.Forms.Label();
+            this.labelEmHireDateWarning = new System.Windows.Forms.Label();
+            this.labelEmPassWarning = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHattyu.SuspendLayout();
@@ -1075,19 +1082,6 @@ namespace SalesManagement_SysDev
             this.dateTimePickerHa.Size = new System.Drawing.Size(222, 34);
             this.dateTimePickerHa.TabIndex = 156;
             // 
-            // buttonHaNDisplay
-            // 
-            this.buttonHaNDisplay.BackColor = System.Drawing.Color.Red;
-            this.buttonHaNDisplay.FlatAppearance.BorderSize = 0;
-            this.buttonHaNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHaNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonHaNDisplay.Location = new System.Drawing.Point(1311, 29);
-            this.buttonHaNDisplay.Name = "buttonHaNDisplay";
-            this.buttonHaNDisplay.Size = new System.Drawing.Size(172, 111);
-            this.buttonHaNDisplay.TabIndex = 155;
-            this.buttonHaNDisplay.Text = "非表示";
-            this.buttonHaNDisplay.UseVisualStyleBackColor = false;
-            // 
             // labelHaProductID
             // 
             this.labelHaProductID.AutoSize = true;
@@ -1098,19 +1092,6 @@ namespace SalesManagement_SysDev
             this.labelHaProductID.Size = new System.Drawing.Size(78, 26);
             this.labelHaProductID.TabIndex = 154;
             this.labelHaProductID.Text = "商品ID";
-            // 
-            // buttonHaNDisplayList
-            // 
-            this.buttonHaNDisplayList.BackColor = System.Drawing.Color.Red;
-            this.buttonHaNDisplayList.FlatAppearance.BorderSize = 0;
-            this.buttonHaNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHaNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonHaNDisplayList.Location = new System.Drawing.Point(1495, 29);
-            this.buttonHaNDisplayList.Name = "buttonHaNDisplayList";
-            this.buttonHaNDisplayList.Size = new System.Drawing.Size(172, 111);
-            this.buttonHaNDisplayList.TabIndex = 154;
-            this.buttonHaNDisplayList.Text = "非表示リスト";
-            this.buttonHaNDisplayList.UseVisualStyleBackColor = false;
             // 
             // buttonHaDisplay
             // 
@@ -1350,19 +1331,6 @@ namespace SalesManagement_SysDev
             this.dateTimePickerWr.Size = new System.Drawing.Size(233, 34);
             this.dateTimePickerWr.TabIndex = 156;
             // 
-            // buttonWrNDisplay
-            // 
-            this.buttonWrNDisplay.BackColor = System.Drawing.Color.Red;
-            this.buttonWrNDisplay.FlatAppearance.BorderSize = 0;
-            this.buttonWrNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWrNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonWrNDisplay.Location = new System.Drawing.Point(1311, 29);
-            this.buttonWrNDisplay.Name = "buttonWrNDisplay";
-            this.buttonWrNDisplay.Size = new System.Drawing.Size(172, 111);
-            this.buttonWrNDisplay.TabIndex = 155;
-            this.buttonWrNDisplay.Text = "非表示";
-            this.buttonWrNDisplay.UseVisualStyleBackColor = false;
-            // 
             // labelWrWareHousingID
             // 
             this.labelWrWareHousingID.AutoSize = true;
@@ -1373,19 +1341,6 @@ namespace SalesManagement_SysDev
             this.labelWrWareHousingID.Size = new System.Drawing.Size(78, 26);
             this.labelWrWareHousingID.TabIndex = 154;
             this.labelWrWareHousingID.Text = "入庫ID";
-            // 
-            // buttonWrNDisplayList
-            // 
-            this.buttonWrNDisplayList.BackColor = System.Drawing.Color.Red;
-            this.buttonWrNDisplayList.FlatAppearance.BorderSize = 0;
-            this.buttonWrNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWrNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonWrNDisplayList.Location = new System.Drawing.Point(1495, 29);
-            this.buttonWrNDisplayList.Name = "buttonWrNDisplayList";
-            this.buttonWrNDisplayList.Size = new System.Drawing.Size(172, 111);
-            this.buttonWrNDisplayList.TabIndex = 154;
-            this.buttonWrNDisplayList.Text = "非表示リスト";
-            this.buttonWrNDisplayList.UseVisualStyleBackColor = false;
             // 
             // buttonWrSearch
             // 
@@ -1709,19 +1664,6 @@ namespace SalesManagement_SysDev
             this.dateTimePickerSyukko.Size = new System.Drawing.Size(240, 35);
             this.dateTimePickerSyukko.TabIndex = 156;
             // 
-            // buttonSyNDisplay
-            // 
-            this.buttonSyNDisplay.BackColor = System.Drawing.Color.Red;
-            this.buttonSyNDisplay.FlatAppearance.BorderSize = 0;
-            this.buttonSyNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSyNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSyNDisplay.Location = new System.Drawing.Point(1311, 29);
-            this.buttonSyNDisplay.Name = "buttonSyNDisplay";
-            this.buttonSyNDisplay.Size = new System.Drawing.Size(172, 111);
-            this.buttonSyNDisplay.TabIndex = 155;
-            this.buttonSyNDisplay.Text = "非表示";
-            this.buttonSyNDisplay.UseVisualStyleBackColor = false;
-            // 
             // labelSySyukkoID
             // 
             this.labelSySyukkoID.AutoSize = true;
@@ -1732,19 +1674,6 @@ namespace SalesManagement_SysDev
             this.labelSySyukkoID.Size = new System.Drawing.Size(78, 26);
             this.labelSySyukkoID.TabIndex = 154;
             this.labelSySyukkoID.Text = "出庫ID";
-            // 
-            // buttonSyNDisplayList
-            // 
-            this.buttonSyNDisplayList.BackColor = System.Drawing.Color.Red;
-            this.buttonSyNDisplayList.FlatAppearance.BorderSize = 0;
-            this.buttonSyNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSyNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSyNDisplayList.Location = new System.Drawing.Point(1495, 29);
-            this.buttonSyNDisplayList.Name = "buttonSyNDisplayList";
-            this.buttonSyNDisplayList.Size = new System.Drawing.Size(172, 111);
-            this.buttonSyNDisplayList.TabIndex = 154;
-            this.buttonSyNDisplayList.Text = "非表示リスト";
-            this.buttonSyNDisplayList.UseVisualStyleBackColor = false;
             // 
             // buttonSySearch
             // 
@@ -2041,19 +1970,6 @@ namespace SalesManagement_SysDev
             this.dateTimePickerChumon.Size = new System.Drawing.Size(221, 35);
             this.dateTimePickerChumon.TabIndex = 156;
             // 
-            // buttonChNDisplay
-            // 
-            this.buttonChNDisplay.BackColor = System.Drawing.Color.Red;
-            this.buttonChNDisplay.FlatAppearance.BorderSize = 0;
-            this.buttonChNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonChNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonChNDisplay.Location = new System.Drawing.Point(1311, 29);
-            this.buttonChNDisplay.Name = "buttonChNDisplay";
-            this.buttonChNDisplay.Size = new System.Drawing.Size(172, 111);
-            this.buttonChNDisplay.TabIndex = 155;
-            this.buttonChNDisplay.Text = "非表示";
-            this.buttonChNDisplay.UseVisualStyleBackColor = false;
-            // 
             // labelChChumonID
             // 
             this.labelChChumonID.AutoSize = true;
@@ -2064,19 +1980,6 @@ namespace SalesManagement_SysDev
             this.labelChChumonID.Size = new System.Drawing.Size(78, 26);
             this.labelChChumonID.TabIndex = 154;
             this.labelChChumonID.Text = "注文ID";
-            // 
-            // buttonChNDisplayList
-            // 
-            this.buttonChNDisplayList.BackColor = System.Drawing.Color.Red;
-            this.buttonChNDisplayList.FlatAppearance.BorderSize = 0;
-            this.buttonChNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonChNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonChNDisplayList.Location = new System.Drawing.Point(1495, 29);
-            this.buttonChNDisplayList.Name = "buttonChNDisplayList";
-            this.buttonChNDisplayList.Size = new System.Drawing.Size(172, 111);
-            this.buttonChNDisplayList.TabIndex = 154;
-            this.buttonChNDisplayList.Text = "非表示リスト";
-            this.buttonChNDisplayList.UseVisualStyleBackColor = false;
             // 
             // buttonChSearch
             // 
@@ -2340,34 +2243,6 @@ namespace SalesManagement_SysDev
             this.dataGridViewCI.Size = new System.Drawing.Size(1600, 310);
             this.dataGridViewCI.TabIndex = 124;
             // 
-            // buttonCINDisplayList
-            // 
-            this.buttonCINDisplayList.BackColor = System.Drawing.Color.Red;
-            this.buttonCINDisplayList.FlatAppearance.BorderSize = 0;
-            this.buttonCINDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCINDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCINDisplayList.Location = new System.Drawing.Point(1495, 29);
-            this.buttonCINDisplayList.Name = "buttonCINDisplayList";
-            this.buttonCINDisplayList.Size = new System.Drawing.Size(172, 111);
-            this.buttonCINDisplayList.TabIndex = 51;
-            this.buttonCINDisplayList.Text = "非表示リスト";
-            this.buttonCINDisplayList.UseVisualStyleBackColor = false;
-            this.buttonCINDisplayList.Click += new System.EventHandler(this.buttonCINDisplayList_Click);
-            // 
-            // buttonCINDisplay
-            // 
-            this.buttonCINDisplay.BackColor = System.Drawing.Color.Red;
-            this.buttonCINDisplay.FlatAppearance.BorderSize = 0;
-            this.buttonCINDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCINDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCINDisplay.Location = new System.Drawing.Point(1311, 29);
-            this.buttonCINDisplay.Name = "buttonCINDisplay";
-            this.buttonCINDisplay.Size = new System.Drawing.Size(172, 111);
-            this.buttonCINDisplay.TabIndex = 50;
-            this.buttonCINDisplay.Text = "非表示";
-            this.buttonCINDisplay.UseVisualStyleBackColor = false;
-            this.buttonCINDisplay.Click += new System.EventHandler(this.buttonCINDisplay_Click);
-            // 
             // labelCIRsn
             // 
             this.labelCIRsn.AutoSize = true;
@@ -2591,6 +2466,39 @@ namespace SalesManagement_SysDev
             this.panelStock.Size = new System.Drawing.Size(1685, 738);
             this.panelStock.TabIndex = 153;
             // 
+            // labelStInventryWarning
+            // 
+            this.labelStInventryWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelStInventryWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelStInventryWarning.Location = new System.Drawing.Point(723, 248);
+            this.labelStInventryWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelStInventryWarning.Name = "labelStInventryWarning";
+            this.labelStInventryWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelStInventryWarning.TabIndex = 219;
+            this.labelStInventryWarning.Text = "※";
+            // 
+            // labelStProductIDWarning
+            // 
+            this.labelStProductIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelStProductIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelStProductIDWarning.Location = new System.Drawing.Point(10, 249);
+            this.labelStProductIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelStProductIDWarning.Name = "labelStProductIDWarning";
+            this.labelStProductIDWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelStProductIDWarning.TabIndex = 218;
+            this.labelStProductIDWarning.Text = "※";
+            // 
+            // labelStStockIDWarning
+            // 
+            this.labelStStockIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelStStockIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelStStockIDWarning.Location = new System.Drawing.Point(10, 130);
+            this.labelStStockIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelStStockIDWarning.Name = "labelStStockIDWarning";
+            this.labelStStockIDWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelStStockIDWarning.TabIndex = 217;
+            this.labelStStockIDWarning.Text = "※";
+            // 
             // textBoxStSmallClassName
             // 
             this.textBoxStSmallClassName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -2761,34 +2669,6 @@ namespace SalesManagement_SysDev
             this.buttonStUpdate.Text = "更新";
             this.buttonStUpdate.UseVisualStyleBackColor = false;
             this.buttonStUpdate.Click += new System.EventHandler(this.buttonStUpdate_Click);
-            // 
-            // buttonStNDisplayList
-            // 
-            this.buttonStNDisplayList.BackColor = System.Drawing.Color.Red;
-            this.buttonStNDisplayList.FlatAppearance.BorderSize = 0;
-            this.buttonStNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonStNDisplayList.Location = new System.Drawing.Point(1495, 29);
-            this.buttonStNDisplayList.Name = "buttonStNDisplayList";
-            this.buttonStNDisplayList.Size = new System.Drawing.Size(172, 111);
-            this.buttonStNDisplayList.TabIndex = 74;
-            this.buttonStNDisplayList.Text = "非表示リスト";
-            this.buttonStNDisplayList.UseVisualStyleBackColor = false;
-            this.buttonStNDisplayList.Click += new System.EventHandler(this.buttonStNDisplayList_Click);
-            // 
-            // buttonStNDisplay
-            // 
-            this.buttonStNDisplay.BackColor = System.Drawing.Color.Red;
-            this.buttonStNDisplay.FlatAppearance.BorderSize = 0;
-            this.buttonStNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonStNDisplay.Location = new System.Drawing.Point(1311, 29);
-            this.buttonStNDisplay.Name = "buttonStNDisplay";
-            this.buttonStNDisplay.Size = new System.Drawing.Size(172, 111);
-            this.buttonStNDisplay.TabIndex = 73;
-            this.buttonStNDisplay.Text = "非表示";
-            this.buttonStNDisplay.UseVisualStyleBackColor = false;
-            this.buttonStNDisplay.Click += new System.EventHandler(this.buttonStNDisplay_Click);
             // 
             // labelStUnit
             // 
@@ -3119,19 +2999,6 @@ namespace SalesManagement_SysDev
             this.dateTimePickerShipment.Size = new System.Drawing.Size(232, 34);
             this.dateTimePickerShipment.TabIndex = 156;
             // 
-            // buttonShNDisplay
-            // 
-            this.buttonShNDisplay.BackColor = System.Drawing.Color.Red;
-            this.buttonShNDisplay.FlatAppearance.BorderSize = 0;
-            this.buttonShNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonShNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonShNDisplay.Location = new System.Drawing.Point(1311, 29);
-            this.buttonShNDisplay.Name = "buttonShNDisplay";
-            this.buttonShNDisplay.Size = new System.Drawing.Size(172, 111);
-            this.buttonShNDisplay.TabIndex = 155;
-            this.buttonShNDisplay.Text = "非表示";
-            this.buttonShNDisplay.UseVisualStyleBackColor = false;
-            // 
             // labelShShipmentID
             // 
             this.labelShShipmentID.AutoSize = true;
@@ -3142,19 +3009,6 @@ namespace SalesManagement_SysDev
             this.labelShShipmentID.Size = new System.Drawing.Size(78, 26);
             this.labelShShipmentID.TabIndex = 154;
             this.labelShShipmentID.Text = "出荷ID";
-            // 
-            // buttonShNDisplayList
-            // 
-            this.buttonShNDisplayList.BackColor = System.Drawing.Color.Red;
-            this.buttonShNDisplayList.FlatAppearance.BorderSize = 0;
-            this.buttonShNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonShNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonShNDisplayList.Location = new System.Drawing.Point(1495, 29);
-            this.buttonShNDisplayList.Name = "buttonShNDisplayList";
-            this.buttonShNDisplayList.Size = new System.Drawing.Size(172, 111);
-            this.buttonShNDisplayList.TabIndex = 154;
-            this.buttonShNDisplayList.Text = "非表示リスト";
-            this.buttonShNDisplayList.UseVisualStyleBackColor = false;
             // 
             // buttonShSearch
             // 
@@ -3574,34 +3428,6 @@ namespace SalesManagement_SysDev
             this.comboBoxPrProductID.Size = new System.Drawing.Size(155, 34);
             this.comboBoxPrProductID.TabIndex = 108;
             // 
-            // buttonPrNDisplayList
-            // 
-            this.buttonPrNDisplayList.BackColor = System.Drawing.Color.Red;
-            this.buttonPrNDisplayList.FlatAppearance.BorderSize = 0;
-            this.buttonPrNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPrNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonPrNDisplayList.Location = new System.Drawing.Point(1495, 29);
-            this.buttonPrNDisplayList.Name = "buttonPrNDisplayList";
-            this.buttonPrNDisplayList.Size = new System.Drawing.Size(172, 111);
-            this.buttonPrNDisplayList.TabIndex = 107;
-            this.buttonPrNDisplayList.Text = "非表示リスト";
-            this.buttonPrNDisplayList.UseVisualStyleBackColor = false;
-            this.buttonPrNDisplayList.Click += new System.EventHandler(this.buttonPrNDisplayList_Click);
-            // 
-            // buttonPrNDisplay
-            // 
-            this.buttonPrNDisplay.BackColor = System.Drawing.Color.Red;
-            this.buttonPrNDisplay.FlatAppearance.BorderSize = 0;
-            this.buttonPrNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPrNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonPrNDisplay.Location = new System.Drawing.Point(1311, 29);
-            this.buttonPrNDisplay.Name = "buttonPrNDisplay";
-            this.buttonPrNDisplay.Size = new System.Drawing.Size(172, 111);
-            this.buttonPrNDisplay.TabIndex = 106;
-            this.buttonPrNDisplay.Text = "非表示";
-            this.buttonPrNDisplay.UseVisualStyleBackColor = false;
-            this.buttonPrNDisplay.Click += new System.EventHandler(this.buttonPrNDisplay_Click);
-            // 
             // buttonPrSearch
             // 
             this.buttonPrSearch.BackColor = System.Drawing.Color.White;
@@ -3847,6 +3673,13 @@ namespace SalesManagement_SysDev
             // panelEmployee
             // 
             this.panelEmployee.BackColor = System.Drawing.Color.Azure;
+            this.panelEmployee.Controls.Add(this.labelEmPassWarning);
+            this.panelEmployee.Controls.Add(this.labelEmHireDateWarning);
+            this.panelEmployee.Controls.Add(this.labelEmPhoneWarning);
+            this.panelEmployee.Controls.Add(this.labelEmPositionIDWarning);
+            this.panelEmployee.Controls.Add(this.labelEmSalesOfficeIDWarning);
+            this.panelEmployee.Controls.Add(this.labelEmEmployeeNameWarning);
+            this.panelEmployee.Controls.Add(this.labelEmEmployeeIDWarning);
             this.panelEmployee.Controls.Add(this.labelEmSearchTitle);
             this.panelEmployee.Controls.Add(this.labelEmPositionName);
             this.panelEmployee.Controls.Add(this.textBoxEmPositionName);
@@ -3889,13 +3722,12 @@ namespace SalesManagement_SysDev
             this.labelEmSearchTitle.Name = "labelEmSearchTitle";
             this.labelEmSearchTitle.Size = new System.Drawing.Size(257, 23);
             this.labelEmSearchTitle.TabIndex = 134;
-            this.labelEmSearchTitle.Text = "label30";
             // 
             // labelEmPositionName
             // 
             this.labelEmPositionName.AutoSize = true;
             this.labelEmPositionName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmPositionName.Location = new System.Drawing.Point(697, 238);
+            this.labelEmPositionName.Location = new System.Drawing.Point(666, 239);
             this.labelEmPositionName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmPositionName.Name = "labelEmPositionName";
             this.labelEmPositionName.Size = new System.Drawing.Size(75, 26);
@@ -3905,7 +3737,7 @@ namespace SalesManagement_SysDev
             // textBoxEmPositionName
             // 
             this.textBoxEmPositionName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxEmPositionName.Location = new System.Drawing.Point(820, 234);
+            this.textBoxEmPositionName.Location = new System.Drawing.Point(789, 235);
             this.textBoxEmPositionName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEmPositionName.Name = "textBoxEmPositionName";
             this.textBoxEmPositionName.Size = new System.Drawing.Size(299, 34);
@@ -3915,7 +3747,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelEmSalesOfficeName.AutoSize = true;
             this.labelEmSalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmSalesOfficeName.Location = new System.Drawing.Point(697, 185);
+            this.labelEmSalesOfficeName.Location = new System.Drawing.Point(666, 186);
             this.labelEmSalesOfficeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmSalesOfficeName.Name = "labelEmSalesOfficeName";
             this.labelEmSalesOfficeName.Size = new System.Drawing.Size(96, 26);
@@ -3925,7 +3757,7 @@ namespace SalesManagement_SysDev
             // textBoxEmSalesOfficeName
             // 
             this.textBoxEmSalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxEmSalesOfficeName.Location = new System.Drawing.Point(820, 181);
+            this.textBoxEmSalesOfficeName.Location = new System.Drawing.Point(789, 182);
             this.textBoxEmSalesOfficeName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEmSalesOfficeName.Name = "textBoxEmSalesOfficeName";
             this.textBoxEmSalesOfficeName.Size = new System.Drawing.Size(299, 34);
@@ -3960,7 +3792,7 @@ namespace SalesManagement_SysDev
             // dateTimePickerEmployee
             // 
             this.dateTimePickerEmployee.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dateTimePickerEmployee.Location = new System.Drawing.Point(820, 287);
+            this.dateTimePickerEmployee.Location = new System.Drawing.Point(789, 288);
             this.dateTimePickerEmployee.Name = "dateTimePickerEmployee";
             this.dateTimePickerEmployee.Size = new System.Drawing.Size(299, 34);
             this.dateTimePickerEmployee.TabIndex = 127;
@@ -3969,7 +3801,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxEmSalesOfficeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxEmSalesOfficeID.FormattingEnabled = true;
-            this.comboBoxEmSalesOfficeID.Location = new System.Drawing.Point(481, 179);
+            this.comboBoxEmSalesOfficeID.Location = new System.Drawing.Point(450, 180);
             this.comboBoxEmSalesOfficeID.Name = "comboBoxEmSalesOfficeID";
             this.comboBoxEmSalesOfficeID.Size = new System.Drawing.Size(184, 34);
             this.comboBoxEmSalesOfficeID.TabIndex = 126;
@@ -3978,7 +3810,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxEmPositionID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxEmPositionID.FormattingEnabled = true;
-            this.comboBoxEmPositionID.Location = new System.Drawing.Point(481, 230);
+            this.comboBoxEmPositionID.Location = new System.Drawing.Point(450, 231);
             this.comboBoxEmPositionID.Name = "comboBoxEmPositionID";
             this.comboBoxEmPositionID.Size = new System.Drawing.Size(184, 34);
             this.comboBoxEmPositionID.TabIndex = 125;
@@ -3987,7 +3819,7 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxEmEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxEmEmployeeID.FormattingEnabled = true;
-            this.comboBoxEmEmployeeID.Location = new System.Drawing.Point(481, 128);
+            this.comboBoxEmEmployeeID.Location = new System.Drawing.Point(450, 129);
             this.comboBoxEmEmployeeID.Name = "comboBoxEmEmployeeID";
             this.comboBoxEmEmployeeID.Size = new System.Drawing.Size(184, 34);
             this.comboBoxEmEmployeeID.TabIndex = 59;
@@ -4016,6 +3848,7 @@ namespace SalesManagement_SysDev
             this.buttonEmSearch.TabIndex = 123;
             this.buttonEmSearch.Text = "検索";
             this.buttonEmSearch.UseVisualStyleBackColor = false;
+            this.buttonEmSearch.Click += new System.EventHandler(this.buttonEmSearch_Click);
             // 
             // buttonEmDisplay
             // 
@@ -4028,6 +3861,7 @@ namespace SalesManagement_SysDev
             this.buttonEmDisplay.TabIndex = 122;
             this.buttonEmDisplay.Text = "一覧表示";
             this.buttonEmDisplay.UseVisualStyleBackColor = false;
+            this.buttonEmDisplay.Click += new System.EventHandler(this.buttonEmDisplay_Click);
             // 
             // buttonEmUpdate
             // 
@@ -4040,38 +3874,13 @@ namespace SalesManagement_SysDev
             this.buttonEmUpdate.TabIndex = 121;
             this.buttonEmUpdate.Text = "更新";
             this.buttonEmUpdate.UseVisualStyleBackColor = false;
-            // 
-            // buttonEmNdisplayList
-            // 
-            this.buttonEmNdisplayList.BackColor = System.Drawing.Color.Red;
-            this.buttonEmNdisplayList.FlatAppearance.BorderSize = 0;
-            this.buttonEmNdisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEmNdisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonEmNdisplayList.Location = new System.Drawing.Point(1495, 29);
-            this.buttonEmNdisplayList.Name = "buttonEmNdisplayList";
-            this.buttonEmNdisplayList.Size = new System.Drawing.Size(172, 111);
-            this.buttonEmNdisplayList.TabIndex = 120;
-            this.buttonEmNdisplayList.Text = "非表示リスト";
-            this.buttonEmNdisplayList.UseVisualStyleBackColor = false;
-            // 
-            // buttonEmNdisplay
-            // 
-            this.buttonEmNdisplay.BackColor = System.Drawing.Color.Red;
-            this.buttonEmNdisplay.FlatAppearance.BorderSize = 0;
-            this.buttonEmNdisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEmNdisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonEmNdisplay.Location = new System.Drawing.Point(1311, 29);
-            this.buttonEmNdisplay.Name = "buttonEmNdisplay";
-            this.buttonEmNdisplay.Size = new System.Drawing.Size(172, 111);
-            this.buttonEmNdisplay.TabIndex = 119;
-            this.buttonEmNdisplay.Text = "非表示";
-            this.buttonEmNdisplay.UseVisualStyleBackColor = false;
+            this.buttonEmUpdate.Click += new System.EventHandler(this.buttonEmUpdate_Click);
             // 
             // labelDateTimeEmployee
             // 
             this.labelDateTimeEmployee.AutoSize = true;
             this.labelDateTimeEmployee.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelDateTimeEmployee.Location = new System.Drawing.Point(697, 291);
+            this.labelDateTimeEmployee.Location = new System.Drawing.Point(666, 292);
             this.labelDateTimeEmployee.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDateTimeEmployee.Name = "labelDateTimeEmployee";
             this.labelDateTimeEmployee.Size = new System.Drawing.Size(117, 26);
@@ -4081,7 +3890,7 @@ namespace SalesManagement_SysDev
             // textBoxEmEmployeePhone
             // 
             this.textBoxEmEmployeePhone.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxEmEmployeePhone.Location = new System.Drawing.Point(481, 281);
+            this.textBoxEmEmployeePhone.Location = new System.Drawing.Point(450, 282);
             this.textBoxEmEmployeePhone.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEmEmployeePhone.Name = "textBoxEmEmployeePhone";
             this.textBoxEmEmployeePhone.Size = new System.Drawing.Size(184, 34);
@@ -4091,7 +3900,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelEmPositionID.AutoSize = true;
             this.labelEmPositionID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmPositionID.Location = new System.Drawing.Point(352, 234);
+            this.labelEmPositionID.Location = new System.Drawing.Point(321, 235);
             this.labelEmPositionID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmPositionID.Name = "labelEmPositionID";
             this.labelEmPositionID.Size = new System.Drawing.Size(78, 26);
@@ -4101,7 +3910,7 @@ namespace SalesManagement_SysDev
             // textBoxEmEmployeePass
             // 
             this.textBoxEmEmployeePass.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxEmEmployeePass.Location = new System.Drawing.Point(481, 332);
+            this.textBoxEmEmployeePass.Location = new System.Drawing.Point(450, 333);
             this.textBoxEmEmployeePass.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEmEmployeePass.Name = "textBoxEmEmployeePass";
             this.textBoxEmEmployeePass.Size = new System.Drawing.Size(184, 34);
@@ -4111,7 +3920,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelEmSalesOfficeID.AutoSize = true;
             this.labelEmSalesOfficeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmSalesOfficeID.Location = new System.Drawing.Point(352, 183);
+            this.labelEmSalesOfficeID.Location = new System.Drawing.Point(321, 184);
             this.labelEmSalesOfficeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmSalesOfficeID.Name = "labelEmSalesOfficeID";
             this.labelEmSalesOfficeID.Size = new System.Drawing.Size(99, 26);
@@ -4122,7 +3931,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelEmEmployeePass.AutoSize = true;
             this.labelEmEmployeePass.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmEmployeePass.Location = new System.Drawing.Point(352, 336);
+            this.labelEmEmployeePass.Location = new System.Drawing.Point(321, 337);
             this.labelEmEmployeePass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmEmployeePass.Name = "labelEmEmployeePass";
             this.labelEmEmployeePass.Size = new System.Drawing.Size(94, 26);
@@ -4143,7 +3952,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelEmEmployeePhone.AutoSize = true;
             this.labelEmEmployeePhone.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmEmployeePhone.Location = new System.Drawing.Point(352, 285);
+            this.labelEmEmployeePhone.Location = new System.Drawing.Point(321, 286);
             this.labelEmEmployeePhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmEmployeePhone.Name = "labelEmEmployeePhone";
             this.labelEmEmployeePhone.Size = new System.Drawing.Size(96, 26);
@@ -4176,7 +3985,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelEmEmployeeName.AutoSize = true;
             this.labelEmEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmEmployeeName.Location = new System.Drawing.Point(697, 132);
+            this.labelEmEmployeeName.Location = new System.Drawing.Point(666, 133);
             this.labelEmEmployeeName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmEmployeeName.Name = "labelEmEmployeeName";
             this.labelEmEmployeeName.Size = new System.Drawing.Size(75, 26);
@@ -4187,7 +3996,7 @@ namespace SalesManagement_SysDev
             // 
             this.labelEmEmployeeID.AutoSize = true;
             this.labelEmEmployeeID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmEmployeeID.Location = new System.Drawing.Point(352, 132);
+            this.labelEmEmployeeID.Location = new System.Drawing.Point(321, 133);
             this.labelEmEmployeeID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelEmEmployeeID.Name = "labelEmEmployeeID";
             this.labelEmEmployeeID.Size = new System.Drawing.Size(78, 26);
@@ -4197,7 +4006,7 @@ namespace SalesManagement_SysDev
             // textBoxEmEmployeeName
             // 
             this.textBoxEmEmployeeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxEmEmployeeName.Location = new System.Drawing.Point(820, 128);
+            this.textBoxEmEmployeeName.Location = new System.Drawing.Point(789, 129);
             this.textBoxEmEmployeeName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEmEmployeeName.Name = "textBoxEmEmployeeName";
             this.textBoxEmEmployeeName.Size = new System.Drawing.Size(217, 34);
@@ -4363,32 +4172,6 @@ namespace SalesManagement_SysDev
             this.comboBoxSaClientID.Name = "comboBoxSaClientID";
             this.comboBoxSaClientID.Size = new System.Drawing.Size(199, 34);
             this.comboBoxSaClientID.TabIndex = 152;
-            // 
-            // buttonSaNDisplayList
-            // 
-            this.buttonSaNDisplayList.BackColor = System.Drawing.Color.Red;
-            this.buttonSaNDisplayList.FlatAppearance.BorderSize = 0;
-            this.buttonSaNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSaNDisplayList.Location = new System.Drawing.Point(1495, 29);
-            this.buttonSaNDisplayList.Name = "buttonSaNDisplayList";
-            this.buttonSaNDisplayList.Size = new System.Drawing.Size(172, 111);
-            this.buttonSaNDisplayList.TabIndex = 130;
-            this.buttonSaNDisplayList.Text = "非表示リスト";
-            this.buttonSaNDisplayList.UseVisualStyleBackColor = false;
-            // 
-            // buttonSaNDisplay
-            // 
-            this.buttonSaNDisplay.BackColor = System.Drawing.Color.Red;
-            this.buttonSaNDisplay.FlatAppearance.BorderSize = 0;
-            this.buttonSaNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSaNDisplay.Location = new System.Drawing.Point(1311, 29);
-            this.buttonSaNDisplay.Name = "buttonSaNDisplay";
-            this.buttonSaNDisplay.Size = new System.Drawing.Size(172, 111);
-            this.buttonSaNDisplay.TabIndex = 129;
-            this.buttonSaNDisplay.Text = "非表示";
-            this.buttonSaNDisplay.UseVisualStyleBackColor = false;
             // 
             // buttonSaSearch
             // 
@@ -4635,32 +4418,6 @@ namespace SalesManagement_SysDev
             this.dateTimePickerOrder.Name = "dateTimePickerOrder";
             this.dateTimePickerOrder.Size = new System.Drawing.Size(233, 34);
             this.dateTimePickerOrder.TabIndex = 155;
-            // 
-            // buttonOrNDisplayList
-            // 
-            this.buttonOrNDisplayList.BackColor = System.Drawing.Color.Red;
-            this.buttonOrNDisplayList.FlatAppearance.BorderSize = 0;
-            this.buttonOrNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOrNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonOrNDisplayList.Location = new System.Drawing.Point(1495, 29);
-            this.buttonOrNDisplayList.Name = "buttonOrNDisplayList";
-            this.buttonOrNDisplayList.Size = new System.Drawing.Size(172, 111);
-            this.buttonOrNDisplayList.TabIndex = 154;
-            this.buttonOrNDisplayList.Text = "非表示リスト";
-            this.buttonOrNDisplayList.UseVisualStyleBackColor = false;
-            // 
-            // buttonOrNDisplay
-            // 
-            this.buttonOrNDisplay.BackColor = System.Drawing.Color.Red;
-            this.buttonOrNDisplay.FlatAppearance.BorderSize = 0;
-            this.buttonOrNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOrNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonOrNDisplay.Location = new System.Drawing.Point(1311, 29);
-            this.buttonOrNDisplay.Name = "buttonOrNDisplay";
-            this.buttonOrNDisplay.Size = new System.Drawing.Size(172, 111);
-            this.buttonOrNDisplay.TabIndex = 153;
-            this.buttonOrNDisplay.Text = "非表示";
-            this.buttonOrNDisplay.UseVisualStyleBackColor = false;
             // 
             // buttonOrSearch
             // 
@@ -5140,19 +4897,6 @@ namespace SalesManagement_SysDev
             this.dateTimePickerAr.Size = new System.Drawing.Size(259, 34);
             this.dateTimePickerAr.TabIndex = 156;
             // 
-            // buttonArNDisplay
-            // 
-            this.buttonArNDisplay.BackColor = System.Drawing.Color.Red;
-            this.buttonArNDisplay.FlatAppearance.BorderSize = 0;
-            this.buttonArNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonArNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonArNDisplay.Location = new System.Drawing.Point(1311, 29);
-            this.buttonArNDisplay.Name = "buttonArNDisplay";
-            this.buttonArNDisplay.Size = new System.Drawing.Size(172, 111);
-            this.buttonArNDisplay.TabIndex = 155;
-            this.buttonArNDisplay.Text = "非表示";
-            this.buttonArNDisplay.UseVisualStyleBackColor = false;
-            // 
             // labelArArrivalID
             // 
             this.labelArArrivalID.AutoSize = true;
@@ -5163,19 +4907,6 @@ namespace SalesManagement_SysDev
             this.labelArArrivalID.Size = new System.Drawing.Size(78, 26);
             this.labelArArrivalID.TabIndex = 154;
             this.labelArArrivalID.Text = "入荷ID";
-            // 
-            // buttonArNDisplayList
-            // 
-            this.buttonArNDisplayList.BackColor = System.Drawing.Color.Red;
-            this.buttonArNDisplayList.FlatAppearance.BorderSize = 0;
-            this.buttonArNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonArNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonArNDisplayList.Location = new System.Drawing.Point(1495, 29);
-            this.buttonArNDisplayList.Name = "buttonArNDisplayList";
-            this.buttonArNDisplayList.Size = new System.Drawing.Size(172, 111);
-            this.buttonArNDisplayList.TabIndex = 154;
-            this.buttonArNDisplayList.Text = "非表示リスト";
-            this.buttonArNDisplayList.UseVisualStyleBackColor = false;
             // 
             // buttonArSearch
             // 
@@ -5328,38 +5059,402 @@ namespace SalesManagement_SysDev
             this.buttonLogout.Text = "ログアウト";
             this.buttonLogout.UseVisualStyleBackColor = false;
             // 
-            // labelStStockIDWarning
+            // buttonEmNdisplayList
             // 
-            this.labelStStockIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelStStockIDWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelStStockIDWarning.Location = new System.Drawing.Point(10, 130);
-            this.labelStStockIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelStStockIDWarning.Name = "labelStStockIDWarning";
-            this.labelStStockIDWarning.Size = new System.Drawing.Size(26, 24);
-            this.labelStStockIDWarning.TabIndex = 217;
-            this.labelStStockIDWarning.Text = "※";
+            this.buttonEmNdisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonEmNdisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonEmNdisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEmNdisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonEmNdisplayList.Location = new System.Drawing.Point(1495, 29);
+            this.buttonEmNdisplayList.Name = "buttonEmNdisplayList";
+            this.buttonEmNdisplayList.Size = new System.Drawing.Size(172, 111);
+            this.buttonEmNdisplayList.TabIndex = 120;
+            this.buttonEmNdisplayList.Text = "非表示リスト";
+            this.buttonEmNdisplayList.UseVisualStyleBackColor = false;
+            this.buttonEmNdisplayList.Click += new System.EventHandler(this.buttonEmNdisplayList_Click);
             // 
-            // labelStProductIDWarning
+            // buttonEmNdisplay
             // 
-            this.labelStProductIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelStProductIDWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelStProductIDWarning.Location = new System.Drawing.Point(10, 249);
-            this.labelStProductIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelStProductIDWarning.Name = "labelStProductIDWarning";
-            this.labelStProductIDWarning.Size = new System.Drawing.Size(26, 24);
-            this.labelStProductIDWarning.TabIndex = 218;
-            this.labelStProductIDWarning.Text = "※";
+            this.buttonEmNdisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonEmNdisplay.FlatAppearance.BorderSize = 0;
+            this.buttonEmNdisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEmNdisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonEmNdisplay.Location = new System.Drawing.Point(1311, 29);
+            this.buttonEmNdisplay.Name = "buttonEmNdisplay";
+            this.buttonEmNdisplay.Size = new System.Drawing.Size(172, 111);
+            this.buttonEmNdisplay.TabIndex = 119;
+            this.buttonEmNdisplay.Text = "非表示";
+            this.buttonEmNdisplay.UseVisualStyleBackColor = false;
+            this.buttonEmNdisplay.Click += new System.EventHandler(this.buttonEmNdisplay_Click);
             // 
-            // labelStInventryWarning
+            // buttonSaNDisplayList
             // 
-            this.labelStInventryWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelStInventryWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelStInventryWarning.Location = new System.Drawing.Point(723, 248);
-            this.labelStInventryWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelStInventryWarning.Name = "labelStInventryWarning";
-            this.labelStInventryWarning.Size = new System.Drawing.Size(26, 24);
-            this.labelStInventryWarning.TabIndex = 219;
-            this.labelStInventryWarning.Text = "※";
+            this.buttonSaNDisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonSaNDisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonSaNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonSaNDisplayList.Location = new System.Drawing.Point(1495, 29);
+            this.buttonSaNDisplayList.Name = "buttonSaNDisplayList";
+            this.buttonSaNDisplayList.Size = new System.Drawing.Size(172, 111);
+            this.buttonSaNDisplayList.TabIndex = 130;
+            this.buttonSaNDisplayList.Text = "非表示リスト";
+            this.buttonSaNDisplayList.UseVisualStyleBackColor = false;
+            // 
+            // buttonSaNDisplay
+            // 
+            this.buttonSaNDisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonSaNDisplay.FlatAppearance.BorderSize = 0;
+            this.buttonSaNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonSaNDisplay.Location = new System.Drawing.Point(1311, 29);
+            this.buttonSaNDisplay.Name = "buttonSaNDisplay";
+            this.buttonSaNDisplay.Size = new System.Drawing.Size(172, 111);
+            this.buttonSaNDisplay.TabIndex = 129;
+            this.buttonSaNDisplay.Text = "非表示";
+            this.buttonSaNDisplay.UseVisualStyleBackColor = false;
+            // 
+            // buttonOrNDisplayList
+            // 
+            this.buttonOrNDisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonOrNDisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonOrNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOrNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonOrNDisplayList.Location = new System.Drawing.Point(1495, 29);
+            this.buttonOrNDisplayList.Name = "buttonOrNDisplayList";
+            this.buttonOrNDisplayList.Size = new System.Drawing.Size(172, 111);
+            this.buttonOrNDisplayList.TabIndex = 154;
+            this.buttonOrNDisplayList.Text = "非表示リスト";
+            this.buttonOrNDisplayList.UseVisualStyleBackColor = false;
+            // 
+            // buttonOrNDisplay
+            // 
+            this.buttonOrNDisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonOrNDisplay.FlatAppearance.BorderSize = 0;
+            this.buttonOrNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOrNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonOrNDisplay.Location = new System.Drawing.Point(1311, 29);
+            this.buttonOrNDisplay.Name = "buttonOrNDisplay";
+            this.buttonOrNDisplay.Size = new System.Drawing.Size(172, 111);
+            this.buttonOrNDisplay.TabIndex = 153;
+            this.buttonOrNDisplay.Text = "非表示";
+            this.buttonOrNDisplay.UseVisualStyleBackColor = false;
+            // 
+            // buttonArNDisplay
+            // 
+            this.buttonArNDisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonArNDisplay.FlatAppearance.BorderSize = 0;
+            this.buttonArNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonArNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonArNDisplay.Location = new System.Drawing.Point(1311, 29);
+            this.buttonArNDisplay.Name = "buttonArNDisplay";
+            this.buttonArNDisplay.Size = new System.Drawing.Size(172, 111);
+            this.buttonArNDisplay.TabIndex = 155;
+            this.buttonArNDisplay.Text = "非表示";
+            this.buttonArNDisplay.UseVisualStyleBackColor = false;
+            // 
+            // buttonArNDisplayList
+            // 
+            this.buttonArNDisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonArNDisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonArNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonArNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonArNDisplayList.Location = new System.Drawing.Point(1495, 29);
+            this.buttonArNDisplayList.Name = "buttonArNDisplayList";
+            this.buttonArNDisplayList.Size = new System.Drawing.Size(172, 111);
+            this.buttonArNDisplayList.TabIndex = 154;
+            this.buttonArNDisplayList.Text = "非表示リスト";
+            this.buttonArNDisplayList.UseVisualStyleBackColor = false;
+            // 
+            // buttonChNDisplay
+            // 
+            this.buttonChNDisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonChNDisplay.FlatAppearance.BorderSize = 0;
+            this.buttonChNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonChNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonChNDisplay.Location = new System.Drawing.Point(1311, 29);
+            this.buttonChNDisplay.Name = "buttonChNDisplay";
+            this.buttonChNDisplay.Size = new System.Drawing.Size(172, 111);
+            this.buttonChNDisplay.TabIndex = 155;
+            this.buttonChNDisplay.Text = "非表示";
+            this.buttonChNDisplay.UseVisualStyleBackColor = false;
+            // 
+            // buttonChNDisplayList
+            // 
+            this.buttonChNDisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonChNDisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonChNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonChNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonChNDisplayList.Location = new System.Drawing.Point(1495, 29);
+            this.buttonChNDisplayList.Name = "buttonChNDisplayList";
+            this.buttonChNDisplayList.Size = new System.Drawing.Size(172, 111);
+            this.buttonChNDisplayList.TabIndex = 154;
+            this.buttonChNDisplayList.Text = "非表示リスト";
+            this.buttonChNDisplayList.UseVisualStyleBackColor = false;
+            // 
+            // buttonSyNDisplay
+            // 
+            this.buttonSyNDisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonSyNDisplay.FlatAppearance.BorderSize = 0;
+            this.buttonSyNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSyNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonSyNDisplay.Location = new System.Drawing.Point(1311, 29);
+            this.buttonSyNDisplay.Name = "buttonSyNDisplay";
+            this.buttonSyNDisplay.Size = new System.Drawing.Size(172, 111);
+            this.buttonSyNDisplay.TabIndex = 155;
+            this.buttonSyNDisplay.Text = "非表示";
+            this.buttonSyNDisplay.UseVisualStyleBackColor = false;
+            // 
+            // buttonSyNDisplayList
+            // 
+            this.buttonSyNDisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonSyNDisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonSyNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSyNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonSyNDisplayList.Location = new System.Drawing.Point(1495, 29);
+            this.buttonSyNDisplayList.Name = "buttonSyNDisplayList";
+            this.buttonSyNDisplayList.Size = new System.Drawing.Size(172, 111);
+            this.buttonSyNDisplayList.TabIndex = 154;
+            this.buttonSyNDisplayList.Text = "非表示リスト";
+            this.buttonSyNDisplayList.UseVisualStyleBackColor = false;
+            // 
+            // buttonWrNDisplay
+            // 
+            this.buttonWrNDisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonWrNDisplay.FlatAppearance.BorderSize = 0;
+            this.buttonWrNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonWrNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonWrNDisplay.Location = new System.Drawing.Point(1311, 29);
+            this.buttonWrNDisplay.Name = "buttonWrNDisplay";
+            this.buttonWrNDisplay.Size = new System.Drawing.Size(172, 111);
+            this.buttonWrNDisplay.TabIndex = 155;
+            this.buttonWrNDisplay.Text = "非表示";
+            this.buttonWrNDisplay.UseVisualStyleBackColor = false;
+            // 
+            // buttonWrNDisplayList
+            // 
+            this.buttonWrNDisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonWrNDisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonWrNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonWrNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonWrNDisplayList.Location = new System.Drawing.Point(1495, 29);
+            this.buttonWrNDisplayList.Name = "buttonWrNDisplayList";
+            this.buttonWrNDisplayList.Size = new System.Drawing.Size(172, 111);
+            this.buttonWrNDisplayList.TabIndex = 154;
+            this.buttonWrNDisplayList.Text = "非表示リスト";
+            this.buttonWrNDisplayList.UseVisualStyleBackColor = false;
+            // 
+            // buttonHaNDisplay
+            // 
+            this.buttonHaNDisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonHaNDisplay.FlatAppearance.BorderSize = 0;
+            this.buttonHaNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHaNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonHaNDisplay.Location = new System.Drawing.Point(1311, 29);
+            this.buttonHaNDisplay.Name = "buttonHaNDisplay";
+            this.buttonHaNDisplay.Size = new System.Drawing.Size(172, 111);
+            this.buttonHaNDisplay.TabIndex = 155;
+            this.buttonHaNDisplay.Text = "非表示";
+            this.buttonHaNDisplay.UseVisualStyleBackColor = false;
+            // 
+            // buttonHaNDisplayList
+            // 
+            this.buttonHaNDisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonHaNDisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonHaNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHaNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonHaNDisplayList.Location = new System.Drawing.Point(1495, 29);
+            this.buttonHaNDisplayList.Name = "buttonHaNDisplayList";
+            this.buttonHaNDisplayList.Size = new System.Drawing.Size(172, 111);
+            this.buttonHaNDisplayList.TabIndex = 154;
+            this.buttonHaNDisplayList.Text = "非表示リスト";
+            this.buttonHaNDisplayList.UseVisualStyleBackColor = false;
+            // 
+            // buttonCINDisplayList
+            // 
+            this.buttonCINDisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonCINDisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonCINDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCINDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonCINDisplayList.Location = new System.Drawing.Point(1495, 29);
+            this.buttonCINDisplayList.Name = "buttonCINDisplayList";
+            this.buttonCINDisplayList.Size = new System.Drawing.Size(172, 111);
+            this.buttonCINDisplayList.TabIndex = 51;
+            this.buttonCINDisplayList.Text = "非表示リスト";
+            this.buttonCINDisplayList.UseVisualStyleBackColor = false;
+            this.buttonCINDisplayList.Click += new System.EventHandler(this.buttonCINDisplayList_Click);
+            // 
+            // buttonCINDisplay
+            // 
+            this.buttonCINDisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonCINDisplay.FlatAppearance.BorderSize = 0;
+            this.buttonCINDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCINDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonCINDisplay.Location = new System.Drawing.Point(1311, 29);
+            this.buttonCINDisplay.Name = "buttonCINDisplay";
+            this.buttonCINDisplay.Size = new System.Drawing.Size(172, 111);
+            this.buttonCINDisplay.TabIndex = 50;
+            this.buttonCINDisplay.Text = "非表示";
+            this.buttonCINDisplay.UseVisualStyleBackColor = false;
+            this.buttonCINDisplay.Click += new System.EventHandler(this.buttonCINDisplay_Click);
+            // 
+            // buttonStNDisplayList
+            // 
+            this.buttonStNDisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonStNDisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonStNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonStNDisplayList.Location = new System.Drawing.Point(1495, 29);
+            this.buttonStNDisplayList.Name = "buttonStNDisplayList";
+            this.buttonStNDisplayList.Size = new System.Drawing.Size(172, 111);
+            this.buttonStNDisplayList.TabIndex = 74;
+            this.buttonStNDisplayList.Text = "非表示リスト";
+            this.buttonStNDisplayList.UseVisualStyleBackColor = false;
+            this.buttonStNDisplayList.Click += new System.EventHandler(this.buttonStNDisplayList_Click);
+            // 
+            // buttonStNDisplay
+            // 
+            this.buttonStNDisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonStNDisplay.FlatAppearance.BorderSize = 0;
+            this.buttonStNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonStNDisplay.Location = new System.Drawing.Point(1311, 29);
+            this.buttonStNDisplay.Name = "buttonStNDisplay";
+            this.buttonStNDisplay.Size = new System.Drawing.Size(172, 111);
+            this.buttonStNDisplay.TabIndex = 73;
+            this.buttonStNDisplay.Text = "非表示";
+            this.buttonStNDisplay.UseVisualStyleBackColor = false;
+            this.buttonStNDisplay.Click += new System.EventHandler(this.buttonStNDisplay_Click);
+            // 
+            // buttonShNDisplay
+            // 
+            this.buttonShNDisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonShNDisplay.FlatAppearance.BorderSize = 0;
+            this.buttonShNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonShNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonShNDisplay.Location = new System.Drawing.Point(1311, 29);
+            this.buttonShNDisplay.Name = "buttonShNDisplay";
+            this.buttonShNDisplay.Size = new System.Drawing.Size(172, 111);
+            this.buttonShNDisplay.TabIndex = 155;
+            this.buttonShNDisplay.Text = "非表示";
+            this.buttonShNDisplay.UseVisualStyleBackColor = false;
+            // 
+            // buttonShNDisplayList
+            // 
+            this.buttonShNDisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonShNDisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonShNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonShNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonShNDisplayList.Location = new System.Drawing.Point(1495, 29);
+            this.buttonShNDisplayList.Name = "buttonShNDisplayList";
+            this.buttonShNDisplayList.Size = new System.Drawing.Size(172, 111);
+            this.buttonShNDisplayList.TabIndex = 154;
+            this.buttonShNDisplayList.Text = "非表示リスト";
+            this.buttonShNDisplayList.UseVisualStyleBackColor = false;
+            // 
+            // buttonPrNDisplayList
+            // 
+            this.buttonPrNDisplayList.BackColor = System.Drawing.Color.Red;
+            this.buttonPrNDisplayList.FlatAppearance.BorderSize = 0;
+            this.buttonPrNDisplayList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrNDisplayList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonPrNDisplayList.Location = new System.Drawing.Point(1495, 29);
+            this.buttonPrNDisplayList.Name = "buttonPrNDisplayList";
+            this.buttonPrNDisplayList.Size = new System.Drawing.Size(172, 111);
+            this.buttonPrNDisplayList.TabIndex = 107;
+            this.buttonPrNDisplayList.Text = "非表示リスト";
+            this.buttonPrNDisplayList.UseVisualStyleBackColor = false;
+            this.buttonPrNDisplayList.Click += new System.EventHandler(this.buttonPrNDisplayList_Click);
+            // 
+            // buttonPrNDisplay
+            // 
+            this.buttonPrNDisplay.BackColor = System.Drawing.Color.Red;
+            this.buttonPrNDisplay.FlatAppearance.BorderSize = 0;
+            this.buttonPrNDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrNDisplay.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonPrNDisplay.Location = new System.Drawing.Point(1311, 29);
+            this.buttonPrNDisplay.Name = "buttonPrNDisplay";
+            this.buttonPrNDisplay.Size = new System.Drawing.Size(172, 111);
+            this.buttonPrNDisplay.TabIndex = 106;
+            this.buttonPrNDisplay.Text = "非表示";
+            this.buttonPrNDisplay.UseVisualStyleBackColor = false;
+            this.buttonPrNDisplay.Click += new System.EventHandler(this.buttonPrNDisplay_Click);
+            // 
+            // labelEmEmployeeIDWarning
+            // 
+            this.labelEmEmployeeIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmEmployeeIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmEmployeeIDWarning.Location = new System.Drawing.Point(291, 135);
+            this.labelEmEmployeeIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmEmployeeIDWarning.Name = "labelEmEmployeeIDWarning";
+            this.labelEmEmployeeIDWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmEmployeeIDWarning.TabIndex = 217;
+            this.labelEmEmployeeIDWarning.Text = "※";
+            // 
+            // labelEmEmployeeNameWarning
+            // 
+            this.labelEmEmployeeNameWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmEmployeeNameWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmEmployeeNameWarning.Location = new System.Drawing.Point(642, 135);
+            this.labelEmEmployeeNameWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmEmployeeNameWarning.Name = "labelEmEmployeeNameWarning";
+            this.labelEmEmployeeNameWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmEmployeeNameWarning.TabIndex = 218;
+            this.labelEmEmployeeNameWarning.Text = "※";
+            // 
+            // labelEmSalesOfficeIDWarning
+            // 
+            this.labelEmSalesOfficeIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmSalesOfficeIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmSalesOfficeIDWarning.Location = new System.Drawing.Point(291, 185);
+            this.labelEmSalesOfficeIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmSalesOfficeIDWarning.Name = "labelEmSalesOfficeIDWarning";
+            this.labelEmSalesOfficeIDWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmSalesOfficeIDWarning.TabIndex = 219;
+            this.labelEmSalesOfficeIDWarning.Text = "※";
+            // 
+            // labelEmPositionIDWarning
+            // 
+            this.labelEmPositionIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmPositionIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmPositionIDWarning.Location = new System.Drawing.Point(291, 236);
+            this.labelEmPositionIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmPositionIDWarning.Name = "labelEmPositionIDWarning";
+            this.labelEmPositionIDWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmPositionIDWarning.TabIndex = 220;
+            this.labelEmPositionIDWarning.Text = "※";
+            // 
+            // labelEmPhoneWarning
+            // 
+            this.labelEmPhoneWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmPhoneWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmPhoneWarning.Location = new System.Drawing.Point(291, 287);
+            this.labelEmPhoneWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmPhoneWarning.Name = "labelEmPhoneWarning";
+            this.labelEmPhoneWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmPhoneWarning.TabIndex = 221;
+            this.labelEmPhoneWarning.Text = "※";
+            // 
+            // labelEmHireDateWarning
+            // 
+            this.labelEmHireDateWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmHireDateWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmHireDateWarning.Location = new System.Drawing.Point(642, 292);
+            this.labelEmHireDateWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmHireDateWarning.Name = "labelEmHireDateWarning";
+            this.labelEmHireDateWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmHireDateWarning.TabIndex = 222;
+            this.labelEmHireDateWarning.Text = "※";
+            // 
+            // labelEmPassWarning
+            // 
+            this.labelEmPassWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmPassWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmPassWarning.Location = new System.Drawing.Point(291, 337);
+            this.labelEmPassWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmPassWarning.Name = "labelEmPassWarning";
+            this.labelEmPassWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmPassWarning.TabIndex = 223;
+            this.labelEmPassWarning.Text = "※";
             // 
             // FormHome
             // 
@@ -5877,6 +5972,13 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelStInventryWarning;
         private System.Windows.Forms.Label labelStProductIDWarning;
         private System.Windows.Forms.Label labelStStockIDWarning;
+        private System.Windows.Forms.Label labelEmEmployeeIDWarning;
+        private System.Windows.Forms.Label labelEmPassWarning;
+        private System.Windows.Forms.Label labelEmHireDateWarning;
+        private System.Windows.Forms.Label labelEmPhoneWarning;
+        private System.Windows.Forms.Label labelEmPositionIDWarning;
+        private System.Windows.Forms.Label labelEmSalesOfficeIDWarning;
+        private System.Windows.Forms.Label labelEmEmployeeNameWarning;
     }
 }
 
