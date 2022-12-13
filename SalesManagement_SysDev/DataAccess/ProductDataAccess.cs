@@ -22,7 +22,7 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="AddData">登録用データ</param>
         /// <returns>なし</returns>
-        public void AddClient(M_Product AddData)
+        public void AddProduct(M_Product AddData)
         {
             DialogResult result = msg.MsgDsp("M3026");              //登録確認メッセージ
             if (result == DialogResult.Cancel)                      //resultがCancelの場合商品登録モジュールを終了する
@@ -73,11 +73,6 @@ namespace SalesManagement_SysDev
                 Product.PrColor = UpdateData.PrColor;    //色をセット
                 Product.PrReleaseDate = UpdateData.PrReleaseDate;   //発売日をセット
 
-
-
-
-
-
                 context.SaveChanges();                              //データベースへの登録を確定する
                 context.Dispose();                                  //contextを解放する
 
@@ -94,7 +89,7 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="methodflg , SearchInfo"></param>
         /// <returns>List<M_Product></returns>
-        public List<M_Product> SearchClient(int methodflg, string SearchInfo)
+        public List<M_Product> SearchProduct(int methodflg, string SearchInfo)
         {
             var context = new SalesManagement_DevContext();
             List<M_Product> SearchResult = null;
@@ -140,7 +135,7 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="ProductID"></param>
         /// <returns>List<M_Product></returns>
-        public void DeleteClient(int ProductID)
+        public void DeleteProduct(int ProductID)
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Product = context.M_Products.Single(x => x.PrID == ProductID);             //非表示にするレコードの抽出

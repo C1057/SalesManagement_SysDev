@@ -1618,7 +1618,7 @@ namespace SalesManagement_SysDev
                 ClAddress = textBoxCIAddress.Text,
                 ClPhone = textBoxCIPhone.Text,
                 ClPostal = textBoxCIPostal.Text,
-                ClFAX = textBoxCIFax.Text
+                ClFAX = textBoxCIFax.Text,
                 ClHidden=textBoxCIRsn.Text
             };
         }
@@ -1660,12 +1660,10 @@ namespace SalesManagement_SysDev
         }
 
         /// <summary>
-        /// 顧客一覧表示ボタン
+        /// 顧客検索ボタン
         /// (SearchClient呼び出し)
         /// 引数1:(1:顧客ID, 2:営業所ID, なし:顧客名)
         /// </summary>
-        /// <param >なし</param>
-        /// <return>なし</return>
         private void buttonCISearch_Click(object sender, EventArgs e)
         {
             dataGridViewCI.Rows.Clear();                        //データグリッドビューの内容を消去する
@@ -1777,9 +1775,30 @@ namespace SalesManagement_SysDev
             }
         }
 
+        /// <summary>
+        /// 商品情報登録ボタン
+        /// </summary>
+        /// <param>なし</param>
+        /// <return>なし</return>
         private void buttonPrAdd_Click(object sender, EventArgs e)
         {
+            //入力チェックメソッドの呼び出し
+            if (!ProductInputCheck())
+            {
+                return;
+            }
 
+            //登録用商品情報のセット
+            M_Product AddProductData = ProductAddDataSet();
+
+            //商品情報の登録
+            ProductAccess.AddProduct(AddProductData);
+
+            //商品情報一覧表示用データの更新
+            ProductList = ProductAccess.GetData();
+
+            //商品情報一覧表示
+            ListProduct();
         }
 
         /// <summary>
@@ -2033,6 +2052,118 @@ namespace SalesManagement_SysDev
                 PrReleaseDate = DateTimePickerProduct.Value,
                 PrHidden = textBoxPrRsn.Text
             };
+        }
+
+        /// <summary>
+        /// 商品情報更新ボタン
+        /// </summary>
+        /// <param>なし</param>
+        /// <return>なし</return>
+        private void buttonPrUpdate_Click(object sender, EventArgs e)
+        {
+            //商品IDの入力チェック
+            if (!ProductInputprimaryCheck())
+            {
+                return;
+            }
+            //商品ID以外の入力チェック
+            if (!ProductInputCheck())
+            {
+                return;
+            }
+            //更新用商品情報をセット
+            M_Product updProductData = ProductUpdDataSet();
+
+            //商品更新モジュール呼び出し
+            ProductAccess.UpdateProduct(updProductData);
+
+            //商品情報一覧表示用データの更新
+            ProductList = ProductAccess.GetData();
+            //商品情報再表示
+            ListProduct();
+        }
+
+        /// <summary>
+        /// 一覧表示ボタン
+        /// </summary>
+        /// <param>なし</param>
+        private void buttonPrDisplay_Click(object sender, EventArgs e)
+        {
+            ListProduct();
+        }
+
+        /// <summary>
+        /// 商品一覧表示ボタン
+        /// (SearchProduct呼び出し)
+        /// 引数1:(1:商品ID, 2:メーカID, なし:商品名)
+        /// </summary>
+        /// <param>なし</param>
+        /// <return>なし</return>
+        private void buttonPrSearch_Click(object sender, EventArgs e)
+        {
+            dataGridVieProduct.Rows.Clear();                        //データグリッドビューの内容を消去する
+
+            if (!string.IsNullOrEmpty(comboBoxPrProductID.Text))             //商品IDコンボボックスの空文字チェック
+            {
+                foreach (var PrData in ProductAccess.SearchProduct(1, comboBoxPrProductID.Text))           //商品IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridVieProduct.Rows.Add(PrData.PrID, PrData.MaID, PrData.PrName, PrData.Price, PrData.PrSafetyStock, PrData.ScID, PrData.PrModelNumber
+                                                        , PrData.PrColor, PrData.PrReleaseDate, Convert.ToBoolean(PrData.PrFlag), PrData.PrHidden);
+                }
+                labelPrSearchTitle.Text = "商品IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(textBoxPrProductName.Text))       //商品名テキストボックスの空文字チェック
+            {
+                foreach (var PrData in ProductAccess.SearchProduct(textBoxPrProductName.Text))             //商品名で検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridVieProduct.Rows.Add(PrData.PrID, PrData.MaID, PrData.PrName, PrData.Price, PrData.PrSafetyStock, PrData.ScID, PrData.PrModelNumber
+                                                        , PrData.PrColor, PrData.PrReleaseDate, Convert.ToBoolean(PrData.PrFlag), PrData.PrHidden);
+                }
+                labelPrSearchTitle.Text = "商品名で検索しました";           //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxPrMakerID.Text))   //メーカIDコンボボックスの空文字チェック
+            {
+                foreach (var PrData in ProductAccess.SearchProduct(2, comboBoxPrMakerID.Text))      //メーカIDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridVieProduct.Rows.Add(PrData.PrID, PrData.MaID, PrData.PrName, PrData.Price, PrData.PrSafetyStock, PrData.ScID, PrData.PrModelNumber
+                                                        , PrData.PrColor, PrData.PrReleaseDate, Convert.ToBoolean(PrData.PrFlag), PrData.PrHidden);
+                }
+                labelPrSearchTitle.Text = "メーカIDで検索しました";         //何で検索したかを表示
+            }
+        }
+
+        /// <summary>
+        /// 商品非表示ボタン
+        /// (チェックボックスがチェックされているデータを非表示(論理削除)にする)
+        /// </summary>
+        /// <param >int ProductID</param>
+        private void buttonPrNDisplay_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridVieProduct.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridVieProduct.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    ProductAccess.DeleteProduct((int)dataGridVieProduct.Rows[i].Cells[0].Value);      //チェックされている場合その行の商品IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+            msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //商品情報一覧表示用データを更新
+            ProductList = ProductAccess.GetData();
+            //商品情報再表示
+            ListProduct();
+        }
+
+        /// <summary>
+        /// 商品非表示リストボタン
+        /// </summary>
+        /// <param>なし</param>
+        private void buttonPrNDisplayList_Click(object sender, EventArgs e)
+        {
+            DeleteListProduct();                     //非表示リストメソッドの呼び出し
         }
     }
 }
