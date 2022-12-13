@@ -40,7 +40,7 @@ namespace SalesManagement_SysDev
         ProductDataAccess ProductAccess = new ProductDataAccess();                      //[商品マスタ]操作用クラスのインスタンス化
         MajorClassDataAccess MajorClassAccess = new MajorClassDataAccess();             //[大分類マスタ]操作用クラスのインスタンス化
         SmallClassDataAccess SmallClassAccess = new SmallClassDataAccess();             //[小分類マスタ]操作用クラスのインスタンス化
-        StockDateAccess StockAcess = new StockDateAccess();                             //[在庫テーブル]操作用クラスのインスタンス化
+        StockDateAccess StockAccess = new StockDateAccess();                             //[在庫テーブル]操作用クラスのインスタンス化
         SaleDateAccess SaleAccess = new SaleDateAccess();                               //[売上テーブル]操作用クラスのインスタンス化
         OrderDateAccess OrderAccess = new OrderDateAccess();                            //[受注テーブル]操作用クラスのインスタンス化
         ChumonDateAccess ChumonAccess = new ChumonDateAccess();                         //[注文テーブル]操作用クラスのインスタンス化
@@ -2143,11 +2143,25 @@ namespace SalesManagement_SysDev
             return true;
         }
 
-        private T_Stock StockupdDataSet()
+        /// <summary>
+        /// 更新用在庫情報をセットする
+        /// </summary>
+        /// <returns></returns>
+        private T_Stock StockUpdDataSet()
         {
-
+            return new T_Stock()
+            {
+                StID = int.Parse(comboBoxStStockID.Text),
+                PrID = int.Parse(comboBoxStProductID.Text),
+                StQuantity = int.Parse(textBoxStInventory.Text),
+                StHidden = textBoxStRsn.Text
+            };
         }
 
+        /// <summary>
+        /// 在庫更新ボタン
+        /// </summary>
+        /// <param></param>
         private void buttonStUpdate_Click(object sender, EventArgs e)
         {
             //在庫IDの入力チェックメソッド呼び出し
@@ -2167,6 +2181,103 @@ namespace SalesManagement_SysDev
             {
                 return;
             }
+            //更新用在庫情報をセット
+            T_Stock updStockData = StockUpdDataSet();
+            //在庫更新モジュール呼び出し
+            StockAccess.UpdateStock(updStockData);
+
+            //在庫情報一覧表示用データの更新
+            StockList = StockAccess.GetData();
+            //在庫情報再表示
+            ListStock();
+        }
+
+        /// <summary>
+        /// 在庫一覧表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonStDisplay_Click(object sender, EventArgs e)
+        {
+            ListStock();
+        }
+
+        /// <summary>
+        /// 在庫情報検索ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonStSearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewStock.Rows.Clear();                        //データグリッドビューの内容を消去する
+
+            if (!string.IsNullOrEmpty(comboBoxStStockID.Text))             //在庫IDコンボボックスの空文字チェック
+            {
+                //在庫IDの入力チェック
+                if (!InputCheck.StockInputCheck(comboBoxStStockID.Text))
+                {
+                    comboBoxStStockID.Focus();
+                    return;
+                }
+                foreach (var StData in StockAccess.SearchStock(1, comboBoxStStockID.Text))           //在庫IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewStock.Rows.Add(StData.StID, StData.PrID, StData.StQuantity, Convert.ToBoolean(StData.StFlag), StData.StHidden);
+                }
+                labelStSearchTitle.Text = "在庫IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxStProductID.Text))       //商品IDコンボボックスの空文字チェック
+            {
+                //商品IDの入力チェック
+                if (!InputCheck.ProductIDInputCheck(comboBoxStProductID.Text))
+                {
+                    comboBoxStProductID.Focus();
+                    return;
+                }
+                foreach (var StData in StockAccess.SearchStock(comboBoxStProductID.Text))             //商品IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewStock.Rows.Add(StData.StID, StData.PrID, StData.StQuantity, Convert.ToBoolean(StData.StFlag), StData.StHidden);
+                }
+                labelStSearchTitle.Text = "商品IDで検索しました";           //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(textBoxStProductName.Text))   //商品名テキストボックスの空文字チェック
+            {                
+                foreach (var StData in StockAccess.SearchStock(2, textBoxStProductName.Text))      //商品名で検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewStock.Rows.Add(StData.StID, StData.PrID, StData.StQuantity, Convert.ToBoolean(StData.StFlag), StData.StHidden);
+                }
+                labelStSearchTitle.Text = "商品名で検索しました";         //何で検索したかを表示
+            }
+        }
+
+        /// <summary>
+        /// 在庫非表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonStNDisplay_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewStock.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridViewStock.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    StockAccess.DeleteStock((int)dataGridViewStock.Rows[i].Cells[0].Value);      //チェックされている場合その行の在庫IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+            msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //在庫情報一覧表示用データを更新
+            StockList = StockAccess.GetData();
+            //在庫情報再表示
+            ListStock();
+        }
+
+        /// <summary>
+        /// 在庫非表示リストボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonStNDisplayList_Click(object sender, EventArgs e)
+        {
+            DeleteListStock();
         }
     }
 }

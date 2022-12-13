@@ -91,5 +91,38 @@ namespace SalesManagement_SysDev
                 msg.MsgDsp("M4012");                                    //更新失敗メッセージ
             }
         }
+
+        /// <summary>
+        /// 在庫情報取得モジュール
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>List<T_Stock></returns>
+        public List<T_Stock> GetData()
+        {
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
+            return context.T_Stocks.ToList();                          //在庫テーブルの全データを戻り値として返す
+        }
+
+        /// <summary>
+        /// 在庫情報非表示機能
+        /// </summary>
+        /// <param name="StockID"></param>
+        /// <returns>なし</returns>
+        public void DeleteStock(int StockID)
+        {
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
+            var Stock = context.T_Stocks.Single(x => x.StID == StockID);             //非表示にするレコードの抽出
+
+            Stock.StFlag = 2;                                                          //在庫管理フラグを2にする          
+
+            context.SaveChanges();                                                      //更新を確定する
+            context.Dispose();                                                          //contextを解放
+        }
     }
 }

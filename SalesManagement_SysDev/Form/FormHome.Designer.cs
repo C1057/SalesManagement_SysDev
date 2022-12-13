@@ -275,6 +275,15 @@ namespace SalesManagement_SysDev
             this.panelStart = new System.Windows.Forms.Panel();
             this.label101 = new System.Windows.Forms.Label();
             this.panelProduct = new System.Windows.Forms.Panel();
+            this.labelPrPriceWarning = new System.Windows.Forms.Label();
+            this.labelPrDateWarning = new System.Windows.Forms.Label();
+            this.labelPrColorWarning = new System.Windows.Forms.Label();
+            this.labelPrSafeStockWarning = new System.Windows.Forms.Label();
+            this.labelPrModelNumberWarning = new System.Windows.Forms.Label();
+            this.labelPrScIDWarning = new System.Windows.Forms.Label();
+            this.labelPrProductNameWarning = new System.Windows.Forms.Label();
+            this.labelPrMakerIDWarning = new System.Windows.Forms.Label();
+            this.labelPrProductIDWarning = new System.Windows.Forms.Label();
             this.numericUpDownPrSafeStock = new System.Windows.Forms.NumericUpDown();
             this.labelPrSmallClassName = new System.Windows.Forms.Label();
             this.textBoxPrSmallClassName = new System.Windows.Forms.TextBox();
@@ -441,15 +450,9 @@ namespace SalesManagement_SysDev
             this.buttonControl = new SalesManagement_SysDev.maruibutton();
             this.buttonLogin = new SalesManagement_SysDev.maruibutton();
             this.buttonLogout = new SalesManagement_SysDev.maruibutton();
-            this.labelPrProductIDWarning = new System.Windows.Forms.Label();
-            this.labelPrMakerIDWarning = new System.Windows.Forms.Label();
-            this.labelPrProductNameWarning = new System.Windows.Forms.Label();
-            this.labelPrScIDWarning = new System.Windows.Forms.Label();
-            this.labelPrModelNumberWarning = new System.Windows.Forms.Label();
-            this.labelPrSafeStockWarning = new System.Windows.Forms.Label();
-            this.labelPrColorWarning = new System.Windows.Forms.Label();
-            this.labelPrDateWarning = new System.Windows.Forms.Label();
-            this.labelPrPriceWarning = new System.Windows.Forms.Label();
+            this.labelStStockIDWarning = new System.Windows.Forms.Label();
+            this.labelStProductIDWarning = new System.Windows.Forms.Label();
+            this.labelStInventryWarning = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHattyu.SuspendLayout();
@@ -2554,6 +2557,9 @@ namespace SalesManagement_SysDev
             // panelStock
             // 
             this.panelStock.BackColor = System.Drawing.Color.Azure;
+            this.panelStock.Controls.Add(this.labelStInventryWarning);
+            this.panelStock.Controls.Add(this.labelStProductIDWarning);
+            this.panelStock.Controls.Add(this.labelStStockIDWarning);
             this.panelStock.Controls.Add(this.textBoxStSmallClassName);
             this.panelStock.Controls.Add(this.labelStSmallClassName);
             this.panelStock.Controls.Add(this.comboBoxStSmallClassID);
@@ -2672,7 +2678,6 @@ namespace SalesManagement_SysDev
             this.labelStSearchTitle.Name = "labelStSearchTitle";
             this.labelStSearchTitle.Size = new System.Drawing.Size(257, 23);
             this.labelStSearchTitle.TabIndex = 159;
-            this.labelStSearchTitle.Text = "label29";
             // 
             // labelStRsn
             // 
@@ -2769,6 +2774,7 @@ namespace SalesManagement_SysDev
             this.buttonStNDisplayList.TabIndex = 74;
             this.buttonStNDisplayList.Text = "非表示リスト";
             this.buttonStNDisplayList.UseVisualStyleBackColor = false;
+            this.buttonStNDisplayList.Click += new System.EventHandler(this.buttonStNDisplayList_Click);
             // 
             // buttonStNDisplay
             // 
@@ -2782,6 +2788,7 @@ namespace SalesManagement_SysDev
             this.buttonStNDisplay.TabIndex = 73;
             this.buttonStNDisplay.Text = "非表示";
             this.buttonStNDisplay.UseVisualStyleBackColor = false;
+            this.buttonStNDisplay.Click += new System.EventHandler(this.buttonStNDisplay_Click);
             // 
             // labelStUnit
             // 
@@ -2847,6 +2854,7 @@ namespace SalesManagement_SysDev
             this.buttonStSearch.TabIndex = 62;
             this.buttonStSearch.Text = "検索";
             this.buttonStSearch.UseVisualStyleBackColor = false;
+            this.buttonStSearch.Click += new System.EventHandler(this.buttonStSearch_Click);
             // 
             // buttonStDisplay
             // 
@@ -2859,6 +2867,7 @@ namespace SalesManagement_SysDev
             this.buttonStDisplay.TabIndex = 61;
             this.buttonStDisplay.Text = "一覧表示";
             this.buttonStDisplay.UseVisualStyleBackColor = false;
+            this.buttonStDisplay.Click += new System.EventHandler(this.buttonStDisplay_Click);
             // 
             // panelShipment
             // 
@@ -3310,6 +3319,105 @@ namespace SalesManagement_SysDev
             this.panelProduct.Name = "panelProduct";
             this.panelProduct.Size = new System.Drawing.Size(1685, 738);
             this.panelProduct.TabIndex = 208;
+            // 
+            // labelPrPriceWarning
+            // 
+            this.labelPrPriceWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPrPriceWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelPrPriceWarning.Location = new System.Drawing.Point(1317, 266);
+            this.labelPrPriceWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPrPriceWarning.Name = "labelPrPriceWarning";
+            this.labelPrPriceWarning.Size = new System.Drawing.Size(26, 28);
+            this.labelPrPriceWarning.TabIndex = 225;
+            this.labelPrPriceWarning.Text = "※";
+            // 
+            // labelPrDateWarning
+            // 
+            this.labelPrDateWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPrDateWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelPrDateWarning.Location = new System.Drawing.Point(973, 266);
+            this.labelPrDateWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPrDateWarning.Name = "labelPrDateWarning";
+            this.labelPrDateWarning.Size = new System.Drawing.Size(26, 28);
+            this.labelPrDateWarning.TabIndex = 224;
+            this.labelPrDateWarning.Text = "※";
+            // 
+            // labelPrColorWarning
+            // 
+            this.labelPrColorWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPrColorWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelPrColorWarning.Location = new System.Drawing.Point(621, 263);
+            this.labelPrColorWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPrColorWarning.Name = "labelPrColorWarning";
+            this.labelPrColorWarning.Size = new System.Drawing.Size(26, 28);
+            this.labelPrColorWarning.TabIndex = 223;
+            this.labelPrColorWarning.Text = "※";
+            // 
+            // labelPrSafeStockWarning
+            // 
+            this.labelPrSafeStockWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPrSafeStockWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelPrSafeStockWarning.Location = new System.Drawing.Point(285, 307);
+            this.labelPrSafeStockWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPrSafeStockWarning.Name = "labelPrSafeStockWarning";
+            this.labelPrSafeStockWarning.Size = new System.Drawing.Size(26, 28);
+            this.labelPrSafeStockWarning.TabIndex = 222;
+            this.labelPrSafeStockWarning.Text = "※";
+            // 
+            // labelPrModelNumberWarning
+            // 
+            this.labelPrModelNumberWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPrModelNumberWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelPrModelNumberWarning.Location = new System.Drawing.Point(283, 262);
+            this.labelPrModelNumberWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPrModelNumberWarning.Name = "labelPrModelNumberWarning";
+            this.labelPrModelNumberWarning.Size = new System.Drawing.Size(26, 28);
+            this.labelPrModelNumberWarning.TabIndex = 221;
+            this.labelPrModelNumberWarning.Text = "※";
+            // 
+            // labelPrScIDWarning
+            // 
+            this.labelPrScIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPrScIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelPrScIDWarning.Location = new System.Drawing.Point(973, 221);
+            this.labelPrScIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPrScIDWarning.Name = "labelPrScIDWarning";
+            this.labelPrScIDWarning.Size = new System.Drawing.Size(26, 28);
+            this.labelPrScIDWarning.TabIndex = 220;
+            this.labelPrScIDWarning.Text = "※";
+            // 
+            // labelPrProductNameWarning
+            // 
+            this.labelPrProductNameWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPrProductNameWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelPrProductNameWarning.Location = new System.Drawing.Point(621, 131);
+            this.labelPrProductNameWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPrProductNameWarning.Name = "labelPrProductNameWarning";
+            this.labelPrProductNameWarning.Size = new System.Drawing.Size(26, 28);
+            this.labelPrProductNameWarning.TabIndex = 219;
+            this.labelPrProductNameWarning.Text = "※";
+            // 
+            // labelPrMakerIDWarning
+            // 
+            this.labelPrMakerIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPrMakerIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelPrMakerIDWarning.Location = new System.Drawing.Point(283, 176);
+            this.labelPrMakerIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPrMakerIDWarning.Name = "labelPrMakerIDWarning";
+            this.labelPrMakerIDWarning.Size = new System.Drawing.Size(26, 28);
+            this.labelPrMakerIDWarning.TabIndex = 218;
+            this.labelPrMakerIDWarning.Text = "※";
+            // 
+            // labelPrProductIDWarning
+            // 
+            this.labelPrProductIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPrProductIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelPrProductIDWarning.Location = new System.Drawing.Point(283, 131);
+            this.labelPrProductIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPrProductIDWarning.Name = "labelPrProductIDWarning";
+            this.labelPrProductIDWarning.Size = new System.Drawing.Size(26, 28);
+            this.labelPrProductIDWarning.TabIndex = 217;
+            this.labelPrProductIDWarning.Text = "※";
             // 
             // numericUpDownPrSafeStock
             // 
@@ -5219,104 +5327,38 @@ namespace SalesManagement_SysDev
             this.buttonLogout.Text = "ログアウト";
             this.buttonLogout.UseVisualStyleBackColor = false;
             // 
-            // labelPrProductIDWarning
+            // labelStStockIDWarning
             // 
-            this.labelPrProductIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPrProductIDWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelPrProductIDWarning.Location = new System.Drawing.Point(283, 131);
-            this.labelPrProductIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPrProductIDWarning.Name = "labelPrProductIDWarning";
-            this.labelPrProductIDWarning.Size = new System.Drawing.Size(26, 28);
-            this.labelPrProductIDWarning.TabIndex = 217;
-            this.labelPrProductIDWarning.Text = "※";
+            this.labelStStockIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelStStockIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelStStockIDWarning.Location = new System.Drawing.Point(10, 130);
+            this.labelStStockIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelStStockIDWarning.Name = "labelStStockIDWarning";
+            this.labelStStockIDWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelStStockIDWarning.TabIndex = 217;
+            this.labelStStockIDWarning.Text = "※";
             // 
-            // labelPrMakerIDWarning
+            // labelStProductIDWarning
             // 
-            this.labelPrMakerIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPrMakerIDWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelPrMakerIDWarning.Location = new System.Drawing.Point(283, 176);
-            this.labelPrMakerIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPrMakerIDWarning.Name = "labelPrMakerIDWarning";
-            this.labelPrMakerIDWarning.Size = new System.Drawing.Size(26, 28);
-            this.labelPrMakerIDWarning.TabIndex = 218;
-            this.labelPrMakerIDWarning.Text = "※";
+            this.labelStProductIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelStProductIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelStProductIDWarning.Location = new System.Drawing.Point(10, 249);
+            this.labelStProductIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelStProductIDWarning.Name = "labelStProductIDWarning";
+            this.labelStProductIDWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelStProductIDWarning.TabIndex = 218;
+            this.labelStProductIDWarning.Text = "※";
             // 
-            // labelPrProductNameWarning
+            // labelStInventryWarning
             // 
-            this.labelPrProductNameWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPrProductNameWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelPrProductNameWarning.Location = new System.Drawing.Point(621, 131);
-            this.labelPrProductNameWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPrProductNameWarning.Name = "labelPrProductNameWarning";
-            this.labelPrProductNameWarning.Size = new System.Drawing.Size(26, 28);
-            this.labelPrProductNameWarning.TabIndex = 219;
-            this.labelPrProductNameWarning.Text = "※";
-            // 
-            // labelPrScIDWarning
-            // 
-            this.labelPrScIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPrScIDWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelPrScIDWarning.Location = new System.Drawing.Point(973, 221);
-            this.labelPrScIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPrScIDWarning.Name = "labelPrScIDWarning";
-            this.labelPrScIDWarning.Size = new System.Drawing.Size(26, 28);
-            this.labelPrScIDWarning.TabIndex = 220;
-            this.labelPrScIDWarning.Text = "※";
-            // 
-            // labelPrModelNumberWarning
-            // 
-            this.labelPrModelNumberWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPrModelNumberWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelPrModelNumberWarning.Location = new System.Drawing.Point(283, 262);
-            this.labelPrModelNumberWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPrModelNumberWarning.Name = "labelPrModelNumberWarning";
-            this.labelPrModelNumberWarning.Size = new System.Drawing.Size(26, 28);
-            this.labelPrModelNumberWarning.TabIndex = 221;
-            this.labelPrModelNumberWarning.Text = "※";
-            // 
-            // labelPrSafeStockWarning
-            // 
-            this.labelPrSafeStockWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPrSafeStockWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelPrSafeStockWarning.Location = new System.Drawing.Point(285, 307);
-            this.labelPrSafeStockWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPrSafeStockWarning.Name = "labelPrSafeStockWarning";
-            this.labelPrSafeStockWarning.Size = new System.Drawing.Size(26, 28);
-            this.labelPrSafeStockWarning.TabIndex = 222;
-            this.labelPrSafeStockWarning.Text = "※";
-            // 
-            // labelPrColorWarning
-            // 
-            this.labelPrColorWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPrColorWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelPrColorWarning.Location = new System.Drawing.Point(621, 263);
-            this.labelPrColorWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPrColorWarning.Name = "labelPrColorWarning";
-            this.labelPrColorWarning.Size = new System.Drawing.Size(26, 28);
-            this.labelPrColorWarning.TabIndex = 223;
-            this.labelPrColorWarning.Text = "※";
-            // 
-            // labelPrDateWarning
-            // 
-            this.labelPrDateWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPrDateWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelPrDateWarning.Location = new System.Drawing.Point(973, 266);
-            this.labelPrDateWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPrDateWarning.Name = "labelPrDateWarning";
-            this.labelPrDateWarning.Size = new System.Drawing.Size(26, 28);
-            this.labelPrDateWarning.TabIndex = 224;
-            this.labelPrDateWarning.Text = "※";
-            // 
-            // labelPrPriceWarning
-            // 
-            this.labelPrPriceWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPrPriceWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelPrPriceWarning.Location = new System.Drawing.Point(1317, 266);
-            this.labelPrPriceWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelPrPriceWarning.Name = "labelPrPriceWarning";
-            this.labelPrPriceWarning.Size = new System.Drawing.Size(26, 28);
-            this.labelPrPriceWarning.TabIndex = 225;
-            this.labelPrPriceWarning.Text = "※";
+            this.labelStInventryWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelStInventryWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelStInventryWarning.Location = new System.Drawing.Point(723, 248);
+            this.labelStInventryWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelStInventryWarning.Name = "labelStInventryWarning";
+            this.labelStInventryWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelStInventryWarning.TabIndex = 219;
+            this.labelStInventryWarning.Text = "※";
             // 
             // FormHome
             // 
@@ -5831,6 +5873,9 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelPrColorWarning;
         private System.Windows.Forms.Label labelPrSafeStockWarning;
         private System.Windows.Forms.Label labelPrModelNumberWarning;
+        private System.Windows.Forms.Label labelStInventryWarning;
+        private System.Windows.Forms.Label labelStProductIDWarning;
+        private System.Windows.Forms.Label labelStStockIDWarning;
     }
 }
 
