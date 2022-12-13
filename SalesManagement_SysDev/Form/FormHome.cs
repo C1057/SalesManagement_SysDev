@@ -1362,8 +1362,9 @@ namespace SalesManagement_SysDev
         private void buttonCIAdd_Click(object sender, EventArgs e)
         {
             //営業所IDの入力チェックメソッドの呼びだし
-            if (!ClientSalesOfficeIDInputCheck())
+            if (!InputCheck.SalesOfficeIDInputCheck(comboBoxCISalesOfficeID.Text))
             {
+                comboBoxCISalesOfficeID.Focus();
                 return;
             }
             //入力チェックメソッドの呼び出し
@@ -1383,92 +1384,7 @@ namespace SalesManagement_SysDev
 
             //顧客情報再表示
             ListClient();
-        }
-
-        /// <summary>
-        /// 顧客情報顧客IDチェックメソッド
-        /// (顧客IDのみ)
-        /// </summary>
-        /// <returns>異常あり:false,異常なし:true</returns>
-        private bool ClientInputprimaryCheck()
-        {
-            //顧客管理画面顧客IDの空文字チェック
-            if (string.IsNullOrEmpty(comboBoxCIClientID.Text))
-            {
-                msg.MsgDsp("M2001");
-                comboBoxCIClientID.Focus();
-                return false;
-            }
-
-            //顧客管理画面顧客IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(comboBoxCIClientID.Text))
-            {
-                msg.MsgDsp("M2002");
-                comboBoxCIClientID.Focus();
-                return false;
-            }
-
-            //顧客管理画面顧客IDの文字数チェック
-            if (comboBoxCIClientID.Text.Length > 6)
-            {
-                msg.MsgDsp("M2003");
-                comboBoxCIClientID.Focus();
-                return false;
-            }
-
-            //顧客IDの存在チェック
-            if (!Existence.CheckExistenceClient(int.Parse(comboBoxCIClientID.Text)))
-            {
-                msg.MsgDsp("M2029");
-                comboBoxCIClientID.Focus();
-                return false;
-            }
-
-            //異常が無い場合trueを返す
-            return true;
-        }
-
-        /// <summary>
-        /// 顧客情報営業所IDチェックメソッド
-        /// </summary>
-        /// <returns>異常なし:true, 異常あり:false</returns>
-        private bool ClientSalesOfficeIDInputCheck()
-        {
-            //顧客管理画面営業所IDの空文字チェック
-            if (string.IsNullOrEmpty(comboBoxCISalesOfficeID.Text.Trim()))
-            {
-                msg.MsgDsp("M2004");
-                comboBoxCISalesOfficeID.Focus();
-                return false;
-            }
-
-            //顧客管理画面営業所IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(comboBoxCISalesOfficeID.Text.Trim()))
-            {
-                msg.MsgDsp("M2005");
-                comboBoxCISalesOfficeID.Focus();
-                return false;
-            }
-
-            //顧客管理画面営業所IDの文字数チェック
-            if (comboBoxCISalesOfficeID.Text.Trim().Length > 2)
-            {
-                msg.MsgDsp("M2006");
-                comboBoxCISalesOfficeID.Focus();
-                return false;
-            }
-
-            //顧客管理画面営業所IDの存在チェック
-            if (Existence.CheckExistenceSalesOffice(int.Parse(comboBoxCISalesOfficeID.Text)))
-            {
-                msg.MsgDsp("M5061");
-                comboBoxCISalesOfficeID.Focus();
-                return false;
-            }
-
-            //異常なしの場合trueを返す
-            return true;
-        }
+        }                
 
         /// <summary>
         /// 顧客情報入力チェックメソッド
@@ -1645,13 +1561,15 @@ namespace SalesManagement_SysDev
         private void buttonCIUpdate_Click(object sender, EventArgs e)
         {
             //顧客IDの入力チェック
-            if (!ClientInputprimaryCheck())
+            if (!InputCheck.ClientIDInputCheck(comboBoxCIClientID.Text))
             {
+                comboBoxCIClientID.Focus();
                 return;
             }
             //営業所IDの入力チェック
-            if (!ClientSalesOfficeIDInputCheck())
+            if (!InputCheck.SalesOfficeIDInputCheck(comboBoxCISalesOfficeID.Text))
             {
+                comboBoxCISalesOfficeID.Focus();
                 return;
             }
             //顧客ID,営業所ID以外の入力チェック
@@ -1691,8 +1609,9 @@ namespace SalesManagement_SysDev
             if (!string.IsNullOrEmpty(comboBoxCIClientID.Text))             //顧客IDコンボボックスの空文字チェック
             {
                 //顧客IDの入力チェック
-                if (!ClientInputprimaryCheck())  
+                if (!InputCheck.ClientIDInputCheck(comboBoxCIClientID.Text))  
                 {
+                    comboBoxCIClientID.Focus();
                     return;
                 }
                 foreach (var ClData in ClientAccess.SearchClient(1, comboBoxCIClientID.Text))           //顧客IDで検索する
@@ -1716,8 +1635,9 @@ namespace SalesManagement_SysDev
             else if (!string.IsNullOrEmpty(comboBoxCISalesOfficeID.Text))   //営業所IDコンボボックスの空文字チェック
             {
                 //営業所IDの入力チェック
-                if (!ClientSalesOfficeIDInputCheck())
+                if (!InputCheck.SalesOfficeIDInputCheck(comboBoxCISalesOfficeID.Text))
                 {
+                    comboBoxCISalesOfficeID.Focus();
                     return;
                 }
                 foreach (var ClData in ClientAccess.SearchClient(2, comboBoxCISalesOfficeID.Text))      //営業所IDで検索する
@@ -1813,8 +1733,9 @@ namespace SalesManagement_SysDev
         private void buttonPrAdd_Click(object sender, EventArgs e)
         {
             //メーカID入力チェックメソッドの呼びだし
-            if (!ProductMakerIDInputCheck())
+            if (!InputCheck.MakerIDInputCheck(comboBoxPrMakerID.Text))
             {
+                comboBoxPrMakerID.Focus();
                 return;
             }
             //入力チェックメソッドの呼び出し
@@ -1834,92 +1755,8 @@ namespace SalesManagement_SysDev
 
             //商品情報一覧表示
             ListProduct();
-        }
-
-        /// <summary>
-        /// 商品管理画面商品IDの入力チェック
-        /// </summary>
-        /// <returns>異常あり:false, 異常なし:true</returns>
-        private bool ProductInputprimaryCheck()
-        {
-            //商品管理画面商品IDの空文字チェック
-            if (string.IsNullOrEmpty(comboBoxPrProductID.Text))
-            {
-                msg.MsgDsp("M3001");
-                comboBoxPrProductID.Focus();
-                return false;
-            }
-
-            //商品管理画面商品IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(comboBoxPrProductID.Text))
-            {
-                msg.MsgDsp("M3002");
-                comboBoxPrProductID.Focus();
-                return false;
-            }
-
-            //商品間画面商品IDの文字数チェック
-            if (comboBoxPrProductID.Text.Length > 6)
-            {
-                msg.MsgDsp("M3003");
-                comboBoxPrProductID.Focus();
-                return false;
-            }
-
-            //商品管理画面商品IDの存在チェック
-            if (Existence.CheckExistenceEProduct(int.Parse(comboBoxPrProductID.Text)))
-            {
-                msg.MsgDsp("M3029");
-                comboBoxPrProductID.Focus();
-                return false;
-            }
-
-            //異常なしの場合trueを返す
-            return true;
-        }
-
-        /// <summary>
-        /// 商品情報メーカID入力チェックメソッド
-        /// </summary>
-        /// <returns>異常なし:true, 異常あり:false</returns>
-        private bool ProductMakerIDInputCheck()
-        {
-            //商品管理画面メーカIDの空文字チェック
-            if (string.IsNullOrEmpty(comboBoxPrMakerID.Text))
-            {
-                msg.MsgDsp("M3004");
-                comboBoxPrMakerID.Focus();
-                return false;
-            }
-
-            //商品管理画面メーカIDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(comboBoxPrMakerID.Text))
-            {
-                msg.MsgDsp("M3005");
-                comboBoxPrMakerID.Focus();
-                return false;
-            }
-
-            //商品管理画面メーカIDの文字数チェック
-            if (comboBoxPrMakerID.Text.Length > 4)
-            {
-                msg.MsgDsp("M3006");
-                comboBoxPrMakerID.Focus();
-                return false;
-            }
-
-            //商品管理画面メーカIDの存在チェック
-            if (Existence.CheckExistenceMaker(int.Parse(comboBoxPrMakerID.Text)))
-            {
-                msg.MsgDsp("M3076");
-                comboBoxPrMakerID.Focus();
-                return false;
-            }
-
-            //異常なしの場合trueを返す
-            return true;
-        }
-
+        }        
+                
         /// <summary>
         /// 商品情報入力チェックメソッド
         /// </summary>
@@ -2108,13 +1945,15 @@ namespace SalesManagement_SysDev
         private void buttonPrUpdate_Click(object sender, EventArgs e)
         {
             //商品IDの入力チェック
-            if (!ProductInputprimaryCheck())
+            if (!InputCheck.ProductIDInputCheck(comboBoxPrProductID.Text))
             {
+                comboBoxPrProductID.Focus();
                 return;
             }
             //メーカIDの入力チェック
-            if (!ProductMakerIDInputCheck())
+            if (!InputCheck.MakerIDInputCheck(comboBoxPrMakerID.Text))
             {
+                comboBoxPrMakerID.Focus();
                 return;
             }
             //商品ID,メーカID以外の入力チェック
@@ -2157,8 +1996,9 @@ namespace SalesManagement_SysDev
             if (!string.IsNullOrEmpty(comboBoxPrProductID.Text))             //商品IDコンボボックスの空文字チェック
             {
                 //商品IDの入力チェック
-                if (!ProductInputprimaryCheck())
+                if (!InputCheck.ProductIDInputCheck(comboBoxPrProductID.Text))
                 {
+                    comboBoxPrProductID.Focus();
                     return;
                 }
                 foreach (var PrData in ProductAccess.SearchProduct(1, comboBoxPrProductID.Text))           //商品IDで検索する
@@ -2182,8 +2022,9 @@ namespace SalesManagement_SysDev
             else if (!string.IsNullOrEmpty(comboBoxPrMakerID.Text))   //メーカIDコンボボックスの空文字チェック
             {
                 //メーカIDの入力チェック
-                if (!ProductMakerIDInputCheck())
+                if (!InputCheck.MakerIDInputCheck(comboBoxPrMakerID.Text))
                 {
+                    comboBoxPrMakerID.Focus();
                     return;
                 }
                 foreach (var PrData in ProductAccess.SearchProduct(2, comboBoxPrMakerID.Text))      //メーカIDで検索する
@@ -2265,6 +2106,66 @@ namespace SalesManagement_SysDev
                     //データグリッドビューにデータを追加する
                     dataGridViewStock.Rows.Add(StockData.StID, StockData.PrID, StockData.StQuantity, Convert.ToBoolean(StockData.StFlag), StockData.StHidden);
                 }
+            }
+        }
+
+        /// <summary>
+        /// 在庫情報入力チェックメソッド
+        /// </summary>
+        /// <returns>異常なし:true, 異常あり:false</returns>
+        private bool StockInputCheck()
+        {
+            //在庫数の空文字チェック
+            if (string.IsNullOrEmpty(textBoxStInventory.Text))
+            {
+                msg.MsgDsp("M4007");
+                textBoxStInventory.Focus();
+                return false;
+            }
+
+            //在庫数の半角数字チェック
+            if (InputCheck.CheckNumericAndHalfChar(textBoxStInventory.Text))
+            {
+                msg.MsgDsp("M4008");
+                textBoxStInventory.Focus();
+                return false;
+            }
+
+            //在庫数の文字数チェック
+            if (textBoxStInventory.Text.Length > 4)
+            {
+                msg.MsgDsp("M4009");
+                textBoxStInventory.Focus();
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+        private T_Stock StockupdDataSet()
+        {
+
+        }
+
+        private void buttonStUpdate_Click(object sender, EventArgs e)
+        {
+            //在庫IDの入力チェックメソッド呼び出し
+            if (!InputCheck.StockInputCheck(comboBoxStStockID.Text))
+            {
+                comboBoxStStockID.Focus();
+                return;
+            }
+            //商品IDの入力チェックメソッド呼び出し
+            if (!InputCheck.ProductIDInputCheck(comboBoxStProductID.Text))
+            {
+                comboBoxStProductID.Focus();
+                return;
+            }
+            //在庫情報入力チェックメソッド呼び出し
+            if (!StockInputCheck())
+            {
+                return;
             }
         }
     }
