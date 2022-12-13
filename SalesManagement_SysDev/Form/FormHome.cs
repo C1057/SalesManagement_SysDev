@@ -62,6 +62,7 @@ namespace SalesManagement_SysDev
         List<M_MajorClassification> MajorClassList;                                     //表示用[大分類]情報を保持する変数
         List<M_SmallClassification> SmallClassList;                                     //表示用[小分類]情報を保持する変数
         List<T_Stock> StockList;                                                        //表示用[在庫]情報を保持する変数
+        List<M_Employee> EmployeeList;                                                  //表示用[社員]情報を保持する変数
         List<T_Sale> SaleList;                                                          //表示用[売上]情報を保持する変数
         List<T_SaleDetail> SaleDetailList;                                              //表示用[売上詳細]情報を保持する変数
         List<T_Order> OrderList;                                                        //表示用[受注]情報を保持する変数
@@ -996,6 +997,7 @@ namespace SalesManagement_SysDev
             MajorClassList = context.M_MajorClassifications.ToList();   //List<M_MajorClassification>型のMajorClassListに[大分類]表示用データを代入する
             SmallClassList = context.M_SmallClassifications.ToList();   //List<M_SmallClassification>型のSmallClassListに[小分類]表示用データを代入する
             StockList = context.T_Stocks.ToList();                      //List<T_Stock>型のStockListに[在庫]表示用データを代入する
+            EmployeeList = context.M_Employees.ToList();                //List<T_Employee>型のEmployeeListに[社員]表示用データを代入する
             SaleList = context.T_Sale.ToList();                         //List<T_Sale>型のSaleListに[売上]表示用データを代入する
             OrderList = context.T_Orders.ToList();                      //List<T_Order>型のOrderListに[受注]表示用データを代入する
             ChumonList = context.T_Chumons.ToList();                    //List<T_Chumon>型のChumonListに[注文]表示用データを代入する
@@ -2279,5 +2281,81 @@ namespace SalesManagement_SysDev
         {
             DeleteListStock();
         }
+
+    /////////////////////////////////////////
+    ///社員管理画面コード
+    /////////////////////////////////////////
+
+        /// <summary>
+        /// 社員情報一覧表示モジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void ListEmployee()
+        {
+            dataGridViewEmMana.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var EmployeeData in EmployeeList)
+            {
+                if (EmployeeData.EmFlag == 0)                     //顧客管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewEmMana.Rows.Add(EmployeeData.EmID, EmployeeData.EmName, EmployeeData.SoID, EmployeeData.PoID, EmployeeData.EmHiredate, EmployeeData.EmPhone,
+                                                    Convert.ToBoolean(EmployeeData.EmFlag), EmployeeData.EmHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 顧客情報非表示リストモジュール
+        /// (非表示になっているデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void DeleteListEmployee()
+        {
+            dataGridViewEmMana.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var EmployeeData in EmployeeList)
+            {
+                if (EmployeeData.EmFlag == 2)                     //社員管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewEmMana.Rows.Add(EmployeeData.EmID, EmployeeData.EmName, EmployeeData.SoID, EmployeeData.PoID, EmployeeData.EmHiredate, EmployeeData.EmPhone,
+                                                    Convert.ToBoolean(EmployeeData.EmFlag), EmployeeData.EmHidden);
+                }
+            }
+        }
+
+        private void buttonEmRegist_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //private bool EmployeeInputCheck()
+        //{
+        //    //社員名の空文字チェック
+        //    if (string.IsNullOrEmpty(textBoxEmEmployeeName.Text))
+        //    {
+        //        msg.MsgDsp("M5004");
+        //        textBoxEmEmployeeName.Focus();
+        //        return false;
+        //    }
+
+        //    //社員名の全角チェック
+        //    if (InputCheck.CheckFullWidth(textBoxEmEmployeeName.Text))
+        //    {
+        //        msg.MsgDsp("M5005");
+        //        textBoxEmEmployeeName.Focus();
+        //        return false;
+        //    }
+
+        //    //社員名の文字数チェック
+        //    if (textBoxEmEmployeeName.Text.Length > 50)
+        //    {
+        //        msg.MsgDsp("M5006");
+        //        textBoxEmEmployeeName.Focus();
+        //        return false;
+        //    }
+        //}
     }
 }

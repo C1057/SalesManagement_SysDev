@@ -11,7 +11,6 @@ namespace SalesManagement_SysDev
     {
         CheckExistence Existence = new CheckExistence();                                //IDの存在チェック用クラス
         MessageDsp msg = new MessageDsp();                                              //メッセージ表示用クラス
-        DataInputCheck InputCheck = new DataInputCheck();                               //入力チェック用クラス
 
         /// <summary>
         /// 全角文字チェック
@@ -105,7 +104,7 @@ namespace SalesManagement_SysDev
             }
 
             //役職IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M5029");
                 return false;
@@ -143,7 +142,7 @@ namespace SalesManagement_SysDev
             }
 
             //メーカIDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M3005");
                 return false;
@@ -181,7 +180,7 @@ namespace SalesManagement_SysDev
             }
 
             //営業所IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M2005");
                 return false;
@@ -219,7 +218,7 @@ namespace SalesManagement_SysDev
             }
 
             //顧客IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M2002");
                 return false;
@@ -258,7 +257,7 @@ namespace SalesManagement_SysDev
             }
 
             //社員IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M5002");
                 return false;
@@ -296,7 +295,7 @@ namespace SalesManagement_SysDev
             }
 
             //商品IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M3002");
                 return false;
@@ -335,7 +334,7 @@ namespace SalesManagement_SysDev
             }
 
             //大分類IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M3031");
                 return false;
@@ -374,7 +373,7 @@ namespace SalesManagement_SysDev
             }
 
             //小分類IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M3044");
                 return false;
@@ -412,7 +411,7 @@ namespace SalesManagement_SysDev
             }
 
             //在庫IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M4002");
                 return false;
@@ -450,7 +449,7 @@ namespace SalesManagement_SysDev
             }
 
             //受注IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M7002");
                 return false;
@@ -488,7 +487,7 @@ namespace SalesManagement_SysDev
             }
 
             //注文IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M8004");
                 return false;
@@ -526,7 +525,7 @@ namespace SalesManagement_SysDev
             }
 
             //出庫IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M11002");
                 return false;
@@ -564,7 +563,7 @@ namespace SalesManagement_SysDev
             }
 
             //入荷IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M12002");
                 return false;
@@ -602,7 +601,7 @@ namespace SalesManagement_SysDev
             }
 
             //出荷IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M13002");
                 return false;
@@ -640,7 +639,7 @@ namespace SalesManagement_SysDev
             }
 
             //発注IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M9002");
                 return false;
@@ -678,7 +677,7 @@ namespace SalesManagement_SysDev
             }
 
             //入庫IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M10002");
                 return false;
@@ -716,7 +715,7 @@ namespace SalesManagement_SysDev
             }
 
             //売上IDの半角数字チェック
-            if (!InputCheck.CheckNumericAndHalfChar(InputText))
+            if (!CheckNumericAndHalfChar(InputText))
             {
                 msg.MsgDsp("M6002");
                 return false;

@@ -4003,6 +4003,7 @@ namespace SalesManagement_SysDev
             this.buttonEmRegist.TabIndex = 124;
             this.buttonEmRegist.Text = "登録";
             this.buttonEmRegist.UseVisualStyleBackColor = false;
+            this.buttonEmRegist.Click += new System.EventHandler(this.buttonEmRegist_Click);
             // 
             // buttonEmSearch
             // 
@@ -5380,9 +5381,6 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelStock);
-            this.Controls.Add(this.panelShipment);
-            this.Controls.Add(this.panelProduct);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelSale);
             this.Controls.Add(this.panelOrder);
@@ -5393,6 +5391,9 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelWareHousing);
             this.Controls.Add(this.panelHattyu);
             this.Controls.Add(this.panelClient);
+            this.Controls.Add(this.panelStock);
+            this.Controls.Add(this.panelShipment);
+            this.Controls.Add(this.panelProduct);
             this.Name = "FormHome";
             this.Text = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
