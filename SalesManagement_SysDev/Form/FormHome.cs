@@ -40,7 +40,8 @@ namespace SalesManagement_SysDev
         ProductDataAccess ProductAccess = new ProductDataAccess();                      //[商品マスタ]操作用クラスのインスタンス化
         MajorClassDataAccess MajorClassAccess = new MajorClassDataAccess();             //[大分類マスタ]操作用クラスのインスタンス化
         SmallClassDataAccess SmallClassAccess = new SmallClassDataAccess();             //[小分類マスタ]操作用クラスのインスタンス化
-        StockDateAccess StockAccess = new StockDateAccess();                             //[在庫テーブル]操作用クラスのインスタンス化
+        StockDateAccess StockAccess = new StockDateAccess();                            //[在庫テーブル]操作用クラスのインスタンス化
+        EmployeeDateAccess EmployeeAccess = new EmployeeDateAccess();                   //[社員マスタ]操作用クラスのインスタンス化
         SaleDateAccess SaleAccess = new SaleDateAccess();                               //[売上テーブル]操作用クラスのインスタンス化
         OrderDateAccess OrderAccess = new OrderDateAccess();                            //[受注テーブル]操作用クラスのインスタンス化
         ChumonDateAccess ChumonAccess = new ChumonDateAccess();                         //[注文テーブル]操作用クラスのインスタンス化
@@ -1861,6 +1862,22 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
+            //商品管理画面型番の空文字チェック
+            if (string.IsNullOrEmpty(textBoxPrModelNumber.Text))
+            {
+                msg.MsgDsp("M3077");
+                textBoxPrModelNumber.Focus();
+                return false;
+            }
+
+            //商品管理画面型番の文字数チェック
+            if (textBoxPrModelNumber.Text.Length > 20)
+            {
+                msg.MsgDsp("M3078");
+                textBoxPrModelNumber.Focus();
+                return false;
+            }
+
             //商品管理画面色の空文字チェック
             if (string.IsNullOrEmpty(textBoxPrColor.Text))
             {
@@ -2328,34 +2345,164 @@ namespace SalesManagement_SysDev
 
         private void buttonEmRegist_Click(object sender, EventArgs e)
         {
+            //社員IDの入力チェックメソッドの呼びだし
+            if (!InputCheck.EmployeeIDInputCheck(comboBoxEmEmployeeID.Text))
+            {
+                comboBoxEmEmployeeID.Focus();
+                return;
+            }
+            //営業所IDの入力チェックメソッド呼び出し
+            if (!InputCheck.SalesOfficeIDInputCheck(comboBoxEmSalesOfficeID.Text))
+            {
+                comboBoxEmSalesOfficeID.Focus();
+                return;
+            }
+            //役職IDの入力チェックメソッドの呼び出し
+            if (!InputCheck.PositionIDInputCheck(comboBoxEmPositionID.Text))
+            {
+                comboBoxEmPositionID.Focus();
+                return;
+            }
+            //入力チェックメソッドの呼び出し
+            if (!EmployeeInputCheck())
+            {
+                return;
+            }
 
+            //登録用顧客情報のセット
+            M_Employee AddEmployeeData = EmployeeAddDataSet();
+
+            //顧客情報の登録
+            EmployeeAccess.addEmployee(AddEmployeeData);
+
+            //顧客情報一覧表示用データの更新
+            EmployeeList = EmployeeAccess.GetData();
+
+            //顧客情報再表示
+            ListEmployee();
         }
 
-        //private bool EmployeeInputCheck()
-        //{
-        //    //社員名の空文字チェック
-        //    if (string.IsNullOrEmpty(textBoxEmEmployeeName.Text))
-        //    {
-        //        msg.MsgDsp("M5004");
-        //        textBoxEmEmployeeName.Focus();
-        //        return false;
-        //    }
+        private bool EmployeeInputCheck()
+        {
+            //社員名の空文字チェック
+            if (string.IsNullOrEmpty(textBoxEmEmployeeName.Text))
+            {
+                msg.MsgDsp("M5004");
+                textBoxEmEmployeeName.Focus();
+                return false;
+            }
 
-        //    //社員名の全角チェック
-        //    if (InputCheck.CheckFullWidth(textBoxEmEmployeeName.Text))
-        //    {
-        //        msg.MsgDsp("M5005");
-        //        textBoxEmEmployeeName.Focus();
-        //        return false;
-        //    }
+            //社員名の全角チェック
+            if (!InputCheck.CheckFullWidth(textBoxEmEmployeeName.Text))
+            {
+                msg.MsgDsp("M5005");
+                textBoxEmEmployeeName.Focus();
+                return false;
+            }
 
-        //    //社員名の文字数チェック
-        //    if (textBoxEmEmployeeName.Text.Length > 50)
-        //    {
-        //        msg.MsgDsp("M5006");
-        //        textBoxEmEmployeeName.Focus();
-        //        return false;
-        //    }
-        //}
+            //社員名の文字数チェック
+            if (textBoxEmEmployeeName.Text.Length > 50)
+            {
+                msg.MsgDsp("M5006");
+                textBoxEmEmployeeName.Focus();
+                return false;
+            }
+
+            //入社年月日の空文字チェック
+            if (string.IsNullOrEmpty(dateTimePickerEmployee.Value.ToString()))
+            {
+                msg.MsgDsp("M5013");
+                dateTimePickerEmployee.Focus();
+                return false;
+            }
+
+            //パスワードの空文字チェック
+            if (string.IsNullOrEmpty(textBoxEmEmployeePass.Text))
+            {
+                msg.MsgDsp("M5014");
+                textBoxEmEmployeePass.Focus();
+                return false;
+            }
+
+            //パスワードの半角英数字チェック
+            if (!InputCheck.CheckHalfAlphabetNumeric(textBoxEmEmployeePass.Text))
+            {
+                msg.MsgDsp("M5015");
+                textBoxEmEmployeePass.Focus();
+                return false;
+            }
+
+            //パスワードの文字数チェック
+            if (textBoxEmEmployeePass.Text.Length > 10)
+            {
+                msg.MsgDsp("M5016");
+                textBoxEmEmployeePass.Focus();
+                return false;
+            }
+
+            //電話番号の空文字チェック
+            if (string.IsNullOrEmpty(textBoxEmEmployeePhone.Text))
+            {
+                msg.MsgDsp("M5017");
+                textBoxEmEmployeePhone.Focus();
+                return false;
+            }
+
+            //電話番号の半角数字チェック
+            if (!InputCheck.CheckNumericAndHalfChar(textBoxEmEmployeePhone.Text))
+            {
+                msg.MsgDsp("M5018");
+                textBoxEmEmployeePhone.Focus();
+                return false;
+            }
+
+            //電話番号の文字数チェック
+            if (textBoxEmEmployeePhone.Text.Length > 13)
+            {
+                msg.MsgDsp("M5019");
+                textBoxEmEmployeePhone.Focus();
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+        /// <summary>
+        /// 登録用社員情報をセットする
+        /// </summary>
+        /// <returns>M_Employee</returns>
+        private M_Employee EmployeeAddDataSet()
+        {
+            return new M_Employee
+            {
+                EmName=textBoxEmEmployeeName.Text,
+                SoID=int.Parse(comboBoxEmSalesOfficeID.Text),
+                PoID=int.Parse(comboBoxEmPositionID.Text),
+                EmHiredate=dateTimePickerEmployee.Value,
+                EmPassword=textBoxEmEmployeePass.Text,
+                EmPhone=textBoxEmEmployeePhone.Text,
+                EmFlag=0,
+            };
+        }
+
+        /// <summary>
+        /// 更新用社員情報をセットする
+        /// </summary>
+        /// <returns>M_Employee</returns>
+        private M_Employee EmployeeUpdDataSet()
+        {
+            return new M_Employee
+            {
+                EmID=int.Parse(comboBoxEmEmployeeID.Text),
+                EmName = textBoxEmEmployeeName.Text,
+                SoID = int.Parse(comboBoxEmSalesOfficeID.Text),
+                PoID = int.Parse(comboBoxEmPositionID.Text),
+                EmHiredate = dateTimePickerEmployee.Value,
+                EmPassword = textBoxEmEmployeePass.Text,
+                EmPhone = textBoxEmEmployeePhone.Text,
+                EmHidden=textBoxEmEmployeeRsn.Text
+            };
+        }
     }
 }

@@ -36,7 +36,7 @@ namespace SalesManagement_SysDev
         /// <returns>true:半角英数字のみ　false:半角英数字以外を含む</returns>
         public bool CheckHalfAlphabetNumeric(string CheckText)
         {
-            return (Regex.IsMatch(CheckText, @"^[1-9a-z]+"));
+            return (Regex.IsMatch(CheckText, @"^[0-9a-zA-Z]+"));
         }
 
         /// <summary>

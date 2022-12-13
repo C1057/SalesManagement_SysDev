@@ -10,6 +10,7 @@ namespace SalesManagement_SysDev
     class EmployeeDateAccess
     {
         MessageDsp msg = new MessageDsp();
+        PasswordHash PassHash = new PasswordHash();                 //ハッシュ化用クラスのインスタンス化
 
 
         /// <summary>
@@ -29,10 +30,10 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();
 
-                //
-                //パスワードをハッシュ化が決まり次第コード記入
-                //
 
+                //パスワードをハッシュ化が決まり次第コード記入
+                addData.EmSalt = PassHash.GenerateSalt();       //ソルトの生成
+                addData.EmPassword = PassHash.GeneratePasswordHash(addData.EmPassword, addData.EmSalt);         //ハッシュ化パスワードの生成
 
                 context.M_Employees.Add(addData); //データをセット
                 context.SaveChanges();　　//
