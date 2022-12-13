@@ -2755,6 +2755,7 @@ namespace SalesManagement_SysDev
             this.buttonStUpdate.TabIndex = 108;
             this.buttonStUpdate.Text = "更新";
             this.buttonStUpdate.UseVisualStyleBackColor = false;
+            this.buttonStUpdate.Click += new System.EventHandler(this.buttonStUpdate_Click);
             // 
             // buttonStNDisplayList
             // 
