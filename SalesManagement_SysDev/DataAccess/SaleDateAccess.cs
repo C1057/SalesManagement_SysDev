@@ -33,7 +33,6 @@ namespace SalesManagement_SysDev
                 SearchResult = context.T_Sale.Where(x => x.SaID == SaleID).ToList();
             }
 
-
             else if (methodflg == 2) //顧客IDで検索
             {
                 int CliantID = int.Parse(SearchInfo);
@@ -56,15 +55,9 @@ namespace SalesManagement_SysDev
             {
                 int ChumonID = int.Parse(SearchInfo);
                 SearchResult = context.T_Sale.Where(x => x.ChID == ChumonID).ToList();
-            }
+            } 
 
-                
-            
             return SearchResult;
-
-
-
-
         }
 
         /// <summary>
