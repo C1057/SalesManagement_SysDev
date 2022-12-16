@@ -59,13 +59,13 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="SearchInfo"></param>
         /// <returns>List<M_SalesOffice></returns>
-        public List<M_SalesOffice> SearchClient(string SearchInfo)
+        public List<T_Order> SearchOrder(string SearchInfo)
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
-            List<M_SalesOffice> SearchResult = null;                                         //検索結果用変数の宣言
+            List<T_Order> SearchResult = null;                                         //検索結果用変数の宣言
 
             string ClientName = SearchInfo;                                             //検索用顧客名を代入
-            SearchResult = context.M_SalesOffices.Where(M_SalesOffice => M_SalesOffice.SoName.Contains(SearchInfo)).ToList();      //検索
+            SearchResult = context.T_Orders.Where(T_Order => T_Order.ClCharge.Contains(SearchInfo)).ToList();      //検索
 
             context.Dispose();                                                          //contextをする
 

@@ -11,14 +11,16 @@ using System.Windows.Forms;
 namespace SalesManagement_SysDev
 {
     public partial class FormHome : Form
-    {      
+    {
+        public int OrderID;                                                             //受注情報.受注ID登録用変数
+        public int OrderDetailID;                                                       //受注詳細情報.受注詳細ID登録用変数
 
         /// <summary>
         /// 別フォームのクラスをインスタンス化
         /// </summary>
         FormClassMana form4 = new FormClassMana();                                                      //商品分類管理フォーム
         MakerMana formMaker = new MakerMana();                                          //メーカ管理フォーム
-        FormProductSelect formproductselect = new FormProductSelect();                  //商品選択フォーム
+        public FormProductSelect formproductselect;                 //商品選択フォーム
         FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();                     //営業所管理フォーム
         FormPositionMana formPositionMana = new FormPositionMana();                     //役職管理フォーム
 
@@ -130,6 +132,8 @@ namespace SalesManagement_SysDev
         private void FormHome_Load(object sender, EventArgs e)
         {
             this.Visible = false;                                       //システム起動時　FormHomeをロードしながら自分自身を見えなくする
+
+            formproductselect = new FormProductSelect(this);
 
             Text = Application.ProductName;
             timer1.Interval = 1000;
@@ -1215,12 +1219,7 @@ namespace SalesManagement_SysDev
             formMaker.Visible = true;
         }
 
-        //商品選択ボタン
-        private void buttonOrSelectProduct_Click(object sender, EventArgs e)
-        {
-            //商品選択画面に遷移する
-            formproductselect.Visible = true;
-        }
+       
 
         //営業所管理ボタン
         private void buttonEmSOManaOpen_Click(object sender, EventArgs e)
@@ -2829,6 +2828,241 @@ namespace SalesManagement_SysDev
         private void buttonSaNDisplayList_Click(object sender, EventArgs e)
         {
             DeleteListSale();
+        }
+
+    ///////////////////////////////////
+    ///受注管理画面コード
+    ///////////////////////////////////
+
+        /// <summary>
+        /// 受注情報一覧表示モジュール
+        /// </summary>
+        private void ListOrder()
+        {
+            dataGridViewOrderMain.Rows.Clear();                        //メインデータグリッドビューをクリアする
+            dataGridViewOrderDetail.Rows.Clear();                        //詳細データグリッドビューをクリアする
+            foreach (var OrderData in OrderList)
+            {
+                if (OrderData.OrFlag == 0)                     //受注管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewOrderMain.Rows.Add(OrderData.OrID, OrderData.SoID, OrderData.EmID, OrderData.ClID, OrderData.ClCharge, OrderData.OrDate, Convert.ToBoolean(OrderData.OrStateFlag),
+                                                        Convert.ToBoolean(OrderData.OrFlag), OrderData.OrHidden); 
+                }
+            }
+        }
+
+        /// <summary>
+        /// 受注情報一覧表示モジュール
+        /// </summary>
+        private void DeleteListOrder()
+        {
+            dataGridViewOrderMain.Rows.Clear();                        //メインデータグリッドビューをクリアする
+            dataGridViewOrderDetail.Rows.Clear();                        //詳細データグリッドビューをクリアする
+            foreach (var OrderData in OrderList)
+            {
+                if (OrderData.OrFlag == 2)                     //受注管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewOrderMain.Rows.Add(OrderData.OrID, OrderData.SoID, OrderData.EmID, OrderData.ClID, OrderData.ClCharge, OrderData.OrDate, Convert.ToBoolean(OrderData.OrStateFlag),
+                                                        Convert.ToBoolean(OrderData.OrFlag), OrderData.OrHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 受注一覧表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonOrDisplay_Click(object sender, EventArgs e)
+        {
+            ListOrder();
+        }
+
+        /// <summary>
+        /// 受注検索ボタン
+        /// 引数1:(1:受注ID, 2:営業所ID, 3:社員ID, 4:顧客ID, なし:顧客名)
+        /// </summary>
+        /// <param></param>
+        private void buttonOrSearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewOrderMain.Rows.Clear();                        //メインデータグリッドビューの内容を消去する
+            dataGridViewOrderDetail.Rows.Clear();                        //詳細データグリッドビューの内容を消去する
+
+            if (!string.IsNullOrEmpty(comboBoxOrOrderID.Text))             //受注IDコンボボックスの空文字チェック
+            {
+                //売上IDの入力チェック
+                if (!InputCheck.OrderInputCheck(comboBoxOrOrderID.Text))
+                {
+                    comboBoxOrOrderID.Focus();
+                    return;
+                }
+                foreach (var OrData in OrderAccess.SearchOrder(1, comboBoxOrOrderID.Text))           //受注IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewOrderMain.Rows.Add(OrData.OrID, OrData.SoID, OrData.EmID, OrData.ClID, OrData.ClCharge, OrData.OrDate, Convert.ToBoolean(OrData.OrStateFlag),
+                                                        Convert.ToBoolean(OrData.OrFlag), OrData.OrHidden);
+                }
+                foreach (var OrderDetailData in OrderDetailList.Where(OrderDetailList => OrderDetailList.OrID == int.Parse(comboBoxOrOrderID.Text)))      //受注IDで受注詳細情報を検索する
+                {
+                    //詳細データグリッドビューにデータを表示する
+                    dataGridViewOrderDetail.Rows.Add(OrderDetailData.OrDetailID, OrderDetailData.OrID, OrderDetailData.PrID, OrderDetailData.OrQuantity, OrderDetailData.OrTotalPrice);
+                }
+                labelOrSearchTitle.Text = "受注IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxOrSalesOfficeID.Text))       //営業所IDコンボボックスの空文字チェック
+            {
+                //社員IDの入力チェック
+                if (!InputCheck.SalesOfficeIDInputCheck(comboBoxOrSalesOfficeID.Text))
+                {
+                    comboBoxOrSalesOfficeID.Focus();
+                    return;
+                }
+                foreach (var OrData in OrderAccess.SearchOrder(2, comboBoxOrSalesOfficeID.Text))           //営業所IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewOrderMain.Rows.Add(OrData.OrID, OrData.SoID, OrData.EmID, OrData.ClID, OrData.ClCharge, OrData.OrDate, Convert.ToBoolean(OrData.OrStateFlag),
+                                                        Convert.ToBoolean(OrData.OrFlag), OrData.OrHidden);
+                }
+                labelOrSearchTitle.Text = "営業所IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxOrEmployeeID.Text))   //社員IDコンボボックスの空文字チェック
+            {
+                //社員IDの入力チェック
+                if (!InputCheck.EmployeeIDInputCheck(comboBoxOrEmployeeID.Text))
+                {
+                    comboBoxOrEmployeeID.Focus();
+                    return;
+                }
+                foreach (var OrData in OrderAccess.SearchOrder(3, comboBoxOrEmployeeID.Text))      //社員IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewOrderMain.Rows.Add(OrData.OrID, OrData.SoID, OrData.EmID, OrData.ClID, OrData.ClCharge, OrData.OrDate, Convert.ToBoolean(OrData.OrStateFlag),
+                                                        Convert.ToBoolean(OrData.OrFlag), OrData.OrHidden);
+                }
+                labelOrSearchTitle.Text = "社員IDで検索しました";         //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxOrClientID.Text))
+            {
+                //顧客IDの入力チェック
+                if (!InputCheck.ClientIDInputCheck(comboBoxOrClientID.Text))
+                {
+                    comboBoxOrClientID.Focus();
+                    return;
+                }
+                foreach (var OrData in OrderAccess.SearchOrder(4, comboBoxOrClientID.Text))      //顧客IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewOrderMain.Rows.Add(OrData.OrID, OrData.SoID, OrData.EmID, OrData.ClID, OrData.ClCharge, OrData.OrDate, Convert.ToBoolean(OrData.OrStateFlag),
+                                                        Convert.ToBoolean(OrData.OrFlag), OrData.OrHidden);
+                }
+                labelOrSearchTitle.Text = "顧客IDで検索しました";         //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(textBoxOrClientName.Text))
+            {
+                foreach (var OrData in OrderAccess.SearchOrder(textBoxOrClientName.Text))      //顧客名で検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewOrderMain.Rows.Add(OrData.OrID, OrData.SoID, OrData.EmID, OrData.ClID, OrData.ClCharge, OrData.OrDate, Convert.ToBoolean(OrData.OrStateFlag),
+                                                        Convert.ToBoolean(OrData.OrFlag), OrData.OrHidden);
+                }
+                labelOrSearchTitle.Text = "顧客名で検索しました";         //何で検索したかを表示
+            }
+        }
+
+        /// <summary>
+        /// 受注管理画面ID以外の入力チェック
+        /// </summary>
+        /// <returns>bool</returns>
+        private bool OrderInputCheck()
+        {
+            //顧客担当者名の空文字チェック
+            if (!string.IsNullOrEmpty(textBoxOrClientName.Text))
+            {
+                msg.MsgDsp("M7015");
+                textBoxOrClientName.Focus();
+                return false;
+            }
+            //顧客担当者名の全角チェック
+            if (!InputCheck.CheckFullWidth(textBoxOrClientName.Text))
+            {
+                msg.MsgDsp("M7016");
+                textBoxOrClientName.Focus();
+                return false;
+            }
+            //顧客担当者名の文字数チェック
+            if (textBoxOrClientName.Text.Length > 50)
+            {
+                msg.MsgDsp("M7017");
+                textBoxOrClientName.Focus();
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+        
+        /// <summary>
+        /// 商品選択ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonOrSelectProduct_Click(object sender, EventArgs e)
+        {
+            //営業所IDの入力チェック
+            if (!InputCheck.SalesOfficeIDInputCheck(comboBoxOrSalesOfficeID.Text))
+            {
+                comboBoxOrSalesOfficeID.Focus();
+                return;
+            }
+            //社員IDの入力チェック
+            if (!InputCheck.EmployeeIDInputCheck(comboBoxOrEmployeeID.Text))
+            {
+                comboBoxOrEmployeeID.Focus();
+                return;
+            }
+            //顧客IDの入力チェック
+            if (!InputCheck.ClientIDInputCheck(comboBoxOrClientID.Text))
+            {
+                comboBoxOrClientID.Focus();
+                return;
+            }
+            //ID以外の入力チェック
+            if (!OrderInputCheck())
+            {
+                return;
+            }
+
+            //登録用受注情報をセット
+            T_Order AddOrderData = OrderAddDataSet();
+            //受注情報.受注ID登録用変数に受注IDをセット
+            OrderID = OrderList.Count + 1;
+            //受注詳細情報.受注詳細ID登録用変数に受注詳細IDをセット
+            OrderDetailID = OrderDetailList.Count + 1;
+
+            //画面遷移確認メッセージ
+            if (DialogResult.OK == msg.MsgDsp("M7019"))             //OKを押した場合       
+            {
+                //商品選択画面に遷移する
+                formproductselect.Visible = true;
+            }
+        }
+
+        /// <summary>
+        /// 登録用受注情報をセットする
+        /// </summary>
+        /// <returns>T_Order</returns>
+        private T_Order OrderAddDataSet()
+        {
+            return new T_Order
+            {
+                SoID=int.Parse(comboBoxOrSalesOfficeID.Text),
+                EmID=int.Parse(comboBoxOrEmployeeID.Text),
+                ClID=int.Parse(comboBoxOrClientID.Text),
+                ClCharge=textBoxOrClientName.Text,
+                OrDate=dateTimePickerOrder.Value,
+                OrStateFlag=0,
+                OrFlag=0                
+            };
         }
     }
 }
