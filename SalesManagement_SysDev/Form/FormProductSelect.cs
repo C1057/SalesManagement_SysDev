@@ -367,6 +367,9 @@ namespace SalesManagement_SysDev
                     context.T_OrderDetails.Add(OrderDetailAddDataSet(i));
                 }
 
+                context.SaveChanges();          //登録を確定
+                context.Dispose();              //contextを解放
+
                 msg.MsgDsp("M7025");        //受注詳細情報確定メッセージ
 
                 this.Visible = false;       //商品選択画面を閉じる

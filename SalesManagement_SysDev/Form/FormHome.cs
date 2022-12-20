@@ -15,6 +15,7 @@ namespace SalesManagement_SysDev
         public int OrderID;                                                             //受注情報.受注ID登録用変数
         public int OrderDetailID;                                                       //受注詳細情報.受注詳細ID登録用変数
         public T_Order AddOrderData;                                                    //受注情報登録用変数
+        private int ChumonID = 0;                                                       //注文ID用変数
 
 
         /// <summary>
@@ -3075,6 +3076,8 @@ namespace SalesManagement_SysDev
         /// <param name="OrderData"></param>
         private T_Chumon ChumonAddDataSet(T_Order OrderData)
         {
+            ChumonID++;
+
             return new T_Chumon
             {
                 SoID = OrderData.SoID,
@@ -3092,8 +3095,9 @@ namespace SalesManagement_SysDev
         {
             return new T_ChumonDetail
             {
-                ChID=OrderDetail.OrID,
-
+                ChID=ChumonID,
+                PrID=OrderDetail.PrID,
+                ChQuantity=OrderDetail.OrQuantity
             };
         }
 
@@ -3102,7 +3106,13 @@ namespace SalesManagement_SysDev
         /// </summary>
         private void buttonOrOrderConfirm_Click(object sender, EventArgs e)
         {
+            //確定確認メッセージ
+            if (msg.MsgDsp("M7024") == DialogResult.Cancel)
+            {
+                return;
+            }
 
+            var context=
         }
     }
 }

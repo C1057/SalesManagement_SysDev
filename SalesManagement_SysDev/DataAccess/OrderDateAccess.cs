@@ -87,8 +87,8 @@ namespace SalesManagement_SysDev
 
             var context = new SalesManagement_DevContext();     //SalesManagement_DevContextクラスのインスタンス化
 
-            context.T_Chumons.Add(ConfirmData);                 //注文テーブルに登録
-            context.T_ChumonDetails.Add(ConfirmDataDetail);     //注文詳細テーブルに登録
+            //context.T_Chumons.Add(ConfirmData);                 //注文テーブルに登録
+            //context.T_ChumonDetails.Add(ConfirmDataDetail);     //注文詳細テーブルに登録
 
             var Order = context.T_Orders.Single(x => x.OrID == OrID);              //更新対象データを取得する
             Order.OrFlag = 1;               //受注情報フラグを更新する
