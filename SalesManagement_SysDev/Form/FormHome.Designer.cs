@@ -312,6 +312,13 @@ namespace SalesManagement_SysDev
             this.textBoxPrProductName = new System.Windows.Forms.TextBox();
             this.buttonPrAdd = new System.Windows.Forms.Button();
             this.panelEmployee = new System.Windows.Forms.Panel();
+            this.labelEmPassWarning = new System.Windows.Forms.Label();
+            this.labelEmHireDateWarning = new System.Windows.Forms.Label();
+            this.labelEmPhoneWarning = new System.Windows.Forms.Label();
+            this.labelEmPositionIDWarning = new System.Windows.Forms.Label();
+            this.labelEmSalesOfficeIDWarning = new System.Windows.Forms.Label();
+            this.labelEmEmployeeNameWarning = new System.Windows.Forms.Label();
+            this.labelEmEmployeeIDWarning = new System.Windows.Forms.Label();
             this.labelEmSearchTitle = new System.Windows.Forms.Label();
             this.labelEmPositionName = new System.Windows.Forms.Label();
             this.textBoxEmPositionName = new System.Windows.Forms.TextBox();
@@ -453,13 +460,6 @@ namespace SalesManagement_SysDev
             this.buttonShNDisplayList = new SalesManagement_SysDev.maruibutton();
             this.buttonPrNDisplayList = new SalesManagement_SysDev.maruibutton();
             this.buttonPrNDisplay = new SalesManagement_SysDev.maruibutton();
-            this.labelEmEmployeeIDWarning = new System.Windows.Forms.Label();
-            this.labelEmEmployeeNameWarning = new System.Windows.Forms.Label();
-            this.labelEmSalesOfficeIDWarning = new System.Windows.Forms.Label();
-            this.labelEmPositionIDWarning = new System.Windows.Forms.Label();
-            this.labelEmPhoneWarning = new System.Windows.Forms.Label();
-            this.labelEmHireDateWarning = new System.Windows.Forms.Label();
-            this.labelEmPassWarning = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHattyu.SuspendLayout();
@@ -3714,6 +3714,84 @@ namespace SalesManagement_SysDev
             this.panelEmployee.Name = "panelEmployee";
             this.panelEmployee.Size = new System.Drawing.Size(1685, 738);
             this.panelEmployee.TabIndex = 216;
+            this.panelEmployee.Paint += new System.Windows.Forms.PaintEventHandler(this.panelEmployee_Paint);
+            // 
+            // labelEmPassWarning
+            // 
+            this.labelEmPassWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmPassWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmPassWarning.Location = new System.Drawing.Point(291, 337);
+            this.labelEmPassWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmPassWarning.Name = "labelEmPassWarning";
+            this.labelEmPassWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmPassWarning.TabIndex = 223;
+            this.labelEmPassWarning.Text = "※";
+            // 
+            // labelEmHireDateWarning
+            // 
+            this.labelEmHireDateWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmHireDateWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmHireDateWarning.Location = new System.Drawing.Point(642, 292);
+            this.labelEmHireDateWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmHireDateWarning.Name = "labelEmHireDateWarning";
+            this.labelEmHireDateWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmHireDateWarning.TabIndex = 222;
+            this.labelEmHireDateWarning.Text = "※";
+            // 
+            // labelEmPhoneWarning
+            // 
+            this.labelEmPhoneWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmPhoneWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmPhoneWarning.Location = new System.Drawing.Point(291, 287);
+            this.labelEmPhoneWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmPhoneWarning.Name = "labelEmPhoneWarning";
+            this.labelEmPhoneWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmPhoneWarning.TabIndex = 221;
+            this.labelEmPhoneWarning.Text = "※";
+            // 
+            // labelEmPositionIDWarning
+            // 
+            this.labelEmPositionIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmPositionIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmPositionIDWarning.Location = new System.Drawing.Point(291, 236);
+            this.labelEmPositionIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmPositionIDWarning.Name = "labelEmPositionIDWarning";
+            this.labelEmPositionIDWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmPositionIDWarning.TabIndex = 220;
+            this.labelEmPositionIDWarning.Text = "※";
+            // 
+            // labelEmSalesOfficeIDWarning
+            // 
+            this.labelEmSalesOfficeIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmSalesOfficeIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmSalesOfficeIDWarning.Location = new System.Drawing.Point(291, 185);
+            this.labelEmSalesOfficeIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmSalesOfficeIDWarning.Name = "labelEmSalesOfficeIDWarning";
+            this.labelEmSalesOfficeIDWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmSalesOfficeIDWarning.TabIndex = 219;
+            this.labelEmSalesOfficeIDWarning.Text = "※";
+            // 
+            // labelEmEmployeeNameWarning
+            // 
+            this.labelEmEmployeeNameWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmEmployeeNameWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmEmployeeNameWarning.Location = new System.Drawing.Point(642, 135);
+            this.labelEmEmployeeNameWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmEmployeeNameWarning.Name = "labelEmEmployeeNameWarning";
+            this.labelEmEmployeeNameWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmEmployeeNameWarning.TabIndex = 218;
+            this.labelEmEmployeeNameWarning.Text = "※";
+            // 
+            // labelEmEmployeeIDWarning
+            // 
+            this.labelEmEmployeeIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelEmEmployeeIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelEmEmployeeIDWarning.Location = new System.Drawing.Point(291, 135);
+            this.labelEmEmployeeIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEmEmployeeIDWarning.Name = "labelEmEmployeeIDWarning";
+            this.labelEmEmployeeIDWarning.Size = new System.Drawing.Size(26, 24);
+            this.labelEmEmployeeIDWarning.TabIndex = 217;
+            this.labelEmEmployeeIDWarning.Text = "※";
             // 
             // labelEmSearchTitle
             // 
@@ -3722,6 +3800,7 @@ namespace SalesManagement_SysDev
             this.labelEmSearchTitle.Name = "labelEmSearchTitle";
             this.labelEmSearchTitle.Size = new System.Drawing.Size(257, 23);
             this.labelEmSearchTitle.TabIndex = 134;
+            this.labelEmSearchTitle.Click += new System.EventHandler(this.labelEmSearchTitle_Click);
             // 
             // labelEmPositionName
             // 
@@ -5378,83 +5457,6 @@ namespace SalesManagement_SysDev
             this.buttonPrNDisplay.Text = "非表示";
             this.buttonPrNDisplay.UseVisualStyleBackColor = false;
             this.buttonPrNDisplay.Click += new System.EventHandler(this.buttonPrNDisplay_Click);
-            // 
-            // labelEmEmployeeIDWarning
-            // 
-            this.labelEmEmployeeIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmEmployeeIDWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelEmEmployeeIDWarning.Location = new System.Drawing.Point(291, 135);
-            this.labelEmEmployeeIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelEmEmployeeIDWarning.Name = "labelEmEmployeeIDWarning";
-            this.labelEmEmployeeIDWarning.Size = new System.Drawing.Size(26, 24);
-            this.labelEmEmployeeIDWarning.TabIndex = 217;
-            this.labelEmEmployeeIDWarning.Text = "※";
-            // 
-            // labelEmEmployeeNameWarning
-            // 
-            this.labelEmEmployeeNameWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmEmployeeNameWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelEmEmployeeNameWarning.Location = new System.Drawing.Point(642, 135);
-            this.labelEmEmployeeNameWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelEmEmployeeNameWarning.Name = "labelEmEmployeeNameWarning";
-            this.labelEmEmployeeNameWarning.Size = new System.Drawing.Size(26, 24);
-            this.labelEmEmployeeNameWarning.TabIndex = 218;
-            this.labelEmEmployeeNameWarning.Text = "※";
-            // 
-            // labelEmSalesOfficeIDWarning
-            // 
-            this.labelEmSalesOfficeIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmSalesOfficeIDWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelEmSalesOfficeIDWarning.Location = new System.Drawing.Point(291, 185);
-            this.labelEmSalesOfficeIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelEmSalesOfficeIDWarning.Name = "labelEmSalesOfficeIDWarning";
-            this.labelEmSalesOfficeIDWarning.Size = new System.Drawing.Size(26, 24);
-            this.labelEmSalesOfficeIDWarning.TabIndex = 219;
-            this.labelEmSalesOfficeIDWarning.Text = "※";
-            // 
-            // labelEmPositionIDWarning
-            // 
-            this.labelEmPositionIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmPositionIDWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelEmPositionIDWarning.Location = new System.Drawing.Point(291, 236);
-            this.labelEmPositionIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelEmPositionIDWarning.Name = "labelEmPositionIDWarning";
-            this.labelEmPositionIDWarning.Size = new System.Drawing.Size(26, 24);
-            this.labelEmPositionIDWarning.TabIndex = 220;
-            this.labelEmPositionIDWarning.Text = "※";
-            // 
-            // labelEmPhoneWarning
-            // 
-            this.labelEmPhoneWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmPhoneWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelEmPhoneWarning.Location = new System.Drawing.Point(291, 287);
-            this.labelEmPhoneWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelEmPhoneWarning.Name = "labelEmPhoneWarning";
-            this.labelEmPhoneWarning.Size = new System.Drawing.Size(26, 24);
-            this.labelEmPhoneWarning.TabIndex = 221;
-            this.labelEmPhoneWarning.Text = "※";
-            // 
-            // labelEmHireDateWarning
-            // 
-            this.labelEmHireDateWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmHireDateWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelEmHireDateWarning.Location = new System.Drawing.Point(642, 292);
-            this.labelEmHireDateWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelEmHireDateWarning.Name = "labelEmHireDateWarning";
-            this.labelEmHireDateWarning.Size = new System.Drawing.Size(26, 24);
-            this.labelEmHireDateWarning.TabIndex = 222;
-            this.labelEmHireDateWarning.Text = "※";
-            // 
-            // labelEmPassWarning
-            // 
-            this.labelEmPassWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelEmPassWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelEmPassWarning.Location = new System.Drawing.Point(291, 337);
-            this.labelEmPassWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelEmPassWarning.Name = "labelEmPassWarning";
-            this.labelEmPassWarning.Size = new System.Drawing.Size(26, 24);
-            this.labelEmPassWarning.TabIndex = 223;
-            this.labelEmPassWarning.Text = "※";
             // 
             // FormHome
             // 
