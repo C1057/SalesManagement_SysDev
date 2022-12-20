@@ -14,6 +14,7 @@ namespace SalesManagement_SysDev
     {
         public int OrderID;                                                             //受注情報.受注ID登録用変数
         public int OrderDetailID;                                                       //受注詳細情報.受注詳細ID登録用変数
+        public T_Order AddOrderData;                                                    //受注情報登録用変数
 
         /// <summary>
         /// 別フォームのクラスをインスタンス化
@@ -1249,7 +1250,7 @@ namespace SalesManagement_SysDev
         }
 
         //全てのテキストボックスとコンボボックスの入力をクリアする
-        public static void ClearText(Control hParent)
+        private static void ClearText(Control hParent)
         {
             // hParent 内のすべてのコントロールを列挙する
             foreach (Control cControl in hParent.Controls)
@@ -3033,7 +3034,7 @@ namespace SalesManagement_SysDev
             }
 
             //登録用受注情報をセット
-            T_Order AddOrderData = OrderAddDataSet();
+            AddOrderData = OrderAddDataSet();
             //受注情報.受注ID登録用変数に受注IDをセット
             OrderID = OrderList.Count + 1;
             //受注詳細情報.受注詳細ID登録用変数に受注詳細IDをセット
@@ -3044,6 +3045,8 @@ namespace SalesManagement_SysDev
             {
                 //商品選択画面に遷移する
                 formproductselect.Visible = true;
+                //自身を見えなくする
+                this.Visible = false;
             }
         }
 

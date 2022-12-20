@@ -81,7 +81,20 @@ namespace SalesManagement_SysDev
         /// <param></param>
         private void buttonProSelectReturn_Click(object sender, EventArgs e)
         {
+            //画面遷移確認
+            if (msg.MsgDsp("M15001") == DialogResult.Cancel)
+            {
+                return;
+            }
+           
+            //各コントロールの入力内容をクリアする
+            ClearText(this);
+            dataGridViewProSelect.Rows.Clear();
+
+            //自身を閉じる
             this.Visible = false;
+            //元の画面を開く
+            formHome.Visible = true;
         }
 
         private void FormProductSelect_VisibleChanged(object sender, EventArgs e)
@@ -243,6 +256,12 @@ namespace SalesManagement_SysDev
                 return;
             }
 
+            //更新確認メッセージ
+            if(msg.MsgDsp("M7022")==DialogResult.Cancel)
+            {
+                return;
+            }
+
             //データグリッドビューに表示されている値を更新する
             for(int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
             {
@@ -278,14 +297,16 @@ namespace SalesManagement_SysDev
             //受注詳細IDがデータグリッドビューに存在するかチェック
             for (int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
             {
-                if (!((int)dataGridViewProSelect.Rows[i].Cells[0].Value == int.Parse(textBoxProSelectOrderDetailID.Text)))
+                if (((int)dataGridViewProSelect.Rows[i].Cells[0].Value == int.Parse(textBoxProSelectOrderDetailID.Text)))
                 {
-                    return false;
+                    //IDが存在する場合trueを返す
+                    return true;
                 }
             }
 
-            //異常なしの場合trueを返す
-            return true;
+            //異常なしの場合falseを返す
+            MessageBox.Show("入力された受注詳細IDのデータが存在しません", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
         }
 
         private void buttonProSelectDelete_Click(object sender, EventArgs e)
@@ -297,17 +318,95 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            //データグリッドビューに表示されている値を更新する
+            if (msg.MsgDsp("M7021") == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            //受注詳細IDをと一致するデータを削除する
+            dataGridViewProSelect.Rows.RemoveAt(int.Parse(textBoxProSelectOrderDetailID.Text) - 1);
+            
+            //ずれた分の受注詳細IDを修正する
             for (int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
             {
-                if ((int)dataGridViewProSelect.Rows[i].Cells[0].Value == int.Parse(textBoxProSelectOrderDetailID.Text))
-                {
-                    dataGridViewProSelect.Rows.RemoveAt(i);
-                }
                 dataGridViewProSelect.Rows[i].Cells[0].Value = i + 1;
             }
 
             OrderDetailID--;
+        }
+
+        /// <summary>
+        /// 確定ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonProSelectConfirm_Click(object sender, EventArgs e)
+        {
+            //データを入力しているかチェック
+            if (dataGridViewProSelect.NewRowIndex == -1)
+            {
+                MessageBox.Show("商品を選択してください", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //確定確認メッセージ
+            if (msg.MsgDsp("M7024") == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            //例外処理
+            try
+            {
+                var context = new SalesManagement_DevContext();             //DB接続クラスのインスタンス化
+                context.T_Orders.Add(formHome.AddOrderData);                //受注情報登録
+
+                //登録データをデータグリッドビューから1行ずつ抽出する
+                for(int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
+                {
+                    //受注詳細テーブルにデータ追加する
+                    context.T_OrderDetails.Add(OrderDetailAddDataSet(i));
+                }
+
+                msg.MsgDsp("M7025");        //受注詳細情報確定メッセージ
+
+                this.Visible = false;       //商品選択画面を閉じる
+                formHome.Visible = true;    //元の画面に戻る
+            }
+            catch
+            {
+                //例外エラー
+                MessageBox.Show("登録に失敗しました", "登録確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private T_OrderDetail OrderDetailAddDataSet(int i)
+        {
+            return new T_OrderDetail()
+            {
+                OrID=formHome.OrderID,
+                PrID=int.Parse(dataGridViewProSelect.Rows[i].Cells[2].Value.ToString()),
+                OrQuantity=int.Parse(dataGridViewProSelect.Rows[i].Cells[3].ToString()),
+                OrTotalPrice=int.Parse(dataGridViewProSelect.Rows[i].Cells[4].Value.ToString())
+            };
+        }
+
+        private static void ClearText(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    ClearText(cControl);
+                }
+
+                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+                if (cControl is TextBoxBase || cControl is ComboBox)
+                {
+                    cControl.Text = string.Empty;
+                }
+            }
         }
     }
 }
