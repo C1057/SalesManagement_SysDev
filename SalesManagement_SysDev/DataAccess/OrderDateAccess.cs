@@ -102,7 +102,7 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="SalesOfficeID"></param>
         /// <returns>List<M_Client></returns>
-        public void DeleteClient(int SalesOfficeID)
+        public void DeleteOrder(int SalesOfficeID)
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var SalesOffice = context.M_SalesOffices.Single(x => x.SoID == SalesOfficeID); //非表示にするレコードの抽出
@@ -116,10 +116,10 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param>なし</param>
         /// <returns>List<M_SalesOffice></returns>
-        public List<M_SalesOffice> GetData()
+        public List<T_Order> GetData()
         {
             var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
-            return context.M_SalesOffices.ToList();                          //受注マスタの全データを戻り値として返す
+            return context.T_Orders.ToList();                          //受注マスタの全データを戻り値として返す
         }
     }
 }

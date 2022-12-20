@@ -5236,6 +5236,7 @@ namespace SalesManagement_SysDev
             this.buttonOrNDisplayList.TabIndex = 154;
             this.buttonOrNDisplayList.Text = "非表示リスト";
             this.buttonOrNDisplayList.UseVisualStyleBackColor = false;
+            this.buttonOrNDisplayList.Click += new System.EventHandler(this.buttonOrNDisplayList_Click);
             // 
             // buttonOrNDisplay
             // 
@@ -5249,6 +5250,7 @@ namespace SalesManagement_SysDev
             this.buttonOrNDisplay.TabIndex = 153;
             this.buttonOrNDisplay.Text = "非表示";
             this.buttonOrNDisplay.UseVisualStyleBackColor = false;
+            this.buttonOrNDisplay.Click += new System.EventHandler(this.buttonOrNDisplay_Click);
             // 
             // buttonArNDisplay
             // 
