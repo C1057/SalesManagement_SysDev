@@ -1194,7 +1194,7 @@ namespace SalesManagement_SysDev
         //クリアボタン
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            //FormHomeに配置されている全てのテキストボックスとコンボボックスのTextプロパティをリセットする
+            //FormHomeに配置されている検索名ラベルと全てのテキストボックスとコンボボックスのTextプロパティをリセットする
             ClearText(this);
         }
 
