@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SalesManagement_SysDev
 {
-    class T_OrderDetail
+    public class T_OrderDetail
     {
         [Key]
         public int OrDetailID { get; set; }     //受注詳細ID

@@ -15,7 +15,7 @@ namespace SalesManagement_SysDev
         public int OrderID;                                                             //受注情報.受注ID登録用変数
         public int OrderDetailID;                                                       //受注詳細情報.受注詳細ID登録用変数
         public T_Order AddOrderData;                                                    //受注情報登録用変数
-        private int ChumonID = 0;                                                       //注文ID用変数
+        private int ChumonID;                                                       //注文ID用変数
 
 
         /// <summary>
@@ -71,8 +71,8 @@ namespace SalesManagement_SysDev
         List<M_Employee> EmployeeList;                                                  //表示用[社員]情報を保持する変数
         List<T_Sale> SaleList;                                                          //表示用[売上]情報を保持する変数
         List<T_SaleDetail> SaleDetailList;                                              //表示用[売上詳細]情報を保持する変数
-        List<T_Order> OrderList;                                                        //表示用[受注]情報を保持する変数
-        List<T_OrderDetail> OrderDetailList;                                            //表示用[受注詳細]情報を保持する変数
+        public List<T_Order> OrderList;                                                        //表示用[受注]情報を保持する変数
+        public List<T_OrderDetail> OrderDetailList;                                            //表示用[受注詳細]情報を保持する変数
         List<T_Chumon> ChumonList;                                                      //表示用[注文]情報を保持する変数
         List<T_ChumonDetail> ChumonDetailList;                                          //表示用[注文詳細]情報を保持する変数
         List<T_Hattyu> HattyuList;                                                      //表示用[発注]情報を保持する変数
@@ -3071,13 +3071,24 @@ namespace SalesManagement_SysDev
         }
 
         /// <summary>
+        /// 受注確定用データをセット
+        /// </summary>
+        /// <param name="OrderID"></param>
+        private T_Order OrderConfirmDataSet(int OrderID)
+        {
+            var context = new SalesManagement_DevContext();         //DB接続用クラスのインスタンス化
+            T_Order OrderData = context.T_Orders.Single(OrData => OrData.OrID == OrderID);      //IDと一致しているデータの抽出
+
+            context.Dispose();      //contextの解放
+            return OrderData;       //抽出したデータを返す
+        }
+
+        /// <summary>
         /// 受注確定用注文データセット
         /// </summary>
         /// <param name="OrderData"></param>
         private T_Chumon ChumonAddDataSet(T_Order OrderData)
         {
-            ChumonID++;
-
             return new T_Chumon
             {
                 SoID = OrderData.SoID,
@@ -3112,7 +3123,23 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            var context=
+            var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
+
+            for(int i = 0; i < dataGridViewOrderMain.Rows.Count; i++)
+            {
+                if ((bool)dataGridViewOrderMain.Rows[i].Cells[6].Value == true)
+                {
+                    T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);
+                    T_Chumon ChumonData = ChumonAddDataSet(OrderData);
+                    context.T_Chumons.Add(ChumonData);
+                    List<T_OrderDetail> OrderDetailData = context.T_OrderDetails.Where(x => x.OrID == int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString())).ToList();
+
+                    for(int j = 0; j < OrderDetailData.Count; j++)
+                    {
+                        
+                    }
+                }
+            }
         }
     }
 }

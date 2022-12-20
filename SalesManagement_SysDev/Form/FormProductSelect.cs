@@ -367,6 +367,10 @@ namespace SalesManagement_SysDev
                     context.T_OrderDetails.Add(OrderDetailAddDataSet(i));
                 }
 
+                //元の画面の一覧表示用データの更新
+                formHome.OrderList = context.T_Orders.ToList();
+                formHome.OrderDetailList = context.T_OrderDetails.ToList();
+
                 context.SaveChanges();          //登録を確定
                 context.Dispose();              //contextを解放
 
