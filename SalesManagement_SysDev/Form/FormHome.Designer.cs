@@ -4831,6 +4831,7 @@ namespace SalesManagement_SysDev
             this.buttonOrOrderConfirm.TabIndex = 149;
             this.buttonOrOrderConfirm.Text = "受注確定";
             this.buttonOrOrderConfirm.UseVisualStyleBackColor = false;
+            this.buttonOrOrderConfirm.Click += new System.EventHandler(this.buttonOrOrderConfirm_Click);
             // 
             // comboBoxOrOrderID
             // 

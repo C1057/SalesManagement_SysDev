@@ -16,6 +16,7 @@ namespace SalesManagement_SysDev
         public int OrderDetailID;                                                       //受注詳細情報.受注詳細ID登録用変数
         public T_Order AddOrderData;                                                    //受注情報登録用変数
 
+
         /// <summary>
         /// 別フォームのクラスをインスタンス化
         /// </summary>
@@ -1782,13 +1783,13 @@ namespace SalesManagement_SysDev
                 return false;
             }
 
-            //商品管理画面商品名の全角チェック
-            if (!InputCheck.CheckFullWidth(textBoxPrProductName.Text))
-            {
-                msg.MsgDsp("M3009");
-                textBoxPrProductName.Focus();
-                return false;
-            }
+            ////商品管理画面商品名の全角チェック
+            //if (!InputCheck.CheckFullWidth(textBoxPrProductName.Text))
+            //{
+            //    msg.MsgDsp("M3009");
+            //    textBoxPrProductName.Focus();
+            //    return false;
+            //}
 
             //商品管理画面商品名の文字数チェック
             if (textBoxPrProductName.Text.Length > 50)
@@ -3066,6 +3067,42 @@ namespace SalesManagement_SysDev
                 OrStateFlag=0,
                 OrFlag=0                
             };
+        }
+
+        /// <summary>
+        /// 受注確定用注文データセット
+        /// </summary>
+        /// <param name="OrderData"></param>
+        private T_Chumon ChumonAddDataSet(T_Order OrderData)
+        {
+            return new T_Chumon
+            {
+                SoID = OrderData.SoID,
+                ClID = OrderData.ClID,
+                OrID = OrderData.OrID,
+                ChFlag = 0
+            };
+        }
+
+        /// <summary>
+        /// 受注確定用注文詳細データセット
+        /// </summary>
+        /// <param name="OrderDetail"></param>
+        private T_ChumonDetail ChumonDetailAddDataSet(T_OrderDetail OrderDetail)
+        {
+            return new T_ChumonDetail
+            {
+                ChID=OrderDetail.OrID,
+
+            };
+        }
+
+        /// <summary>
+        /// 確定ボタン
+        /// </summary>
+        private void buttonOrOrderConfirm_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
