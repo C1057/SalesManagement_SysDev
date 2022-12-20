@@ -3064,7 +3064,8 @@ namespace SalesManagement_SysDev
                 EmID=int.Parse(comboBoxOrEmployeeID.Text),
                 ClID=int.Parse(comboBoxOrClientID.Text),
                 ClCharge=textBoxOrClientName.Text,
-                OrDate=dateTimePickerOrder.Value,
+                //OrDate=dateTimePickerOrder.Value,
+                OrDate=DateTime.Parse(dateTimePickerOrder.Text),
                 OrStateFlag=0,
                 OrFlag=0                
             };
