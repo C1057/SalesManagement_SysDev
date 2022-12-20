@@ -3122,27 +3122,72 @@ namespace SalesManagement_SysDev
             {
                 return;
             }
-
-            var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
-
-            for(int i = 0; i < dataGridViewOrderMain.Rows.Count; i++)       //データグリッドビューの行の数だけ繰り返す
+            
+            //例外処理
+            try
             {
-                if ((bool)dataGridViewOrderMain.Rows[i].Cells[6].Value == true)         //受注情報フラグがチェックされているか確認する
-                {
-                    T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);         //受注IDと一致する受注データを取得する
-                    T_Chumon ChumonData = ChumonAddDataSet(OrderData);                  //登録用注文データをセットする
-                    context.T_Chumons.Add(ChumonData);                      //注文テーブルに登録する
-                    //受注IDと一致する受注詳細情報を取得する
-                    List<T_OrderDetail> OrderDetailData = context.T_OrderDetails.Where(x => x.OrID == int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString())).ToList();    
+                var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
 
-                    for(int j = 0; j < OrderDetailData.Count; j++)          //取得した受注詳細情報分繰り返す
+                for (int i = 0; i < dataGridViewOrderMain.Rows.Count; i++)       //データグリッドビューの行の数だけ繰り返す
+                {
+                    if ((bool)dataGridViewOrderMain.Rows[i].Cells[6].Value == true)         //受注情報フラグがチェックされているか確認する
                     {
-                        T_ChumonDetail ChumonDetailData = ChumonDetailAddDataSet(OrderDetailData[j]);       //登録用注文詳細データをセットする
-                        context.T_ChumonDetails.Add(ChumonDetailData);              //注文詳細データを登録する
+                        T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);         //受注IDと一致する受注データを取得する
+                        T_Chumon ChumonData = ChumonAddDataSet(OrderData);                  //登録用注文データをセットする
+                        context.T_Chumons.Add(ChumonData);                      //注文テーブルに登録する
+                                                                                //受注IDと一致する受注詳細情報を取得する
+                        List<T_OrderDetail> OrderDetailData = context.T_OrderDetails.Where(x => x.OrID == int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString())).ToList();
+
+                        for (int j = 0; j < OrderDetailData.Count; j++)          //取得した受注詳細情報分繰り返す
+                        {
+                            T_ChumonDetail ChumonDetailData = ChumonDetailAddDataSet(OrderDetailData[j]);       //登録用注文詳細データをセットする
+                            context.T_ChumonDetails.Add(ChumonDetailData);              //注文詳細データを登録する
+                        }
+                        ChumonID++;     //注文IDの更新
                     }
-                    ChumonID++;     //
+                }
+
+                //一覧表示用データの更新
+                OrderList = context.T_Orders.ToList();
+                OrderDetailList = context.T_OrderDetails.ToList();
+
+                //データの再表示
+                ListOrder();
+            }
+            catch
+            {
+                MessageBox.Show("確定に失敗しました", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 受注非表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonOrNDisplay_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewOrderMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridViewOrderMain.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    OrderAccess.DeleteOrder((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の顧客IDを引数に非表示機能モジュールを呼び出す
                 }
             }
+            //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //顧客情報一覧表示用データを更新
+            OrderList = OrderAccess.GetData();
+            //顧客情報再表示
+            ListOrder();
+        }
+
+        /// <summary>
+        /// 受注非表示リスト
+        /// </summary>
+        /// <param></param>
+        private void buttonOrNDisplayList_Click(object sender, EventArgs e)
+        {
+            DeleteListOrder();
         }
     }
 }
