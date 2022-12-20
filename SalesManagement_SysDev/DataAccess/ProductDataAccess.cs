@@ -24,7 +24,7 @@ namespace SalesManagement_SysDev
         /// <returns>なし</returns>
         public void AddProduct(M_Product AddData)
         {
-            DialogResult result = msg.MsgDsp("M3026");              //登録確認メッセージ
+            DialogResult result = msg.MsgDsp("M3023");              //登録確認メッセージ
             if (result == DialogResult.Cancel)                      //resultがCancelの場合商品登録モジュールを終了する
             {
                 return;
@@ -37,11 +37,11 @@ namespace SalesManagement_SysDev
                 context.SaveChanges();                              //データベースへの登録を確定する
                 context.Dispose();                                  //contextを解放
 
-                msg.MsgDsp("M3064");                                //登録完了メッセージの表示
+                msg.MsgDsp("M3024");                                //登録完了メッセージの表示
             }
             catch
             {
-                msg.MsgDsp("M3065");                                //登録失敗メッセージの表示
+                msg.MsgDsp("M3025");                                //登録失敗メッセージの表示
             }
         }
 
@@ -52,7 +52,7 @@ namespace SalesManagement_SysDev
         /// <returns>なし</returns>
         public void UpdateProduct(M_Product UpdateData)
         {
-            DialogResult result = msg.MsgDsp("M3066");              //更新確認メッセージ
+            DialogResult result = msg.MsgDsp("M3026");              //更新確認メッセージ
             if (result == DialogResult.Cancel)                       //resultがCancelの場合商品更新モジュールを終了する
             {
                 return;
@@ -76,11 +76,11 @@ namespace SalesManagement_SysDev
                 context.SaveChanges();                              //データベースへの登録を確定する
                 context.Dispose();                                  //contextを解放する
 
-                msg.MsgDsp("M3067");                                //更新完了メッセージの表示
+                msg.MsgDsp("M3027");                                //更新完了メッセージの表示
             }
             catch
             {
-                msg.MsgDsp("M3068");                                //更新失敗メッセージの表示
+                msg.MsgDsp("M3028");                                //更新失敗メッセージの表示
             }
         }
 
