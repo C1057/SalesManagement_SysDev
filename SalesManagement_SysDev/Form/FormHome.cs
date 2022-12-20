@@ -3125,19 +3125,21 @@ namespace SalesManagement_SysDev
 
             var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
 
-            for(int i = 0; i < dataGridViewOrderMain.Rows.Count; i++)
+            for(int i = 0; i < dataGridViewOrderMain.Rows.Count; i++)       //データグリッドビューの行の数だけ繰り返す
             {
-                if ((bool)dataGridViewOrderMain.Rows[i].Cells[6].Value == true)
+                if ((bool)dataGridViewOrderMain.Rows[i].Cells[6].Value == true)         //受注情報フラグがチェックされているか確認する
                 {
-                    T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);
+                    T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);         //受注ID
                     T_Chumon ChumonData = ChumonAddDataSet(OrderData);
                     context.T_Chumons.Add(ChumonData);
                     List<T_OrderDetail> OrderDetailData = context.T_OrderDetails.Where(x => x.OrID == int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString())).ToList();
 
                     for(int j = 0; j < OrderDetailData.Count; j++)
                     {
-                        
+                        T_ChumonDetail ChumonDetailData = ChumonDetailAddDataSet(OrderDetailData[j]);
+                        context.T_ChumonDetails.Add(ChumonDetailData);
                     }
+                    ChumonID++;
                 }
             }
         }

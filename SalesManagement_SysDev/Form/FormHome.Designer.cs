@@ -3928,7 +3928,6 @@ namespace SalesManagement_SysDev
             this.panelEmployee.Name = "panelEmployee";
             this.panelEmployee.Size = new System.Drawing.Size(1685, 738);
             this.panelEmployee.TabIndex = 216;
-            this.panelEmployee.Paint += new System.Windows.Forms.PaintEventHandler(this.panelEmployee_Paint);
             // 
             // labelEmPassWarning
             // 
@@ -4091,7 +4090,6 @@ namespace SalesManagement_SysDev
             this.labelEmSearchTitle.Name = "labelEmSearchTitle";
             this.labelEmSearchTitle.Size = new System.Drawing.Size(257, 23);
             this.labelEmSearchTitle.TabIndex = 134;
-            this.labelEmSearchTitle.Click += new System.EventHandler(this.labelEmSearchTitle_Click);
             // 
             // labelEmPositionName
             // 
