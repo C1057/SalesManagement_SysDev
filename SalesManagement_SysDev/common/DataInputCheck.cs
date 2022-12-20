@@ -439,7 +439,7 @@ namespace SalesManagement_SysDev
         /// 受注IDの入力チェック
         /// </summary>
         /// <returns>異常あり:false, 異常なし:true</returns>
-        private bool OrderInputCheck(string InputText)
+        public bool OrderInputCheck(string InputText)
         {
             //受注IDの空文字チェック
             if (string.IsNullOrEmpty(InputText))
@@ -477,7 +477,7 @@ namespace SalesManagement_SysDev
         /// 注文IDの入力チェック
         /// </summary>
         /// <returns>異常あり:false, 異常なし:true</returns>
-        private bool ChumonInputCheck(string InputText)
+        public bool ChumonInputCheck(string InputText)
         {
             //注文IDの空文字チェック
             if (string.IsNullOrEmpty(InputText))
@@ -515,7 +515,7 @@ namespace SalesManagement_SysDev
         /// 出庫IDの入力チェック
         /// </summary>
         /// <returns>異常あり:false, 異常なし:true</returns>
-        private bool SyukkoInputCheck(string InputText)
+        public bool SyukkoInputCheck(string InputText)
         {
             //出庫IDの空文字チェック
             if (string.IsNullOrEmpty(InputText))
@@ -553,7 +553,7 @@ namespace SalesManagement_SysDev
         /// 入荷IDの入力チェック
         /// </summary>
         /// <returns>異常あり:false, 異常なし:true</returns>
-        private bool ArrivalInputCheck(string InputText)
+        public bool ArrivalInputCheck(string InputText)
         {
             //入荷IDの空文字チェック
             if (string.IsNullOrEmpty(InputText))
@@ -591,7 +591,7 @@ namespace SalesManagement_SysDev
         /// 出荷IDの入力チェック
         /// </summary>
         /// <returns>異常あり:false, 異常なし:true</returns>
-        private bool ShipmentInputCheck(string InputText)
+        public bool ShipmentInputCheck(string InputText)
         {
             //出荷IDの空文字チェック
             if (string.IsNullOrEmpty(InputText))
@@ -629,7 +629,7 @@ namespace SalesManagement_SysDev
         /// 発注IDの入力チェック
         /// </summary>
         /// <returns>異常あり:false, 異常なし:true</returns>
-        private bool HattyuInputCheck(string InputText)
+        public bool HattyuInputCheck(string InputText)
         {
             //発注IDの空文字チェック
             if (string.IsNullOrEmpty(InputText))
@@ -667,7 +667,7 @@ namespace SalesManagement_SysDev
         /// 入庫IDの入力チェック
         /// </summary>
         /// <returns>異常あり:false, 異常なし:true</returns>
-        private bool WarehousingInputCheck(string InputText)
+        public bool WarehousingInputCheck(string InputText)
         {
             //入庫IDの空文字チェック
             if (string.IsNullOrEmpty(InputText))
@@ -705,7 +705,7 @@ namespace SalesManagement_SysDev
         /// 売上IDの入力チェック
         /// </summary>
         /// <returns>異常あり:false, 異常なし:true</returns>
-        private bool SaleInputCheck(string InputText)
+        public bool SaleInputCheck(string InputText)
         {
             //売上IDの空文字チェック
             if (string.IsNullOrEmpty(InputText))
