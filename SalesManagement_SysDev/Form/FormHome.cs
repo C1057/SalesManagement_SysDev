@@ -1825,7 +1825,7 @@ namespace SalesManagement_SysDev
             }
 
             //商品管理画面安全在庫数の空文字チェック
-            if (string.IsNullOrEmpty(numericUpDownPrSafeStock.Value.ToString()))
+            if (string.IsNullOrEmpty(numericUpDownPrSafeStock.Text))
             {
                 msg.MsgDsp("M3013");
                 numericUpDownPrSafeStock.Focus();
@@ -3129,17 +3129,18 @@ namespace SalesManagement_SysDev
             {
                 if ((bool)dataGridViewOrderMain.Rows[i].Cells[6].Value == true)         //受注情報フラグがチェックされているか確認する
                 {
-                    T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);         //受注ID
-                    T_Chumon ChumonData = ChumonAddDataSet(OrderData);
-                    context.T_Chumons.Add(ChumonData);
-                    List<T_OrderDetail> OrderDetailData = context.T_OrderDetails.Where(x => x.OrID == int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString())).ToList();
+                    T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);         //受注IDと一致する受注データを取得する
+                    T_Chumon ChumonData = ChumonAddDataSet(OrderData);                  //登録用注文データをセットする
+                    context.T_Chumons.Add(ChumonData);                      //注文テーブルに登録する
+                    //受注IDと一致する受注詳細情報を取得する
+                    List<T_OrderDetail> OrderDetailData = context.T_OrderDetails.Where(x => x.OrID == int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString())).ToList();    
 
-                    for(int j = 0; j < OrderDetailData.Count; j++)
+                    for(int j = 0; j < OrderDetailData.Count; j++)          //取得した受注詳細情報分繰り返す
                     {
-                        T_ChumonDetail ChumonDetailData = ChumonDetailAddDataSet(OrderDetailData[j]);
-                        context.T_ChumonDetails.Add(ChumonDetailData);
+                        T_ChumonDetail ChumonDetailData = ChumonDetailAddDataSet(OrderDetailData[j]);       //登録用注文詳細データをセットする
+                        context.T_ChumonDetails.Add(ChumonDetailData);              //注文詳細データを登録する
                     }
-                    ChumonID++;
+                    ChumonID++;     //
                 }
             }
         }
