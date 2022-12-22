@@ -2159,7 +2159,7 @@ namespace SalesManagement_SysDev
             }
 
             //在庫数の半角数字チェック
-            if (InputCheck.CheckNumericAndHalfChar(textBoxStInventory.Text))
+            if (!InputCheck.CheckNumericAndHalfChar(textBoxStInventory.Text))
             {
                 msg.MsgDsp("M4008");
                 textBoxStInventory.Focus();
