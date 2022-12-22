@@ -3139,35 +3139,42 @@ namespace SalesManagement_SysDev
                 {
                     if ((bool)dataGridViewOrderMain.Rows[i].Cells[6].Value == true)         //受注情報フラグがチェックされているか確認する
                     {
-                        //注文IDのセット
-                        ChumonID = ChumonList.Count + 1;
-
-                        T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);         //受注IDと一致する受注データを取得する
-                        T_Chumon ChumonData = ChumonAddDataSet(OrderData);                  //登録用注文データをセットする
-                        context.T_Chumons.Add(ChumonData);                      //注文テーブルに登録する
-
-                        //データベースへの変更を確定する
-                        context.SaveChanges();
-
-                        //受注IDと一致する受注詳細情報を取得する
+                        //受注IDをセット
                         int OrID = int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString());
-                        List<T_OrderDetail> OrderDetailAllData = context.T_OrderDetails.Where(OrderDetail => OrderDetail.OrID == OrID).ToList();
 
-                        foreach (var OrderDetailData in OrderDetailAllData)          //取得した受注詳細情報分繰り返す
+                        //注文テーブルに既にデータが存在するか確認する
+                        if (!context.T_Chumons.Any(Chumon => Chumon.OrID == OrID))
                         {
-                            T_ChumonDetail ChumonDetailData = ChumonDetailAddDataSet(OrderDetailData);       //登録用注文詳細データをセットする
-                            context.T_ChumonDetails.Add(ChumonDetailData);              //注文詳細データを登録する
+                            //注文IDのセット
+                            ChumonID = ChumonList.Count + 1;
+
+                            T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);         //受注IDと一致する受注データを取得する
+                            T_Chumon ChumonData = ChumonAddDataSet(OrderData);                  //登録用注文データをセットする
+                            context.T_Chumons.Add(ChumonData);                      //注文テーブルに登録する
+
+                            //データベースへの変更を確定する
+                            context.SaveChanges();
+
+                            //受注IDと一致する受注詳細情報を取得する
+                            //int OrID = int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString());
+                            List<T_OrderDetail> OrderDetailAllData = context.T_OrderDetails.Where(OrderDetail => OrderDetail.OrID == OrID).ToList();
+
+                            foreach (var OrderDetailData in OrderDetailAllData)          //取得した受注詳細情報分繰り返す
+                            {
+                                T_ChumonDetail ChumonDetailData = ChumonDetailAddDataSet(OrderDetailData);       //登録用注文詳細データをセットする
+                                context.T_ChumonDetails.Add(ChumonDetailData);              //注文詳細データを登録する
+
+                                //データベースへの変更を確定する
+                                context.SaveChanges();
+                            }
+
+                            //状態フラグを0から1へ変更する
+                            OrderData = context.T_Orders.Single(Order => Order.OrID == OrID);
+                            OrderData.OrStateFlag = 1;
 
                             //データベースへの変更を確定する
                             context.SaveChanges();
                         }
-
-                        //状態フラグを0から1へ変更する
-                        OrderData = context.T_Orders.Single(Order => Order.OrID == OrID);
-                        OrderData.OrStateFlag = 1;
-
-                        //データベースへの変更を確定する
-                        context.SaveChanges();
                     }
                 }
 

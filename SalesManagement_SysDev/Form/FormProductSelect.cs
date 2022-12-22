@@ -385,6 +385,9 @@ namespace SalesManagement_SysDev
 
                 msg.MsgDsp("M7025");        //受注詳細情報確定メッセージ
 
+                ClearText(this);            //入力内容をクリアする
+                dataGridViewProSelect.Rows.Clear();     //データグリッドビューの内容をクリアする
+
                 this.Visible = false;       //商品選択画面を閉じる
                 formHome.Visible = true;    //元の画面に戻る
             }
