@@ -62,7 +62,7 @@ namespace SalesManagement_SysDev
 
             try
             {
-                DialogResult result = msg.MsgDsp("M5021");
+                DialogResult result = msg.MsgDsp("M5034");
                 if (result == DialogResult.Cancel)
                 {
                     Context.Dispose();
