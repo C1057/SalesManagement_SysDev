@@ -263,14 +263,18 @@ namespace SalesManagement_SysDev
                 return;
             }
 
+            //合計金額の計算
+            var ProductData = ProductList.Single(Product => Product.PrID == int.Parse(textBoxProSelectProID.Text));
+            int TotalPrice = ProductData.Price * int.Parse(numericUpDownProSelectQuantity.Value.ToString());
+
             //データグリッドビューに表示されている値を更新する
-            for(int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
+            for (int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
             {
                 if ((int)dataGridViewProSelect.Rows[i].Cells[0].Value == int.Parse(textBoxProSelectOrderDetailID.Text))
                 {
                     dataGridViewProSelect.Rows[i].Cells[2].Value = textBoxProSelectProID.Text;
                     dataGridViewProSelect.Rows[i].Cells[3].Value = numericUpDownProSelectQuantity.Value;
-                    dataGridViewProSelect.Rows[i].Cells[4].Value = labelProSelectTotalMoney.Text;
+                    dataGridViewProSelect.Rows[i].Cells[4].Value = TotalPrice;
                 }
             }
         }
@@ -356,8 +360,8 @@ namespace SalesManagement_SysDev
             }
 
             //例外処理
-            //try
-            //{
+            try
+            {
                 var context = new SalesManagement_DevContext();             //DB接続クラスのインスタンス化
                 context.T_Orders.Add(formHome.AddOrderData);                //受注情報登録
                                                                             //label1.Text = formHome.AddOrderData.OrDate.ToString();
@@ -371,23 +375,24 @@ namespace SalesManagement_SysDev
                     context.T_OrderDetails.Add(OrderDetailAddDataSet(i));
                 }
 
+                context.SaveChanges();          //登録を確定
+
                 //元の画面の一覧表示用データの更新
                 formHome.OrderList = context.T_Orders.ToList();
                 formHome.OrderDetailList = context.T_OrderDetails.ToList();
 
-                context.SaveChanges();          //登録を確定
                 context.Dispose();              //contextを解放
 
                 msg.MsgDsp("M7025");        //受注詳細情報確定メッセージ
 
                 this.Visible = false;       //商品選択画面を閉じる
                 formHome.Visible = true;    //元の画面に戻る
-            //}
-            //catch
-            //{
-            //    //例外エラー
-            //    MessageBox.Show("登録に失敗しました", "登録確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
+            catch
+            {
+                //例外エラー
+                MessageBox.Show("登録に失敗しました", "登録確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private T_OrderDetail OrderDetailAddDataSet(int i)

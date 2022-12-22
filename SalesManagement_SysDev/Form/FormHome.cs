@@ -2113,8 +2113,11 @@ namespace SalesManagement_SysDev
             {
                 if (StockData.StFlag == 0)                     //在庫管理フラグが0の場合表示する
                 {
+                    //商品名を抽出する
+                    M_Product ProductData = ProductList.Single(Product => Product.PrID == StockData.PrID);
+
                     //データグリッドビューにデータを追加する
-                    dataGridViewStock.Rows.Add(StockData.StID, StockData.PrID, StockData.StQuantity, Convert.ToBoolean(StockData.StFlag), StockData.StHidden);
+                    dataGridViewStock.Rows.Add(StockData.StID, StockData.PrID, StockData.StQuantity, ProductData.PrName,  Convert.ToBoolean(StockData.StFlag), StockData.StHidden);
                 }
             }
         }
@@ -2132,8 +2135,11 @@ namespace SalesManagement_SysDev
             {
                 if (StockData.StFlag == 2)                     //在庫管理フラグが2の場合表示する
                 {
+                    //商品名を抽出する
+                    M_Product ProductData = ProductList.Single(Product => Product.PrID == StockData.PrID);
+
                     //データグリッドビューにデータを追加する
-                    dataGridViewStock.Rows.Add(StockData.StID, StockData.PrID, StockData.StQuantity, Convert.ToBoolean(StockData.StFlag), StockData.StHidden);
+                    dataGridViewStock.Rows.Add(StockData.StID, StockData.PrID, StockData.StQuantity,ProductData.PrName,  Convert.ToBoolean(StockData.StFlag), StockData.StHidden);
                 }
             }
         }
@@ -3063,7 +3069,7 @@ namespace SalesManagement_SysDev
                 SoID=int.Parse(comboBoxOrSalesOfficeID.Text),
                 EmID=int.Parse(comboBoxOrEmployeeID.Text),
                 ClID=int.Parse(comboBoxOrClientID.Text),
-                ClCharge=textBoxOrClientName.Text,
+                ClCharge=textBoxOrClientManager.Text,
                 //OrDate=dateTimePickerOrder.Value,
                 OrDate=DateTime.Parse(dateTimePickerOrder.Text),
                 OrStateFlag=0,
@@ -3123,7 +3129,7 @@ namespace SalesManagement_SysDev
             {
                 return;
             }
-            
+
             //例外処理
             try
             {
@@ -3136,8 +3142,11 @@ namespace SalesManagement_SysDev
                         T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);         //受注IDと一致する受注データを取得する
                         T_Chumon ChumonData = ChumonAddDataSet(OrderData);                  //登録用注文データをセットする
                         context.T_Chumons.Add(ChumonData);                      //注文テーブルに登録する
-                                                                                //受注IDと一致する受注詳細情報を取得する
+
+                        //受注IDと一致する受注詳細情報を取得する
                         List<T_OrderDetail> OrderDetailData = context.T_OrderDetails.Where(x => x.OrID == int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString())).ToList();
+
+                        
 
                         for (int j = 0; j < OrderDetailData.Count; j++)          //取得した受注詳細情報分繰り返す
                         {
