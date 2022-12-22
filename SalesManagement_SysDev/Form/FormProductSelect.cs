@@ -356,8 +356,8 @@ namespace SalesManagement_SysDev
             }
 
             //例外処理
-            try
-            {
+            //try
+            //{
                 var context = new SalesManagement_DevContext();             //DB接続クラスのインスタンス化
                 context.T_Orders.Add(formHome.AddOrderData);                //受注情報登録
                                                                             //label1.Text = formHome.AddOrderData.OrDate.ToString();
@@ -382,12 +382,12 @@ namespace SalesManagement_SysDev
 
                 this.Visible = false;       //商品選択画面を閉じる
                 formHome.Visible = true;    //元の画面に戻る
-            }
-            catch
-            {
-                //例外エラー
-                MessageBox.Show("登録に失敗しました", "登録確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //}
+            //catch
+            //{
+            //    //例外エラー
+            //    MessageBox.Show("登録に失敗しました", "登録確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private T_OrderDetail OrderDetailAddDataSet(int i)

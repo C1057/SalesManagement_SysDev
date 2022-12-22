@@ -85,33 +85,32 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param>なし</param>
         /// <return>なし</return>
-        //private void buttonPositionManaAdd_Click(object sender, EventArgs e)
-        //{
-        //    //営業所IDの入力チェックメソッドの呼びだし
-        //    if (!InputCheck.SalesOfficeIDInputCheck(comboBoxPositionManaPositionID.Text))
-        //    {
-        //        comboBoxPositionManaPositionID.Focus();
-        //        return;
-        //    }
-        //    //入力チェックメソッドの呼び出し
-        //    if (!PositionIDInputCheck())
-        //    {
-        //        return;
-        //    }
+        private void buttonPositionManaAdd_Click(object sender, EventArgs e)
+        {
+            //    //営業所IDの入力チェックメソッドの呼びだし
+            //    if (!InputCheck.SalesOfficeIDInputCheck(comboBoxPositionManaPositionID.Text))
+            //    {
+            //        comboBoxPositionManaPositionID.Focus();
+            //        return;
+            //    }
+            //    //入力チェックメソッドの呼び出し
+            //    if (!PositionIDInputCheck())
+            //    {
+            //        return;
+            //    }
 
-        //    //登録用役職情報のセット
-        //    M_Position AddPositionData = PositionAddDataSet();
+            //    //登録用役職情報のセット
+            //    M_Position AddPositionData = PositionAddDataSet();
 
-        //    //役職情報の登録
-        //    PositionAccess.AddPosition(AddPositionData);
+            //    //役職情報の登録
+            //    PositionAccess.AddPosition(AddPositionData);
 
-        //    //役職情報一覧表示用データの更新
-        //    PositionList = PositionAccess.GetData();
+            //    //役職情報一覧表示用データの更新
+            //    PositionList = PositionAccess.GetData();
 
-        //    //役職情報再表示
-        //    ListPosition();
+            //    //役職情報再表示
+            //    ListPosition();
         }
-
-        
     }
 }
+
