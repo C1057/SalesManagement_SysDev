@@ -105,6 +105,12 @@ namespace SalesManagement_SysDev
                 msg.MsgDsp("M5039");
             }
         }
+
+        public List<M_Position> GetData()
+        {
+            var context = new SalesManagement_DevContext();
+            return context.M_Positions.ToList();
+        }
     }
 }
 
