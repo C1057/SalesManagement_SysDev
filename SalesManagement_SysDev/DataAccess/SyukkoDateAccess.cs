@@ -86,7 +86,7 @@ namespace SalesManagement_SysDev
         /// <param name="methodflg"></param>
         /// <param name="SearchInfo"></param>
         /// <returns>List<T_Syukko></returns>
-        public List<T_Syukko> SearchEmployee(int methodflg, string SearchInfo)　//IDで検索
+        public List<T_Syukko> SearchSyukko(int methodflg, string SearchInfo)　//IDで検索
         {
             var context = new SalesManagement_DevContext();
             List<T_Syukko> SearchResult = null;

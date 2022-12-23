@@ -70,7 +70,7 @@ namespace SalesManagement_SysDev
             this.buttonSOManaList.BackColor = System.Drawing.Color.LightCyan;
             this.buttonSOManaList.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSOManaList.Location = new System.Drawing.Point(627, 133);
-            this.buttonSOManaList.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonSOManaList.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSOManaList.Name = "buttonSOManaList";
             this.buttonSOManaList.Size = new System.Drawing.Size(164, 74);
             this.buttonSOManaList.TabIndex = 218;
@@ -82,7 +82,7 @@ namespace SalesManagement_SysDev
             this.buttonSOManaAdd.BackColor = System.Drawing.Color.LightCyan;
             this.buttonSOManaAdd.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSOManaAdd.Location = new System.Drawing.Point(38, 133);
-            this.buttonSOManaAdd.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonSOManaAdd.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSOManaAdd.Name = "buttonSOManaAdd";
             this.buttonSOManaAdd.Size = new System.Drawing.Size(164, 74);
             this.buttonSOManaAdd.TabIndex = 217;
@@ -94,7 +94,7 @@ namespace SalesManagement_SysDev
             this.buttonSOManaUpdate.BackColor = System.Drawing.Color.LightCyan;
             this.buttonSOManaUpdate.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSOManaUpdate.Location = new System.Drawing.Point(230, 133);
-            this.buttonSOManaUpdate.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonSOManaUpdate.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSOManaUpdate.Name = "buttonSOManaUpdate";
             this.buttonSOManaUpdate.Size = new System.Drawing.Size(164, 74);
             this.buttonSOManaUpdate.TabIndex = 216;
@@ -106,7 +106,7 @@ namespace SalesManagement_SysDev
             this.buttonSOManaSearch.BackColor = System.Drawing.Color.LightCyan;
             this.buttonSOManaSearch.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSOManaSearch.Location = new System.Drawing.Point(427, 133);
-            this.buttonSOManaSearch.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonSOManaSearch.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSOManaSearch.Name = "buttonSOManaSearch";
             this.buttonSOManaSearch.Size = new System.Drawing.Size(164, 74);
             this.buttonSOManaSearch.TabIndex = 219;
@@ -118,7 +118,7 @@ namespace SalesManagement_SysDev
             this.buttonSOManaReturn.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.buttonSOManaReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSOManaReturn.Location = new System.Drawing.Point(1045, 26);
-            this.buttonSOManaReturn.Margin = new System.Windows.Forms.Padding(1);
+            this.buttonSOManaReturn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSOManaReturn.Name = "buttonSOManaReturn";
             this.buttonSOManaReturn.Size = new System.Drawing.Size(168, 72);
             this.buttonSOManaReturn.TabIndex = 230;
@@ -130,7 +130,7 @@ namespace SalesManagement_SysDev
             // 
             this.textBoxProSelectOrderID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBoxProSelectOrderID.Location = new System.Drawing.Point(502, 235);
-            this.textBoxProSelectOrderID.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxProSelectOrderID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxProSelectOrderID.Multiline = true;
             this.textBoxProSelectOrderID.Name = "textBoxProSelectOrderID";
             this.textBoxProSelectOrderID.Size = new System.Drawing.Size(190, 37);
@@ -151,7 +151,7 @@ namespace SalesManagement_SysDev
             this.comboBoxSOManaSOID.FormattingEnabled = true;
             this.comboBoxSOManaSOID.ItemHeight = 24;
             this.comboBoxSOManaSOID.Location = new System.Drawing.Point(147, 239);
-            this.comboBoxSOManaSOID.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxSOManaSOID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxSOManaSOID.Name = "comboBoxSOManaSOID";
             this.comboBoxSOManaSOID.Size = new System.Drawing.Size(213, 32);
             this.comboBoxSOManaSOID.TabIndex = 233;
@@ -178,7 +178,7 @@ namespace SalesManagement_SysDev
             // 
             this.textBoxSOManaAddress.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBoxSOManaAddress.Location = new System.Drawing.Point(147, 287);
-            this.textBoxSOManaAddress.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxSOManaAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSOManaAddress.Multiline = true;
             this.textBoxSOManaAddress.Name = "textBoxSOManaAddress";
             this.textBoxSOManaAddress.Size = new System.Drawing.Size(545, 37);
@@ -197,7 +197,7 @@ namespace SalesManagement_SysDev
             // 
             this.textBoxSOManaPhone.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBoxSOManaPhone.Location = new System.Drawing.Point(147, 338);
-            this.textBoxSOManaPhone.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxSOManaPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSOManaPhone.Multiline = true;
             this.textBoxSOManaPhone.Name = "textBoxSOManaPhone";
             this.textBoxSOManaPhone.Size = new System.Drawing.Size(213, 37);
@@ -216,7 +216,7 @@ namespace SalesManagement_SysDev
             // 
             this.textBoxSOManaPostal.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBoxSOManaPostal.Location = new System.Drawing.Point(502, 341);
-            this.textBoxSOManaPostal.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxSOManaPostal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSOManaPostal.Multiline = true;
             this.textBoxSOManaPostal.Name = "textBoxSOManaPostal";
             this.textBoxSOManaPostal.Size = new System.Drawing.Size(190, 37);
@@ -235,7 +235,7 @@ namespace SalesManagement_SysDev
             // 
             this.textBoxSOManaFAX.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBoxSOManaFAX.Location = new System.Drawing.Point(147, 394);
-            this.textBoxSOManaFAX.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxSOManaFAX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSOManaFAX.Multiline = true;
             this.textBoxSOManaFAX.Name = "textBoxSOManaFAX";
             this.textBoxSOManaFAX.Size = new System.Drawing.Size(213, 37);
@@ -254,7 +254,7 @@ namespace SalesManagement_SysDev
             // 
             this.textBoxSOManaHidden.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textBoxSOManaHidden.Location = new System.Drawing.Point(873, 234);
-            this.textBoxSOManaHidden.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxSOManaHidden.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSOManaHidden.Multiline = true;
             this.textBoxSOManaHidden.Name = "textBoxSOManaHidden";
             this.textBoxSOManaHidden.Size = new System.Drawing.Size(340, 193);
@@ -264,7 +264,7 @@ namespace SalesManagement_SysDev
             // 
             this.dataGridViewSOMana.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSOMana.Location = new System.Drawing.Point(29, 473);
-            this.dataGridViewSOMana.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewSOMana.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewSOMana.Name = "dataGridViewSOMana";
             this.dataGridViewSOMana.RowHeadersWidth = 62;
             this.dataGridViewSOMana.RowTemplate.Height = 27;
@@ -302,7 +302,7 @@ namespace SalesManagement_SysDev
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1259, 755);
+            this.ClientSize = new System.Drawing.Size(1243, 771);
             this.Controls.Add(this.maruibuttonSOManaDeleteList);
             this.Controls.Add(this.maruibuttonSOManaDelete);
             this.Controls.Add(this.dataGridViewSOMana);
@@ -328,6 +328,7 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.labelSOManaTitle);
             this.Name = "FormSalesOfficeMana";
             this.Text = "FormSalesOfficeMana";
+            this.Load += new System.EventHandler(this.FormSalesOffice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSOMana)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

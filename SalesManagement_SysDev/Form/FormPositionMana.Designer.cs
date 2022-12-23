@@ -85,7 +85,6 @@ namespace SalesManagement_SysDev
             this.buttonPositionManaAdd.TabIndex = 222;
             this.buttonPositionManaAdd.Text = "登録";
             this.buttonPositionManaAdd.UseVisualStyleBackColor = false;
-            this.buttonPositionManaAdd.Click += new System.EventHandler(this.buttonPositionManaAdd_Click);
             // 
             // buttonPositionManaUpdate
             // 

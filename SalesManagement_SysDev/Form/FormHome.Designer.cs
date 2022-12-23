@@ -1694,6 +1694,7 @@ namespace SalesManagement_SysDev
             this.buttonSySearch.TabIndex = 151;
             this.buttonSySearch.Text = "検索";
             this.buttonSySearch.UseVisualStyleBackColor = false;
+            this.buttonSySearch.Click += new System.EventHandler(this.buttonSySearch_Click);
             // 
             // buttonSyDisplay
             // 
@@ -1706,6 +1707,7 @@ namespace SalesManagement_SysDev
             this.buttonSyDisplay.TabIndex = 150;
             this.buttonSyDisplay.Text = "一覧表示";
             this.buttonSyDisplay.UseVisualStyleBackColor = false;
+            this.buttonSyDisplay.Click += new System.EventHandler(this.buttonSyDisplay_Click);
             // 
             // labelSyRsn
             // 
@@ -5592,7 +5594,6 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelChumon);
             this.Controls.Add(this.panelSyukko);
             this.Controls.Add(this.panelWareHousing);
             this.Controls.Add(this.panelHattyu);
@@ -5605,6 +5606,7 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelOrder);
             this.Controls.Add(this.panelArrival);
             this.Controls.Add(this.panelStart);
+            this.Controls.Add(this.panelChumon);
             this.Name = "FormHome";
             this.Text = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
