@@ -44,6 +44,7 @@ namespace SalesManagement_SysDev
             this.dataGridViewPositionMana = new System.Windows.Forms.DataGridView();
             this.buttonPositionManaDeleteList = new SalesManagement_SysDev.maruibutton();
             this.buttonPositionManaDelete = new SalesManagement_SysDev.maruibutton();
+            this.labelPoSearchTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositionMana)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +59,7 @@ namespace SalesManagement_SysDev
             this.buttonPositionManaSrarch.TabIndex = 224;
             this.buttonPositionManaSrarch.Text = "検索";
             this.buttonPositionManaSrarch.UseVisualStyleBackColor = false;
+            this.buttonPositionManaSrarch.Click += new System.EventHandler(this.buttonPositionManaSrarch_Click);
             // 
             // buttonPositionManaList
             // 
@@ -214,12 +216,21 @@ namespace SalesManagement_SysDev
             this.buttonPositionManaDelete.Text = "非表示";
             this.buttonPositionManaDelete.UseVisualStyleBackColor = false;
             // 
+            // labelPoSearchTitle
+            // 
+            this.labelPoSearchTitle.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPoSearchTitle.Location = new System.Drawing.Point(422, 99);
+            this.labelPoSearchTitle.Name = "labelPoSearchTitle";
+            this.labelPoSearchTitle.Size = new System.Drawing.Size(211, 23);
+            this.labelPoSearchTitle.TabIndex = 251;
+            // 
             // FormPositionMana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1154, 707);
+            this.ClientSize = new System.Drawing.Size(1243, 771);
+            this.Controls.Add(this.labelPoSearchTitle);
             this.Controls.Add(this.buttonPositionManaDeleteList);
             this.Controls.Add(this.buttonPositionManaDelete);
             this.Controls.Add(this.dataGridViewPositionMana);
@@ -261,5 +272,6 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.DataGridView dataGridViewPositionMana;
         private maruibutton buttonPositionManaDeleteList;
         private maruibutton buttonPositionManaDelete;
+        private System.Windows.Forms.Label labelPoSearchTitle;
     }
 }

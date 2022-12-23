@@ -46,14 +46,14 @@ namespace SalesManagement_SysDev
             {
                 msg.MsgDsp("M5031");
                 textBoxPositionManaPositionName.Focus();
-                return true;
+                return false;
             }
 
             if (textBoxPositionManaPositionName.Text.Length > 50)//役職名の文字数チェック
             {
                 msg.MsgDsp("M5032");
                 textBoxPositionManaPositionName.Focus();
-                return true;
+                return false;
             }
 
             return true;
@@ -235,6 +235,33 @@ namespace SalesManagement_SysDev
             }
 
             dataGridViewPositionMana.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
+           // ListPosition();
+
+        }
+
+        private void buttonPositionManaSrarch_Click(object sender, EventArgs e)
+        {
+            dataGridViewPositionMana.Rows.Clear();
+
+            //if(!InputCheck.PositionIDInputCheck)
+            if (!string.IsNullOrEmpty(comboBoxPositionManaPositionID.Text))
+            {
+                if (!InputCheck.PositionIDInputCheck(comboBoxPositionManaPositionID.Text))
+                {
+                    comboBoxPositionManaPositionID.Focus();
+                    return;
+                }
+                foreach(var PoData in PositionAccess.SearchPosition(1, comboBoxPositionManaPositionID.Text))           //役職
+                                                                                                                       //IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewPositionMana.Rows.Add(PoData.PoID, PoData.PoName, Convert.ToBoolean(PoData.PoFlag), PoData.PoHidden);
+                }
+                labelPoSearchTitle.Text = "役職IDで検索しました。"; //何で検索したかを表示
+
+
+            }
         }
     }
 }
