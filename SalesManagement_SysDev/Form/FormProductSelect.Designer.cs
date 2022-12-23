@@ -55,6 +55,7 @@ namespace SalesManagement_SysDev
             this.labelProSelectProIDWarning = new System.Windows.Forms.Label();
             this.labelProSelectSuuryoWarning = new System.Windows.Forms.Label();
             this.labelWarning = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProSelectQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProSelect)).BeginInit();
             this.SuspendLayout();
@@ -340,12 +341,22 @@ namespace SalesManagement_SysDev
             this.labelWarning.TabIndex = 237;
             this.labelWarning.Text = "※ = 必須";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(770, 174);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 12);
+            this.label1.TabIndex = 238;
+            this.label1.Text = "label1";
+            // 
             // FormProductSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1251, 779);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelWarning);
             this.Controls.Add(this.labelProSelectSuuryoWarning);
             this.Controls.Add(this.labelProSelectProIDWarning);
@@ -411,5 +422,6 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelProSelectProIDWarning;
         private System.Windows.Forms.Label labelProSelectSuuryoWarning;
         private System.Windows.Forms.Label labelWarning;
+        private System.Windows.Forms.Label label1;
     }
 }

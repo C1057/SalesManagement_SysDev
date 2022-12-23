@@ -62,7 +62,7 @@ namespace SalesManagement_SysDev
 
             try
             {
-                DialogResult result = msg.MsgDsp("M5021");
+                DialogResult result = msg.MsgDsp("M5034");
                 if (result == DialogResult.Cancel)
                 {
                     Context.Dispose();
@@ -104,6 +104,12 @@ namespace SalesManagement_SysDev
             {
                 msg.MsgDsp("M5039");
             }
+        }
+
+        public List<M_Position> GetData()
+        {
+            var context = new SalesManagement_DevContext();
+            return context.M_Positions.ToList();
         }
     }
 }

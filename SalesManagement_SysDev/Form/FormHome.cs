@@ -1619,7 +1619,7 @@ namespace SalesManagement_SysDev
         {
             dataGridViewCI.Rows.Clear();                        //データグリッドビューの内容を消去する
 
-            if (!InputCheck.ClientIDInputCheck(comboBoxCIClientID.Text))             //顧客IDコンボボックスの空文字チェック
+            if (!string.IsNullOrEmpty(comboBoxCIClientID.Text))             //顧客IDコンボボックスの空文字チェック
             {
                 //顧客IDの入力チェック
                 if (!InputCheck.ClientIDInputCheck(comboBoxCIClientID.Text))  
@@ -2113,8 +2113,11 @@ namespace SalesManagement_SysDev
             {
                 if (StockData.StFlag == 0)                     //在庫管理フラグが0の場合表示する
                 {
+                    //商品名を抽出する
+                    M_Product ProductData = ProductList.Single(Product => Product.PrID == StockData.PrID);
+
                     //データグリッドビューにデータを追加する
-                    dataGridViewStock.Rows.Add(StockData.StID, StockData.PrID, StockData.StQuantity, Convert.ToBoolean(StockData.StFlag), StockData.StHidden);
+                    dataGridViewStock.Rows.Add(StockData.StID, StockData.PrID, ProductData.PrName, StockData.StQuantity,  Convert.ToBoolean(StockData.StFlag), StockData.StHidden);
                 }
             }
         }
@@ -2132,8 +2135,11 @@ namespace SalesManagement_SysDev
             {
                 if (StockData.StFlag == 2)                     //在庫管理フラグが2の場合表示する
                 {
+                    //商品名を抽出する
+                    M_Product ProductData = ProductList.Single(Product => Product.PrID == StockData.PrID);
+
                     //データグリッドビューにデータを追加する
-                    dataGridViewStock.Rows.Add(StockData.StID, StockData.PrID, StockData.StQuantity, Convert.ToBoolean(StockData.StFlag), StockData.StHidden);
+                    dataGridViewStock.Rows.Add(StockData.StID, StockData.PrID, ProductData.PrName, StockData.StQuantity, Convert.ToBoolean(StockData.StFlag), StockData.StHidden);
                 }
             }
         }
@@ -2153,7 +2159,7 @@ namespace SalesManagement_SysDev
             }
 
             //在庫数の半角数字チェック
-            if (InputCheck.CheckNumericAndHalfChar(textBoxStInventory.Text))
+            if (!InputCheck.CheckNumericAndHalfChar(textBoxStInventory.Text))
             {
                 msg.MsgDsp("M4008");
                 textBoxStInventory.Focus();
@@ -3063,8 +3069,9 @@ namespace SalesManagement_SysDev
                 SoID=int.Parse(comboBoxOrSalesOfficeID.Text),
                 EmID=int.Parse(comboBoxOrEmployeeID.Text),
                 ClID=int.Parse(comboBoxOrClientID.Text),
-                ClCharge=textBoxOrClientName.Text,
-                OrDate=dateTimePickerOrder.Value,
+                ClCharge=textBoxOrClientManager.Text,
+                //OrDate=dateTimePickerOrder.Value,
+                OrDate=DateTime.Parse(dateTimePickerOrder.Text),
                 OrStateFlag=0,
                 OrFlag=0                
             };
@@ -3122,7 +3129,7 @@ namespace SalesManagement_SysDev
             {
                 return;
             }
-            
+
             //例外処理
             try
             {
@@ -3132,24 +3139,57 @@ namespace SalesManagement_SysDev
                 {
                     if ((bool)dataGridViewOrderMain.Rows[i].Cells[6].Value == true)         //受注情報フラグがチェックされているか確認する
                     {
-                        T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);         //受注IDと一致する受注データを取得する
-                        T_Chumon ChumonData = ChumonAddDataSet(OrderData);                  //登録用注文データをセットする
-                        context.T_Chumons.Add(ChumonData);                      //注文テーブルに登録する
-                                                                                //受注IDと一致する受注詳細情報を取得する
-                        List<T_OrderDetail> OrderDetailData = context.T_OrderDetails.Where(x => x.OrID == int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString())).ToList();
+                        //受注IDをセット
+                        int OrID = int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString());
 
-                        for (int j = 0; j < OrderDetailData.Count; j++)          //取得した受注詳細情報分繰り返す
+                        //注文テーブルに既にデータが存在するか確認する
+                        if (!context.T_Chumons.Any(Chumon => Chumon.OrID == OrID))
                         {
-                            T_ChumonDetail ChumonDetailData = ChumonDetailAddDataSet(OrderDetailData[j]);       //登録用注文詳細データをセットする
-                            context.T_ChumonDetails.Add(ChumonDetailData);              //注文詳細データを登録する
+                            //注文IDのセット
+                            ChumonID = ChumonList.Count + 1;
+
+                            T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);         //受注IDと一致する受注データを取得する
+                            T_Chumon ChumonData = ChumonAddDataSet(OrderData);                  //登録用注文データをセットする
+                            context.T_Chumons.Add(ChumonData);                      //注文テーブルに登録する
+
+                            //データベースへの変更を確定する
+                            context.SaveChanges();
+
+                            //受注IDと一致する受注詳細情報を取得する
+                            //int OrID = int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString());
+                            List<T_OrderDetail> OrderDetailAllData = context.T_OrderDetails.Where(OrderDetail => OrderDetail.OrID == OrID).ToList();
+
+                            foreach (var OrderDetailData in OrderDetailAllData)          //取得した受注詳細情報分繰り返す
+                            {
+                                T_ChumonDetail ChumonDetailData = ChumonDetailAddDataSet(OrderDetailData);       //登録用注文詳細データをセットする
+                                context.T_ChumonDetails.Add(ChumonDetailData);              //注文詳細データを登録する
+
+                                //データベースへの変更を確定する
+                                context.SaveChanges();
+                            }
+
+                            //状態フラグを0から1へ変更する
+                            OrderData = context.T_Orders.Single(Order => Order.OrID == OrID);
+                            OrderData.OrStateFlag = 1;
+
+                            //データベースへの変更を確定する
+                            context.SaveChanges();
                         }
-                        ChumonID++;     //注文IDの更新
                     }
                 }
+
+                ////データベースへの変更を確定する
+                //context.SaveChanges();
 
                 //一覧表示用データの更新
                 OrderList = context.T_Orders.ToList();
                 OrderDetailList = context.T_OrderDetails.ToList();
+
+                //contextの解放
+                context.Dispose();
+
+                //確定完了メッセージの表示
+                msg.MsgDsp("M7025");
 
                 //データの再表示
                 ListOrder();

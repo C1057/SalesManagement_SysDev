@@ -113,7 +113,7 @@ namespace SalesManagement_SysDev
         private bool OrderDetailInputCheck()
         {
             //数量の空文字チェック
-            if (!string.IsNullOrEmpty(numericUpDownProSelectQuantity.Value.ToString()))
+            if (string.IsNullOrEmpty(numericUpDownProSelectQuantity.Value.ToString()))
             {
                 MessageBox.Show("数量が入力されていません", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 numericUpDownProSelectQuantity.Focus();
@@ -165,8 +165,9 @@ namespace SalesManagement_SysDev
             }
 
             //合計金額の計算
-            var ProductData = context.M_Products.Single(Product => Product.PrID == int.Parse(textBoxProSelectProID.Text));
-            int TotalPrice = int.Parse(labelProSelectTotalMoney.Text);
+            var ProductData = ProductList.Single(Product => Product.PrID == int.Parse(textBoxProSelectProID.Text));
+            //int TotalPrice = int.Parse(labelProSelectTotalMoney.Text.ToString());
+            int TotalPrice = ProductData.Price * int.Parse(numericUpDownProSelectQuantity.Value.ToString());
 
             //データグリッドビューにデータをセット
             dataGridViewProSelect.Rows.Add(OrderDetailID, formHome.OrderID, textBoxProSelectProID.Text,
@@ -262,14 +263,18 @@ namespace SalesManagement_SysDev
                 return;
             }
 
+            //合計金額の計算
+            var ProductData = ProductList.Single(Product => Product.PrID == int.Parse(textBoxProSelectProID.Text));
+            int TotalPrice = ProductData.Price * int.Parse(numericUpDownProSelectQuantity.Value.ToString());
+
             //データグリッドビューに表示されている値を更新する
-            for(int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
+            for (int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
             {
                 if ((int)dataGridViewProSelect.Rows[i].Cells[0].Value == int.Parse(textBoxProSelectOrderDetailID.Text))
                 {
                     dataGridViewProSelect.Rows[i].Cells[2].Value = textBoxProSelectProID.Text;
                     dataGridViewProSelect.Rows[i].Cells[3].Value = numericUpDownProSelectQuantity.Value;
-                    dataGridViewProSelect.Rows[i].Cells[4].Value = labelProSelectTotalMoney.Text;
+                    dataGridViewProSelect.Rows[i].Cells[4].Value = TotalPrice;
                 }
             }
         }
@@ -342,7 +347,7 @@ namespace SalesManagement_SysDev
         private void buttonProSelectConfirm_Click(object sender, EventArgs e)
         {
             //データを入力しているかチェック
-            if (dataGridViewProSelect.NewRowIndex == -1)
+            if (dataGridViewProSelect.Rows.Count == 0)
             {
                 MessageBox.Show("商品を選択してください", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -359,22 +364,29 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();             //DB接続クラスのインスタンス化
                 context.T_Orders.Add(formHome.AddOrderData);                //受注情報登録
+                                                                            //label1.Text = formHome.AddOrderData.OrDate.ToString();
+
+                context.SaveChanges();
 
                 //登録データをデータグリッドビューから1行ずつ抽出する
-                for(int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
+                for (int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
                 {
                     //受注詳細テーブルにデータ追加する
                     context.T_OrderDetails.Add(OrderDetailAddDataSet(i));
                 }
 
+                context.SaveChanges();          //登録を確定
+
                 //元の画面の一覧表示用データの更新
                 formHome.OrderList = context.T_Orders.ToList();
                 formHome.OrderDetailList = context.T_OrderDetails.ToList();
 
-                context.SaveChanges();          //登録を確定
                 context.Dispose();              //contextを解放
 
                 msg.MsgDsp("M7025");        //受注詳細情報確定メッセージ
+
+                ClearText(this);            //入力内容をクリアする
+                dataGridViewProSelect.Rows.Clear();     //データグリッドビューの内容をクリアする
 
                 this.Visible = false;       //商品選択画面を閉じる
                 formHome.Visible = true;    //元の画面に戻る
@@ -392,7 +404,7 @@ namespace SalesManagement_SysDev
             {
                 OrID=formHome.OrderID,
                 PrID=int.Parse(dataGridViewProSelect.Rows[i].Cells[2].Value.ToString()),
-                OrQuantity=int.Parse(dataGridViewProSelect.Rows[i].Cells[3].ToString()),
+                OrQuantity=int.Parse(dataGridViewProSelect.Rows[i].Cells[3].Value.ToString()),
                 OrTotalPrice=int.Parse(dataGridViewProSelect.Rows[i].Cells[4].Value.ToString())
             };
         }
