@@ -80,7 +80,7 @@ namespace SalesManagement_SysDev
         /// 役職テーブルの表示用データを保持するListの宣言
         /// </summary>
 
-        List<M_Position> PositionList;
+        List<M_Position> PositionList = new List<M_Position>();
 
         ///<summary>
         ///共通モジュールのインスタンス化
@@ -88,7 +88,7 @@ namespace SalesManagement_SysDev
         MessageDsp msg = new MessageDsp();                                              //メッセージ表示用クラス
         CheckExistence Existence = new CheckExistence();                                //IDの存在チェック用クラス
         DataInputCheck InputCheck = new DataInputCheck();                               //入力チェック用クラス
-        PasswordHash PassHash = new PasswordHash();                                     //パスワードハッシュ化用クラス
+       // PasswordHash PassHash = new PasswordHash();                                     //パスワードハッシュ化用クラス
 
         /// <summary>
         /// 役職情報一覧表示モジュール
@@ -99,8 +99,11 @@ namespace SalesManagement_SysDev
 
         private void ListPosition()
         {
-            dataGridViewPositionMana.Rows.Clear();                        //データグリッドビューをクリアする
-            foreach (var PositionData in PositionList)
+            dataGridViewPositionMana.Rows.Clear();
+            //データグリッドビューをクリアする
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
+            foreach (var PositionData in context.M_Positions)
+            //foreach (var PositionData in PositionList)
             {
                 if (PositionData.PoFlag == 0)                     //役員管理フラグが0の場合表示する
                 {
@@ -119,7 +122,11 @@ namespace SalesManagement_SysDev
         private void DeleteListPosition()
         {
             dataGridViewPositionMana.Rows.Clear();                        //データグリッドビューをクリアする
-            foreach (var PositionData in PositionList)
+
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
+            foreach (var PositionData in context.M_Positions)
+
+              //  foreach (var PositionData in PositionList)
             {
                 if (PositionData.PoFlag == 2)                     //顧客管理フラグが2の場合表示する
                 {
@@ -171,7 +178,7 @@ namespace SalesManagement_SysDev
             }
 
             //役職名の入力チェック
-            if (!InputCheck.PositionIDInputCheck(textBoxPositionManaPositionName.Text))
+            if (!PositionInputCheck())
             {
                 textBoxPositionManaPositionName.Focus();
                 return;
@@ -236,32 +243,70 @@ namespace SalesManagement_SysDev
 
             dataGridViewPositionMana.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
 
-           // ListPosition();
+            //ListPosition();
+
+
 
         }
 
         private void buttonPositionManaSrarch_Click(object sender, EventArgs e)
         {
-            dataGridViewPositionMana.Rows.Clear();
+            dataGridViewPositionMana.Rows.Clear();                        //データグリッドビューの内容を消去する
 
-            //if(!InputCheck.PositionIDInputCheck)
-            if (!string.IsNullOrEmpty(comboBoxPositionManaPositionID.Text))
+            if (!string.IsNullOrEmpty(comboBoxPositionManaPositionID.Text))             //顧客IDコンボボックスの空文字チェック
             {
-                if (!InputCheck.PositionIDInputCheck(comboBoxPositionManaPositionID.Text))
+                //顧客IDの入力チェック
+                if (!InputCheck.ClientIDInputCheck(comboBoxPositionManaPositionID.Text))
                 {
                     comboBoxPositionManaPositionID.Focus();
                     return;
                 }
-                foreach(var PoData in PositionAccess.SearchPosition(1, comboBoxPositionManaPositionID.Text))           //役職
-                                                                                                                       //IDで検索する
+
+                foreach (var PoData in PositionAccess.SearchPosition(1, comboBoxPositionManaPositionID.Text))           //顧客IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewPositionMana.Rows.Add(PoData.PoID,PoData.PoName, Convert.ToBoolean(PoData.PoFlag),PoData.PoHidden);
+                }
+                labelPoSearchTitle.Text = "役職IDで検索しました";            //何で検索したかを表示
+            }
+
+            else if (!string.IsNullOrEmpty(textBoxPositionManaPositionName.Text))       //顧客名テキストボックスの空文字チェック
+            {
+                foreach (var PoData in PositionAccess.SearchPosition(textBoxPositionManaPositionName.Text))             //顧客名で検索する
                 {
                     //データグリッドビューにデータを表示
                     dataGridViewPositionMana.Rows.Add(PoData.PoID, PoData.PoName, Convert.ToBoolean(PoData.PoFlag), PoData.PoHidden);
                 }
-                labelPoSearchTitle.Text = "役職IDで検索しました。"; //何で検索したかを表示
-
-
+                labelPoSearchTitle.Text = "役職名で検索しました";           //何で検索したかを表示
             }
+            
+        }
+
+        private void buttonPositionManaList_Click(object sender, EventArgs e)
+        {
+            ListPosition();
+        }
+
+        private void buttonPositionManaDeleteList_Click(object sender, EventArgs e)
+        {
+            DeleteListPosition();
+        }
+
+        private void buttonPositionManaDelete_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewPositionMana.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool) dataGridViewPositionMana.Rows[i].Cells[2].Value)                 //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    PositionAccess.DeletePosition((int)dataGridViewPositionMana.Rows[i].Cells[0].Value);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+            //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //在庫情報一覧表示用データを更新
+            PositionList = PositionAccess.GetData();
+            //在庫情報再表示
+            ListPosition();
         }
     }
 }
