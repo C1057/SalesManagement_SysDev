@@ -34,7 +34,7 @@ namespace SalesManagement_SysDev
             if (methodflg == 1)
             {
                 int PositionID = int.Parse(SearchInfo);
-                searchresult = Context.M_Positions.Where(x => x.PoFlag == PositionID).ToList();
+                searchresult = Context.M_Positions.Where(x => x.PoID == PositionID).ToList();
                 Context.Dispose();
 
             }
@@ -95,6 +95,7 @@ namespace SalesManagement_SysDev
                 var Position = context.M_Positions.Single(x => x.PoID == updateData.PoID);    //更新対象データの取得
                 //更新データをセット
                 Position.PoName = updateData.PoName;
+                Position.PoHidden = updateData.PoHidden;
                 context.SaveChanges();  //
                 context.Dispose();     //contextを開放
 

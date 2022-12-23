@@ -42,9 +42,9 @@ namespace SalesManagement_SysDev
             this.textBoxPositionManaHidden = new System.Windows.Forms.TextBox();
             this.buttonPositionManaReturn = new System.Windows.Forms.Button();
             this.dataGridViewPositionMana = new System.Windows.Forms.DataGridView();
+            this.labelPoSearchTitle = new System.Windows.Forms.Label();
             this.buttonPositionManaDeleteList = new SalesManagement_SysDev.maruibutton();
             this.buttonPositionManaDelete = new SalesManagement_SysDev.maruibutton();
-            this.labelPoSearchTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPositionMana)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +72,7 @@ namespace SalesManagement_SysDev
             this.buttonPositionManaList.TabIndex = 223;
             this.buttonPositionManaList.Text = "一覧表示";
             this.buttonPositionManaList.UseVisualStyleBackColor = false;
+            this.buttonPositionManaList.Click += new System.EventHandler(this.buttonPositionManaList_Click);
             // 
             // buttonPositionManaAdd
             // 
@@ -190,6 +191,14 @@ namespace SalesManagement_SysDev
             this.dataGridViewPositionMana.Size = new System.Drawing.Size(1190, 331);
             this.dataGridViewPositionMana.TabIndex = 248;
             // 
+            // labelPoSearchTitle
+            // 
+            this.labelPoSearchTitle.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPoSearchTitle.Location = new System.Drawing.Point(422, 99);
+            this.labelPoSearchTitle.Name = "labelPoSearchTitle";
+            this.labelPoSearchTitle.Size = new System.Drawing.Size(211, 23);
+            this.labelPoSearchTitle.TabIndex = 251;
+            // 
             // buttonPositionManaDeleteList
             // 
             this.buttonPositionManaDeleteList.BackColor = System.Drawing.Color.Red;
@@ -202,6 +211,7 @@ namespace SalesManagement_SysDev
             this.buttonPositionManaDeleteList.TabIndex = 250;
             this.buttonPositionManaDeleteList.Text = "非表示リスト";
             this.buttonPositionManaDeleteList.UseVisualStyleBackColor = false;
+            this.buttonPositionManaDeleteList.Click += new System.EventHandler(this.buttonPositionManaDeleteList_Click);
             // 
             // buttonPositionManaDelete
             // 
@@ -215,14 +225,7 @@ namespace SalesManagement_SysDev
             this.buttonPositionManaDelete.TabIndex = 249;
             this.buttonPositionManaDelete.Text = "非表示";
             this.buttonPositionManaDelete.UseVisualStyleBackColor = false;
-            // 
-            // labelPoSearchTitle
-            // 
-            this.labelPoSearchTitle.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelPoSearchTitle.Location = new System.Drawing.Point(422, 99);
-            this.labelPoSearchTitle.Name = "labelPoSearchTitle";
-            this.labelPoSearchTitle.Size = new System.Drawing.Size(211, 23);
-            this.labelPoSearchTitle.TabIndex = 251;
+            this.buttonPositionManaDelete.Click += new System.EventHandler(this.buttonPositionManaDelete_Click);
             // 
             // FormPositionMana
             // 
