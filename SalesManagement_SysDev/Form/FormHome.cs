@@ -16,6 +16,7 @@ namespace SalesManagement_SysDev
         public int OrderDetailID;                                                       //受注詳細情報.受注詳細ID登録用変数
         public T_Order AddOrderData;                                                    //受注情報登録用変数
         private int ChumonID;                                                       //注文ID用変数
+        private int SyukkoID;                                                           //出庫ID用変数
 
 
         /// <summary>
@@ -3124,6 +3125,13 @@ namespace SalesManagement_SysDev
         /// </summary>
         private void buttonOrOrderConfirm_Click(object sender, EventArgs e)
         {
+            //受注IDの入力チェック
+            if (!InputCheck.ClientIDInputCheck(comboBoxOrOrderID.Text))
+            {
+                comboBoxOrOrderID.Focus();
+                return;
+            }
+
             //確定確認メッセージ
             if (msg.MsgDsp("M7024") == DialogResult.Cancel)
             {
@@ -3135,64 +3143,62 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
 
-                for (int i = 0; i < dataGridViewOrderMain.Rows.Count; i++)       //データグリッドビューの行の数だけ繰り返す
+                //受注IDをセット
+                int OrID = int.Parse(comboBoxOrOrderID.Text);
+
+                //注文テーブルに既にデータが存在するか確認する
+                if (!context.T_Chumons.Any(Chumon => Chumon.OrID == OrID))
                 {
-                    if ((bool)dataGridViewOrderMain.Rows[i].Cells[6].Value == true)         //受注情報フラグがチェックされているか確認する
+                    //注文IDのセット
+                    ChumonID = ChumonList.Count + 1;
+
+                    T_Order OrderData = OrderConfirmDataSet(OrID);         //受注IDと一致する受注データを取得する
+                    T_Chumon ChumonData = ChumonAddDataSet(OrderData);                  //登録用注文データをセットする
+                    context.T_Chumons.Add(ChumonData);                      //注文テーブルに登録する
+
+                    //データベースへの変更を確定する
+                    context.SaveChanges();
+
+                    //受注IDと一致する受注詳細情報を取得する
+                    //int OrID = int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString());
+                    List<T_OrderDetail> OrderDetailAllData = context.T_OrderDetails.Where(OrderDetail => OrderDetail.OrID == OrID).ToList();
+
+                    foreach (var OrderDetailData in OrderDetailAllData)          //取得した受注詳細情報分繰り返す
                     {
-                        //受注IDをセット
-                        int OrID = int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString());
+                        T_ChumonDetail ChumonDetailData = ChumonDetailAddDataSet(OrderDetailData);       //登録用注文詳細データをセットする
+                        context.T_ChumonDetails.Add(ChumonDetailData);              //注文詳細データを登録する
 
-                        //注文テーブルに既にデータが存在するか確認する
-                        if (!context.T_Chumons.Any(Chumon => Chumon.OrID == OrID))
-                        {
-                            //注文IDのセット
-                            ChumonID = ChumonList.Count + 1;
-
-                            T_Order OrderData = OrderConfirmDataSet((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);         //受注IDと一致する受注データを取得する
-                            T_Chumon ChumonData = ChumonAddDataSet(OrderData);                  //登録用注文データをセットする
-                            context.T_Chumons.Add(ChumonData);                      //注文テーブルに登録する
-
-                            //データベースへの変更を確定する
-                            context.SaveChanges();
-
-                            //受注IDと一致する受注詳細情報を取得する
-                            //int OrID = int.Parse(dataGridViewOrderMain.Rows[i].Cells[0].Value.ToString());
-                            List<T_OrderDetail> OrderDetailAllData = context.T_OrderDetails.Where(OrderDetail => OrderDetail.OrID == OrID).ToList();
-
-                            foreach (var OrderDetailData in OrderDetailAllData)          //取得した受注詳細情報分繰り返す
-                            {
-                                T_ChumonDetail ChumonDetailData = ChumonDetailAddDataSet(OrderDetailData);       //登録用注文詳細データをセットする
-                                context.T_ChumonDetails.Add(ChumonDetailData);              //注文詳細データを登録する
-
-                                //データベースへの変更を確定する
-                                context.SaveChanges();
-                            }
-
-                            //状態フラグを0から1へ変更する
-                            OrderData = context.T_Orders.Single(Order => Order.OrID == OrID);
-                            OrderData.OrStateFlag = 1;
-
-                            //データベースへの変更を確定する
-                            context.SaveChanges();
-                        }
+                        //データベースへの変更を確定する
+                        context.SaveChanges();
                     }
+
+                    //状態フラグを0から1へ変更する
+                    OrderData = context.T_Orders.Single(Order => Order.OrID == OrID);
+                    OrderData.OrStateFlag = 1;
+
+                    //データベースへの変更を確定する
+                    context.SaveChanges();
+
+                    //受注一覧表示用データの更新
+                    OrderList = context.T_Orders.ToList();
+                    //注文一覧表示用データの更新
+                    ChumonList = context.T_Chumons.ToList();
+                    ChumonDetailList = context.T_ChumonDetails.ToList();
+
+                    //contextの解放
+                    context.Dispose();
+
+                    //確定完了メッセージの表示
+                    msg.MsgDsp("M7025");
+
+                    //データの再表示
+                    ListOrder();
                 }
-
-                ////データベースへの変更を確定する
-                //context.SaveChanges();
-
-                //一覧表示用データの更新
-                OrderList = context.T_Orders.ToList();
-                OrderDetailList = context.T_OrderDetails.ToList();
-
-                //contextの解放
-                context.Dispose();
-
-                //確定完了メッセージの表示
-                msg.MsgDsp("M7025");
-
-                //データの再表示
-                ListOrder();
+                else
+                {
+                    //すでに確定されている場合
+                    MessageBox.Show("入力された受注IDのデータは既に確定されいます", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch
             {
@@ -3228,6 +3234,319 @@ namespace SalesManagement_SysDev
         private void buttonOrNDisplayList_Click(object sender, EventArgs e)
         {
             DeleteListOrder();
+        }
+
+    ////////////////////////////////////////////////
+    ///注文管理画面コード
+    ////////////////////////////////////////////////
+
+
+
+        /// <summary>
+        /// 注文情報一覧表示モジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void ListChumon()
+        {
+            dataGridViewChumonMain.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var ChumonData in ChumonList)
+            {
+                if (ChumonData.ChFlag == 0)                     //注文管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewChumonMain.Rows.Add(ChumonData.ChID, ChumonData.SoID, ChumonData.EmID, ChumonData.ClID, ChumonData.OrID, ChumonData.ChDate, Convert.ToBoolean(ChumonData.ChStateFlag),
+                                                            Convert.ToBoolean(ChumonData.ChFlag), ChumonData.ChHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 注文情報非表示リストモジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void DeleteListChumon()
+        {
+            dataGridViewChumonMain.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var ChumonData in ChumonList)
+            {
+                if (ChumonData.ChFlag == 2)                     //注文管理フラグが2の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewChumonMain.Rows.Add(ChumonData.ChID, ChumonData.SoID, ChumonData.EmID, ChumonData.ClID, ChumonData.OrID, ChumonData.ChDate, Convert.ToBoolean(ChumonData.ChStateFlag),
+                                                            Convert.ToBoolean(ChumonData.ChFlag), ChumonData.ChHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 注文確定用のデータをセットする
+        /// </summary>
+        /// <returns>T_Chumon</returns>
+        private T_Chumon ChumonDataSet()
+        {
+            return new T_Chumon
+            {
+                ChID=int.Parse(comboBoxChChumonID.Text),
+                EmID=int.Parse(comboBoxChEmployeeID.Text),
+                ChDate=dateTimePickerChumon.Value,
+                ChStateFlag=1
+            };
+        }
+
+        /// <summary>
+        /// 注文一覧表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonChDisplay_Click(object sender, EventArgs e)
+        {
+            ListChumon();
+        }
+
+        /// <summary>
+        /// 注文情報検索ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonChSearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewChumonMain.Rows.Clear();                        //メインデータグリッドビューの内容を消去する
+            dataGridViewChumonDetail.Rows.Clear();                        //詳細データグリッドビューの内容を消去する
+
+            if (!string.IsNullOrEmpty(comboBoxChChumonID.Text))             //受注IDコンボボックスの空文字チェック
+            {
+                //売上IDの入力チェック
+                if (!InputCheck.ChumonInputCheck(comboBoxChChumonID.Text))
+                {
+                    comboBoxChChumonID.Focus();
+                    return;
+                }
+                foreach (var ChData in ChumonAccess.SearchChumon(1, comboBoxChChumonID.Text))           //注文IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
+                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                }
+                foreach (var ChumonDetailData in ChumonDetailList.Where(ChumonDetailList => ChumonDetailList.ChID == int.Parse(comboBoxChChumonID.Text)))      //注文IDで注文詳細情報を検索する
+                {
+                    //詳細データグリッドビューにデータを表示する
+                    dataGridViewChumonDetail.Rows.Add(ChumonDetailData.ChDetailID, ChumonDetailData.ChID, ChumonDetailData.PrID, ChumonDetailData.ChQuantity);
+                }
+                labelChSearchTitle.Text = "注文IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxChSalesOfficeID.Text))       //営業所IDコンボボックスの空文字チェック
+            {
+                //社員IDの入力チェック
+                if (!InputCheck.SalesOfficeIDInputCheck(comboBoxChSalesOfficeID.Text))
+                {
+                    comboBoxChSalesOfficeID.Focus();
+                    return;
+                }
+                foreach (var ChData in ChumonAccess.SearchChumon(2, comboBoxChSalesOfficeID.Text))           //営業所IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
+                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                }
+                labelChSearchTitle.Text = "営業所IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxChEmployeeID.Text))   //社員IDコンボボックスの空文字チェック
+            {
+                //社員IDの入力チェック
+                if (!InputCheck.EmployeeIDInputCheck(comboBoxChEmployeeID.Text))
+                {
+                    comboBoxChEmployeeID.Focus();
+                    return;
+                }
+                foreach (var ChData in ChumonAccess.SearchChumon(3, comboBoxChEmployeeID.Text))      //社員IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
+                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                }
+                labelChSearchTitle.Text = "社員IDで検索しました";         //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxChClientID.Text))
+            {
+                //顧客IDの入力チェック
+                if (!InputCheck.ClientIDInputCheck(comboBoxChClientID.Text))
+                {
+                    comboBoxChClientID.Focus();
+                    return;
+                }
+                foreach (var ChData in ChumonAccess.SearchChumon(4, comboBoxChClientID.Text))      //顧客IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
+                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                }
+                labelChSearchTitle.Text = "顧客IDで検索しました";         //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxChOrderID.Text))
+            {
+                //受注IDの入力チェック
+                if (!InputCheck.OrderInputCheck(comboBoxChOrderID.Text))
+                {
+                    comboBoxChOrderID.Focus();
+                    return;
+                }
+                foreach (var ChData in ChumonAccess.SearchChumon(5, comboBoxChOrderID.Text))      //受注IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
+                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                }
+                labelChSearchTitle.Text = "受注IDで検索しました";         //何で検索したかを表示
+            }
+        }
+
+        /// <summary>
+        /// 注文確定用出庫データセット
+        /// </summary>
+        /// <param name="ChumonData"></param>
+        private T_Syukko SyukkoAddDataSet(T_Chumon ChumonData)
+        {
+            return new T_Syukko
+            {
+                ClID = ChumonData.ClID,
+                SoID = ChumonData.SoID,
+                OrID = ChumonData.OrID,
+                SyFlag = 0
+            };
+        }
+
+        /// <summary>
+        /// 注文確定用出庫詳細データセット
+        /// </summary>
+        /// <param name="ChumonDetail"></param>
+        private T_SyukkoDetail SyukkoDetailAddDataSet(T_ChumonDetail ChumonDetail)
+        {
+            return new T_SyukkoDetail
+            {
+                SyID = SyukkoID,
+                PrID = ChumonDetail.PrID,
+                SyQuantity = ChumonDetail.ChQuantity
+            };
+        }
+
+        /// <summary>
+        /// 注文情報確定ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonChChumonConfirm_Click(object sender, EventArgs e)
+        {
+            //注文IDの入力チェック
+            if (!InputCheck.ChumonInputCheck(comboBoxChChumonID.Text))
+            {
+                comboBoxChChumonID.Focus();
+                return;
+            }
+
+            //注文確定確認メッセージ
+            if (msg.MsgDsp("M8007") == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            //例外処理
+            try
+            {
+                var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
+
+                //受注IDをセット
+                int ChID = int.Parse(comboBoxChChumonID.Text);
+
+                //↓存在確認用の注文情報を取得
+                T_Chumon ChumonData = context.T_Chumons.Single(Chumon=>Chumon.ChID==ChID);         //受注IDと一致する受注データを取得する
+
+                //注文テーブルに既にデータが存在するか確認する
+                if (!context.T_Syukkos.Any(Syukko => Syukko.OrID == ChumonData.OrID))
+                {
+                    //注文IDのセット
+                    SyukkoID = SyukkoList.Count + 1;
+
+                    T_Syukko SyukkoData = SyukkoAddDataSet(ChumonData);                  //登録用出庫データをセットする
+                    context.T_Syukkos.Add(SyukkoData);                      //出庫テーブルに登録する
+
+                    //データベースへの変更を確定する
+                    context.SaveChanges();
+
+                    //注文IDと一致する注文詳細情報を取得する
+                    List<T_ChumonDetail> ChumonDetailAllData = context.T_ChumonDetails.Where(ChumonDetail => ChumonDetail.ChID == ChID).ToList();
+
+                    foreach (var ChumonDetailData in ChumonDetailAllData)          //取得した注文詳細情報分繰り返す
+                    {
+                        T_SyukkoDetail SyukkoDetailData = SyukkoDetailAddDataSet(ChumonDetailData);       //登録用出庫詳細データをセットする
+                        context.T_SyukkoDetails.Add(SyukkoDetailData);              //出庫詳細データを登録する
+
+                        //データベースへの変更を確定する
+                        context.SaveChanges();
+                    }
+
+                    //状態フラグを0から1へ変更する
+                    ChumonData.ChStateFlag = 1;
+
+                    //データベースへの変更を確定する
+                    context.SaveChanges();
+
+                    //注文一覧表示用データの更新
+                    ChumonList = ChumonAccess.GetData();
+
+                    //出庫一覧表示用データの更新
+                    SyukkoList = context.T_Syukkos.ToList();
+                    SyukkoDetailList = context.T_SyukkoDetails.ToList();
+
+                    //確定完了メッセージの表示
+                    msg.MsgDsp("M8008");
+
+                    //データの再表示
+                    ListChumon();
+                }
+                else
+                {
+                    //すでに確定されている場合
+                    MessageBox.Show("入力された注文IDのデータは既に確定されいます", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                //contextの解放
+                context.Dispose();
+            }
+            catch
+            {
+                MessageBox.Show("確定に失敗しました", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 注文情報非表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonChNDisplay_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewChumonMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridViewChumonMain.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    ChumonAccess.DeleteChumon((int)dataGridViewChumonMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の注文IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+            //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //注文情報一覧表示用データを更新
+            ChumonList = ChumonAccess.GetData();
+            //注文情報再表示
+            ListChumon();
+        }
+
+        /// <summary>
+        /// 注文情報非表示リストボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonChNDisplayList_Click(object sender, EventArgs e)
+        {
+            DeleteListChumon();
         }
     }
 }
