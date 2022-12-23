@@ -66,9 +66,30 @@ namespace SalesManagement_SysDev
             InitializeComponent();
         }
 
+        private static void ClearText(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    ClearText(cControl);
+                }
+
+                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+                if (cControl is TextBoxBase || cControl is ComboBox)
+                {
+                    cControl.Text = string.Empty;
+                }
+            }
+        }
+
         private void buttonPositionManaReturn_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+            ClearText(this);
+
         }
 
         /// <summary>
