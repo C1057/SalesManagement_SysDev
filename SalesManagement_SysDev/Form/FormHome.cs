@@ -1619,7 +1619,7 @@ namespace SalesManagement_SysDev
         {
             dataGridViewCI.Rows.Clear();                        //データグリッドビューの内容を消去する
 
-            if (!InputCheck.ClientIDInputCheck(comboBoxCIClientID.Text))             //顧客IDコンボボックスの空文字チェック
+            if (!string.IsNullOrEmpty(comboBoxCIClientID.Text))             //顧客IDコンボボックスの空文字チェック
             {
                 //顧客IDの入力チェック
                 if (!InputCheck.ClientIDInputCheck(comboBoxCIClientID.Text))  
