@@ -17,7 +17,7 @@ namespace SalesManagement_SysDev
         {
             return new M_Position
             {
-                //PoID = int.Parse(comboBoxPositionManaPositionID.Text.Trim()),
+                PoID = int.Parse(comboBoxPositionManaPositionID.Text.Trim()),
                 PoName = textBoxPositionManaPositionName.Text.Trim(),
                 PoFlag = 0,
                 PoHidden = textBoxPositionManaHidden.Text.Trim()
