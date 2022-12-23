@@ -3548,5 +3548,153 @@ namespace SalesManagement_SysDev
         {
             DeleteListChumon();
         }
+
+
+
+
+
+
+
+
+
+        /// 出庫情報一覧表示モジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void ListSyukko()
+        {
+            dataGridViewSyukkoMain.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var SyukkoData in SyukkoList)
+            {
+                if (SyukkoData.SyFlag == 0)                     //出庫管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewSyukkoMain.Rows.Add(SyukkoData.SyID, SyukkoData.EmID, SyukkoData.ClID, SyukkoData.SoID, SyukkoData.OrID, SyukkoData.SyDate,
+                                                        Convert.ToBoolean(SyukkoData.SyStateFlag), Convert.ToBoolean(SyukkoData.SyFlag), SyukkoData.SyHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 出庫情報非表示リストモジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void DeleteListSyukko()
+        {
+            dataGridViewSyukkoMain.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var SyukkoData in SyukkoList)
+            {
+                if (SyukkoData.SyFlag == 2)                     //出庫管理フラグが2の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewSyukkoMain.Rows.Add(SyukkoData.SyID, SyukkoData.EmID, SyukkoData.ClID, SyukkoData.SoID, SyukkoData.OrID, SyukkoData.SyDate,
+                                                        Convert.ToBoolean(SyukkoData.SyStateFlag), Convert.ToBoolean(SyukkoData.SyFlag), SyukkoData.SyHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 出庫情報一覧表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonSyDisplay_Click(object sender, EventArgs e)
+        {
+            ListSyukko();
+        }
+
+        private void buttonSySearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewSyukkoMain.Rows.Clear();                        //メインデータグリッドビューの内容を消去する
+            dataGridViewSyukkoDetail.Rows.Clear();                        //詳細データグリッドビューの内容を消去する
+
+            if (!string.IsNullOrEmpty(comboBoxSySyukkoID.Text))             //受注IDコンボボックスの空文字チェック
+            {
+                //売上IDの入力チェック
+                if (!InputCheck.SyukkoInputCheck(comboBoxSySyukkoID.Text))
+                {
+                    comboBoxSySyukkoID.Focus();
+                    return;
+                }
+                foreach (var SyData in SyukkoAccess.SearchSyukko(1, comboBoxSySyukkoID.Text))           //注文IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewSyukkoMain.Rows.Add(SyData.SyID, SyData.EmID, SyData.ClID, SyData.SoID, SyData.OrID, Convert.ToBoolean(SyData.SyStateFlag),
+                                                        Convert.ToBoolean(SyData.SyFlag), SyData.SyHidden);
+                }
+                foreach (var SyukkoDetailData in SyukkoDetailList.Where(SyukkoDetailList => SyukkoDetailList.SyID == int.Parse(comboBoxSySyukkoID.Text)))      //注文IDで注文詳細情報を検索する
+                {
+                    //詳細データグリッドビューにデータを表示する
+                    dataGridViewSyukkoDetail.Rows.Add(SyukkoDetailData.SyDetailID, SyukkoDetailData.SyID, SyukkoDetailData.PrID, SyukkoDetailData.SyQuantity);
+                }
+                labelSySearchTitle.Text = "出庫IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxChSalesOfficeID.Text))       //営業所IDコンボボックスの空文字チェック
+            {
+                //社員IDの入力チェック
+                if (!InputCheck.SalesOfficeIDInputCheck(comboBoxChSalesOfficeID.Text))
+                {
+                    comboBoxChSalesOfficeID.Focus();
+                    return;
+                }
+                foreach (var ChData in ChumonAccess.SearchChumon(2, comboBoxChSalesOfficeID.Text))           //営業所IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
+                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                }
+                labelChSearchTitle.Text = "営業所IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxChEmployeeID.Text))   //社員IDコンボボックスの空文字チェック
+            {
+                //社員IDの入力チェック
+                if (!InputCheck.EmployeeIDInputCheck(comboBoxChEmployeeID.Text))
+                {
+                    comboBoxChEmployeeID.Focus();
+                    return;
+                }
+                foreach (var ChData in ChumonAccess.SearchChumon(3, comboBoxChEmployeeID.Text))      //社員IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
+                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                }
+                labelChSearchTitle.Text = "社員IDで検索しました";         //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxChClientID.Text))
+            {
+                //顧客IDの入力チェック
+                if (!InputCheck.ClientIDInputCheck(comboBoxChClientID.Text))
+                {
+                    comboBoxChClientID.Focus();
+                    return;
+                }
+                foreach (var ChData in ChumonAccess.SearchChumon(4, comboBoxChClientID.Text))      //顧客IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
+                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                }
+                labelChSearchTitle.Text = "顧客IDで検索しました";         //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxChOrderID.Text))
+            {
+                //受注IDの入力チェック
+                if (!InputCheck.OrderInputCheck(comboBoxChOrderID.Text))
+                {
+                    comboBoxChOrderID.Focus();
+                    return;
+                }
+                foreach (var ChData in ChumonAccess.SearchChumon(5, comboBoxChOrderID.Text))      //受注IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
+                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                }
+                labelChSearchTitle.Text = "受注IDで検索しました";         //何で検索したかを表示
+            }
+        }
     }
 }
