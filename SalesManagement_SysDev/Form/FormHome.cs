@@ -20,6 +20,7 @@ namespace SalesManagement_SysDev
         private int ArrivalID;                                                          //入荷ID用変数
         private int ShipmentID;                                                         //出荷ID用変数
         private int SaleID;                                                             //売上ID用変数
+        private int WarehousingID;                                                      //入庫ID用変数
 
 
         /// <summary>
@@ -3254,6 +3255,7 @@ namespace SalesManagement_SysDev
         private void ListChumon()
         {
             dataGridViewChumonMain.Rows.Clear();                        //データグリッドビューをクリアする
+            dataGridViewChumonDetail.Rows.Clear();
             foreach (var ChumonData in ChumonList)
             {
                 if (ChumonData.ChFlag == 0)                     //注文管理フラグが0の場合表示する
@@ -3274,6 +3276,7 @@ namespace SalesManagement_SysDev
         private void DeleteListChumon()
         {
             dataGridViewChumonMain.Rows.Clear();                        //データグリッドビューをクリアする
+            dataGridViewChumonDetail.Rows.Clear();
             foreach (var ChumonData in ChumonList)
             {
                 if (ChumonData.ChFlag == 2)                     //注文管理フラグが2の場合表示する
@@ -3574,6 +3577,7 @@ namespace SalesManagement_SysDev
         private void ListSyukko()
         {
             dataGridViewSyukkoMain.Rows.Clear();                        //データグリッドビューをクリアする
+            dataGridViewSyukkoDetail.Rows.Clear();
             foreach (var SyukkoData in SyukkoList)
             {
                 if (SyukkoData.SyFlag == 0)                     //出庫管理フラグが0の場合表示する
@@ -3594,6 +3598,7 @@ namespace SalesManagement_SysDev
         private void DeleteListSyukko()
         {
             dataGridViewSyukkoMain.Rows.Clear();                        //データグリッドビューをクリアする
+            dataGridViewSyukkoDetail.Rows.Clear();
             foreach (var SyukkoData in SyukkoList)
             {
                 if (SyukkoData.SyFlag == 2)                     //出庫管理フラグが2の場合表示する
@@ -3878,6 +3883,7 @@ namespace SalesManagement_SysDev
         private void ListArrival()
         {
             dataGridViewArrivalMain.Rows.Clear();                        //データグリッドビューをクリアする
+            dataGridViewArrivalDetail.Rows.Clear();
             foreach (var ArrivalData in ArrivalList)
             {
                 if (ArrivalData.ArFlag == 0)                     //入荷管理フラグが0の場合表示する
@@ -3898,6 +3904,7 @@ namespace SalesManagement_SysDev
         private void DeleteListArrival()
         {
             dataGridViewArrivalMain.Rows.Clear();                        //データグリッドビューをクリアする
+            dataGridViewArrivalDetail.Rows.Clear();
             foreach (var ArrivalData in ArrivalList)
             {
                 if (ArrivalData.ArFlag == 2)                     //入荷管理フラグが2の場合表示する
@@ -4127,7 +4134,7 @@ namespace SalesManagement_SysDev
                 else
                 {
                     //すでに確定されている場合
-                    MessageBox.Show("入力された出庫IDのデータは既に確定されいます", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("入力された入荷IDのデータは既に確定されいます", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 //contextの解放
@@ -4181,6 +4188,7 @@ namespace SalesManagement_SysDev
         private void ListShipment()
         {
             dataGridViewShipmentMain.Rows.Clear();                        //データグリッドビューをクリアする
+            dataGridViewShipmentDetail.Rows.Clear();
             foreach (var ShData in ShipmentList)
             {
                 if (ShData.ShFlag == 0)                     //出荷管理フラグが0の場合表示する
@@ -4201,6 +4209,7 @@ namespace SalesManagement_SysDev
         private void DeleteListShipment()
         {
             dataGridViewShipmentMain.Rows.Clear();                        //データグリッドビューをクリアする
+            dataGridViewShipmentDetail.Rows.Clear();
             foreach (var ShData in ShipmentList)
             {
                 if (ShData.ShFlag == 2)                     //出荷管理フラグが2の場合表示する
@@ -4442,7 +4451,7 @@ namespace SalesManagement_SysDev
                 else
                 {
                     //すでに確定されている場合
-                    MessageBox.Show("入力された出庫IDのデータは既に確定されいます", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("入力された出荷IDのデータは既に確定されいます", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 //contextの解放
@@ -4482,6 +4491,283 @@ namespace SalesManagement_SysDev
         private void buttonShNDisplayList_Click(object sender, EventArgs e)
         {
             DeleteListShipment();
+        }
+
+    ///////////////////////////////////////////////
+    ///発注管理画面コード
+    ///////////////////////////////////////////////
+
+        /// <summary>
+        /// 発注情報一覧表示モジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void ListHattyu()
+        {
+            dataGridViewHattyuMain.Rows.Clear();                        //データグリッドビューをクリアする
+            dataGridViewHattyuDetail.Rows.Clear();
+            foreach (var HaData in HattyuList)
+            {
+                if (HaData.HaFlag == 0)                     //発注管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewHattyuMain.Rows.Add(HaData.HaID, HaData.MaID, HaData.EmID, HaData.HaDate, Convert.ToBoolean(HaData.WaWarehouseFlag),
+                                                        Convert.ToBoolean(HaData.HaFlag), HaData.HaHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 発注情報非表示リストモジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void DeleteListHattyu()
+        {
+            dataGridViewHattyuMain.Rows.Clear();                        //データグリッドビューをクリアする
+            dataGridViewHattyuDetail.Rows.Clear();
+            foreach (var HaData in HattyuList)
+            {
+                if (HaData.HaFlag == 2)                     //発注管理フラグが2の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewHattyuMain.Rows.Add(HaData.HaID, HaData.MaID, HaData.EmID, HaData.HaDate, Convert.ToBoolean(HaData.WaWarehouseFlag),
+                                                        Convert.ToBoolean(HaData.HaFlag), HaData.HaHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 発注一覧表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonHaDisplay_Click(object sender, EventArgs e)
+        {
+            ListHattyu();
+        }
+
+        /// <summary>
+        /// 発注検索ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonHaSearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewHattyuMain.Rows.Clear();                        //メインデータグリッドビューの内容を消去する
+            dataGridViewHattyuDetail.Rows.Clear();                        //詳細データグリッドビューの内容を消去する
+
+            if (!string.IsNullOrEmpty(comboBoxChChumonID.Text))             //受注IDコンボボックスの空文字チェック
+            {
+                //発注IDの入力チェック
+                if (!InputCheck.HattyuInputCheck(comboBoxHaHattyuID.Text))
+                {
+                    comboBoxHaHattyuID.Focus();
+                    return;
+                }
+                foreach (var HaData in HattyuAccess.SearchHattyu(1, comboBoxHaHattyuID.Text))           //発注IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewHattyuMain.Rows.Add(HaData.HaID, HaData.MaID, HaData.EmID, HaData.HaDate, Convert.ToBoolean(HaData.WaWarehouseFlag),
+                                                        Convert.ToBoolean(HaData.HaFlag), HaData.HaHidden);
+                }
+                foreach (var HattyuDetailData in HattyuDetailList.Where(HattyuDetailList => HattyuDetailList.HaID == int.Parse(comboBoxHaHattyuID.Text)))      //発注IDで発注詳細情報を検索する
+                {
+                    M_Product product = ProductList.Single(Pr => Pr.PrID == HattyuDetailData.PrID);        //商品IDと一致する商品データを取得
+
+                    //詳細データグリッドビューにデータを表示する
+                    dataGridViewHattyuDetail.Rows.Add(HattyuDetailData.HaDetailID, HattyuDetailData.HaID, HattyuDetailData.PrID, product.PrName, HattyuDetailData.HaQuantity);
+                }
+                labelHaSearchTitle.Text = "発注IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxHaMakerID.Text))       //メーカIDコンボボックスの空文字チェック
+            {
+                //メーカIDの入力チェック
+                if (!InputCheck.MakerIDInputCheck(comboBoxHaMakerID.Text))
+                {
+                    comboBoxHaMakerID.Focus();
+                    return;
+                }
+                foreach (var HaData in HattyuAccess.SearchHattyu(2, comboBoxHaMakerID.Text))           //メーカIDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewHattyuMain.Rows.Add(HaData.HaID, HaData.MaID, HaData.EmID, HaData.HaDate, Convert.ToBoolean(HaData.WaWarehouseFlag),
+                                                        Convert.ToBoolean(HaData.HaFlag), HaData.HaHidden);
+                }
+                labelHaSearchTitle.Text = "メーカIDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxHaEmployeeID.Text))   //社員IDコンボボックスの空文字チェック
+            {
+                //社員IDの入力チェック
+                if (!InputCheck.EmployeeIDInputCheck(comboBoxHaEmployeeID.Text))
+                {
+                    comboBoxHaEmployeeID.Focus();
+                    return;
+                }
+                foreach (var HaData in HattyuAccess.SearchHattyu(3, comboBoxHaEmployeeID.Text))      //社員IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewHattyuMain.Rows.Add(HaData.HaID, HaData.MaID, HaData.EmID, HaData.HaDate, Convert.ToBoolean(HaData.WaWarehouseFlag),
+                                                        Convert.ToBoolean(HaData.HaFlag), HaData.HaHidden);
+                }
+                labelHaSearchTitle.Text = "社員IDで検索しました";         //何で検索したかを表示
+            }
+        }
+
+        /// <summary>
+        /// 発注確定用入庫データセット
+        /// </summary>
+        /// <param name="HattyuData"></param>
+        private T_Warehousing WarehousingAddDataSet(T_Hattyu HattyuData)
+        {
+            return new T_Warehousing
+            {
+                HaID = HattyuData.HaID,
+                EmID = HattyuData.EmID,
+                WaDate = dateTimePickerHa.Value, 
+                WaShelfFlag=0, 
+                WaFlag = 0
+            };
+        }
+
+        /// <summary>
+        /// 発注確定用入庫詳細データセット
+        /// </summary>
+        /// <param name="HattyuDetail"></param>
+        private T_WarehousingDetail WarehousingDetailAddDataSet(T_HattyuDetail HattyuDetail)
+        {
+            return new T_WarehousingDetail
+            {
+                WaID = WarehousingID,
+                PrID = HattyuDetail.PrID,
+                WaQuantity = HattyuDetail.HaQuantity
+            };
+        }
+
+        /// <summary>
+        /// 発注確定ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonHaConfirm_Click(object sender, EventArgs e)
+        {
+            //発注IDの入力チェック
+            if (!InputCheck.HattyuInputCheck(comboBoxHaHattyuID.Text))
+            {
+                comboBoxHaHattyuID.Focus();
+                return;
+            }
+            //社員IDの入力チェック
+            if (!InputCheck.EmployeeIDInputCheck(comboBoxHaEmployeeID.Text))
+            {
+                comboBoxHaEmployeeID.Focus();
+                return;
+            }
+
+            //発注確定確認メッセージ
+            if (msg.MsgDsp("M9021") == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            //例外処理
+            try
+            {
+                var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
+
+                //発注IDをセット
+                int HaID = int.Parse(comboBoxHaHattyuID.Text);
+
+                //↓存在確認用の発注情報を取得
+                T_Hattyu HattyuData = context.T_Hattyus.Single(Hattyu => Hattyu.HaID == HaID);         //発注IDと一致する入荷データを取得する
+
+                //発注テーブルに既にデータが存在するか確認する
+                if (!context.T_Warehousings.Any(Warehousing => Warehousing.HaID == HattyuData.HaID))
+                {
+                    //入庫IDのセット
+                    WarehousingID = WarehousingList.Count + 1;
+
+                    T_Warehousing WarehousingData = WarehousingAddDataSet(HattyuData);                  //登録用入庫データをセットする
+                    context.T_Warehousings.Add(WarehousingData);                      //入庫テーブルに登録する
+
+                    //データベースへの変更を確定する
+                    context.SaveChanges();
+
+
+                    //発注IDと一致する発注詳細情報を取得する
+                    List<T_HattyuDetail> HattyuDetailAllData = context.T_HattyuDetails.Where(HattyuDetail => HattyuDetail.HaID == HaID).ToList();
+
+                    foreach (var HattyuDetailData in HattyuDetailAllData)          //取得した発注詳細情報分繰り返す
+                    {
+                        T_WarehousingDetail WarehousingDetailData = WarehousingDetailAddDataSet(HattyuDetailData);       //登録用入庫詳細データをセットする
+                        context.T_WarehousingDetails.Add(WarehousingDetailData);              //入庫詳細データを登録する
+
+                        //データベースへの変更を確定する
+                        context.SaveChanges();
+                    }
+
+
+                    //入庫状態フラグ(倉庫)の更新
+                    HattyuData.WaWarehouseFlag = 1;
+
+                    //データベースへの変更を確定する
+                    context.SaveChanges();
+
+                    //発注一覧表示用データの更新
+                    HattyuList = HattyuAccess.GetDatahattyu();
+
+                    //入庫一覧表示用データの更新
+                    WarehousingList = context.T_Warehousings.ToList();
+                    WarehousingDetailList = context.T_WarehousingDetails.ToList();
+
+                    //確定完了メッセージの表示
+                    msg.MsgDsp("M19022");
+
+                    //データの再表示
+                    ListHattyu();
+                }
+                else
+                {
+                    //すでに確定されている場合
+                    MessageBox.Show("入力された発注IDのデータは既に確定されいます", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                //contextの解放
+                context.Dispose();
+            }
+            catch
+            {
+                MessageBox.Show("確定に失敗しました", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 発注非表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonHaNDisplay_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewHattyuMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridViewHattyuMain.Rows[i].Cells[5].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    HattyuAccess.DeleteHattyu((int)dataGridViewHattyuMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の発注IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+            //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //発注情報一覧表示用データを更新
+            HattyuList = HattyuAccess.GetDatahattyu();
+            //発注情報再表示
+            ListHattyu();
+        }
+
+        /// <summary>
+        /// 発注非表示リストボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonHaNDisplayList_Click(object sender, EventArgs e)
+        {
+            DeleteListHattyu();
         }
     }
 }

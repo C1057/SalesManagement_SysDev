@@ -473,6 +473,8 @@ namespace SalesManagement_SysDev
             this.buttonStNDisplay = new SalesManagement_SysDev.maruibutton();
             this.labelShShipmentIDWarning = new System.Windows.Forms.Label();
             this.labelShEmployeeIDWarning = new System.Windows.Forms.Label();
+            this.labelHaHattyuIDWarning = new System.Windows.Forms.Label();
+            this.labelHaEmployeeIDWarning = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHattyu.SuspendLayout();
@@ -936,6 +938,8 @@ namespace SalesManagement_SysDev
             // panelHattyu
             // 
             this.panelHattyu.BackColor = System.Drawing.Color.Azure;
+            this.panelHattyu.Controls.Add(this.labelHaEmployeeIDWarning);
+            this.panelHattyu.Controls.Add(this.labelHaHattyuIDWarning);
             this.panelHattyu.Controls.Add(this.labelHaProductName);
             this.panelHattyu.Controls.Add(this.textBoxHaProductName);
             this.panelHattyu.Controls.Add(this.labelHaEmployeeName);
@@ -1037,7 +1041,6 @@ namespace SalesManagement_SysDev
             this.labelHaSearchTitle.Name = "labelHaSearchTitle";
             this.labelHaSearchTitle.Size = new System.Drawing.Size(257, 24);
             this.labelHaSearchTitle.TabIndex = 162;
-            this.labelHaSearchTitle.Text = "label3";
             // 
             // dataGridViewHattyuDetail
             // 
@@ -1049,6 +1052,7 @@ namespace SalesManagement_SysDev
             this.dataGridViewHattyuDetail.RowTemplate.Height = 27;
             this.dataGridViewHattyuDetail.Size = new System.Drawing.Size(570, 310);
             this.dataGridViewHattyuDetail.TabIndex = 161;
+            this.dataGridViewHattyuDetail.TabStop = false;
             // 
             // comboBoxHaHattyuID
             // 
@@ -1115,8 +1119,10 @@ namespace SalesManagement_SysDev
             this.buttonHaDisplay.Name = "buttonHaDisplay";
             this.buttonHaDisplay.Size = new System.Drawing.Size(260, 75);
             this.buttonHaDisplay.TabIndex = 152;
+            this.buttonHaDisplay.TabStop = false;
             this.buttonHaDisplay.Text = "一覧表示";
             this.buttonHaDisplay.UseVisualStyleBackColor = false;
+            this.buttonHaDisplay.Click += new System.EventHandler(this.buttonHaDisplay_Click);
             // 
             // labelHaMakerName
             // 
@@ -1139,8 +1145,10 @@ namespace SalesManagement_SysDev
             this.buttonHaConfirm.Name = "buttonHaConfirm";
             this.buttonHaConfirm.Size = new System.Drawing.Size(258, 75);
             this.buttonHaConfirm.TabIndex = 151;
+            this.buttonHaConfirm.TabStop = false;
             this.buttonHaConfirm.Text = "発注確定";
             this.buttonHaConfirm.UseVisualStyleBackColor = false;
+            this.buttonHaConfirm.Click += new System.EventHandler(this.buttonHaConfirm_Click);
             // 
             // textBoxHaMakerName
             // 
@@ -1171,8 +1179,10 @@ namespace SalesManagement_SysDev
             this.buttonHaSearch.Name = "buttonHaSearch";
             this.buttonHaSearch.Size = new System.Drawing.Size(260, 75);
             this.buttonHaSearch.TabIndex = 149;
+            this.buttonHaSearch.TabStop = false;
             this.buttonHaSearch.Text = "検索";
             this.buttonHaSearch.UseVisualStyleBackColor = false;
+            this.buttonHaSearch.Click += new System.EventHandler(this.buttonHaSearch_Click);
             // 
             // labelHaDateTime
             // 
@@ -1195,6 +1205,7 @@ namespace SalesManagement_SysDev
             this.dataGridViewHattyuMain.RowTemplate.Height = 27;
             this.dataGridViewHattyuMain.Size = new System.Drawing.Size(1050, 310);
             this.dataGridViewHattyuMain.TabIndex = 122;
+            this.dataGridViewHattyuMain.TabStop = false;
             // 
             // labelHaEmployeeID
             // 
@@ -4321,6 +4332,7 @@ namespace SalesManagement_SysDev
             this.buttonSaSearch.Name = "buttonSaSearch";
             this.buttonSaSearch.Size = new System.Drawing.Size(258, 75);
             this.buttonSaSearch.TabIndex = 127;
+            this.buttonSaSearch.TabStop = false;
             this.buttonSaSearch.Text = "検索";
             this.buttonSaSearch.UseVisualStyleBackColor = false;
             this.buttonSaSearch.Click += new System.EventHandler(this.buttonSaSearch_Click);
@@ -4334,6 +4346,7 @@ namespace SalesManagement_SysDev
             this.buttonSaDisplay.Name = "buttonSaDisplay";
             this.buttonSaDisplay.Size = new System.Drawing.Size(258, 75);
             this.buttonSaDisplay.TabIndex = 126;
+            this.buttonSaDisplay.TabStop = false;
             this.buttonSaDisplay.Text = "一覧表示";
             this.buttonSaDisplay.UseVisualStyleBackColor = false;
             this.buttonSaDisplay.Click += new System.EventHandler(this.buttonSaDisplay_Click);
@@ -4348,6 +4361,7 @@ namespace SalesManagement_SysDev
             this.dataGridViewSaDetail.RowTemplate.Height = 27;
             this.dataGridViewSaDetail.Size = new System.Drawing.Size(570, 310);
             this.dataGridViewSaDetail.TabIndex = 94;
+            this.dataGridViewSaDetail.TabStop = false;
             // 
             // dataGridViewSaleMain
             // 
@@ -4359,6 +4373,7 @@ namespace SalesManagement_SysDev
             this.dataGridViewSaleMain.RowTemplate.Height = 27;
             this.dataGridViewSaleMain.Size = new System.Drawing.Size(1050, 310);
             this.dataGridViewSaleMain.TabIndex = 92;
+            this.dataGridViewSaleMain.TabStop = false;
             // 
             // labelSaRsn
             // 
@@ -5411,6 +5426,7 @@ namespace SalesManagement_SysDev
             this.buttonSaNDisplayList.Name = "buttonSaNDisplayList";
             this.buttonSaNDisplayList.Size = new System.Drawing.Size(172, 111);
             this.buttonSaNDisplayList.TabIndex = 130;
+            this.buttonSaNDisplayList.TabStop = false;
             this.buttonSaNDisplayList.Text = "非表示リスト";
             this.buttonSaNDisplayList.UseVisualStyleBackColor = false;
             this.buttonSaNDisplayList.Click += new System.EventHandler(this.buttonSaNDisplayList_Click);
@@ -5425,6 +5441,7 @@ namespace SalesManagement_SysDev
             this.buttonSaNDisplay.Name = "buttonSaNDisplay";
             this.buttonSaNDisplay.Size = new System.Drawing.Size(172, 111);
             this.buttonSaNDisplay.TabIndex = 129;
+            this.buttonSaNDisplay.TabStop = false;
             this.buttonSaNDisplay.Text = "非表示";
             this.buttonSaNDisplay.UseVisualStyleBackColor = false;
             this.buttonSaNDisplay.Click += new System.EventHandler(this.buttonSaNDisplay_Click);
@@ -5583,8 +5600,10 @@ namespace SalesManagement_SysDev
             this.buttonHaNDisplay.Name = "buttonHaNDisplay";
             this.buttonHaNDisplay.Size = new System.Drawing.Size(172, 111);
             this.buttonHaNDisplay.TabIndex = 155;
+            this.buttonHaNDisplay.TabStop = false;
             this.buttonHaNDisplay.Text = "非表示";
             this.buttonHaNDisplay.UseVisualStyleBackColor = false;
+            this.buttonHaNDisplay.Click += new System.EventHandler(this.buttonHaNDisplay_Click);
             // 
             // buttonHaNDisplayList
             // 
@@ -5596,8 +5615,10 @@ namespace SalesManagement_SysDev
             this.buttonHaNDisplayList.Name = "buttonHaNDisplayList";
             this.buttonHaNDisplayList.Size = new System.Drawing.Size(172, 111);
             this.buttonHaNDisplayList.TabIndex = 154;
+            this.buttonHaNDisplayList.TabStop = false;
             this.buttonHaNDisplayList.Text = "非表示リスト";
             this.buttonHaNDisplayList.UseVisualStyleBackColor = false;
+            this.buttonHaNDisplayList.Click += new System.EventHandler(this.buttonHaNDisplayList_Click);
             // 
             // buttonCINDisplayList
             // 
@@ -5677,6 +5698,28 @@ namespace SalesManagement_SysDev
             this.labelShEmployeeIDWarning.TabIndex = 218;
             this.labelShEmployeeIDWarning.Text = "※";
             // 
+            // labelHaHattyuIDWarning
+            // 
+            this.labelHaHattyuIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelHaHattyuIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelHaHattyuIDWarning.Location = new System.Drawing.Point(12, 129);
+            this.labelHaHattyuIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelHaHattyuIDWarning.Name = "labelHaHattyuIDWarning";
+            this.labelHaHattyuIDWarning.Size = new System.Drawing.Size(24, 25);
+            this.labelHaHattyuIDWarning.TabIndex = 217;
+            this.labelHaHattyuIDWarning.Text = "※";
+            // 
+            // labelHaEmployeeIDWarning
+            // 
+            this.labelHaEmployeeIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelHaEmployeeIDWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelHaEmployeeIDWarning.Location = new System.Drawing.Point(12, 180);
+            this.labelHaEmployeeIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelHaEmployeeIDWarning.Name = "labelHaEmployeeIDWarning";
+            this.labelHaEmployeeIDWarning.Size = new System.Drawing.Size(24, 25);
+            this.labelHaEmployeeIDWarning.TabIndex = 218;
+            this.labelHaEmployeeIDWarning.Text = "※";
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -5697,6 +5740,9 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelHattyu);
+            this.Controls.Add(this.panelClient);
+            this.Controls.Add(this.panelStock);
             this.Controls.Add(this.panelShipment);
             this.Controls.Add(this.panelProduct);
             this.Controls.Add(this.panelEmployee);
@@ -5707,9 +5753,6 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelChumon);
             this.Controls.Add(this.panelSyukko);
             this.Controls.Add(this.panelWareHousing);
-            this.Controls.Add(this.panelHattyu);
-            this.Controls.Add(this.panelClient);
-            this.Controls.Add(this.panelStock);
             this.Name = "FormHome";
             this.Text = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -6213,6 +6256,8 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelArArrivalIDWarning;
         private System.Windows.Forms.Label labelShEmployeeIDWarning;
         private System.Windows.Forms.Label labelShShipmentIDWarning;
+        private System.Windows.Forms.Label labelHaEmployeeIDWarning;
+        private System.Windows.Forms.Label labelHaHattyuIDWarning;
     }
 }
 
