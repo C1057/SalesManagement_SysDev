@@ -51,7 +51,7 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="ArrivalID"></param>
         /// <returns>List<t_Arrival></returns>
-        public void DeleteSyukko(int ArrivalID) //非表示
+        public void DeleteArrival(int ArrivalID) //非表示
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Arrival = context.T_Arrivals.Single(x => x.ArID == ArrivalID);             //非表示にするレコードの抽出
@@ -79,7 +79,7 @@ namespace SalesManagement_SysDev
         /// <param name="methodflg"></param>
         /// <param name="SearchInfo"></param>
         /// <returns>List<T_Arrival></returns>
-        public List<T_Arrival> SearchEmployee(int methodflg, string SearchInfo)　//IDで検索
+        public List<T_Arrival> SearchArrival(int methodflg, string SearchInfo)　//IDで検索
         {
             var context = new SalesManagement_DevContext();
             List<T_Arrival> SearchResult = null;

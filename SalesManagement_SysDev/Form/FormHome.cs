@@ -17,6 +17,9 @@ namespace SalesManagement_SysDev
         public T_Order AddOrderData;                                                    //受注情報登録用変数
         private int ChumonID;                                                       //注文ID用変数
         private int SyukkoID;                                                           //出庫ID用変数
+        private int ArrivalID;                                                          //入荷ID用変数
+        private int ShipmentID;                                                         //出荷ID用変数
+        private int SaleID;                                                             //売上ID用変数
 
 
         /// <summary>
@@ -958,7 +961,7 @@ namespace SalesManagement_SysDev
             /// </summry>
             columnText = new string[]                      //各列のヘッダーテキストを設定
             {
-                "入荷詳細ID", "入荷ID", "商品ID", "商品名", "数量"
+                "出荷詳細ID", "出荷ID", "商品ID", "商品名", "数量"
             };
 
             ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
@@ -3331,8 +3334,10 @@ namespace SalesManagement_SysDev
                 }
                 foreach (var ChumonDetailData in ChumonDetailList.Where(ChumonDetailList => ChumonDetailList.ChID == int.Parse(comboBoxChChumonID.Text)))      //注文IDで注文詳細情報を検索する
                 {
+                    M_Product product = ProductList.Single(Pr => Pr.PrID == ChumonDetailData.PrID);        //商品IDと一致する商品データを取得
+
                     //詳細データグリッドビューにデータを表示する
-                    dataGridViewChumonDetail.Rows.Add(ChumonDetailData.ChDetailID, ChumonDetailData.ChID, ChumonDetailData.PrID, ChumonDetailData.ChQuantity);
+                    dataGridViewChumonDetail.Rows.Add(ChumonDetailData.ChDetailID, ChumonDetailData.ChID, ChumonDetailData.PrID,product.PrName, ChumonDetailData.ChQuantity);
                 }
                 labelChSearchTitle.Text = "注文IDで検索しました";            //何で検索したかを表示
             }
@@ -3443,6 +3448,12 @@ namespace SalesManagement_SysDev
                 comboBoxChChumonID.Focus();
                 return;
             }
+            //社員IDの入力チェック
+            if (!InputCheck.EmployeeIDInputCheck(comboBoxChEmployeeID.Text))
+            {
+                comboBoxChEmployeeID.Focus();
+                return;
+            }
 
             //注文確定確認メッセージ
             if (msg.MsgDsp("M8007") == DialogResult.Cancel)
@@ -3485,8 +3496,10 @@ namespace SalesManagement_SysDev
                         context.SaveChanges();
                     }
 
-                    //状態フラグを0から1へ変更する
+                    //注文状態フラグ, 社員ID, 確定年月日の更新
                     ChumonData.ChStateFlag = 1;
+                    ChumonData.EmID = int.Parse(comboBoxChEmployeeID.Text);
+                    ChumonData.ChDate = dateTimePickerChumon.Value;
 
                     //データベースへの変更を確定する
                     context.SaveChanges();
@@ -3507,7 +3520,7 @@ namespace SalesManagement_SysDev
                 else
                 {
                     //すでに確定されている場合
-                    MessageBox.Show("入力された注文IDのデータは既に確定されいます", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("入力された注文IDのデータは既に確定されています", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 //contextの解放
@@ -3549,13 +3562,9 @@ namespace SalesManagement_SysDev
             DeleteListChumon();
         }
 
-
-
-
-
-
-
-
+    ////////////////////////////////////////////////
+    ///出庫管理画面コード
+    ////////////////////////////////////////////////
 
         /// 出庫情報一覧表示モジュール
         /// (非表示になっていないデータを表示)
@@ -3610,91 +3619,869 @@ namespace SalesManagement_SysDev
             dataGridViewSyukkoMain.Rows.Clear();                        //メインデータグリッドビューの内容を消去する
             dataGridViewSyukkoDetail.Rows.Clear();                        //詳細データグリッドビューの内容を消去する
 
-            if (!string.IsNullOrEmpty(comboBoxSySyukkoID.Text))             //受注IDコンボボックスの空文字チェック
+            if (!string.IsNullOrEmpty(comboBoxSySyukkoID.Text))             //出庫IDコンボボックスの空文字チェック
             {
-                //売上IDの入力チェック
+                //出庫IDの入力チェック
                 if (!InputCheck.SyukkoInputCheck(comboBoxSySyukkoID.Text))
                 {
                     comboBoxSySyukkoID.Focus();
                     return;
                 }
-                foreach (var SyData in SyukkoAccess.SearchSyukko(1, comboBoxSySyukkoID.Text))           //注文IDで検索する
+                foreach (var SyData in SyukkoAccess.SearchSyukko(1, comboBoxSySyukkoID.Text))           //出庫IDで検索する
                 {
                     //データグリッドビューにデータを表示
-                    dataGridViewSyukkoMain.Rows.Add(SyData.SyID, SyData.EmID, SyData.ClID, SyData.SoID, SyData.OrID, Convert.ToBoolean(SyData.SyStateFlag),
+                    dataGridViewSyukkoMain.Rows.Add(SyData.SyID, SyData.EmID, SyData.ClID, SyData.SoID, SyData.OrID, SyData.SyDate,  Convert.ToBoolean(SyData.SyStateFlag),
                                                         Convert.ToBoolean(SyData.SyFlag), SyData.SyHidden);
                 }
-                foreach (var SyukkoDetailData in SyukkoDetailList.Where(SyukkoDetailList => SyukkoDetailList.SyID == int.Parse(comboBoxSySyukkoID.Text)))      //注文IDで注文詳細情報を検索する
+                foreach (var SyukkoDetailData in SyukkoDetailList.Where(SyukkoDetailList => SyukkoDetailList.SyID == int.Parse(comboBoxSySyukkoID.Text)))      //出庫IDで出庫詳細情報を検索する
                 {
+                    M_Product product = ProductList.Single(Pr => Pr.PrID == SyukkoDetailData.PrID);        //商品IDと一致する商品データを取得
+
                     //詳細データグリッドビューにデータを表示する
-                    dataGridViewSyukkoDetail.Rows.Add(SyukkoDetailData.SyDetailID, SyukkoDetailData.SyID, SyukkoDetailData.PrID, SyukkoDetailData.SyQuantity);
+                    dataGridViewSyukkoDetail.Rows.Add(SyukkoDetailData.SyDetailID, SyukkoDetailData.SyID, SyukkoDetailData.PrID, product.PrName, SyukkoDetailData.SyQuantity);
                 }
                 labelSySearchTitle.Text = "出庫IDで検索しました";            //何で検索したかを表示
             }
-            else if (!string.IsNullOrEmpty(comboBoxChSalesOfficeID.Text))       //営業所IDコンボボックスの空文字チェック
+            else if (!string.IsNullOrEmpty(comboBoxSyEmployeeID.Text))       //営業所IDコンボボックスの空文字チェック
             {
                 //社員IDの入力チェック
-                if (!InputCheck.SalesOfficeIDInputCheck(comboBoxChSalesOfficeID.Text))
+                if (!InputCheck.EmployeeIDInputCheck(comboBoxSyEmployeeID.Text))
                 {
-                    comboBoxChSalesOfficeID.Focus();
+                    comboBoxSyEmployeeID.Focus();
                     return;
                 }
-                foreach (var ChData in ChumonAccess.SearchChumon(2, comboBoxChSalesOfficeID.Text))           //営業所IDで検索する
+                foreach (var SyData in SyukkoAccess.SearchSyukko(2, comboBoxSyEmployeeID.Text))           //社員IDで検索する
                 {
                     //データグリッドビューにデータを表示
-                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
-                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                    dataGridViewSyukkoMain.Rows.Add(SyData.SyID, SyData.EmID, SyData.ClID, SyData.SoID, SyData.OrID, SyData.SyDate, Convert.ToBoolean(SyData.SyStateFlag),
+                                                        Convert.ToBoolean(SyData.SyFlag), SyData.SyHidden);
                 }
-                labelChSearchTitle.Text = "営業所IDで検索しました";            //何で検索したかを表示
+                labelSySearchTitle.Text = "社員IDで検索しました";            //何で検索したかを表示
             }
-            else if (!string.IsNullOrEmpty(comboBoxChEmployeeID.Text))   //社員IDコンボボックスの空文字チェック
+            else if (!string.IsNullOrEmpty(comboBoxSyClientID.Text))   //顧客IDコンボボックスの空文字チェック
             {
                 //社員IDの入力チェック
-                if (!InputCheck.EmployeeIDInputCheck(comboBoxChEmployeeID.Text))
+                if (!InputCheck.ClientIDInputCheck(comboBoxSyClientID.Text))
                 {
-                    comboBoxChEmployeeID.Focus();
+                    comboBoxSyClientID.Focus();
                     return;
                 }
-                foreach (var ChData in ChumonAccess.SearchChumon(3, comboBoxChEmployeeID.Text))      //社員IDで検索する
+                foreach (var SyData in SyukkoAccess.SearchSyukko(3, comboBoxSyClientID.Text))      //顧客IDで検索する
                 {
                     //データグリッドビューにデータを表示
-                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
-                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                    dataGridViewSyukkoMain.Rows.Add(SyData.SyID, SyData.EmID, SyData.ClID, SyData.SoID, SyData.OrID, SyData.SyDate, Convert.ToBoolean(SyData.SyStateFlag),
+                                                        Convert.ToBoolean(SyData.SyFlag), SyData.SyHidden);
                 }
-                labelChSearchTitle.Text = "社員IDで検索しました";         //何で検索したかを表示
+                labelSySearchTitle.Text = "顧客IDで検索しました";         //何で検索したかを表示
             }
-            else if (!string.IsNullOrEmpty(comboBoxChClientID.Text))
+            else if (!string.IsNullOrEmpty(comboBoxSySalesOfficeID.Text))
             {
                 //顧客IDの入力チェック
-                if (!InputCheck.ClientIDInputCheck(comboBoxChClientID.Text))
+                if (!InputCheck.SalesOfficeIDInputCheck(comboBoxSySalesOfficeID.Text))
                 {
-                    comboBoxChClientID.Focus();
+                    comboBoxSySalesOfficeID.Focus();
                     return;
                 }
-                foreach (var ChData in ChumonAccess.SearchChumon(4, comboBoxChClientID.Text))      //顧客IDで検索する
+                foreach (var SyData in SyukkoAccess.SearchSyukko(4, comboBoxSySalesOfficeID.Text))      //営業所IDで検索する
                 {
                     //データグリッドビューにデータを表示
-                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
-                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                    dataGridViewSyukkoMain.Rows.Add(SyData.SyID, SyData.EmID, SyData.ClID, SyData.SoID, SyData.OrID, SyData.SyDate, Convert.ToBoolean(SyData.SyStateFlag),
+                                                        Convert.ToBoolean(SyData.SyFlag), SyData.SyHidden);
                 }
-                labelChSearchTitle.Text = "顧客IDで検索しました";         //何で検索したかを表示
+                labelSySearchTitle.Text = "営業所IDで検索しました";         //何で検索したかを表示
             }
-            else if (!string.IsNullOrEmpty(comboBoxChOrderID.Text))
+            else if (!string.IsNullOrEmpty(comboBoxSyOrderID.Text))
             {
                 //受注IDの入力チェック
-                if (!InputCheck.OrderInputCheck(comboBoxChOrderID.Text))
+                if (!InputCheck.OrderInputCheck(comboBoxSyOrderID.Text))
                 {
-                    comboBoxChOrderID.Focus();
+                    comboBoxSyOrderID.Focus();
                     return;
                 }
-                foreach (var ChData in ChumonAccess.SearchChumon(5, comboBoxChOrderID.Text))      //受注IDで検索する
+                foreach (var SyData in SyukkoAccess.SearchSyukko(5, comboBoxSyOrderID.Text))      //受注IDで検索する
                 {
                     //データグリッドビューにデータを表示
-                    dataGridViewChumonMain.Rows.Add(ChData.ChID, ChData.SoID, ChData.EmID, ChData.ClID, ChData.OrID, ChData.ChDate, Convert.ToBoolean(ChData.ChStateFlag),
-                                                        Convert.ToBoolean(ChData.ChFlag), ChData.ChHidden);
+                    dataGridViewSyukkoMain.Rows.Add(SyData.SyID, SyData.EmID, SyData.ClID, SyData.SoID, SyData.OrID, SyData.SyDate, Convert.ToBoolean(SyData.SyStateFlag),
+                                                        Convert.ToBoolean(SyData.SyFlag), SyData.SyHidden);
                 }
-                labelChSearchTitle.Text = "受注IDで検索しました";         //何で検索したかを表示
+                labelSySearchTitle.Text = "受注IDで検索しました";         //何で検索したかを表示
             }
+        }
+
+        /// <summary>
+        /// 出庫確定用入荷データセット
+        /// </summary>
+        /// <param name="SyukkoData"></param>
+        private T_Arrival ArrivalAddDataSet(T_Syukko SyukkoData)
+        {
+            return new T_Arrival
+            {
+                ClID = SyukkoData.ClID,
+                SoID = SyukkoData.SoID,
+                OrID = SyukkoData.OrID,
+                ArFlag = 0
+            };
+        }
+
+        /// <summary>
+        /// 出庫確定用入荷詳細データセット
+        /// </summary>
+        /// <param name="SyukkoDetail"></param>
+        private T_ArrivalDetail ArrivalDetailAddDataSet(T_SyukkoDetail SyukkoDetail)
+        {
+            return new T_ArrivalDetail
+            {
+                ArID = ArrivalID,
+                PrID = SyukkoDetail.PrID,
+                ArQuantity = SyukkoDetail.SyQuantity
+            };
+        }
+
+        /// <summary>
+        /// 出庫確定ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonSySyukkoConfirm_Click(object sender, EventArgs e)
+        {
+            //出庫IDの入力チェック
+            if (!InputCheck.SyukkoInputCheck(comboBoxSySyukkoID.Text))
+            {
+                comboBoxSySyukkoID.Focus();
+                return;
+            }
+            //社員IDの入力チェック
+            if (!InputCheck.EmployeeIDInputCheck(comboBoxSyEmployeeID.Text))
+            {
+                comboBoxSyEmployeeID.Focus();
+                return;
+            }
+
+            //出庫確定確認メッセージ
+            if (msg.MsgDsp("M11004") == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            //例外処理
+            try
+            {
+                var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
+
+                //出庫IDをセット
+                int SyID = int.Parse(comboBoxSySyukkoID.Text);
+
+                //↓存在確認用の出庫情報を取得
+                T_Syukko SyukkoData = context.T_Syukkos.Single(Syukko => Syukko.SyID == SyID);         //出庫IDと一致する出庫データを取得する
+
+                //出庫テーブルに既にデータが存在するか確認する
+                if (!context.T_Arrivals.Any(Arrival => Arrival.OrID == SyukkoData.OrID))
+                {
+                    //入荷IDのセット
+                    ArrivalID = ArrivalList.Count + 1;
+
+                    T_Arrival ArrivalData = ArrivalAddDataSet(SyukkoData);                  //登録用入荷データをセットする
+                    context.T_Arrivals.Add(ArrivalData);                      //入荷テーブルに登録する
+
+                    //データベースへの変更を確定する
+                    context.SaveChanges();
+
+
+                    //出庫IDと一致する出庫詳細情報を取得する
+                    List<T_SyukkoDetail> SyukkoDetailAllData = context.T_SyukkoDetails.Where(SyukkoDetail => SyukkoDetail.SyID == SyID).ToList();
+
+                    foreach (var SyukkoDetailData in SyukkoDetailAllData)          //取得した出庫詳細情報分繰り返す
+                    {
+                        T_ArrivalDetail ArrivalDetailData = ArrivalDetailAddDataSet(SyukkoDetailData);       //登録用入荷詳細データをセットする
+                        context.T_ArrivalDetails.Add(ArrivalDetailData);              //入荷詳細データを登録する
+
+                        //データベースへの変更を確定する
+                        context.SaveChanges();
+                    }
+
+
+                    //出庫状態フラグ, 社員ID, 確定年月日の更新
+                    SyukkoData.SyStateFlag = 1;
+                    SyukkoData.EmID = int.Parse(comboBoxSyEmployeeID.Text);
+                    SyukkoData.SyDate = dateTimePickerSyukko.Value;
+
+                    //データベースへの変更を確定する
+                    context.SaveChanges();
+
+                    //出庫一覧表示用データの更新
+                    SyukkoList = SyukkoAccess.GetData();
+
+                    //入荷一覧表示用データの更新
+                    ArrivalList = context.T_Arrivals.ToList();
+                    ArrivalDetailList = context.T_ArrivalDetails.ToList();
+
+                    //確定完了メッセージの表示
+                    msg.MsgDsp("M11005");
+
+                    //データの再表示
+                    ListSyukko();
+                }
+                else
+                {
+                    //すでに確定されている場合
+                    MessageBox.Show("入力された出庫IDのデータは既に確定されいます", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                //contextの解放
+                context.Dispose();
+            }
+            catch
+            {
+                MessageBox.Show("確定に失敗しました", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 出庫非表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonSyNDisplay_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewSyukkoMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridViewSyukkoMain.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    SyukkoAccess.DeleteSyukko((int)dataGridViewSyukkoMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の出庫IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+            //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //出庫情報一覧表示用データを更新
+            SyukkoList = SyukkoAccess.GetData();
+            //出庫情報再表示
+            ListSyukko();
+        }
+
+        /// <summary>
+        /// 出庫非表示リストボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonSyNDisplayList_Click(object sender, EventArgs e)
+        {
+            DeleteListSyukko();
+        }
+
+    //////////////////////////////////////
+    ///入荷管理画面コード
+    /////////////////////////////////////
+
+
+        /// 入荷情報一覧表示モジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void ListArrival()
+        {
+            dataGridViewArrivalMain.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var ArrivalData in ArrivalList)
+            {
+                if (ArrivalData.ArFlag == 0)                     //入荷管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewArrivalMain.Rows.Add(ArrivalData.ArID, ArrivalData.SoID, ArrivalData.EmID, ArrivalData.ClID, ArrivalData.OrID, ArrivalData.ArDate,
+                                                        Convert.ToBoolean(ArrivalData.ArStateFlag), Convert.ToBoolean(ArrivalData.ArFlag), ArrivalData.ArHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 入荷情報非表示リストモジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void DeleteListArrival()
+        {
+            dataGridViewArrivalMain.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var ArrivalData in ArrivalList)
+            {
+                if (ArrivalData.ArFlag == 2)                     //入荷管理フラグが2の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewArrivalMain.Rows.Add(ArrivalData.ArID, ArrivalData.SoID, ArrivalData.EmID, ArrivalData.ClID, ArrivalData.OrID, ArrivalData.ArDate,
+                                                        Convert.ToBoolean(ArrivalData.ArStateFlag), Convert.ToBoolean(ArrivalData.ArFlag), ArrivalData.ArHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 入荷一覧表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonArDisplay_Click(object sender, EventArgs e)
+        {
+            ListArrival();
+        }
+
+        private void buttonArSearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewArrivalMain.Rows.Clear();                        //メインデータグリッドビューの内容を消去する
+            dataGridViewArrivalDetail.Rows.Clear();                        //詳細データグリッドビューの内容を消去する
+
+            if (!string.IsNullOrEmpty(comboBoxArArrivalID.Text))             //入荷IDコンボボックスの空文字チェック
+            {
+                //入荷IDの入力チェック
+                if (!InputCheck.ArrivalInputCheck(comboBoxArArrivalID.Text))
+                {
+                    comboBoxArArrivalID.Focus();
+                    return;
+                }
+                foreach (var ArrivalData in ArrivalAccess.SearchArrival(1, comboBoxArArrivalID.Text))           //入荷IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewArrivalMain.Rows.Add(ArrivalData.ArID, ArrivalData.SoID, ArrivalData.EmID, ArrivalData.ClID, ArrivalData.OrID, ArrivalData.ArDate,
+                                                        Convert.ToBoolean(ArrivalData.ArStateFlag), Convert.ToBoolean(ArrivalData.ArFlag), ArrivalData.ArHidden);
+                }
+                foreach (var ArrivalDetailData in ArrivalDetailList.Where(ArrivalDetailList => ArrivalDetailList.ArID == int.Parse(comboBoxArArrivalID.Text)))      //入荷IDで入荷詳細情報を検索する
+                {
+                    M_Product product = ProductList.Single(Pr => Pr.PrID == ArrivalDetailData.PrID);        //商品IDと一致する商品データを取得
+
+                    //詳細データグリッドビューにデータを表示する
+                    dataGridViewArrivalDetail.Rows.Add(ArrivalDetailData.ArDetailID, ArrivalDetailData.ArID, ArrivalDetailData.PrID, product.PrName , ArrivalDetailData.ArQuantity);
+                }
+                labelArSearchTitle.Text = "入荷IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxArSalesOfficeID.Text))       //営業所IDコンボボックスの空文字チェック
+            {
+                //社員IDの入力チェック
+                if (!InputCheck.SalesOfficeIDInputCheck(comboBoxArSalesOfficeID.Text))
+                {
+                    comboBoxArSalesOfficeID.Focus();
+                    return;
+                }
+                foreach (var ArrivalData in ArrivalAccess.SearchArrival(2, comboBoxArSalesOfficeID.Text))           //営業所IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewArrivalMain.Rows.Add(ArrivalData.ArID, ArrivalData.SoID, ArrivalData.EmID, ArrivalData.ClID, ArrivalData.OrID, ArrivalData.ArDate,
+                                                        Convert.ToBoolean(ArrivalData.ArStateFlag), Convert.ToBoolean(ArrivalData.ArFlag), ArrivalData.ArHidden);
+                }
+                labelArSearchTitle.Text = "営業所IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxArEmployeeID.Text))   //社員IDコンボボックスの空文字チェック
+            {
+                //社員IDの入力チェック
+                if (!InputCheck.EmployeeIDInputCheck(comboBoxArEmployeeID.Text))
+                {
+                    comboBoxArEmployeeID.Focus();
+                    return;
+                }
+                foreach (var ArrivalData in ArrivalAccess.SearchArrival(3, comboBoxArEmployeeID.Text))      //社員IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewArrivalMain.Rows.Add(ArrivalData.ArID, ArrivalData.SoID, ArrivalData.EmID, ArrivalData.ClID, ArrivalData.OrID, ArrivalData.ArDate,
+                                                        Convert.ToBoolean(ArrivalData.ArStateFlag), Convert.ToBoolean(ArrivalData.ArFlag), ArrivalData.ArHidden);
+                }
+                labelArSearchTitle.Text = "社員IDで検索しました";         //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxArClientID.Text))
+            {
+                //顧客IDの入力チェック
+                if (!InputCheck.ClientIDInputCheck(comboBoxArClientID.Text))
+                {
+                    comboBoxArClientID.Focus();
+                    return;
+                }
+                foreach (var ArrivalData in ArrivalAccess.SearchArrival(4, comboBoxArClientID.Text))      //顧客IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewArrivalMain.Rows.Add(ArrivalData.ArID, ArrivalData.SoID, ArrivalData.EmID, ArrivalData.ClID, ArrivalData.OrID, ArrivalData.ArDate,
+                                                        Convert.ToBoolean(ArrivalData.ArStateFlag), Convert.ToBoolean(ArrivalData.ArFlag), ArrivalData.ArHidden);
+                }
+                labelArSearchTitle.Text = "顧客IDで検索しました";         //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxArOrderID.Text))
+            {
+                //受注IDの入力チェック
+                if (!InputCheck.OrderInputCheck(comboBoxArOrderID.Text))
+                {
+                    comboBoxArOrderID.Focus();
+                    return;
+                }
+                foreach (var ArrivalData in ArrivalAccess.SearchArrival(5, comboBoxArOrderID.Text))      //受注IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewArrivalMain.Rows.Add(ArrivalData.ArID, ArrivalData.SoID, ArrivalData.EmID, ArrivalData.ClID, ArrivalData.OrID, ArrivalData.ArDate,
+                                                        Convert.ToBoolean(ArrivalData.ArStateFlag), Convert.ToBoolean(ArrivalData.ArFlag), ArrivalData.ArHidden);
+                }
+                labelArSearchTitle.Text = "受注IDで検索しました";         //何で検索したかを表示
+            }
+        }
+
+        /// <summary>
+        /// 入荷確定用出荷データセット
+        /// </summary>
+        /// <param name="ArrivalData"></param>
+        private T_Shipment ShipmentAddDataSet(T_Arrival ArrivalData)
+        {
+            return new T_Shipment
+            {
+                ClID = ArrivalData.ClID,
+                SoID = ArrivalData.SoID,
+                OrID = ArrivalData.OrID,
+                ShFlag = 0
+            };
+        }
+
+        /// <summary>
+        /// 入荷確定用出荷詳細データセット
+        /// </summary>
+        /// <param name="ArrivalDetail"></param>
+        private T_ShipmentDetail ShipmentDetailAddDataSet(T_ArrivalDetail ArrivalDetail)
+        {
+            return new T_ShipmentDetail
+            {
+                ShID = ShipmentID,
+                PrID = ArrivalDetail.PrID,
+                ShDquantity = ArrivalDetail.ArQuantity
+            };
+        }
+
+        /// <summary>
+        /// 入荷確定ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonArArrivalConfirm_Click(object sender, EventArgs e)
+        {
+            //入荷IDの入力チェック
+            if (!InputCheck.ArrivalInputCheck(comboBoxArArrivalID.Text))
+            {
+                comboBoxArArrivalID.Focus();
+                return;
+            }
+            //社員IDの入力チェック
+            if (!InputCheck.EmployeeIDInputCheck(comboBoxArEmployeeID.Text))
+            {
+                comboBoxArEmployeeID.Focus();
+                return;
+            }
+
+            //入荷確定確認メッセージ
+            if (msg.MsgDsp("M12004") == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            //例外処理
+            try
+            {
+                var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
+
+                //入荷IDをセット
+                int ArID = int.Parse(comboBoxArArrivalID.Text);
+
+                //↓存在確認用の出庫情報を取得
+                T_Arrival ArrivalData = context.T_Arrivals.Single(Arrival => Arrival.ArID == ArID);         //入荷IDと一致する入荷データを取得する
+
+                //出荷テーブルに既にデータが存在するか確認する
+                if (!context.T_Shipments.Any(Shipment => Shipment.OrID == ArrivalData.OrID))
+                {
+                    //出荷IDのセット
+                    ShipmentID = ShipmentList.Count + 1;
+
+                    T_Shipment ShipmentData = ShipmentAddDataSet(ArrivalData);                  //登録用出荷データをセットする
+                    context.T_Shipments.Add(ShipmentData);                      //出荷テーブルに登録する
+
+                    //データベースへの変更を確定する
+                    context.SaveChanges();
+
+
+                    //出荷IDと一致する出荷詳細情報を取得する
+                    List<T_ArrivalDetail> ArrivalDetailAllData = context.T_ArrivalDetails.Where(ArrivalDetail => ArrivalDetail.ArID == ArID).ToList();
+
+                    foreach (var ArrivalDetailData in ArrivalDetailAllData)          //取得した入荷詳細情報分繰り返す
+                    {
+                        T_ShipmentDetail ShipmentDetailData = ShipmentDetailAddDataSet(ArrivalDetailData);       //登録用出荷詳細データをセットする
+                        context.T_ShipmentDetails.Add(ShipmentDetailData);              //出荷詳細データを登録する
+
+                        //データベースへの変更を確定する
+                        context.SaveChanges();
+                    }
+
+
+                    //入荷状態フラグ, 社員ID, 確定年月日の更新
+                    ArrivalData.ArStateFlag = 1;
+                    ArrivalData.EmID = int.Parse(comboBoxArEmployeeID.Text);
+                    ArrivalData.ArDate = dateTimePickerAr.Value;
+
+                    //データベースへの変更を確定する
+                    context.SaveChanges();
+
+                    //入荷一覧表示用データの更新
+                    ArrivalList = ArrivalAccess.GetData();
+
+                    //出荷一覧表示用データの更新
+                    ShipmentList = context.T_Shipments.ToList();
+                    ShipmentDetailList = context.T_ShipmentDetails.ToList();
+
+                    //確定完了メッセージの表示
+                    msg.MsgDsp("M12005");
+
+                    //データの再表示
+                    ListArrival();
+                }
+                else
+                {
+                    //すでに確定されている場合
+                    MessageBox.Show("入力された出庫IDのデータは既に確定されいます", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                //contextの解放
+                context.Dispose();
+            }
+            catch
+            {
+                MessageBox.Show("確定に失敗しました", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 入荷非表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonArNDisplay_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewArrivalMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridViewArrivalMain.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    ArrivalAccess.DeleteArrival((int)dataGridViewArrivalMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の入荷IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+            //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //注文情報一覧表示用データを更新
+            ArrivalList = ArrivalAccess.GetData();
+            //注文情報再表示
+            ListArrival();
+        }
+
+        /// <summary>
+        /// 入荷非表示リストボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonArNDisplayList_Click(object sender, EventArgs e)
+        {
+            DeleteListArrival();
+        }
+
+
+
+
+        /// <summary>
+        /// 出荷情報一覧表示モジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void ListShipment()
+        {
+            dataGridViewShipmentMain.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var ShData in ShipmentList)
+            {
+                if (ShData.ShFlag == 0)                     //出荷管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewShipmentMain.Rows.Add(ShData.ShID, ShData.ClID, ShData.EmID, ShData.SoID, ShData.OrID, Convert.ToBoolean(ShData.ShStateFlag), ShData.ShFinishDate,
+                                                            Convert.ToBoolean(ShData.ShFlag), ShData.ShHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 出荷情報非表示リストモジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void DeleteListShipment()
+        {
+            dataGridViewShipmentMain.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var ShData in ShipmentList)
+            {
+                if (ShData.ShFlag == 2)                     //出荷管理フラグが2の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewShipmentMain.Rows.Add(ShData.ShID, ShData.ClID, ShData.EmID, ShData.SoID, ShData.OrID, Convert.ToBoolean(ShData.ShStateFlag), ShData.ShFinishDate,
+                                                            Convert.ToBoolean(ShData.ShFlag), ShData.ShHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 出荷一覧表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonShDisplay_Click(object sender, EventArgs e)
+        {
+            ListShipment();
+        }
+
+        /// <summary>
+        /// 出荷検索ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonShSearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewShipmentMain.Rows.Clear();                        //メインデータグリッドビューの内容を消去する
+            dataGridViewShipmentDetail.Rows.Clear();                        //詳細データグリッドビューの内容を消去する
+
+            if (!string.IsNullOrEmpty(comboBoxShShipmentID.Text))             //出荷IDコンボボックスの空文字チェック
+            {
+                //売上IDの入力チェック
+                if (!InputCheck.ShipmentInputCheck(comboBoxShShipmentID.Text))
+                {
+                    comboBoxShShipmentID.Focus();
+                    return;
+                }
+                foreach (var ShData in ShipmentAccess.SearchShipment(1, comboBoxShShipmentID.Text))           //出荷IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewShipmentMain.Rows.Add(ShData.ShID, ShData.ClID, ShData.EmID, ShData.SoID, ShData.OrID, Convert.ToBoolean(ShData.ShStateFlag), ShData.ShFinishDate,
+                                                            Convert.ToBoolean(ShData.ShFlag), ShData.ShHidden);
+                }
+                foreach (var ShipmentDetailData in ShipmentDetailList.Where(ShipmentDetailList => ShipmentDetailList.ShID == int.Parse(comboBoxShShipmentID.Text)))      //出荷IDで出荷詳細情報を検索する
+                {
+                    M_Product product = ProductList.Single(Pr => Pr.PrID == ShipmentDetailData.PrID);        //商品IDと一致する商品データを取得
+
+                    //詳細データグリッドビューにデータを表示する
+                    dataGridViewShipmentDetail.Rows.Add(ShipmentDetailData.ShDetailID, ShipmentDetailData.ShID, ShipmentDetailData.PrID, product.PrName,  ShipmentDetailData.ShDquantity);
+                }
+                labelShSearchTitle.Text = "出荷IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxShClientID.Text))       //顧客IDコンボボックスの空文字チェック
+            {
+                //顧客IDの入力チェック
+                if (!InputCheck.ClientIDInputCheck(comboBoxShClientID.Text))
+                {
+                    comboBoxShClientID.Focus();
+                    return;
+                }
+                foreach (var ShData in ShipmentAccess.SearchShipment(2, comboBoxShShipmentID.Text))           //顧客IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewShipmentMain.Rows.Add(ShData.ShID, ShData.ClID, ShData.EmID, ShData.SoID, ShData.OrID, Convert.ToBoolean(ShData.ShStateFlag), ShData.ShFinishDate,
+                                                            Convert.ToBoolean(ShData.ShFlag), ShData.ShHidden);
+                }
+                labelShSearchTitle.Text = "顧客IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxShEmployeeID.Text))   //社員IDコンボボックスの空文字チェック
+            {
+                //社員IDの入力チェック
+                if (!InputCheck.EmployeeIDInputCheck(comboBoxShEmployeeID.Text))
+                {
+                    comboBoxShEmployeeID.Focus();
+                    return;
+                }
+                foreach (var ShData in ShipmentAccess.SearchShipment(3, comboBoxShEmployeeID.Text))      //社員IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewShipmentMain.Rows.Add(ShData.ShID, ShData.ClID, ShData.EmID, ShData.SoID, ShData.OrID, Convert.ToBoolean(ShData.ShStateFlag), ShData.ShFinishDate,
+                                                            Convert.ToBoolean(ShData.ShFlag), ShData.ShHidden);
+                }
+                labelShSearchTitle.Text = "社員IDで検索しました";         //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxShSalesOfficeID.Text))
+            {
+                //営業所IDの入力チェック
+                if (!InputCheck.SalesOfficeIDInputCheck(comboBoxShSalesOfficeID.Text))
+                {
+                    comboBoxShSalesOfficeID.Focus();
+                    return;
+                }
+                foreach (var ShData in ShipmentAccess.SearchShipment(4, comboBoxShSalesOfficeID.Text))      //営業所IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewShipmentMain.Rows.Add(ShData.ShID, ShData.ClID, ShData.EmID, ShData.SoID, ShData.OrID, Convert.ToBoolean(ShData.ShStateFlag), ShData.ShFinishDate,
+                                                            Convert.ToBoolean(ShData.ShFlag), ShData.ShHidden);
+                }
+                labelShSearchTitle.Text = "営業所IDで検索しました";         //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxShOrderID.Text))
+            {
+                //受注IDの入力チェック
+                if (!InputCheck.OrderInputCheck(comboBoxShOrderID.Text))
+                {
+                    comboBoxShOrderID.Focus();
+                    return;
+                }
+                foreach (var ShData in ShipmentAccess.SearchShipment(5, comboBoxShOrderID.Text))      //受注IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewShipmentMain.Rows.Add(ShData.ShID, ShData.ClID, ShData.EmID, ShData.SoID, ShData.OrID, Convert.ToBoolean(ShData.ShStateFlag), ShData.ShFinishDate,
+                                                            Convert.ToBoolean(ShData.ShFlag), ShData.ShHidden);
+                }
+                labelShSearchTitle.Text = "受注IDで検索しました";         //何で検索したかを表示
+            }
+        }
+
+        /// <summary>
+        /// 出荷確定用売上データセット
+        /// </summary>
+        /// <param name="ShipmentData"></param>
+        private T_Sale SaleAddDataSet(T_Shipment ShipmentData)
+        {
+            T_Order OrderData = OrderList.Single(Order => Order.OrID == ShipmentData.OrID);
+
+            return new T_Sale
+            {
+                ClID = ShipmentData.ClID,
+                SoID = ShipmentData.SoID,
+                EmID = OrderData.EmID,
+                ChID = ShipmentData.OrID,
+                SaDate=dateTimePickerShipment.Value, 
+                SaFlag = 0
+            };
+        }
+
+        /// <summary>
+        /// 出荷確定用売上詳細データセット
+        /// </summary>
+        /// <param name="ShipmentDetail"></param>
+        private T_SaleDetail SaleDetailAddDataSet(T_ShipmentDetail ShipmentDetail)
+        {
+            M_Product product = ProductList.Single(PrData => PrData.PrID == ShipmentDetail.PrID);
+            int TotalPrice = product.Price * ShipmentDetail.ShDquantity;
+
+            return new T_SaleDetail
+            {
+                SaID = SaleID,
+                PrID = ShipmentDetail.PrID,
+                SaQuantity = ShipmentDetail.ShDquantity,
+                SaPrTotalPrice = TotalPrice
+            };
+        }
+
+        /// <summary>
+        /// 出荷確定ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonShConfirm_Click(object sender, EventArgs e)
+        {
+            //出荷IDの入力チェック
+            if (!InputCheck.ShipmentInputCheck(comboBoxShShipmentID.Text))
+            {
+                comboBoxShShipmentID.Focus();
+                return;
+            }
+            //社員IDの入力チェック
+            if (!InputCheck.EmployeeIDInputCheck(comboBoxShEmployeeID.Text))
+            {
+                comboBoxShEmployeeID.Focus();
+                return;
+            }
+
+            //出荷確定確認メッセージ
+            if (msg.MsgDsp("M13004") == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            //例外処理
+            try
+            {
+                var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
+
+                //出荷IDをセット
+                int ShID = int.Parse(comboBoxShShipmentID.Text);
+
+                //↓存在確認用の出荷情報を取得
+                T_Shipment ShipmentData = context.T_Shipments.Single(Shipment => Shipment.ShID == ShID);         //出荷IDと一致する出荷データを取得する
+
+                //出荷テーブルに既にデータが存在するか確認する
+                if (!context.T_Sale.Any(Sale => Sale.ChID == ShipmentData.OrID))
+                {
+                    //売上IDのセット
+                    SaleID = SaleList.Count + 1;
+
+                    T_Sale SaleData = SaleAddDataSet(ShipmentData);                  //登録用売上データをセットする
+                    context.T_Sale.Add(SaleData);                      //売上テーブルに登録する
+
+                    //データベースへの変更を確定する
+                    context.SaveChanges();
+
+
+                    //出荷IDと一致する出荷詳細情報を取得する
+                    List<T_ShipmentDetail> ShipmentDetailAllData = context.T_ShipmentDetails.Where(ShipmentDetail => ShipmentDetail.ShID == ShID).ToList();
+
+                    foreach (var ShipmentDetailData in ShipmentDetailAllData)          //取得した出荷詳細情報分繰り返す
+                    {
+                        T_SaleDetail SaleDetailData = SaleDetailAddDataSet(ShipmentDetailData);       //登録用売上詳細データをセットする
+                        context.T_SaleDetails.Add(SaleDetailData);              //売上詳細データを登録する
+
+                        //データベースへの変更を確定する
+                        context.SaveChanges();
+                    }
+
+
+                    //出荷状態フラグ, 社員ID, 確定年月日の更新
+                    ShipmentData.ShStateFlag = 1;
+                    ShipmentData.EmID = int.Parse(comboBoxShEmployeeID.Text);
+                    ShipmentData.ShFinishDate = dateTimePickerShipment.Value;
+
+                    //データベースへの変更を確定する
+                    context.SaveChanges();
+
+                    //出荷一覧表示用データの更新
+                    ShipmentList = ShipmentAccess.GetData();
+
+                    //売上一覧表示用データの更新
+                    SaleList = context.T_Sale.ToList();
+                    SaleDetailList = context.T_SaleDetails.ToList();
+
+                    //確定完了メッセージの表示
+                    msg.MsgDsp("M13005");
+
+                    //データの再表示
+                    ListShipment();
+                }
+                else
+                {
+                    //すでに確定されている場合
+                    MessageBox.Show("入力された出庫IDのデータは既に確定されいます", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                //contextの解放
+                context.Dispose();
+            }
+            catch
+            {
+                MessageBox.Show("確定に失敗しました", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 出荷非表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonShNDisplay_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewShipmentMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridViewShipmentMain.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    ShipmentAccess.DeleteShipment((int)dataGridViewShipmentMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の出荷IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+            //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //出荷情報一覧表示用データを更新
+            ShipmentList = ShipmentAccess.GetData();
+            //出荷情報再表示
+            ListShipment();
+        }
+
+        /// <summary>
+        /// 出荷非表示リストボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonShNDisplayList_Click(object sender, EventArgs e)
+        {
+            DeleteListShipment();
         }
     }
 }
