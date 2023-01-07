@@ -67,7 +67,34 @@ namespace SalesManagement_SysDev
             return context.T_Warehousings.ToList();                          //入庫テーブルの全データを戻り値として返す
         }
 
+        public List<T_Warehousing> SearchWarehousing(int methodflg, string SearchInfo)
+        {
+            var Context = new SalesManagement_DevContext();  //クラスのインスタンス化
+            List<T_Warehousing> searchresult = null;              //検索結果用変数を宣言
 
+
+            if (methodflg == 1)
+            {
+                int WarehousingID = int.Parse(SearchInfo);
+                searchresult = Context.T_Warehousings.Where(x => x.WaID == WarehousingID).ToList();  //検索
+                Context.Dispose();
+
+            }
+            else if (methodflg == 2)
+            {
+                int HattyuID = int.Parse(SearchInfo);
+                searchresult = Context.T_Warehousings.Where(x => x.HaID == HattyuID).ToList();   //検索
+                Context.Dispose();
+            }
+            else if (methodflg == 3)
+            {
+                int EmployeeID = int.Parse(SearchInfo);
+                searchresult = Context.T_Warehousings.Where(x => x.EmID == EmployeeID).ToList();　//検索
+                Context.Dispose();
+            }
+
+            return searchresult;
+        }
 
 
 

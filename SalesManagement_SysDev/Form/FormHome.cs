@@ -4769,5 +4769,231 @@ namespace SalesManagement_SysDev
         {
             DeleteListHattyu();
         }
+
+    ////////////////////////////////////////////////
+    ///入庫管理画面コード
+    ////////////////////////////////////////////////
+
+        /// <summary>
+        /// 入庫情報一覧表示モジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void ListWarehousing()
+        {
+            dataGridViewWareHousingMain.Rows.Clear();                        //データグリッドビューをクリアする
+            dataGridViewWareHousingDetail.Rows.Clear();
+            foreach (var WaData in WarehousingList)
+            {
+                if (WaData.WaFlag == 0)                     //入庫管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewWareHousingMain.Rows.Add(WaData.WaID, WaData.HaID, WaData.EmID, WaData.WaDate, Convert.ToBoolean(WaData.WaShelfFlag), Convert.ToBoolean(WaData.WaFlag),
+                                                                WaData.WaHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 入庫情報非表示リストモジュール
+        /// (非表示になっていないデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void DeleteListWarehousing()
+        {
+            dataGridViewWareHousingMain.Rows.Clear();                        //データグリッドビューをクリアする
+            dataGridViewWareHousingDetail.Rows.Clear();
+            foreach (var WaData in WarehousingList)
+            {
+                if (WaData.WaFlag == 2)                     //入庫管理フラグが2の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewWareHousingMain.Rows.Add(WaData.WaID, WaData.HaID, WaData.EmID, WaData.WaDate, Convert.ToBoolean(WaData.WaShelfFlag), Convert.ToBoolean(WaData.WaFlag),
+                                                                WaData.WaHidden);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 入庫一覧表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonWrDisplay_Click(object sender, EventArgs e)
+        {
+            ListWarehousing();
+        }
+
+        /// <summary>
+        /// 入庫検索ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonWrSearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewWareHousingMain.Rows.Clear();                        //メインデータグリッドビューの内容を消去する
+            dataGridViewWareHousingDetail.Rows.Clear();                        //詳細データグリッドビューの内容を消去する
+
+            if (!string.IsNullOrEmpty(comboBoxWrWareHousingID.Text))             //入庫IDコンボボックスの空文字チェック
+            {
+                //入庫IDの入力チェック
+                if (!InputCheck.WarehousingInputCheck(comboBoxWrWareHousingID.Text))
+                {
+                    comboBoxWrWareHousingID.Focus();
+                    return;
+                }
+                foreach (var WaData in WareHousingAccess.SearchWarehousing(1, comboBoxWrWareHousingID.Text))           //入庫IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewWareHousingMain.Rows.Add(WaData.WaID, WaData.HaID, WaData.EmID, WaData.WaDate, Convert.ToBoolean(WaData.WaShelfFlag), Convert.ToBoolean(WaData.WaFlag),
+                                                                WaData.WaHidden);
+                }
+                //入庫IDで入庫詳細情報を検索する
+                foreach (var WaDetailData in WarehousingDetailList.Where(WarehousingDetailList => WarehousingDetailList.WaID == int.Parse(comboBoxWrWareHousingID.Text)))
+                {
+                    M_Product product = ProductList.Single(Pr => Pr.PrID == WaDetailData.PrID);        //商品IDと一致する商品データを取得
+
+                    //詳細データグリッドビューにデータを表示する
+                    dataGridViewWareHousingDetail.Rows.Add(WaDetailData.WaDetailID, WaDetailData.WaID, WaDetailData.PrID,
+                                                                product.PrName, WaDetailData.WaQuantity);
+                }
+                labelWrSearchTitle.Text = "入庫IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxWrHattyuID.Text))       //発注IDコンボボックスの空文字チェック
+            {
+                //メーカIDの入力チェック
+                if (!InputCheck.HattyuInputCheck(comboBoxWrHattyuID.Text))
+                {
+                    comboBoxWrHattyuID.Focus();
+                    return;
+                }
+                foreach (var WaData in WareHousingAccess.SearchWarehousing(2, comboBoxWrHattyuID.Text))           //発注IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewWareHousingMain.Rows.Add(WaData.WaID, WaData.HaID, WaData.EmID, WaData.WaDate, Convert.ToBoolean(WaData.WaShelfFlag), Convert.ToBoolean(WaData.WaFlag),
+                                                                WaData.WaHidden);
+                }
+                labelWrSearchTitle.Text = "発注IDで検索しました";            //何で検索したかを表示
+            }
+            else if (!string.IsNullOrEmpty(comboBoxWrEmployeeID.Text))   //社員IDコンボボックスの空文字チェック
+            {
+                //社員IDの入力チェック
+                if (!InputCheck.EmployeeIDInputCheck(comboBoxWrEmployeeID.Text))
+                {
+                    comboBoxWrEmployeeID.Focus();
+                    return;
+                }
+                foreach (var WaData in WareHousingAccess.SearchWarehousing(3, comboBoxWrEmployeeID.Text))      //社員IDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewWareHousingMain.Rows.Add(WaData.WaID, WaData.HaID, WaData.EmID, WaData.WaDate, Convert.ToBoolean(WaData.WaShelfFlag), Convert.ToBoolean(WaData.WaFlag),
+                                                                WaData.WaHidden);
+                }
+                labelWrSearchTitle.Text = "社員IDで検索しました";         //何で検索したかを表示
+            }
+        }
+
+        /// <summary>
+        /// 入庫確定ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonWrConfirm_Click(object sender, EventArgs e)
+        {
+            //入庫IDの入力チェック
+            if (!InputCheck.WarehousingInputCheck(comboBoxWrWareHousingID.Text))
+            {
+                comboBoxWrWareHousingID.Focus();
+                return;
+            }
+
+            //入庫確定確認メッセージ
+            if (msg.MsgDsp("M10004") == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            //例外処理
+            try
+            {
+                var context = new SalesManagement_DevContext();             //DB接続用クラスのインスタンス化
+
+                //入庫IDのセット
+                int WaID = int.Parse(comboBoxWrWareHousingID.Text);
+
+                //既に確定処理がされているかの確認
+                T_Warehousing WarehousingData = context.T_Warehousings.Single(WaData => WaData.WaID == WaID);
+                if (WarehousingData.WaShelfFlag == 1)               //確定済み(状態フラグが1)の場合処理を終了する
+                {
+                    MessageBox.Show("入力されたデータは既に入庫確定処理を行っています。", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                //入庫IDと一致する入庫詳細情報を取得する
+                List<T_WarehousingDetail> WarehousingDetailAllData = context.T_WarehousingDetails.Where(WarehousingDetail => WarehousingDetail.WaID == WaID).ToList();
+
+                //在庫テーブルを更新するための在庫データを取得、更新する
+                foreach (var WaData in WarehousingDetailAllData)
+                {
+                    T_Stock StockUpdData = context.T_Stocks.Single(Stock => Stock.PrID == WaData.PrID);     //在庫テーブルから商品IDと一致するデータを取得する
+                    StockUpdData.StQuantity = StockUpdData.StQuantity + WaData.WaQuantity;                  //在庫データの数量に入庫分をプラスする
+                    context.SaveChanges();                                                                  //更新を確定する
+                }
+
+                //入庫状態フラグを更新
+                WarehousingData.WaShelfFlag = 1;
+
+                //更新を確定する
+                context.SaveChanges();
+
+                //確定完了メッセージ
+                msg.MsgDsp("M10005");
+
+                //入庫一覧表示用データの更新
+                WarehousingList = WareHousingAccess.GetData();
+
+                //在庫一覧表示用データの更新
+                StockList = StockAccess.GetData();
+
+                //データの再表示
+                ListWarehousing();
+
+                //contextの解放
+                context.Dispose();
+            }
+            catch
+            {
+                MessageBox.Show("確定に失敗しました", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 入庫非表示ボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonWrNDisplay_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewWareHousingMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridViewWareHousingMain.Rows[i].Cells[5].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    WareHousingAccess.DeleteWarehousing((int)dataGridViewWareHousingMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の入庫IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+            //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //入庫情報一覧表示用データを更新
+            WarehousingList = WareHousingAccess.GetData();
+            //入庫情報再表示
+            ListWarehousing();
+        }
+
+        /// <summary>
+        /// 入庫非表示リストボタン
+        /// </summary>
+        /// <param></param>
+        private void buttonWrNDisplayList_Click(object sender, EventArgs e)
+        {
+            DeleteListWarehousing();
+        }
     }
 }
