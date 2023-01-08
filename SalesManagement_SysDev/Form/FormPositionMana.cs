@@ -162,26 +162,26 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param>なし</param>
         /// <return>なし</return>
-        private void buttonPositionManaAdd_Click(object sender, EventArgs e)
-        {            
-            //入力チェックメソッドの呼び出し
-            if (!PositionInputCheck())
-            {
-                return;
-            }
+        //private void buttonPositionManaAdd_Click(object sender, EventArgs e)
+        //{            
+        //    //入力チェックメソッドの呼び出し
+        //    if (!PositionInputCheck())
+        //    {
+        //        return;
+        //    }
 
-            //登録用役職情報のセット
-            M_Position AddPositionData = PositionAddDataSet();
+        //    //登録用役職情報のセット
+        //    M_Position AddPositionData = PositionAddDataSet();
 
-            //役職情報の登録
-            PositionAccess.AddPosition(AddPositionData);
+        //    //役職情報の登録
+        //    PositionAccess.AddPosition(AddPositionData);
 
-            //役職情報一覧表示用データの更新
-            PositionList = PositionAccess.GetData();
+        //    //役職情報一覧表示用データの更新
+        //    PositionList = PositionAccess.GetData();
 
-            //役職情報再表示
-            ListPosition();
-        }
+        //    //役職情報再表示
+        //    ListPosition();
+        //}
 
         /// <summary>
         /// 役職情報更新ボタン
@@ -264,7 +264,7 @@ namespace SalesManagement_SysDev
 
             dataGridViewPositionMana.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
 
-            //ListPosition();
+            ListPosition();
 
 
 
@@ -327,6 +327,27 @@ namespace SalesManagement_SysDev
             //在庫情報一覧表示用データを更新
             PositionList = PositionAccess.GetData();
             //在庫情報再表示
+            ListPosition();
+        }
+
+        private void buttonPositionManaAdd_Click_1(object sender, EventArgs e)
+        {
+            //入力チェックメソッドの呼び出し
+            if (!PositionInputCheck())
+            {
+                return;
+            }
+
+            //登録用役職情報のセット
+            M_Position AddPositionData = PositionAddDataSet();
+
+            //役職情報の登録
+            PositionAccess.AddPosition(AddPositionData);
+
+            //役職情報一覧表示用データの更新
+            PositionList = PositionAccess.GetData();
+
+            //役職情報再表示
             ListPosition();
         }
     }
