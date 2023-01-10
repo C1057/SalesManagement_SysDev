@@ -20,9 +20,9 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="addData"></param>
         /// <return>void</return>
-        public void addMajorClass(M_MajorClassification addData)
+        public void AddMajorClass(M_MajorClassification addData)
         {
-            DialogResult result = msg.MsgDsp("M3022"); //登録確認メッセージ
+            DialogResult result = msg.MsgDsp("M3036"); //登録確認メッセージ
             if (result == DialogResult.Cancel)　//登録Cancel　登録モジュールを終了する
             {
                 return;
@@ -39,11 +39,11 @@ namespace SalesManagement_SysDev
                 context.SaveChanges();　　//
                 context.Dispose();  //　contextを開放
 
-                msg.MsgDsp("M3023");　//登録完了メッセージ
+                msg.MsgDsp("M3037");　//登録完了メッセージ
             }
             catch
             {
-                msg.MsgDsp("M3024"); //登録失敗メッセージ
+                msg.MsgDsp("M3038"); //登録失敗メッセージ
             }
 
         }
@@ -56,7 +56,7 @@ namespace SalesManagement_SysDev
         /// <return>void</return>
         public void UpdateMajorClass(M_MajorClassification UpdateData)
         {
-            DialogResult result = msg.MsgDsp("M3025"); //更新確認メッセージ
+            DialogResult result = msg.MsgDsp("M3039"); //更新確認メッセージ
             if (result == DialogResult.Cancel)　//更新Cancel　更新モジュールを終了する
             {
                 return;
@@ -74,11 +74,11 @@ namespace SalesManagement_SysDev
                 context.SaveChanges();  //
                 context.Dispose();     //contextを開放
 
-                msg.MsgDsp("M3025");
+                msg.MsgDsp("M3040");
             }
             catch
             {
-                msg.MsgDsp("M3026");
+                msg.MsgDsp("M3041");
             }
         }
 
@@ -91,6 +91,7 @@ namespace SalesManagement_SysDev
         /// <returns>List<M_MajorClassifcation></returns>
         public void DeleteMajorClass(int MajorClassID) //非表示
         {
+            msg.MsgDsp("M14001"); //非表示確認メッセージ
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var MajorClass = context.M_MajorClassifications.Single(x => x.McID == MajorClassID);             //非表示にするレコードの抽出
             MajorClass.McFlag = 2;                                                          //大分類管理フラグを2にする
