@@ -103,5 +103,11 @@ namespace SalesManagement_SysDev
                 msg.MsgDsp("M3068");　　　//更新失敗メッセージ
             }
         }
+
+        public List<M_Maker> GetData()
+        {
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
+            return context.M_Makers.ToList();                          //メーカーマスタの全データを戻り値として返す
+        }
     }
-    }
+}
