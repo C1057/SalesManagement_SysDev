@@ -21,10 +21,12 @@ namespace SalesManagement_SysDev
         DataInputCheck InputCheck = new DataInputCheck();                               //入力チェック用クラス
 
         MajorClassDataAccess MajorClassAccess = new MajorClassDataAccess();
+        SmallClassDataAccess SmallClassAccess = new SmallClassDataAccess();
 
         List<M_MajorClassification> MajorClassList;
+        List<M_SmallClassification> SmallClassList;
 
-        private M_MajorClassification MajorClassifcationAddDataSet()
+        private M_MajorClassification MajorClassifcationAddDataSet()　　//大分類登録データセット
         {
             return new M_MajorClassification
             {
@@ -34,7 +36,7 @@ namespace SalesManagement_SysDev
             };
         }
 
-        private M_MajorClassification MajorClassUpdDataSet()
+        private M_MajorClassification MajorClassUpdDataSet()　　//大分類更新データセット
         {
             return new M_MajorClassification
             {
@@ -45,7 +47,7 @@ namespace SalesManagement_SysDev
             };
         }
 
-        private bool MajorClassInputCheck()
+        private bool MajorClassInputCheck()　　//大分類文字チェック
         {
             if (string.IsNullOrEmpty(textboxManaMajorClassName.Text))//大分類名の空文字チェック
             {
@@ -58,6 +60,46 @@ namespace SalesManagement_SysDev
             {
                 msg.MsgDsp("M3034");
                 textboxManaMajorClassName.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private M_SmallClassification SmallClassifcationAddDataSet()　　//小分類登録データセット
+        {
+            return new M_SmallClassification
+            {
+                ScName = textBoxCsManaSmallClassName.Text.Trim(),
+                ScFlag = 0,
+                ScHidden = textBoxCsManaSmallClassHidden.Text.Trim()
+            };
+        }
+
+        private M_SmallClassification SmallClassUpdDataSet()　　//小分類更新データセット
+        {
+            return new M_SmallClassification
+            {
+                ScID = int.Parse(comboBoxCsManaSmallClassID.Text.Trim()),
+                ScName = textBoxCsManaSmallClassName.Text.Trim(),
+                ScFlag = 0,
+                ScHidden = textBoxCsManaSmallClassHidden.Text.Trim()
+            };
+        }
+
+        private bool SmallClassInputCheck()　　//小分類文字チェック
+        {
+            if (string.IsNullOrEmpty(textBoxCsManaSmallClassName.Text))//小分類名の空文字チェック
+            {
+                msg.MsgDsp("M3046");
+                textBoxCsManaSmallClassName.Focus();
+                return false;
+            }
+
+            if (textBoxCsManaSmallClassName.Text.Length > 50)//名の文字数チェック
+            {
+                msg.MsgDsp("M3047");
+                textBoxCsManaSmallClassName.Focus();
                 return false;
             }
 
@@ -90,6 +132,37 @@ namespace SalesManagement_SysDev
                 {
                     //データグリッドビューにデータを追加する
                     dataGridViewMajorClass.Rows.Add(MajorClassData.McID, MajorClassData.McName, Convert.ToBoolean(MajorClassData.McFlag), MajorClassData.McHidden);
+                }
+
+            }
+        }
+
+        private void ListSmallClass()
+        {
+            dataGridViewSmallClass.Rows.Clear();
+            //データグリッドビューをクリアする
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
+            foreach (var SmallClassData in context.M_SmallClassifications)
+            {
+                if (SmallClassData.ScFlag == 0)                     //役員管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewSmallClass.Rows.Add(SmallClassData.ScID, SmallClassData.ScName, Convert.ToBoolean(SmallClassData.ScFlag), SmallClassData.ScHidden);
+                }
+
+            }
+        }
+        private void DeleteListSmallClass()
+        {
+            dataGridViewSmallClass.Rows.Clear();
+            //データグリッドビューをクリアする
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
+            foreach (var SmallClassData in context.M_SmallClassifications)
+            {
+                if (SmallClassData.ScFlag == 2)                     //役員管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewSmallClass.Rows.Add(SmallClassData.ScID, SmallClassData.ScName, Convert.ToBoolean(SmallClassData.ScFlag), SmallClassData.ScHidden);
                 }
 
             }
@@ -160,6 +233,47 @@ namespace SalesManagement_SysDev
             dataGridViewMajorClass.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
 
             ListMajorClass();
+
+            /// <summry>
+            /// 小分類管理画面データグリッドビュー設定          //役職テーブルデータグリッドビュー
+            /// </summry>
+            columnText = new string[]                       //各列のヘッダーテキストを設定
+            {
+                "小分類ID","小分類名","小分類管理フラグ","非表示理由"
+            };
+
+            ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
+            {
+                    true,true,false,true
+            };
+
+            ColumnSize = new int[]                          //各列のWidthを設定
+            {
+                    281,481,281,542
+            };
+
+            columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
+            {
+                new DataGridViewTextBoxCell(),
+                new DataGridViewTextBoxCell(),
+                new DataGridViewCheckBoxCell(),
+                new DataGridViewTextBoxCell(),
+            };
+
+            for (int i = 0; i < columnText.Length; i++)                 //各列の設定を適用し追加する
+            {
+                var viewColumn = new DataGridViewColumn();
+                viewColumn.HeaderText = columnText[i];                   //ヘッダーに表示される名称
+                viewColumn.ReadOnly = ReadOnlySet[i];                   //読み取り可否
+                viewColumn.Width = ColumnSize[i];                       //Width設定
+                viewColumn.CellTemplate = columnCellType[i];  //セルのタイプ
+
+                dataGridViewSmallClass.Columns.Add(viewColumn);          //列の追加
+            }
+
+            dataGridViewSmallClass.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
+
+            ListSmallClass();
 
 
         }
@@ -307,6 +421,82 @@ namespace SalesManagement_SysDev
         private void buttonCsManaMajorClassDeletelist_Click(object sender, EventArgs e)
         {
             DeleteListMajorClass();
+        }
+
+        private void buttonCsManaSmallClassAdd_Click(object sender, EventArgs e)
+        {
+            //入力チェックメソッドの呼び出し
+            if (!SmallClassInputCheck())
+            {
+                return;
+            }
+
+            //登録用役職情報のセット
+            M_SmallClassification AddSmallClassData = SmallClassifcationAddDataSet();
+
+            //役職情報の登録
+            SmallClassAccess.AddSmallClass(AddSmallClassData);
+
+            //役職情報一覧表示用データの更新
+            SmallClassList = SmallClassAccess.GetData();
+
+            //役職情報再表示
+            ListSmallClass();
+        }
+
+        private void buttonCsManaSmallClassList_Click(object sender, EventArgs e)
+        {
+            ListSmallClass();
+        }
+
+        private void buttonCsManaSmallClassUodate_Click(object sender, EventArgs e)
+        {
+            //小分類IDの入力チェック
+            if (!InputCheck.SmallClassIDInputCheck(comboBoxCsManaSmallClassID.Text))
+            {
+                comboBoxCsManaSmallClassID.Focus();
+                return;
+            }
+
+            //小分類名の入力チェック
+            if (!SmallClassInputCheck())
+            {
+                
+                textBoxCsManaSmallClassName.Focus();
+                return;
+            }
+
+            //更新用役職情報をセット
+            M_SmallClassification updSmallClassData = SmallClassUpdDataSet();
+            //役職更新モジュール呼び出し
+            SmallClassAccess.UpdateSmallClass(updSmallClassData);
+
+            //役職情報一覧表示用データの更新
+            SmallClassList = SmallClassAccess.GetData();
+            //役職情報再表示
+            ListSmallClass();
+        }
+
+        private void maruibutton6_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewSmallClass.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridViewSmallClass.Rows[i].Cells[2].Value)                 //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    SmallClassAccess.DeleteSmallClass((int)dataGridViewSmallClass.Rows[i].Cells[0].Value);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+            msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //在庫情報一覧表示用データを更新
+            SmallClassList = SmallClassAccess.GetData();
+            //在庫情報再表示
+            ListSmallClass();
+        }
+
+        private void maruibutton5_Click(object sender, EventArgs e)
+        {
+            DeleteListSmallClass();
         }
     }
 }

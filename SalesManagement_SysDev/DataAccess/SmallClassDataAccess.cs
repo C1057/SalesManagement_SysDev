@@ -16,9 +16,9 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="addData"></param>
         /// <return>void</return>
-        public void addSmallClass(M_SmallClassification addData)
+        public void AddSmallClass(M_SmallClassification addData)
         {
-            DialogResult result = msg.MsgDsp("M3034"); //登録確認メッセージ
+            DialogResult result = msg.MsgDsp("M3049"); //登録確認メッセージ
             if (result == DialogResult.Cancel)　//登録Cancel　登録モジュールを終了する
             {
                 return;
@@ -34,11 +34,11 @@ namespace SalesManagement_SysDev
                 context.SaveChanges();　　//
                 context.Dispose();  //　contextを開放
 
-                msg.MsgDsp("M3035");　//登録完了メッセージ
+                msg.MsgDsp("M3050");　//登録完了メッセージ
             }
             catch
             {
-                msg.MsgDsp("M3036"); //登録失敗メッセージ
+                msg.MsgDsp("M3051"); //登録失敗メッセージ
             }
 
         }
@@ -51,7 +51,7 @@ namespace SalesManagement_SysDev
         /// <return>void</return>
         public void UpdateSmallClass(M_SmallClassification UpdateData)
         {
-            DialogResult result = msg.MsgDsp("M3037"); //更新確認メッセージ
+            DialogResult result = msg.MsgDsp("M3052"); //更新確認メッセージ
             if (result == DialogResult.Cancel)　//更新Cancel　更新モジュールを終了する
             {
                 return;
@@ -68,11 +68,11 @@ namespace SalesManagement_SysDev
                 context.SaveChanges();  //
                 context.Dispose();     //contextを開放
 
-                msg.MsgDsp("M3038");
+                msg.MsgDsp("M3053");
             }
             catch
             {
-                msg.MsgDsp("M3039");
+                msg.MsgDsp("M3054");
             }
         }
 
@@ -86,7 +86,7 @@ namespace SalesManagement_SysDev
         public void DeleteSmallClass(int SmallClassID) //非表示
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
-            var SmallClass = context.M_SmallClassifications.Single(x => x.McID == SmallClassID);             //非表示にするレコードの抽出
+            var SmallClass = context.M_SmallClassifications.Single(x => x.ScID == SmallClassID);             //非表示にするレコードの抽出
             SmallClass.ScFlag = 2;                                                          //小分類管理フラグを2にする
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
