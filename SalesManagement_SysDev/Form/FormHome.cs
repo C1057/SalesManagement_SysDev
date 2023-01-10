@@ -69,10 +69,10 @@ namespace SalesManagement_SysDev
         List<M_Maker> MakerList;                                                        //表示用[メーカー]情報を保持する変数
         List<M_SalesOffice> SalesOfficeList;                                            //表示用[営業所]情報を保持する変数
         List<M_Client> ClientList;                                                      //表示用[顧客]情報を保持する変数
-        List<M_Product> ProductList;                                                    //表示用[商品]情報を保持する変数
+        public List<M_Product> ProductList;                                                    //表示用[商品]情報を保持する変数
         List<M_MajorClassification> MajorClassList;                                     //表示用[大分類]情報を保持する変数
         List<M_SmallClassification> SmallClassList;                                     //表示用[小分類]情報を保持する変数
-        List<T_Stock> StockList;                                                        //表示用[在庫]情報を保持する変数
+        public List<T_Stock> StockList;                                                        //表示用[在庫]情報を保持する変数
         List<M_Employee> EmployeeList;                                                  //表示用[社員]情報を保持する変数
         List<T_Sale> SaleList;                                                          //表示用[売上]情報を保持する変数
         List<T_SaleDetail> SaleDetailList;                                              //表示用[売上詳細]情報を保持する変数
@@ -129,11 +129,11 @@ namespace SalesManagement_SysDev
 
         //時間表示機能//
         //時間、分、秒を表示する
-        //private void timer1_Tick(object sender, EventArgs e)
-        //{
-        //    DateTime d = DateTime.Now;
-        //    labelNowTime.Text = string.Format("{0:00}:{1:00}:{2:00}", d.Hour, d.Minute, d.Second);
-        //}
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime d = DateTime.Now;
+            labelNowTime.Text = string.Format("{0:00}:{1:00}:{2:00}", d.Hour, d.Minute, d.Second);
+        }
 
         //フォームロードイベント//
         //タイマーへの初期設定
@@ -1173,12 +1173,12 @@ namespace SalesManagement_SysDev
 
         //時間表示機能//
         //年、月、日を表示する
-        //private void timer2_Tick(object sender, EventArgs e)
-        //{
-        //    DateTime d = DateTime.Now;
-        //    labelNowDays.Text = string.Format("{0:00}/{1:00}/{2:00}", d.Year, d.Month, d.Day);
-        //    labelNowDays.Text += d.ToString("(ddd)");
-        //}
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            DateTime d = DateTime.Now;
+            labelNowDays.Text = string.Format("{0:00}/{1:00}/{2:00}", d.Year, d.Month, d.Day);
+            labelNowDays.Text += d.ToString("(ddd)");
+        }
 
         //受注管理ボタン
         private void buttonOrder_Click(object sender, EventArgs e)
@@ -3209,13 +3209,21 @@ namespace SalesManagement_SysDev
                 //受注IDをセット
                 int OrID = int.Parse(comboBoxOrOrderID.Text);
 
+                T_Order OrderData = OrderConfirmDataSet(OrID);         //受注IDと一致する受注データを取得する
+
+                //非表示にされているデータの確認
+                if (OrderData.OrFlag == 2)
+                {
+                    MessageBox.Show("非表示にされているデータの受注確定は出来ません", "確定確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 //注文テーブルに既にデータが存在するか確認する
                 if (!context.T_Chumons.Any(Chumon => Chumon.OrID == OrID))
                 {
                     //注文IDのセット
                     ChumonID = ChumonList.Count + 1;
 
-                    T_Order OrderData = OrderConfirmDataSet(OrID);         //受注IDと一致する受注データを取得する
+                    //T_Order OrderData = OrderConfirmDataSet(OrID);         //受注IDと一致する受注データを取得する
                     T_Chumon ChumonData = ChumonAddDataSet(OrderData);                  //登録用注文データをセットする
                     context.T_Chumons.Add(ChumonData);                      //注文テーブルに登録する
 

@@ -368,18 +368,38 @@ namespace SalesManagement_SysDev
 
                 context.SaveChanges();
 
+                int[] StockHattyuList = new int[dataGridViewProSelect.Rows.Count];
+                int index = 0;
+
                 //登録データをデータグリッドビューから1行ずつ抽出する
                 for (int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
                 {
+                    //追加データをセットする
+                    T_OrderDetail OrderDetail = OrderDetailAddDataSet(i);
                     //受注詳細テーブルにデータ追加する
-                    context.T_OrderDetails.Add(OrderDetailAddDataSet(i));
+                    context.T_OrderDetails.Add(OrderDetail);
+
+                    //選択された商品の在庫データと商品データを抽出
+                    T_Stock StockData = formHome.StockList.Single(Stock => Stock.PrID == OrderDetail.PrID);
+                    M_Product ProductData = formHome.ProductList.Single(Product => Product.PrID == OrderDetail.PrID);
+                    //在庫数を更新
+                    StockData.StQuantity = StockData.StQuantity - OrderDetail.OrQuantity;
+
+                    context.SaveChanges();          //登録を確定
+
+                    //安全在庫数を下回っているかチェックする
+                    if (StockData.StQuantity <= ProductData.PrSafetyStock)
+                    {
+                        StockHattyuList[index] = OrderDetail.PrID;
+                    }
                 }
 
-                context.SaveChanges();          //登録を確定
+                
 
                 //元の画面の一覧表示用データの更新
                 formHome.OrderList = context.T_Orders.ToList();
                 formHome.OrderDetailList = context.T_OrderDetails.ToList();
+                formHome.StockList = context.T_Stocks.ToList();
 
                 context.Dispose();              //contextを解放
 

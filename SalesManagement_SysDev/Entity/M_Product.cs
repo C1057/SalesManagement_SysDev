@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SalesManagement_SysDev
 {
-    class M_Product
+    public class M_Product
     {
         [Key]
         public int PrID { get; set; }               //商品ID		

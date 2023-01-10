@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SalesManagement_SysDev
 {
-    class T_Stock
+    public class T_Stock
     {
         [Key]
         public int StID { get; set; }           //在庫ID

@@ -650,6 +650,10 @@ namespace SalesManagement_SysDev
             this.labelSystemTitle.TabIndex = 41;
             this.labelSystemTitle.Text = "販売在庫管理システム";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.RoyalBlue;
@@ -898,6 +902,10 @@ namespace SalesManagement_SysDev
             this.textBoxHomeLoginID.Name = "textBoxHomeLoginID";
             this.textBoxHomeLoginID.Size = new System.Drawing.Size(206, 32);
             this.textBoxHomeLoginID.TabIndex = 1;
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // labelManaTitle
             // 
@@ -5851,6 +5859,12 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelOrder);
+            this.Controls.Add(this.panelArrival);
+            this.Controls.Add(this.panelStart);
+            this.Controls.Add(this.panelChumon);
+            this.Controls.Add(this.panelSyukko);
+            this.Controls.Add(this.panelWareHousing);
             this.Controls.Add(this.panelHattyu);
             this.Controls.Add(this.panelClient);
             this.Controls.Add(this.panelStock);
@@ -5858,12 +5872,6 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelProduct);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelSale);
-            this.Controls.Add(this.panelOrder);
-            this.Controls.Add(this.panelArrival);
-            this.Controls.Add(this.panelStart);
-            this.Controls.Add(this.panelChumon);
-            this.Controls.Add(this.panelSyukko);
-            this.Controls.Add(this.panelWareHousing);
             this.Name = "FormHome";
             this.Text = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
