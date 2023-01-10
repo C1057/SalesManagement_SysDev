@@ -60,7 +60,7 @@ namespace SalesManagement_SysDev
         SyukkoDateAccess SyukkoAccess = new SyukkoDateAccess();                         //[出庫テーブル]操作用クラスのインスタンス化
         ArrivalDateAccess ArrivalAccess = new ArrivalDateAccess();                      //[入荷テーブル]操作用クラスのインスタンス化
         ShipmentDateAccess ShipmentAccess = new ShipmentDateAccess();                   //[出荷テーブル]操作用クラスのインスタンス化
-        
+
 
         /// <summary>
         /// 各テーブルの表示用データを保持するListの宣言
@@ -586,7 +586,7 @@ namespace SalesManagement_SysDev
             /// </summry>
             columnText = new string[]                      //各列のヘッダーテキストを設定
             {
-                "発注ID", "メーカID", "発注社員ID", "発注年月日", "入庫済可否(倉庫)", "発注管理フラグ", "非表示理由" 
+                "発注ID", "メーカID", "発注社員ID", "発注年月日", "入庫済可否(倉庫)", "発注管理フラグ", "非表示理由"
             };
 
             ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
@@ -939,7 +939,7 @@ namespace SalesManagement_SysDev
                 new DataGridViewTextBoxCell(),
                 new DataGridViewTextBoxCell(),
                 new DataGridViewCheckBoxCell(),
-                new DataGridViewTextBoxCell(),                
+                new DataGridViewTextBoxCell(),
                 new DataGridViewCheckBoxCell(),
                 new DataGridViewTextBoxCell(),
             };
@@ -1131,7 +1131,7 @@ namespace SalesManagement_SysDev
         private void buttonClient_Click(object sender, EventArgs e)
         {
             //入力項目に入力されているかチェック
-            if (PanelCheck())               
+            if (PanelCheck())
             {
                 if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
                 {
@@ -1309,7 +1309,7 @@ namespace SalesManagement_SysDev
             //データの表示
             ListWarehousing();
         }
-                
+
         //ツールチップ機能
         private void maruibutton10_Click(object sender, EventArgs e)
         {
@@ -1373,11 +1373,9 @@ namespace SalesManagement_SysDev
             formMaker.Visible = true;
         }
 
-       
-
         //営業所管理ボタン
         private void buttonEmSOManaOpen_Click(object sender, EventArgs e)
-        {            
+        {
             //営業所管理画面に遷移する
             formSOMana.Visible = true;
         }
@@ -1389,135 +1387,9 @@ namespace SalesManagement_SysDev
             formPositionMana.Visible = true;
         }
 
-        //受注IDコンボボックスに入力がある場合登録ボタンを使えなくする
-        private void comboBoxOrOrderID_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(comboBoxOrOrderID.Text))
-            {
-                EnabledChangedtruebutton(panelOrder);
-            }
-            else
-            {
-                EnabledChangedfalsebutton(panelOrder);
-            }
-        }
-
-        //全てのテキストボックスとコンボボックスの入力をクリアする
-        private static void ClearText(Control hParent)
-        {
-            // hParent 内のすべてのコントロールを列挙する
-            foreach (Control cControl in hParent.Controls)
-            {
-                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
-                if (cControl.HasChildren == true)
-                {
-                    ClearText(cControl);
-                }
-
-                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
-                if (cControl is TextBoxBase || cControl is ComboBox)
-                {
-                    cControl.Text = string.Empty;
-                }
-            }
-        }
-
-        private static bool CheckText(Control hParent)
-        {
-            // hParent 内のすべてのコントロールを列挙する
-            foreach (Control cControl in hParent.Controls)
-            {
-                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
-                if (cControl.HasChildren == true)
-                {
-                    CheckText(cControl);
-                }
-
-                // コントロールの型が TextBoxBase またはComboBoxの場合チェックする
-                if (cControl is TextBoxBase || cControl is ComboBox)
-                {
-                    if (cControl.Text != String.Empty)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// 全てのパネルをの入力内容をチェックする
-        /// </summary>
-        private bool PanelCheck()
-        {            
-            foreach (Panel panel in panelList)          //パネルリストからパネルを抽出
-            {
-                if (panel.Visible == true)              //Visibleプロパティがtrueの場合チェックする
-                {
-                    if (CheckText(panel))               //入力チェックメソッド呼び出し
-                    {
-                        return true;                    //入力されている場合trueを返す
-                    }
-                }
-            }
-            return false;                               //入力されていない場合falseを返す
-        }
-
-        //登録ボタンを使用不能にするメソッド
-        public static void EnabledChangedfalsebutton(Control hParent)
-        {
-            // hParent 内のすべてのコントロールを列挙する
-            foreach (Control cControl in hParent.Controls)
-            {
-                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
-                if (cControl.HasChildren == true)
-                {
-                    EnabledChangedfalsebutton(cControl);
-                }
-
-                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
-                if (cControl is Button)
-                {
-                    if (cControl.Text == "登録")
-                    {
-                        cControl.Enabled = false;
-                    }
-                }
-            }
-        }
-
-        //登録ボタンを使用可能にするメソッド
-        public static void EnabledChangedtruebutton(Control hParent)
-        {
-            // hParent 内のすべてのコントロールを列挙する
-            foreach (Control cControl in hParent.Controls)
-            {
-                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
-                if (cControl.HasChildren == true)
-                {
-                    EnabledChangedtruebutton(cControl);
-                }
-
-                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
-                if (cControl is Button)
-                {
-                    if (cControl.Text == "登録")
-                    {
-                        cControl.Enabled = true;
-                    }
-                }
-            }
-        }
-
-        //販売在庫管理システムを終了する
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-    ///////////////////////////////////////////////////
-    ///顧客管理画面コード
-    ///////////////////////////////////////////////////
+        ///////////////////////////////////////////////////
+        ///顧客管理画面コード
+        ///////////////////////////////////////////////////
 
         /// <summary>
         /// 顧客情報一覧表示モジュール
@@ -1526,7 +1398,7 @@ namespace SalesManagement_SysDev
         /// <param>なし</param>
         /// <returns>なし</returns>
         private void ListClient()
-        {            
+        {
             dataGridViewCI.Rows.Clear();                        //データグリッドビューをクリアする
             foreach (var ClientData in ClientList)
             {
@@ -1589,14 +1461,14 @@ namespace SalesManagement_SysDev
 
             //顧客情報再表示
             ListClient();
-        }                
+        }
 
         /// <summary>
         /// 顧客情報入力チェックメソッド
         /// </summary>
         /// <returns>異常あり:false, 異常なし:true</returns>
         private bool ClientInputCheck()
-        {          
+        {
             //顧客管理画面顧客名の空文字チェック
             if (string.IsNullOrEmpty(textBoxCIClientName.Text.Trim()))
             {
@@ -1755,7 +1627,7 @@ namespace SalesManagement_SysDev
                 ClPhone = textBoxCIPhone.Text,
                 ClPostal = textBoxCIPostal.Text,
                 ClFAX = textBoxCIFax.Text,
-                ClHidden=textBoxCIRsn.Text
+                ClHidden = textBoxCIRsn.Text
             };
         }
 
@@ -1814,7 +1686,7 @@ namespace SalesManagement_SysDev
             if (!string.IsNullOrEmpty(comboBoxCIClientID.Text))             //顧客IDコンボボックスの空文字チェック
             {
                 //顧客IDの入力チェック
-                if (!InputCheck.ClientIDInputCheck(comboBoxCIClientID.Text))  
+                if (!InputCheck.ClientIDInputCheck(comboBoxCIClientID.Text))
                 {
                     comboBoxCIClientID.Focus();
                     return;
@@ -1886,9 +1758,9 @@ namespace SalesManagement_SysDev
             DeleteListClient();                     //非表示リストメソッドの呼び出し
         }
 
-    ///////////////////////////////////////////////////
-    ///商品管理画面コード
-    ///////////////////////////////////////////////////
+        ///////////////////////////////////////////////////
+        ///商品管理画面コード
+        ///////////////////////////////////////////////////
 
         /// <summary>
         /// 商品情報一覧表示モジュール
@@ -1960,14 +1832,14 @@ namespace SalesManagement_SysDev
 
             //商品情報一覧表示
             ListProduct();
-        }        
-                
+        }
+
         /// <summary>
         /// 商品情報入力チェックメソッド
         /// </summary>
         /// <returns>異常あり:false, 異常なし:true</returns>
         private bool ProductInputCheck()
-        {           
+        {
             //商品間画面商品名の空文字チェック
             if (string.IsNullOrEmpty(textBoxPrProductName.Text))
             {
@@ -2133,7 +2005,7 @@ namespace SalesManagement_SysDev
                 PrColor = textBoxPrColor.Text,
                 PrReleaseDate = DateTimePickerProduct.Value,
                 PrFlag = 0,
-                PrHidden = textBoxPrRsn.Text                
+                PrHidden = textBoxPrRsn.Text
             };
         }
 
@@ -2145,7 +2017,7 @@ namespace SalesManagement_SysDev
         {
             return new M_Product
             {
-                PrID=int.Parse(comboBoxPrProductID.Text),
+                PrID = int.Parse(comboBoxPrProductID.Text),
                 MaID = int.Parse(comboBoxPrMakerID.Text),
                 PrName = textBoxPrProductName.Text,
                 Price = int.Parse(textBoxPrPrice.Text),
@@ -2289,9 +2161,9 @@ namespace SalesManagement_SysDev
             DeleteListProduct();                     //非表示リストメソッドの呼び出し
         }
 
-    ///////////////////////////////////////////////
-    ///在庫管理画面コード
-    ///////////////////////////////////////////////
+        ///////////////////////////////////////////////
+        ///在庫管理画面コード
+        ///////////////////////////////////////////////
 
         /// 在庫情報一覧表示モジュール
         /// (非表示になっていないデータを表示)
@@ -2309,7 +2181,7 @@ namespace SalesManagement_SysDev
                     M_Product ProductData = ProductList.Single(Product => Product.PrID == StockData.PrID);
 
                     //データグリッドビューにデータを追加する
-                    dataGridViewStock.Rows.Add(StockData.StID, StockData.PrID, ProductData.PrName, StockData.StQuantity,  Convert.ToBoolean(StockData.StFlag), StockData.StHidden);
+                    dataGridViewStock.Rows.Add(StockData.StID, StockData.PrID, ProductData.PrName, StockData.StQuantity, Convert.ToBoolean(StockData.StFlag), StockData.StHidden);
                 }
             }
         }
@@ -2469,7 +2341,7 @@ namespace SalesManagement_SysDev
                 labelStSearchTitle.Text = "商品IDで検索しました";           //何で検索したかを表示
             }
             else if (!string.IsNullOrEmpty(textBoxStProductName.Text))   //商品名テキストボックスの空文字チェック
-            {                
+            {
                 foreach (var StData in StockAccess.SearchStock(textBoxStProductName.Text))      //商品名で検索する
                 {
                     //データグリッドビューにデータを表示
@@ -2509,9 +2381,9 @@ namespace SalesManagement_SysDev
             DeleteListStock();
         }
 
-    /////////////////////////////////////////
-    ///社員管理画面コード
-    /////////////////////////////////////////
+        /////////////////////////////////////////
+        ///社員管理画面コード
+        /////////////////////////////////////////
 
         /// <summary>
         /// 社員情報一覧表示モジュール
@@ -2646,7 +2518,7 @@ namespace SalesManagement_SysDev
                 msg.MsgDsp("M5013");
                 dateTimePickerEmployee.Focus();
                 return false;
-            }            
+            }
 
             //電話番号の空文字チェック
             if (string.IsNullOrEmpty(textBoxEmEmployeePhone.Text))
@@ -2684,13 +2556,13 @@ namespace SalesManagement_SysDev
         {
             return new M_Employee
             {
-                EmName=textBoxEmEmployeeName.Text,
-                SoID=int.Parse(comboBoxEmSalesOfficeID.Text),
-                PoID=int.Parse(comboBoxEmPositionID.Text),
-                EmHiredate=dateTimePickerEmployee.Value,
-                EmPassword=textBoxEmEmployeePass.Text,
-                EmPhone=textBoxEmEmployeePhone.Text,
-                EmFlag=0,
+                EmName = textBoxEmEmployeeName.Text,
+                SoID = int.Parse(comboBoxEmSalesOfficeID.Text),
+                PoID = int.Parse(comboBoxEmPositionID.Text),
+                EmHiredate = dateTimePickerEmployee.Value,
+                EmPassword = textBoxEmEmployeePass.Text,
+                EmPhone = textBoxEmEmployeePhone.Text,
+                EmFlag = 0,
             };
         }
 
@@ -2702,13 +2574,13 @@ namespace SalesManagement_SysDev
         {
             return new M_Employee
             {
-                EmID=int.Parse(comboBoxEmEmployeeID.Text),
+                EmID = int.Parse(comboBoxEmEmployeeID.Text),
                 EmName = textBoxEmEmployeeName.Text,
                 SoID = int.Parse(comboBoxEmSalesOfficeID.Text),
                 PoID = int.Parse(comboBoxEmPositionID.Text),
                 EmHiredate = dateTimePickerEmployee.Value,
                 EmPhone = textBoxEmEmployeePhone.Text,
-                EmHidden=textBoxEmEmployeeRsn.Text
+                EmHidden = textBoxEmEmployeeRsn.Text
             };
         }
 
@@ -2857,9 +2729,9 @@ namespace SalesManagement_SysDev
             DeleteListEmployee();
         }
 
-    /////////////////////////////////////////
-    ///売上管理画面コード
-    /////////////////////////////////////////
+        /////////////////////////////////////////
+        ///売上管理画面コード
+        /////////////////////////////////////////
 
         /// <summary>
         /// 売上情報一覧表示モジュール
@@ -2933,7 +2805,7 @@ namespace SalesManagement_SysDev
                     //データグリッドビューにデータを表示
                     dataGridViewSaleMain.Rows.Add(SaData.SaID, SaData.ClID, SaData.SoID, SaData.EmID, SaData.ChID, SaData.SaDate, Convert.ToBoolean(SaData.SaFlag), SaData.SaHidden);
                 }
-                foreach(var SaleDetailData in SaleDetailList.Where(SaleDetailList => SaleDetailList.SaID == int.Parse(comboBoxSaSaleID.Text)))      //売上IDで売上詳細情報を検索する
+                foreach (var SaleDetailData in SaleDetailList.Where(SaleDetailList => SaleDetailList.SaID == int.Parse(comboBoxSaSaleID.Text)))      //売上IDで売上詳細情報を検索する
                 {
                     //詳細データグリッドビューにデータを表示する
                     dataGridViewSaDetail.Rows.Add(SaleDetailData.SaDetailID, SaleDetailData.SaID, SaleDetailData.PrID, SaleDetailData.SaQuantity, SaleDetailData.SaPrTotalPrice);
@@ -3031,9 +2903,9 @@ namespace SalesManagement_SysDev
             DeleteListSale();
         }
 
-    ///////////////////////////////////
-    ///受注管理画面コード
-    ///////////////////////////////////
+        ///////////////////////////////////
+        ///受注管理画面コード
+        ///////////////////////////////////
 
         /// <summary>
         /// 受注情報一覧表示モジュール
@@ -3048,7 +2920,7 @@ namespace SalesManagement_SysDev
                 {
                     //データグリッドビューにデータを追加する
                     dataGridViewOrderMain.Rows.Add(OrderData.OrID, OrderData.SoID, OrderData.EmID, OrderData.ClID, OrderData.ClCharge, OrderData.OrDate, Convert.ToBoolean(OrderData.OrStateFlag),
-                                                        Convert.ToBoolean(OrderData.OrFlag), OrderData.OrHidden); 
+                                                        Convert.ToBoolean(OrderData.OrFlag), OrderData.OrHidden);
                 }
             }
         }
@@ -3202,7 +3074,7 @@ namespace SalesManagement_SysDev
             //異常なしの場合trueを返す
             return true;
         }
-        
+
         /// <summary>
         /// 商品選択ボタン
         /// </summary>
@@ -3258,14 +3130,14 @@ namespace SalesManagement_SysDev
         {
             return new T_Order
             {
-                SoID=int.Parse(comboBoxOrSalesOfficeID.Text),
-                EmID=int.Parse(comboBoxOrEmployeeID.Text),
-                ClID=int.Parse(comboBoxOrClientID.Text),
-                ClCharge=textBoxOrClientManager.Text,
+                SoID = int.Parse(comboBoxOrSalesOfficeID.Text),
+                EmID = int.Parse(comboBoxOrEmployeeID.Text),
+                ClID = int.Parse(comboBoxOrClientID.Text),
+                ClCharge = textBoxOrClientManager.Text,
                 //OrDate=dateTimePickerOrder.Value,
-                OrDate=DateTime.Parse(dateTimePickerOrder.Text),
-                OrStateFlag=0,
-                OrFlag=0                
+                OrDate = DateTime.Parse(dateTimePickerOrder.Text),
+                OrStateFlag = 0,
+                OrFlag = 0
             };
         }
 
@@ -3305,9 +3177,9 @@ namespace SalesManagement_SysDev
         {
             return new T_ChumonDetail
             {
-                ChID=ChumonID,
-                PrID=OrderDetail.PrID,
-                ChQuantity=OrderDetail.OrQuantity
+                ChID = ChumonID,
+                PrID = OrderDetail.PrID,
+                ChQuantity = OrderDetail.OrQuantity
             };
         }
 
@@ -3427,9 +3299,9 @@ namespace SalesManagement_SysDev
             DeleteListOrder();
         }
 
-    ////////////////////////////////////////////////
-    ///注文管理画面コード
-    ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ///注文管理画面コード
+        ////////////////////////////////////////////////
 
 
 
@@ -3483,10 +3355,10 @@ namespace SalesManagement_SysDev
         {
             return new T_Chumon
             {
-                ChID=int.Parse(comboBoxChChumonID.Text),
-                EmID=int.Parse(comboBoxChEmployeeID.Text),
-                ChDate=dateTimePickerChumon.Value,
-                ChStateFlag=1
+                ChID = int.Parse(comboBoxChChumonID.Text),
+                EmID = int.Parse(comboBoxChEmployeeID.Text),
+                ChDate = dateTimePickerChumon.Value,
+                ChStateFlag = 1
             };
         }
 
@@ -3527,7 +3399,7 @@ namespace SalesManagement_SysDev
                     M_Product product = ProductList.Single(Pr => Pr.PrID == ChumonDetailData.PrID);        //商品IDと一致する商品データを取得
 
                     //詳細データグリッドビューにデータを表示する
-                    dataGridViewChumonDetail.Rows.Add(ChumonDetailData.ChDetailID, ChumonDetailData.ChID, ChumonDetailData.PrID,product.PrName, ChumonDetailData.ChQuantity);
+                    dataGridViewChumonDetail.Rows.Add(ChumonDetailData.ChDetailID, ChumonDetailData.ChID, ChumonDetailData.PrID, product.PrName, ChumonDetailData.ChQuantity);
                 }
                 labelChSearchTitle.Text = "注文IDで検索しました";            //何で検索したかを表示
             }
@@ -3660,7 +3532,7 @@ namespace SalesManagement_SysDev
                 int ChID = int.Parse(comboBoxChChumonID.Text);
 
                 //↓存在確認用の注文情報を取得
-                T_Chumon ChumonData = context.T_Chumons.Single(Chumon=>Chumon.ChID==ChID);         //受注IDと一致する受注データを取得する
+                T_Chumon ChumonData = context.T_Chumons.Single(Chumon => Chumon.ChID == ChID);         //受注IDと一致する受注データを取得する
 
                 //注文テーブルに既にデータが存在するか確認する
                 if (!context.T_Syukkos.Any(Syukko => Syukko.OrID == ChumonData.OrID))
@@ -3752,9 +3624,9 @@ namespace SalesManagement_SysDev
             DeleteListChumon();
         }
 
-    ////////////////////////////////////////////////
-    ///出庫管理画面コード
-    ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ///出庫管理画面コード
+        ////////////////////////////////////////////////
 
         /// 出庫情報一覧表示モジュール
         /// (非表示になっていないデータを表示)
@@ -3822,7 +3694,7 @@ namespace SalesManagement_SysDev
                 foreach (var SyData in SyukkoAccess.SearchSyukko(1, comboBoxSySyukkoID.Text))           //出庫IDで検索する
                 {
                     //データグリッドビューにデータを表示
-                    dataGridViewSyukkoMain.Rows.Add(SyData.SyID, SyData.EmID, SyData.ClID, SyData.SoID, SyData.OrID, SyData.SyDate,  Convert.ToBoolean(SyData.SyStateFlag),
+                    dataGridViewSyukkoMain.Rows.Add(SyData.SyID, SyData.EmID, SyData.ClID, SyData.SoID, SyData.OrID, SyData.SyDate, Convert.ToBoolean(SyData.SyStateFlag),
                                                         Convert.ToBoolean(SyData.SyFlag), SyData.SyHidden);
                 }
                 foreach (var SyukkoDetailData in SyukkoDetailList.Where(SyukkoDetailList => SyukkoDetailList.SyID == int.Parse(comboBoxSySyukkoID.Text)))      //出庫IDで出庫詳細情報を検索する
@@ -4057,9 +3929,9 @@ namespace SalesManagement_SysDev
             DeleteListSyukko();
         }
 
-    //////////////////////////////////////
-    ///入荷管理画面コード
-    /////////////////////////////////////
+        //////////////////////////////////////
+        ///入荷管理画面コード
+        /////////////////////////////////////
 
 
         /// 入荷情報一覧表示モジュール
@@ -4136,7 +4008,7 @@ namespace SalesManagement_SysDev
                     M_Product product = ProductList.Single(Pr => Pr.PrID == ArrivalDetailData.PrID);        //商品IDと一致する商品データを取得
 
                     //詳細データグリッドビューにデータを表示する
-                    dataGridViewArrivalDetail.Rows.Add(ArrivalDetailData.ArDetailID, ArrivalDetailData.ArID, ArrivalDetailData.PrID, product.PrName , ArrivalDetailData.ArQuantity);
+                    dataGridViewArrivalDetail.Rows.Add(ArrivalDetailData.ArDetailID, ArrivalDetailData.ArID, ArrivalDetailData.PrID, product.PrName, ArrivalDetailData.ArQuantity);
                 }
                 labelArSearchTitle.Text = "入荷IDで検索しました";            //何で検索したかを表示
             }
@@ -4445,7 +4317,7 @@ namespace SalesManagement_SysDev
                     M_Product product = ProductList.Single(Pr => Pr.PrID == ShipmentDetailData.PrID);        //商品IDと一致する商品データを取得
 
                     //詳細データグリッドビューにデータを表示する
-                    dataGridViewShipmentDetail.Rows.Add(ShipmentDetailData.ShDetailID, ShipmentDetailData.ShID, ShipmentDetailData.PrID, product.PrName,  ShipmentDetailData.ShDquantity);
+                    dataGridViewShipmentDetail.Rows.Add(ShipmentDetailData.ShDetailID, ShipmentDetailData.ShID, ShipmentDetailData.PrID, product.PrName, ShipmentDetailData.ShDquantity);
                 }
                 labelShSearchTitle.Text = "出荷IDで検索しました";            //何で検索したかを表示
             }
@@ -4529,7 +4401,7 @@ namespace SalesManagement_SysDev
                 SoID = ShipmentData.SoID,
                 EmID = OrderData.EmID,
                 ChID = ShipmentData.OrID,
-                SaDate=dateTimePickerShipment.Value, 
+                SaDate = dateTimePickerShipment.Value,
                 SaFlag = 0
             };
         }
@@ -4680,9 +4552,9 @@ namespace SalesManagement_SysDev
             DeleteListShipment();
         }
 
-    ///////////////////////////////////////////////
-    ///発注管理画面コード
-    ///////////////////////////////////////////////
+        ///////////////////////////////////////////////
+        ///発注管理画面コード
+        ///////////////////////////////////////////////
 
         /// <summary>
         /// 発注情報一覧表示モジュール
@@ -4811,8 +4683,8 @@ namespace SalesManagement_SysDev
             {
                 HaID = HattyuData.HaID,
                 EmID = HattyuData.EmID,
-                WaDate = dateTimePickerHa.Value, 
-                WaShelfFlag=0, 
+                WaDate = dateTimePickerHa.Value,
+                WaShelfFlag = 0,
                 WaFlag = 0
             };
         }
@@ -4957,9 +4829,9 @@ namespace SalesManagement_SysDev
             DeleteListHattyu();
         }
 
-    ////////////////////////////////////////////////
-    ///入庫管理画面コード
-    ////////////////////////////////////////////////
+        ////////////////////////////////////////////////
+        ///入庫管理画面コード
+        ////////////////////////////////////////////////
 
         /// <summary>
         /// 入庫情報一覧表示モジュール
@@ -5181,6 +5053,318 @@ namespace SalesManagement_SysDev
         private void buttonWrNDisplayList_Click(object sender, EventArgs e)
         {
             DeleteListWarehousing();
+        }
+
+    ////////////////////////////////////////////////////////
+    ///テキストのクリア、ボタンの使用可否を変更するコード
+    ////////////////////////////////////////////////////////        
+
+        //全てのテキストボックスとコンボボックスの入力をクリアする
+        private static void ClearText(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    ClearText(cControl);
+                }
+
+                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+                if (cControl is TextBoxBase || cControl is ComboBox)
+                {
+                    cControl.Text = string.Empty;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 渡されたパネルのコントロールのTextをチェックする
+        /// </summary>
+        /// <param name="hParent"></param>
+        /// <returns></returns>
+        private static bool CheckText(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    CheckText(cControl);
+                }
+
+                // コントロールの型が TextBoxBase またはComboBoxの場合チェックする
+                if (cControl is TextBoxBase || cControl is ComboBox)
+                {
+                    if (cControl.Text != String.Empty)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 全てのパネルをの入力内容をチェックする
+        /// </summary>
+        private bool PanelCheck()
+        {
+            foreach (Panel panel in panelList)          //パネルリストからパネルを抽出
+            {
+                if (panel.Visible == true)              //Visibleプロパティがtrueの場合チェックする
+                {
+                    if (CheckText(panel))               //入力チェックメソッド呼び出し
+                    {
+                        return true;                    //入力されている場合trueを返す
+                    }
+                }
+            }
+            return false;                               //入力されていない場合falseを返す
+        }
+
+        //登録ボタンを使用不能、更新検索ボタンを使用可能にするメソッド
+        public static void EnabledChangedfalsebutton(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    EnabledChangedfalsebutton(cControl);
+                }
+
+                // コントロールの型が Button の場合
+                if (cControl is Button)
+                {
+                    if (cControl.Text == "登録")      //登録ボタンの場合
+                    {
+                        cControl.Enabled = false;
+                    }
+                    if (cControl.Text == "更新" || cControl.Text == "検索")     //更新、検索ボタンの場合
+                    {
+                        cControl.Enabled = true;
+                    }
+                }
+            }
+        }
+
+        //登録ボタンを使用可能、更新検索ボタンを使用不能にするメソッド
+        public static void EnabledChangedtruebutton(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    EnabledChangedtruebutton(cControl);
+                }
+
+                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+                if (cControl is Button)
+                {
+                    if (cControl.Text == "登録")          //登録ボタンの場合
+                    {
+                        cControl.Enabled = true;
+                    }
+                    if (cControl.Text == "更新" || cControl.Text == "検索")     //更新、検索ボタンの場合
+                    {
+                        cControl.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        //販売在庫管理システムを終了する
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        /// <summary>
+        /// 顧客管理画面のボタン使用可否変更
+        /// </summary>
+        private void comboBoxCIClientID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxCIClientID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(panelClient);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(panelClient);
+            }
+        }
+
+        /// <summary>
+        /// 商品管理画面のボタン使用可否変更
+        /// </summary>
+        private void comboBoxPrProductID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxPrProductID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(panelProduct);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(panelProduct);
+            }
+        }
+
+        /// <summary>
+        /// 在庫管理画面のボタン使用可否変更
+        /// </summary>
+        private void comboBoxStStockID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxStStockID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(panelStock);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(panelStock);
+            }
+        }
+
+        /// <summary>
+        /// 社員管理画面のボタン使用可否変更
+        /// </summary>
+        private void comboBoxEmEmployeeID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxEmEmployeeID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(panelEmployee);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(panelEmployee);
+            }
+        }
+
+        /// <summary>
+        /// 売上管理画面のボタン使用可否変更
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void comboBoxSaSaleID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxSaSaleID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(panelSale);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(panelSale);
+            }
+        }
+        
+        /// <summary>
+        /// 受注管理画面のボタン使用可否変更
+        /// </summary>
+        private void comboBoxOrOrderID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxOrOrderID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(panelOrder);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(panelOrder);
+            }
+        }
+
+        /// <summary>
+        /// 注文管理画面のボタン使用可否変更
+        /// </summary>
+        private void comboBoxChChumonID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxChChumonID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(panelChumon);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(panelChumon);
+            }
+        }
+
+        /// <summary>
+        /// 出庫管理画面のボタン使用可否変更
+        /// </summary>
+        private void comboBoxSySyukkoID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxSySyukkoID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(panelSyukko);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(panelSyukko);
+            }
+        }
+
+        /// <summary>
+        /// 入荷管理画面のボタン使用可否変更
+        /// </summary>
+        private void comboBoxArArrivalID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxArArrivalID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(panelArrival);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(panelArrival);
+            }
+        }
+
+        /// <summary>
+        /// 出荷管理画面のボタン使用可否変更
+        /// </summary>
+        private void comboBoxShShipmentID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxShShipmentID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(panelShipment);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(panelShipment);
+            }
+        }
+
+        /// <summary>
+        /// 発注管理画面のボタン使用可否変更
+        /// </summary>
+        private void comboBoxHaHattyuID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxHaHattyuID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(panelHattyu);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(panelHattyu);
+            }
+        }
+
+        /// <summary>
+        /// 入庫管理画面のボタン使用可否変更
+        /// </summary>
+        private void comboBoxWrWareHousingID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxWrWareHousingID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(panelWareHousing);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(panelWareHousing);
+            }
         }
     }
 }

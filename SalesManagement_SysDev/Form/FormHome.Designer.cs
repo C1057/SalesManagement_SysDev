@@ -1101,6 +1101,7 @@ namespace SalesManagement_SysDev
             this.comboBoxHaHattyuID.Name = "comboBoxHaHattyuID";
             this.comboBoxHaHattyuID.Size = new System.Drawing.Size(181, 34);
             this.comboBoxHaHattyuID.TabIndex = 108;
+            this.comboBoxHaHattyuID.TextChanged += new System.EventHandler(this.comboBoxHaHattyuID_TextChanged);
             // 
             // comboBoxHaMakerID
             // 
@@ -1242,6 +1243,7 @@ namespace SalesManagement_SysDev
             // buttonHaSearch
             // 
             this.buttonHaSearch.BackColor = System.Drawing.Color.White;
+            this.buttonHaSearch.Enabled = false;
             this.buttonHaSearch.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonHaSearch.Location = new System.Drawing.Point(361, 29);
             this.buttonHaSearch.Margin = new System.Windows.Forms.Padding(2);
@@ -1426,6 +1428,7 @@ namespace SalesManagement_SysDev
             this.comboBoxWrWareHousingID.Name = "comboBoxWrWareHousingID";
             this.comboBoxWrWareHousingID.Size = new System.Drawing.Size(166, 34);
             this.comboBoxWrWareHousingID.TabIndex = 118;
+            this.comboBoxWrWareHousingID.TextChanged += new System.EventHandler(this.comboBoxWrWareHousingID_TextChanged);
             // 
             // dateTimePickerWr
             // 
@@ -1480,6 +1483,7 @@ namespace SalesManagement_SysDev
             // buttonWrSearch
             // 
             this.buttonWrSearch.BackColor = System.Drawing.Color.White;
+            this.buttonWrSearch.Enabled = false;
             this.buttonWrSearch.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonWrSearch.Location = new System.Drawing.Point(361, 29);
             this.buttonWrSearch.Margin = new System.Windows.Forms.Padding(2);
@@ -1822,6 +1826,7 @@ namespace SalesManagement_SysDev
             this.comboBoxSySyukkoID.Name = "comboBoxSySyukkoID";
             this.comboBoxSySyukkoID.Size = new System.Drawing.Size(166, 34);
             this.comboBoxSySyukkoID.TabIndex = 74;
+            this.comboBoxSySyukkoID.TextChanged += new System.EventHandler(this.comboBoxSySyukkoID_TextChanged);
             // 
             // dateTimePickerSyukko
             // 
@@ -1876,6 +1881,7 @@ namespace SalesManagement_SysDev
             // buttonSySearch
             // 
             this.buttonSySearch.BackColor = System.Drawing.Color.White;
+            this.buttonSySearch.Enabled = false;
             this.buttonSySearch.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonSySearch.Location = new System.Drawing.Point(361, 29);
             this.buttonSySearch.Margin = new System.Windows.Forms.Padding(2);
@@ -2189,6 +2195,7 @@ namespace SalesManagement_SysDev
             this.comboBoxChChumonID.Name = "comboBoxChChumonID";
             this.comboBoxChChumonID.Size = new System.Drawing.Size(166, 34);
             this.comboBoxChChumonID.TabIndex = 64;
+            this.comboBoxChChumonID.TextChanged += new System.EventHandler(this.comboBoxChChumonID_TextChanged);
             // 
             // dateTimePickerChumon
             // 
@@ -2243,6 +2250,7 @@ namespace SalesManagement_SysDev
             // buttonChSearch
             // 
             this.buttonChSearch.BackColor = System.Drawing.Color.White;
+            this.buttonChSearch.Enabled = false;
             this.buttonChSearch.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonChSearch.Location = new System.Drawing.Point(361, 29);
             this.buttonChSearch.Margin = new System.Windows.Forms.Padding(2);
@@ -2495,6 +2503,7 @@ namespace SalesManagement_SysDev
             this.comboBoxCIClientID.Name = "comboBoxCIClientID";
             this.comboBoxCIClientID.Size = new System.Drawing.Size(253, 34);
             this.comboBoxCIClientID.TabIndex = 3;
+            this.comboBoxCIClientID.TextChanged += new System.EventHandler(this.comboBoxCIClientID_TextChanged);
             // 
             // dataGridViewCI
             // 
@@ -2675,6 +2684,7 @@ namespace SalesManagement_SysDev
             // buttonCISearch
             // 
             this.buttonCISearch.BackColor = System.Drawing.Color.White;
+            this.buttonCISearch.Enabled = false;
             this.buttonCISearch.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonCISearch.Location = new System.Drawing.Point(1035, 29);
             this.buttonCISearch.Margin = new System.Windows.Forms.Padding(2);
@@ -2703,6 +2713,7 @@ namespace SalesManagement_SysDev
             // buttonCIUpdate
             // 
             this.buttonCIUpdate.BackColor = System.Drawing.Color.White;
+            this.buttonCIUpdate.Enabled = false;
             this.buttonCIUpdate.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonCIUpdate.Location = new System.Drawing.Point(361, 29);
             this.buttonCIUpdate.Margin = new System.Windows.Forms.Padding(2);
@@ -2944,6 +2955,7 @@ namespace SalesManagement_SysDev
             this.comboBoxStStockID.Name = "comboBoxStStockID";
             this.comboBoxStStockID.Size = new System.Drawing.Size(162, 34);
             this.comboBoxStStockID.TabIndex = 26;
+            this.comboBoxStStockID.TextChanged += new System.EventHandler(this.comboBoxStStockID_TextChanged);
             // 
             // dataGridViewStock
             // 
@@ -2960,6 +2972,7 @@ namespace SalesManagement_SysDev
             // buttonStUpdate
             // 
             this.buttonStUpdate.BackColor = System.Drawing.Color.White;
+            this.buttonStUpdate.Enabled = false;
             this.buttonStUpdate.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonStUpdate.Location = new System.Drawing.Point(23, 29);
             this.buttonStUpdate.Margin = new System.Windows.Forms.Padding(2);
@@ -3057,6 +3070,7 @@ namespace SalesManagement_SysDev
             // buttonStSearch
             // 
             this.buttonStSearch.BackColor = System.Drawing.Color.White;
+            this.buttonStSearch.Enabled = false;
             this.buttonStSearch.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonStSearch.Location = new System.Drawing.Point(699, 29);
             this.buttonStSearch.Margin = new System.Windows.Forms.Padding(2);
@@ -3119,6 +3133,7 @@ namespace SalesManagement_SysDev
             this.panelShipment.Controls.Add(this.labelShEmployeeID);
             this.panelShipment.Controls.Add(this.labelShProductID);
             this.panelShipment.Controls.Add(this.textBoxShRsn);
+            this.panelShipment.Enabled = false;
             this.panelShipment.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.panelShipment.Location = new System.Drawing.Point(207, 285);
             this.panelShipment.Name = "panelShipment";
@@ -3348,6 +3363,7 @@ namespace SalesManagement_SysDev
             this.comboBoxShShipmentID.Name = "comboBoxShShipmentID";
             this.comboBoxShShipmentID.Size = new System.Drawing.Size(166, 34);
             this.comboBoxShShipmentID.TabIndex = 96;
+            this.comboBoxShShipmentID.TextChanged += new System.EventHandler(this.comboBoxShShipmentID_TextChanged);
             // 
             // dateTimePickerShipment
             // 
@@ -3402,6 +3418,7 @@ namespace SalesManagement_SysDev
             // buttonShSearch
             // 
             this.buttonShSearch.BackColor = System.Drawing.Color.White;
+            this.buttonShSearch.Enabled = false;
             this.buttonShSearch.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonShSearch.Location = new System.Drawing.Point(361, 29);
             this.buttonShSearch.Margin = new System.Windows.Forms.Padding(2);
@@ -3822,6 +3839,7 @@ namespace SalesManagement_SysDev
             this.comboBoxPrProductID.Name = "comboBoxPrProductID";
             this.comboBoxPrProductID.Size = new System.Drawing.Size(155, 34);
             this.comboBoxPrProductID.TabIndex = 12;
+            this.comboBoxPrProductID.TextChanged += new System.EventHandler(this.comboBoxPrProductID_TextChanged);
             // 
             // buttonPrNDisplayList
             // 
@@ -3856,6 +3874,7 @@ namespace SalesManagement_SysDev
             // buttonPrSearch
             // 
             this.buttonPrSearch.BackColor = System.Drawing.Color.White;
+            this.buttonPrSearch.Enabled = false;
             this.buttonPrSearch.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonPrSearch.Location = new System.Drawing.Point(1035, 29);
             this.buttonPrSearch.Margin = new System.Windows.Forms.Padding(2);
@@ -3884,6 +3903,7 @@ namespace SalesManagement_SysDev
             // buttonPrUpdate
             // 
             this.buttonPrUpdate.BackColor = System.Drawing.Color.White;
+            this.buttonPrUpdate.Enabled = false;
             this.buttonPrUpdate.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonPrUpdate.Location = new System.Drawing.Point(361, 29);
             this.buttonPrUpdate.Margin = new System.Windows.Forms.Padding(2);
@@ -4334,6 +4354,7 @@ namespace SalesManagement_SysDev
             this.comboBoxEmEmployeeID.Name = "comboBoxEmEmployeeID";
             this.comboBoxEmEmployeeID.Size = new System.Drawing.Size(184, 34);
             this.comboBoxEmEmployeeID.TabIndex = 35;
+            this.comboBoxEmEmployeeID.TextChanged += new System.EventHandler(this.comboBoxEmEmployeeID_TextChanged);
             // 
             // buttonEmRegist
             // 
@@ -4352,6 +4373,7 @@ namespace SalesManagement_SysDev
             // buttonEmSearch
             // 
             this.buttonEmSearch.BackColor = System.Drawing.Color.White;
+            this.buttonEmSearch.Enabled = false;
             this.buttonEmSearch.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonEmSearch.Location = new System.Drawing.Point(1035, 29);
             this.buttonEmSearch.Margin = new System.Windows.Forms.Padding(2);
@@ -4380,6 +4402,7 @@ namespace SalesManagement_SysDev
             // buttonEmUpdate
             // 
             this.buttonEmUpdate.BackColor = System.Drawing.Color.White;
+            this.buttonEmUpdate.Enabled = false;
             this.buttonEmUpdate.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonEmUpdate.Location = new System.Drawing.Point(361, 29);
             this.buttonEmUpdate.Margin = new System.Windows.Forms.Padding(2);
@@ -4690,6 +4713,7 @@ namespace SalesManagement_SysDev
             this.comboBoxSaSaleID.Name = "comboBoxSaSaleID";
             this.comboBoxSaSaleID.Size = new System.Drawing.Size(199, 34);
             this.comboBoxSaSaleID.TabIndex = 45;
+            this.comboBoxSaSaleID.TextChanged += new System.EventHandler(this.comboBoxSaSaleID_TextChanged);
             // 
             // comboBoxSaSalesOfficeID
             // 
@@ -4751,6 +4775,7 @@ namespace SalesManagement_SysDev
             // buttonSaSearch
             // 
             this.buttonSaSearch.BackColor = System.Drawing.Color.White;
+            this.buttonSaSearch.Enabled = false;
             this.buttonSaSearch.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonSaSearch.Location = new System.Drawing.Point(361, 29);
             this.buttonSaSearch.Margin = new System.Windows.Forms.Padding(2);
@@ -5092,6 +5117,7 @@ namespace SalesManagement_SysDev
             // buttonOrSearch
             // 
             this.buttonOrSearch.BackColor = System.Drawing.Color.White;
+            this.buttonOrSearch.Enabled = false;
             this.buttonOrSearch.Font = new System.Drawing.Font("Meiryo UI", 23.75F, System.Drawing.FontStyle.Bold);
             this.buttonOrSearch.Location = new System.Drawing.Point(361, 29);
             this.buttonOrSearch.Margin = new System.Windows.Forms.Padding(2);
@@ -5592,6 +5618,7 @@ namespace SalesManagement_SysDev
             this.comboBoxArArrivalID.Name = "comboBoxArArrivalID";
             this.comboBoxArArrivalID.Size = new System.Drawing.Size(165, 34);
             this.comboBoxArArrivalID.TabIndex = 84;
+            this.comboBoxArArrivalID.TextChanged += new System.EventHandler(this.comboBoxArArrivalID_TextChanged);
             // 
             // dateTimePickerAr
             // 
@@ -5646,7 +5673,8 @@ namespace SalesManagement_SysDev
             // buttonArSearch
             // 
             this.buttonArSearch.BackColor = System.Drawing.Color.White;
-            this.buttonArSearch.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonArSearch.Enabled = false;
+            this.buttonArSearch.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonArSearch.Location = new System.Drawing.Point(361, 29);
             this.buttonArSearch.Margin = new System.Windows.Forms.Padding(2);
             this.buttonArSearch.Name = "buttonArSearch";
@@ -5660,7 +5688,7 @@ namespace SalesManagement_SysDev
             // buttonArDisplay
             // 
             this.buttonArDisplay.BackColor = System.Drawing.Color.White;
-            this.buttonArDisplay.Font = new System.Drawing.Font("Meiryo UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonArDisplay.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonArDisplay.Location = new System.Drawing.Point(23, 29);
             this.buttonArDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.buttonArDisplay.Name = "buttonArDisplay";
