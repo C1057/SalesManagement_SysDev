@@ -29,10 +29,6 @@ namespace SalesManagement_SysDev
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.buttonCsManaMajorClassOpen = new SalesManagement_SysDev.maruibutton();
-            this.buttonCsManaSmallClassOpen = new SalesManagement_SysDev.maruibutton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonCsManaSmallClassAdd = new System.Windows.Forms.Button();
@@ -58,48 +54,18 @@ namespace SalesManagement_SysDev
             this.label2 = new System.Windows.Forms.Label();
             this.labelPositionManaPositionID = new System.Windows.Forms.Label();
             this.dataGridViewMajorClass = new System.Windows.Forms.DataGridView();
-            this.maruibutton7 = new SalesManagement_SysDev.maruibutton();
-            this.maruibutton8 = new SalesManagement_SysDev.maruibutton();
+            this.buttonCsManaMajorClassDeletelist = new SalesManagement_SysDev.maruibutton();
+            this.buttonCsManaMajorClassDelete = new SalesManagement_SysDev.maruibutton();
             this.buttonCsManaMajorClassAdd = new System.Windows.Forms.Button();
             this.buttonCsManaMajorClassUpdate = new System.Windows.Forms.Button();
             this.buttonCsManaMajorClassList = new System.Windows.Forms.Button();
+            this.buttonCsManaMajorClassOpen = new SalesManagement_SysDev.maruibutton();
+            this.buttonCsManaSmallClassOpen = new SalesManagement_SysDev.maruibutton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSmallClass)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMajorClass)).BeginInit();
             this.SuspendLayout();
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // buttonCsManaMajorClassOpen
-            // 
-            this.buttonCsManaMajorClassOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.buttonCsManaMajorClassOpen.FlatAppearance.BorderSize = 0;
-            this.buttonCsManaMajorClassOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCsManaMajorClassOpen.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCsManaMajorClassOpen.Location = new System.Drawing.Point(12, 12);
-            this.buttonCsManaMajorClassOpen.Name = "buttonCsManaMajorClassOpen";
-            this.buttonCsManaMajorClassOpen.Size = new System.Drawing.Size(236, 157);
-            this.buttonCsManaMajorClassOpen.TabIndex = 0;
-            this.buttonCsManaMajorClassOpen.Text = "大分類";
-            this.buttonCsManaMajorClassOpen.UseVisualStyleBackColor = false;
-            this.buttonCsManaMajorClassOpen.Click += new System.EventHandler(this.maruibutton1_Click);
-            // 
-            // buttonCsManaSmallClassOpen
-            // 
-            this.buttonCsManaSmallClassOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.buttonCsManaSmallClassOpen.FlatAppearance.BorderSize = 0;
-            this.buttonCsManaSmallClassOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCsManaSmallClassOpen.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCsManaSmallClassOpen.Location = new System.Drawing.Point(266, 12);
-            this.buttonCsManaSmallClassOpen.Name = "buttonCsManaSmallClassOpen";
-            this.buttonCsManaSmallClassOpen.Size = new System.Drawing.Size(236, 157);
-            this.buttonCsManaSmallClassOpen.TabIndex = 1;
-            this.buttonCsManaSmallClassOpen.Text = "小分類";
-            this.buttonCsManaSmallClassOpen.UseVisualStyleBackColor = false;
-            this.buttonCsManaSmallClassOpen.Click += new System.EventHandler(this.maruibutton3_Click);
             // 
             // label1
             // 
@@ -138,7 +104,7 @@ namespace SalesManagement_SysDev
             this.buttonCsManaSmallClassAdd.BackColor = System.Drawing.Color.LightCyan;
             this.buttonCsManaSmallClassAdd.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonCsManaSmallClassAdd.Location = new System.Drawing.Point(29, 14);
-            this.buttonCsManaSmallClassAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCsManaSmallClassAdd.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCsManaSmallClassAdd.Name = "buttonCsManaSmallClassAdd";
             this.buttonCsManaSmallClassAdd.Size = new System.Drawing.Size(239, 104);
             this.buttonCsManaSmallClassAdd.TabIndex = 207;
@@ -163,7 +129,7 @@ namespace SalesManagement_SysDev
             this.buttonCsManaSmallClassUodate.BackColor = System.Drawing.Color.LightCyan;
             this.buttonCsManaSmallClassUodate.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonCsManaSmallClassUodate.Location = new System.Drawing.Point(332, 14);
-            this.buttonCsManaSmallClassUodate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCsManaSmallClassUodate.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCsManaSmallClassUodate.Name = "buttonCsManaSmallClassUodate";
             this.buttonCsManaSmallClassUodate.Size = new System.Drawing.Size(239, 104);
             this.buttonCsManaSmallClassUodate.TabIndex = 208;
@@ -175,7 +141,7 @@ namespace SalesManagement_SysDev
             this.buttonCsManaSmallClassList.BackColor = System.Drawing.Color.LightCyan;
             this.buttonCsManaSmallClassList.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonCsManaSmallClassList.Location = new System.Drawing.Point(628, 14);
-            this.buttonCsManaSmallClassList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCsManaSmallClassList.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCsManaSmallClassList.Name = "buttonCsManaSmallClassList";
             this.buttonCsManaSmallClassList.Size = new System.Drawing.Size(239, 104);
             this.buttonCsManaSmallClassList.TabIndex = 209;
@@ -276,7 +242,7 @@ namespace SalesManagement_SysDev
             this.button1.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(1417, 11);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 84);
             this.button1.TabIndex = 206;
@@ -306,8 +272,8 @@ namespace SalesManagement_SysDev
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.labelPositionManaPositionID);
             this.panel1.Controls.Add(this.dataGridViewMajorClass);
-            this.panel1.Controls.Add(this.maruibutton7);
-            this.panel1.Controls.Add(this.maruibutton8);
+            this.panel1.Controls.Add(this.buttonCsManaMajorClassDeletelist);
+            this.panel1.Controls.Add(this.buttonCsManaMajorClassDelete);
             this.panel1.Controls.Add(this.buttonCsManaMajorClassAdd);
             this.panel1.Controls.Add(this.buttonCsManaMajorClassUpdate);
             this.panel1.Controls.Add(this.buttonCsManaMajorClassList);
@@ -339,7 +305,7 @@ namespace SalesManagement_SysDev
             this.comboBoxCsManaMajorClassID.FormattingEnabled = true;
             this.comboBoxCsManaMajorClassID.ItemHeight = 24;
             this.comboBoxCsManaMajorClassID.Location = new System.Drawing.Point(175, 194);
-            this.comboBoxCsManaMajorClassID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxCsManaMajorClassID.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCsManaMajorClassID.Name = "comboBoxCsManaMajorClassID";
             this.comboBoxCsManaMajorClassID.Size = new System.Drawing.Size(213, 32);
             this.comboBoxCsManaMajorClassID.TabIndex = 241;
@@ -348,7 +314,7 @@ namespace SalesManagement_SysDev
             // 
             this.textboxManaMajorClassName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.textboxManaMajorClassName.Location = new System.Drawing.Point(543, 190);
-            this.textboxManaMajorClassName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textboxManaMajorClassName.Margin = new System.Windows.Forms.Padding(2);
             this.textboxManaMajorClassName.Multiline = true;
             this.textboxManaMajorClassName.Name = "textboxManaMajorClassName";
             this.textboxManaMajorClassName.Size = new System.Drawing.Size(245, 37);
@@ -383,67 +349,100 @@ namespace SalesManagement_SysDev
             this.dataGridViewMajorClass.Size = new System.Drawing.Size(1650, 321);
             this.dataGridViewMajorClass.TabIndex = 111;
             // 
-            // maruibutton7
+            // buttonCsManaMajorClassDeletelist
             // 
-            this.maruibutton7.BackColor = System.Drawing.Color.Red;
-            this.maruibutton7.FlatAppearance.BorderSize = 0;
-            this.maruibutton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton7.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton7.Location = new System.Drawing.Point(1495, 29);
-            this.maruibutton7.Name = "maruibutton7";
-            this.maruibutton7.Size = new System.Drawing.Size(172, 111);
-            this.maruibutton7.TabIndex = 114;
-            this.maruibutton7.Text = "非表示リスト";
-            this.maruibutton7.UseVisualStyleBackColor = false;
+            this.buttonCsManaMajorClassDeletelist.BackColor = System.Drawing.Color.Red;
+            this.buttonCsManaMajorClassDeletelist.FlatAppearance.BorderSize = 0;
+            this.buttonCsManaMajorClassDeletelist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCsManaMajorClassDeletelist.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonCsManaMajorClassDeletelist.Location = new System.Drawing.Point(1495, 29);
+            this.buttonCsManaMajorClassDeletelist.Name = "buttonCsManaMajorClassDeletelist";
+            this.buttonCsManaMajorClassDeletelist.Size = new System.Drawing.Size(172, 111);
+            this.buttonCsManaMajorClassDeletelist.TabIndex = 114;
+            this.buttonCsManaMajorClassDeletelist.Text = "非表示リスト";
+            this.buttonCsManaMajorClassDeletelist.UseVisualStyleBackColor = false;
+            this.buttonCsManaMajorClassDeletelist.Click += new System.EventHandler(this.buttonCsManaMajorClassDeletelist_Click);
             // 
-            // maruibutton8
+            // buttonCsManaMajorClassDelete
             // 
-            this.maruibutton8.BackColor = System.Drawing.Color.Red;
-            this.maruibutton8.FlatAppearance.BorderSize = 0;
-            this.maruibutton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton8.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton8.Location = new System.Drawing.Point(1311, 29);
-            this.maruibutton8.Name = "maruibutton8";
-            this.maruibutton8.Size = new System.Drawing.Size(172, 111);
-            this.maruibutton8.TabIndex = 113;
-            this.maruibutton8.Text = "非表示";
-            this.maruibutton8.UseVisualStyleBackColor = false;
+            this.buttonCsManaMajorClassDelete.BackColor = System.Drawing.Color.Red;
+            this.buttonCsManaMajorClassDelete.FlatAppearance.BorderSize = 0;
+            this.buttonCsManaMajorClassDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCsManaMajorClassDelete.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonCsManaMajorClassDelete.Location = new System.Drawing.Point(1311, 29);
+            this.buttonCsManaMajorClassDelete.Name = "buttonCsManaMajorClassDelete";
+            this.buttonCsManaMajorClassDelete.Size = new System.Drawing.Size(172, 111);
+            this.buttonCsManaMajorClassDelete.TabIndex = 113;
+            this.buttonCsManaMajorClassDelete.Text = "非表示";
+            this.buttonCsManaMajorClassDelete.UseVisualStyleBackColor = false;
+            this.buttonCsManaMajorClassDelete.Click += new System.EventHandler(this.maruibutton8_Click);
             // 
             // buttonCsManaMajorClassAdd
             // 
             this.buttonCsManaMajorClassAdd.BackColor = System.Drawing.Color.LightCyan;
             this.buttonCsManaMajorClassAdd.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonCsManaMajorClassAdd.Location = new System.Drawing.Point(29, 14);
-            this.buttonCsManaMajorClassAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCsManaMajorClassAdd.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCsManaMajorClassAdd.Name = "buttonCsManaMajorClassAdd";
             this.buttonCsManaMajorClassAdd.Size = new System.Drawing.Size(239, 104);
             this.buttonCsManaMajorClassAdd.TabIndex = 105;
             this.buttonCsManaMajorClassAdd.Text = "登録";
             this.buttonCsManaMajorClassAdd.UseVisualStyleBackColor = false;
+            this.buttonCsManaMajorClassAdd.Click += new System.EventHandler(this.buttonCsManaMajorClassAdd_Click);
             // 
             // buttonCsManaMajorClassUpdate
             // 
             this.buttonCsManaMajorClassUpdate.BackColor = System.Drawing.Color.LightCyan;
             this.buttonCsManaMajorClassUpdate.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonCsManaMajorClassUpdate.Location = new System.Drawing.Point(332, 14);
-            this.buttonCsManaMajorClassUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCsManaMajorClassUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCsManaMajorClassUpdate.Name = "buttonCsManaMajorClassUpdate";
             this.buttonCsManaMajorClassUpdate.Size = new System.Drawing.Size(239, 104);
             this.buttonCsManaMajorClassUpdate.TabIndex = 106;
             this.buttonCsManaMajorClassUpdate.Text = "更新";
             this.buttonCsManaMajorClassUpdate.UseVisualStyleBackColor = false;
+            this.buttonCsManaMajorClassUpdate.Click += new System.EventHandler(this.buttonCsManaMajorClassUpdate_Click);
             // 
             // buttonCsManaMajorClassList
             // 
             this.buttonCsManaMajorClassList.BackColor = System.Drawing.Color.LightCyan;
             this.buttonCsManaMajorClassList.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonCsManaMajorClassList.Location = new System.Drawing.Point(628, 14);
-            this.buttonCsManaMajorClassList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCsManaMajorClassList.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCsManaMajorClassList.Name = "buttonCsManaMajorClassList";
             this.buttonCsManaMajorClassList.Size = new System.Drawing.Size(239, 104);
             this.buttonCsManaMajorClassList.TabIndex = 107;
             this.buttonCsManaMajorClassList.Text = "一覧表示";
             this.buttonCsManaMajorClassList.UseVisualStyleBackColor = false;
+            this.buttonCsManaMajorClassList.Click += new System.EventHandler(this.buttonCsManaMajorClassList_Click);
+            // 
+            // buttonCsManaMajorClassOpen
+            // 
+            this.buttonCsManaMajorClassOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.buttonCsManaMajorClassOpen.FlatAppearance.BorderSize = 0;
+            this.buttonCsManaMajorClassOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCsManaMajorClassOpen.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonCsManaMajorClassOpen.Location = new System.Drawing.Point(12, 12);
+            this.buttonCsManaMajorClassOpen.Name = "buttonCsManaMajorClassOpen";
+            this.buttonCsManaMajorClassOpen.Size = new System.Drawing.Size(236, 157);
+            this.buttonCsManaMajorClassOpen.TabIndex = 0;
+            this.buttonCsManaMajorClassOpen.Text = "大分類";
+            this.buttonCsManaMajorClassOpen.UseVisualStyleBackColor = false;
+            this.buttonCsManaMajorClassOpen.Click += new System.EventHandler(this.maruibutton1_Click);
+            // 
+            // buttonCsManaSmallClassOpen
+            // 
+            this.buttonCsManaSmallClassOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.buttonCsManaSmallClassOpen.FlatAppearance.BorderSize = 0;
+            this.buttonCsManaSmallClassOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCsManaSmallClassOpen.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonCsManaSmallClassOpen.Location = new System.Drawing.Point(266, 12);
+            this.buttonCsManaSmallClassOpen.Name = "buttonCsManaSmallClassOpen";
+            this.buttonCsManaSmallClassOpen.Size = new System.Drawing.Size(236, 157);
+            this.buttonCsManaSmallClassOpen.TabIndex = 1;
+            this.buttonCsManaSmallClassOpen.Text = "小分類";
+            this.buttonCsManaSmallClassOpen.UseVisualStyleBackColor = false;
+            this.buttonCsManaSmallClassOpen.Click += new System.EventHandler(this.maruibutton3_Click);
             // 
             // FormClassMana
             // 
@@ -474,7 +473,6 @@ namespace SalesManagement_SysDev
         #endregion
 
         private maruibutton buttonCsManaMajorClassOpen;
-        private System.Windows.Forms.Timer timer1;
         private maruibutton buttonCsManaSmallClassOpen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
@@ -497,8 +495,8 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.TextBox textboxCsManaMajorClassHidden;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridViewMajorClass;
-        private maruibutton maruibutton7;
-        private maruibutton maruibutton8;
+        private maruibutton buttonCsManaMajorClassDeletelist;
+        private maruibutton buttonCsManaMajorClassDelete;
         private System.Windows.Forms.Button buttonCsManaMajorClassAdd;
         private System.Windows.Forms.Button buttonCsManaMajorClassUpdate;
         private System.Windows.Forms.Button buttonCsManaMajorClassList;
