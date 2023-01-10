@@ -1032,52 +1032,114 @@ namespace SalesManagement_SysDev
         //在庫管理ボタン
         private void buttonStock_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //在庫管理画面を表示する
             panelHide();
             panelStock.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
+            //データの表示
+            ListStock();
         }
 
         //ログインボタン
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             panelStart.Hide();
+
+            //ログイン後のタブストッププロパティ変更
+            textBoxHomeLoginID.TabStop = false;
+            textBoxHomePassword.TabStop = false;
         }
 
         //出庫管理ボタン
         private void buttonSyukko_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //出庫管理画面を表示する
             panelHide();
             panelSyukko.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
+            //データの表示
+            ListSyukko();
         }
 
         //社員管理ボタン
         private void buttonEmployee_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //社員管理画面を表示する
             panelHide();
             panelEmployee.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
+            //データの表示
+            ListEmployee();
         }
 
         //入荷管理ボタン
         private void buttonArrival_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //入荷管理画面を表示する
             panelHide();
             panelArrival.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
+            //データの表示
+            ListArrival();
         }
 
         //顧客管理ボタン
         private void buttonClient_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())               
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //顧客管理画面を表示する
             panelHide();
             panelClient.Show();
@@ -1090,11 +1152,23 @@ namespace SalesManagement_SysDev
         //商品管理ボタン
         private void buttonProduct_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //商品管理画面を表示する
             panelHide();
             panelProduct.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
+            //データの表示
+            ListProduct();
         }
 
         //時間表示機能//
@@ -1109,21 +1183,45 @@ namespace SalesManagement_SysDev
         //受注管理ボタン
         private void buttonOrder_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //受注管理画面を表示する
             panelHide();
             panelOrder.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
+            //データの表示
+            ListOrder();
         }
 
         //売上管理ボタン
         private void buttonSale_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //売上管理画面を表示する
             panelHide();
             panelSale.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
+            //データの表示
+            ListSale();
         }
 
         //private void timer3_Tick(object sender, EventArgs e)
@@ -1149,31 +1247,67 @@ namespace SalesManagement_SysDev
         //注文管理ボタン
         private void buttonChumon_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //注文管理画面を表示する
             panelHide();
             panelChumon.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
+            //データの表示
+            ListChumon();
         }
 
         //発注管理ボタン
         private void buttonHattyu_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //発注管理画面を表示する
             panelHide();
             panelHattyu.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
+            //データの表示
+            ListHattyu();
         }
 
         //入庫管理ボタン
         private void buttonWareHousing_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //入庫管理画面を表示する
             panelHide();
             panelWareHousing.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
+            //データの表示
+            ListWarehousing();
         }
                 
         //ツールチップ機能
@@ -1206,11 +1340,23 @@ namespace SalesManagement_SysDev
         //出荷管理ボタン
         private void buttonShipment_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //出荷管理画面を表示する
             panelHide();
             panelShipment.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
+            //データの表示
+            ListShipment();
         }
 
         //商品分類管理ボタン
@@ -1274,6 +1420,47 @@ namespace SalesManagement_SysDev
                     cControl.Text = string.Empty;
                 }
             }
+        }
+
+        private static bool CheckText(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    CheckText(cControl);
+                }
+
+                // コントロールの型が TextBoxBase またはComboBoxの場合チェックする
+                if (cControl is TextBoxBase || cControl is ComboBox)
+                {
+                    if (cControl.Text != String.Empty)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// 全てのパネルをの入力内容をチェックする
+        /// </summary>
+        private bool PanelCheck()
+        {            
+            foreach (Panel panel in panelList)          //パネルリストからパネルを抽出
+            {
+                if (panel.Visible == true)              //Visibleプロパティがtrueの場合チェックする
+                {
+                    if (CheckText(panel))               //入力チェックメソッド呼び出し
+                    {
+                        return true;                    //入力されている場合trueを返す
+                    }
+                }
+            }
+            return false;                               //入力されていない場合falseを返す
         }
 
         //登録ボタンを使用不能にするメソッド
