@@ -5697,6 +5697,84 @@ namespace SalesManagement_SysDev
     ///データグリッドビューのセルクリックイベント
     ///////////////////////////////////////////////////
 
-        
+        /// <summary>
+        /// 顧客データグリッドビューのセルクリックイベント
+        /// </summary>
+        private void dataGridViewCI_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //顧客ID、顧客名
+            comboBoxCIClientID.Text = dataGridViewCI.Rows[dataGridViewCI.CurrentRow.Index].Cells[0].Value.ToString();
+            textBoxCIClientName.Text = (string)dataGridViewCI.Rows[dataGridViewCI.CurrentRow.Index].Cells[2].Value;
+            //営業所ID、営業所名
+            comboBoxCISalesOfficeID.Text = dataGridViewCI.Rows[dataGridViewCI.CurrentRow.Index].Cells[1].Value.ToString();
+            int SoID = (int)dataGridViewCI.Rows[dataGridViewCI.CurrentRow.Index].Cells[1].Value;
+            var SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxCISalesOfficeName.Text = SalesOfficeData.SoName;
+            //住所、電話番号、郵便番号、FAX、非表示理由
+            textBoxCIAddress.Text = (string)dataGridViewCI.Rows[dataGridViewCI.CurrentRow.Index].Cells[3].Value;
+            textBoxCIPhone.Text = (string)dataGridViewCI.Rows[dataGridViewCI.CurrentRow.Index].Cells[4].Value;
+            textBoxCIPostal.Text = (string)dataGridViewCI.Rows[dataGridViewCI.CurrentRow.Index].Cells[5].Value;
+            textBoxCIFax.Text = (string)dataGridViewCI.Rows[dataGridViewCI.CurrentRow.Index].Cells[6].Value;
+            textBoxCIRsn.Text = (string)dataGridViewCI.Rows[dataGridViewCI.CurrentRow.Index].Cells[8].Value;
+        }
+
+        /// <summary>
+        /// 商品データグリッドビューのセルクリックイベント
+        /// </summary>
+        private void dataGridVieProduct_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //商品ID、商品名
+            comboBoxPrProductID.Text = dataGridVieProduct.Rows[dataGridVieProduct.CurrentRow.Index].Cells[0].Value.ToString();
+            textBoxPrProductName.Text = dataGridVieProduct.Rows[dataGridVieProduct.CurrentRow.Index].Cells[2].Value.ToString();
+            //メーカID、メーカ名
+            comboBoxPrMakerID.Text = dataGridVieProduct.Rows[dataGridVieProduct.CurrentRow.Index].Cells[1].Value.ToString();
+            int MakerID = (int)dataGridVieProduct.Rows[dataGridVieProduct.CurrentRow.Index].Cells[1].Value;
+            var MakerData = MakerList.Single(Maker => Maker.MaID == MakerID);
+            textBoxPrMakerName.Text = MakerData.MaName;
+            //小分類ID、小分類名
+            comboBoxPrSmallClassID.Text = dataGridVieProduct.Rows[dataGridVieProduct.CurrentRow.Index].Cells[5].Value.ToString();
+            int ScID = (int)dataGridVieProduct.Rows[dataGridVieProduct.CurrentRow.Index].Cells[5].Value;
+            var SmallClassData = SmallClassList.Single(SmallClass => SmallClass.ScID == ScID);
+            textBoxPrSmallClassName.Text = SmallClassData.ScName;
+            //大分類ID、大分類名
+            comboBoxPrMajorClassID.Text = SmallClassData.McID.ToString();
+            int McID = SmallClassData.McID;
+            var MajorClassData = MajorClassList.Single(MajorClass => MajorClass.McID == McID);
+            textBoxPrMajorClassName.Text = MajorClassData.McName.ToString();
+            //型番、色、発売日、価格、安全在庫数、非表示理由
+            textBoxPrModelNumber.Text = dataGridVieProduct.Rows[dataGridVieProduct.CurrentRow.Index].Cells[6].Value.ToString();
+            textBoxPrColor.Text = dataGridVieProduct.Rows[dataGridVieProduct.CurrentRow.Index].Cells[7].Value.ToString();
+            DateTimePickerProduct.Value = DateTime.Parse(dataGridVieProduct.Rows[dataGridVieProduct.CurrentRow.Index].Cells[8].Value.ToString());
+            textBoxPrPrice.Text = dataGridVieProduct.Rows[dataGridVieProduct.CurrentRow.Index].Cells[3].Value.ToString();
+            numericUpDownPrSafeStock.Value = decimal.Parse(dataGridVieProduct.Rows[dataGridVieProduct.CurrentRow.Index].Cells[4].Value.ToString());
+            textBoxPrRsn.Text = (string)dataGridVieProduct.Rows[dataGridVieProduct.CurrentRow.Index].Cells[10].Value;
+        }
+
+        /// <summary>
+        /// 在庫データグリッドビューセルクリックイベント
+        /// </summary>
+        private void dataGridViewStock_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //在庫ID
+            comboBoxStStockID.Text = dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[0].ToString();
+            //商品ID,商品名
+            comboBoxStProductID.Text = dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[1].Value.ToString();
+            int PrID = (int)dataGridViewStock.Rows[dataGridVieProduct.CurrentRow.Index].Cells[1].Value;
+            var ProductData = ProductList.Single(Product => Product.PrID == PrID);
+            textBoxStProductName.Text = ProductData.PrName;
+            //小分類ID、小分類名
+            comboBoxStSmallClassID.Text = ProductData.ScID.ToString();
+            int ScID = ProductData.ScID;
+            var SmallClassData = SmallClassList.Single(SmallClass => SmallClass.ScID == ScID);
+            textBoxStSmallClassName.Text = SmallClassData.ScName.ToString();
+            //大分類ID、大分類名
+            comboBoxStMajorClassID.Text = SmallClassData.McID.ToString();
+            int McID = SmallClassData.McID;
+            var MajorClassData = MajorClassList.Single(MajorClassList => MajorClassList.McID == McID);
+            textBoxStMajorClassName.Text = MajorClassData.McName.ToString();
+            //在庫数、非表示理由
+            textBoxStInventory.Text = dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[3].Value.ToString();
+            textBoxStRsn.Text = dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[5].Value.ToString();
+        }
     }
 }

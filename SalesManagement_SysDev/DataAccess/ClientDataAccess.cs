@@ -69,6 +69,7 @@ namespace SalesManagement_SysDev
                 Client.ClPhone = UpdateData.ClPhone;                //電話番号をセット
                 Client.ClPostal = UpdateData.ClPostal;              //郵便番号をセット
                 Client.ClFAX = UpdateData.ClFAX;                    //FAXをセット
+                Client.ClHidden = UpdateData.ClHidden;              //非表示理由をセット
 
                 context.SaveChanges();                              //データベースへの登録を確定する
                 context.Dispose();                                  //contextを解放する
