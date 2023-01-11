@@ -1039,7 +1039,29 @@ namespace SalesManagement_SysDev
                 {
                     return;
                 }
-                ClearText(this);        //Okの場合全入力内容をクリアする
+                ClearText(this);        //Okの場合全入力内容をクリアする                
+            }
+
+            ResetComboBox(panelStock);     //ComboBoxのItemsをリセットする
+            //在庫IDコンボボックスにデータを追加
+            foreach (var StockData in StockList)
+            {
+                comboBoxStStockID.Items.Add(StockData.StID);
+            }
+            //商品IDコンボボックスにデータを追加
+            foreach (var ProductData in ProductList)
+            {
+                comboBoxStProductID.Items.Add(ProductData.PrID);
+            }
+            //大分類IDコンボボックスにデータを追加
+            foreach (var MajorClassData in MajorClassList)
+            {
+                comboBoxStMajorClassID.Items.Add(MajorClassData.McID);
+            }
+            //小分類IDコンボボックスにデータを追加
+            foreach (var SmallClassData in SmallClassList)
+            {
+                comboBoxStSmallClassID.Items.Add(SmallClassData.ScID);
             }
 
             //在庫管理画面を表示する
@@ -1074,6 +1096,33 @@ namespace SalesManagement_SysDev
                 ClearText(this);        //Okの場合全入力内容をクリアする
             }
 
+            ResetComboBox(panelSyukko);     //ComboBoxのItemsをリセットする
+            //出庫IDコンボボックスにデータを追加
+            foreach (var SyukkoData in SyukkoList)
+            {
+                comboBoxSySyukkoID.Items.Add(SyukkoData.SyID);
+            }
+            //受注IDコンボボックスにデータを追加
+            foreach (var OrderData in OrderList)
+            {
+                comboBoxSyOrderID.Items.Add(OrderData.OrID);
+            }
+            //営業所IDコンボボックスにデータを追加
+            foreach (var SalesOfficeData in SalesOfficeList)
+            {
+                comboBoxSySalesOfficeID.Items.Add(SalesOfficeData.SoID);
+            }
+            //社員IDコンボボックスにデータを追加
+            foreach (var EmployeeData in EmployeeList)
+            {
+                comboBoxSyEmployeeID.Items.Add(EmployeeData.EmID);
+            }
+            //顧客IDコンボボックスにデータを追加
+            foreach (var ClientData in ClientList)
+            {
+                comboBoxSyClientID.Items.Add(ClientData.ClID);
+            }
+
             //出庫管理画面を表示する
             panelHide();
             panelSyukko.Show();
@@ -1094,6 +1143,23 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
+            ResetComboBox(panelEmployee);     //ComboBoxのItemsをリセットする
+            //社員IDコンボボックスにデータを追加
+            foreach (var EmployeeData in EmployeeList)
+            {
+                comboBoxEmEmployeeID.Items.Add(EmployeeData.EmID);
+            }
+            //営業所IDコンボボックスにデータを追加
+            foreach (var SalesOfficeData in SalesOfficeList)
+            {
+                comboBoxEmSalesOfficeID.Items.Add(SalesOfficeData.SoID);
+            }
+            //役職IDコンボボックスにデータを追加
+            foreach (var PositionData in PositionList)
+            {
+                comboBoxEmPositionID.Items.Add(PositionData.PoID);
             }
 
             //社員管理画面を表示する
@@ -1118,6 +1184,33 @@ namespace SalesManagement_SysDev
                 ClearText(this);        //Okの場合全入力内容をクリアする
             }
 
+            ResetComboBox(panelArrival);     //ComboBoxのItemsをリセットする
+            //入荷IDコンボボックスにデータを追加
+            foreach (var ArrivalData in ArrivalList)
+            {
+                comboBoxArArrivalID.Items.Add(ArrivalData.ArID);
+            }
+            //受注IDコンボボックスにデータを追加
+            foreach (var OrderData in OrderList)
+            {
+                comboBoxArOrderID.Items.Add(OrderData.OrID);
+            }
+            //営業所IDコンボボックスにデータを追加
+            foreach (var SalesOfficeData in SalesOfficeList)
+            {
+                comboBoxArSalesOfficeID.Items.Add(SalesOfficeData.SoID);
+            }
+            //社員IDコンボボックスにデータを追加
+            foreach (var EmployeeData in EmployeeList)
+            {
+                comboBoxArEmployeeID.Items.Add(EmployeeData.EmID);
+            }
+            //顧客IDコンボボックスにデータを追加
+            foreach (var ClientData in ClientList)
+            {
+                comboBoxArClientID.Items.Add(ClientData.ClID);
+            }
+
             //入荷管理画面を表示する
             panelHide();
             panelArrival.Show();
@@ -1140,6 +1233,18 @@ namespace SalesManagement_SysDev
                 ClearText(this);        //Okの場合全入力内容をクリアする
             }
 
+            ResetComboBox(panelClient);     //ComboBoxのItemsをリセットする
+            //顧客IDコンボボックスにデータを追加
+            foreach (var ClientData in ClientList)
+            {
+                comboBoxCIClientID.Items.Add(ClientData.ClID);
+            }
+            //営業所IDコンボボックスにデータを追加
+            foreach(var SalesOfficeData in SalesOfficeList)
+            {
+                comboBoxCISalesOfficeID.Items.Add(SalesOfficeData.SoID);
+            }
+
             //顧客管理画面を表示する
             panelHide();
             panelClient.Show();
@@ -1160,6 +1265,28 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
+            ResetComboBox(panelProduct);     //ComboBoxのItemsをリセットする
+            //商品IDコンボボックスにデータを追加
+            foreach (var ProductData in ProductList)
+            {
+                comboBoxPrProductID.Items.Add(ProductData.PrID);
+            }
+            //メーカIDコンボボックスにデータを追加
+            foreach (var MakerData in MakerList)
+            {
+                comboBoxPrMakerID.Items.Add(MakerData.MaID);
+            }
+            //大分類IDコンボボックスにデータを追加
+            foreach (var MajorClassData in MajorClassList)
+            {
+                comboBoxPrMajorClassID.Items.Add(MajorClassData.McID);
+            }
+            //小分類IDコンボボックスにデータを追加
+            foreach (var SmallClassData in SmallClassList)
+            {
+                comboBoxPrSmallClassID.Items.Add(SmallClassData.ScID);
             }
 
             //商品管理画面を表示する
@@ -1193,6 +1320,28 @@ namespace SalesManagement_SysDev
                 ClearText(this);        //Okの場合全入力内容をクリアする
             }
 
+            ResetComboBox(panelOrder);     //ComboBoxのItemsをリセットする
+            //受注IDコンボボックスにデータを追加
+            foreach (var OrderData in OrderList)
+            {
+                comboBoxOrOrderID.Items.Add(OrderData.OrID);
+            }
+            //営業所IDコンボボックスにデータを追加
+            foreach (var SalesOfficeData in SalesOfficeList)
+            {
+                comboBoxOrSalesOfficeID.Items.Add(SalesOfficeData.SoID);
+            }
+            //社員IDコンボボックスにデータを追加
+            foreach (var EmployeeData in EmployeeList)
+            {
+                comboBoxOrEmployeeID.Items.Add(EmployeeData.EmID);
+            }
+            //顧客IDコンボボックスにデータを追加
+            foreach (var ClientData in ClientList)
+            {
+                comboBoxOrClientID.Items.Add(ClientData.ClID);
+            }
+
             //受注管理画面を表示する
             panelHide();
             panelOrder.Show();
@@ -1213,6 +1362,33 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
+            ResetComboBox(panelSale);     //ComboBoxのItemsをリセットする
+            //売上IDコンボボックスにデータを追加
+            foreach (var SaleData in SaleList)
+            {
+                comboBoxSaSaleID.Items.Add(SaleData.SaID);
+            }
+            //受注IDコンボボックスにデータを追加
+            foreach (var OrderData in OrderList)
+            {
+                comboBoxSaOrderID.Items.Add(OrderData.OrID);
+            }
+            //営業所IDコンボボックスにデータを追加
+            foreach (var SalesOfficeData in SalesOfficeList)
+            {
+                comboBoxSaSalesOfficeID.Items.Add(SalesOfficeData.SoID);
+            }
+            //受注社員IDコンボボックスにデータを追加
+            foreach (var EmployeeData in EmployeeList)
+            {
+                comboBoxSaOrderEmployeeID.Items.Add(EmployeeData.EmID);
+            }
+            //顧客IDコンボボックスにデータを追加
+            foreach (var ClientData in ClientList)
+            {
+                comboBoxSaClientID.Items.Add(ClientData.ClID);
             }
 
             //売上管理画面を表示する
@@ -1257,6 +1433,33 @@ namespace SalesManagement_SysDev
                 ClearText(this);        //Okの場合全入力内容をクリアする
             }
 
+            ResetComboBox(panelChumon);     //ComboBoxのItemsをリセットする
+            //注文IDコンボボックスにデータを追加
+            foreach (var ChumonData in ChumonList)
+            {
+                comboBoxChChumonID.Items.Add(ChumonData.ChID);
+            }
+            //受注IDコンボボックスにデータを追加
+            foreach (var OrderData in OrderList)
+            {
+                comboBoxChOrderID.Items.Add(OrderData.OrID);
+            }
+            //営業所IDコンボボックスにデータを追加
+            foreach (var SalesOfficeData in SalesOfficeList)
+            {
+                comboBoxChSalesOfficeID.Items.Add(SalesOfficeData.SoID);
+            }
+            //社員IDコンボボックスにデータを追加
+            foreach (var EmployeeData in EmployeeList)
+            {
+                comboBoxChEmployeeID.Items.Add(EmployeeData.EmID);
+            }
+            //顧客IDコンボボックスにデータを追加
+            foreach (var ClientData in ClientList)
+            {
+                comboBoxChClientID.Items.Add(ClientData.ClID);
+            }
+
             //注文管理画面を表示する
             panelHide();
             panelChumon.Show();
@@ -1279,6 +1482,28 @@ namespace SalesManagement_SysDev
                 ClearText(this);        //Okの場合全入力内容をクリアする
             }
 
+            ResetComboBox(panelHattyu);     //ComboBoxのItemsをリセットする
+            //発注IDコンボボックスにデータを追加
+            foreach (var HattyuData in HattyuList)
+            {
+                comboBoxHaHattyuID.Items.Add(HattyuData.HaID);
+            }
+            //メーカIDコンボボックスにデータを追加
+            foreach (var MakerData in MakerList)
+            {
+                comboBoxHaMakerID.Items.Add(MakerData.MaID);
+            }
+            //発注社員IDコンボボックスにデータを追加
+            foreach (var EmployeeData in EmployeeList)
+            {
+                comboBoxHaEmployeeID.Items.Add(EmployeeData.EmID);
+            }
+            //商品IDコンボボックスにデータを追加
+            foreach (var ProductData in ProductList)
+            {
+                comboBoxHaProductID.Items.Add(ProductData.PrID);
+            }
+
             //発注管理画面を表示する
             panelHide();
             panelHattyu.Show();
@@ -1299,6 +1524,23 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
+            ResetComboBox(panelWareHousing);     //ComboBoxのItemsをリセットする
+            //入庫IDコンボボックスにデータを追加
+            foreach (var WarehousingData in WarehousingList)
+            {
+                comboBoxWrWareHousingID.Items.Add(WarehousingData.WaID);
+            }
+            //発注IDコンボボックスにデータを追加
+            foreach (var HattyuData in HattyuList)
+            {
+                comboBoxWrHattyuID.Items.Add(HattyuData.HaID);
+            }
+            //入庫確認社員IDコンボボックスにデータを追加
+            foreach (var EmployeeData in EmployeeList)
+            {
+                comboBoxWrEmployeeID.Items.Add(EmployeeData.EmID);
             }
 
             //入庫管理画面を表示する
@@ -1348,6 +1590,38 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
+            ResetComboBox(panelShipment);     //ComboBoxのItemsをリセットする
+            //出荷IDコンボボックスにデータを追加
+            foreach (var ShipmentData in ShipmentList)
+            {
+                comboBoxShShipmentID.Items.Add(ShipmentData.ShID);
+            }
+            //受注IDコンボボックスにデータを追加
+            foreach (var OrderData in OrderList)
+            {
+                comboBoxShOrderID.Items.Add(OrderData.OrID);
+            }
+            //営業所IDコンボボックスにデータを追加
+            foreach (var SalesOfficeData in SalesOfficeList)
+            {
+                comboBoxShSalesOfficeID.Items.Add(SalesOfficeData.SoID);
+            }
+            //社員IDコンボボックスにデータを追加
+            foreach (var EmployeeData in EmployeeList)
+            {
+                comboBoxShEmployeeID.Items.Add(EmployeeData.EmID);
+            }
+            //顧客IDコンボボックスにデータを追加
+            foreach (var ClientData in ClientList)
+            {
+                comboBoxShClientID.Items.Add(ClientData.ClID);
+            }
+            //商品IDコンボボックスにデータを追加
+            foreach (var ProductData in ProductList)
+            {
+                comboBoxShProductID.Items.Add(ProductData.PrID);
             }
 
             //出荷管理画面を表示する
@@ -5128,7 +5402,7 @@ namespace SalesManagement_SysDev
                 // コントロールの型が TextBoxBase またはComboBoxの場合チェックする
                 if (cControl is TextBoxBase || cControl is ComboBox)
                 {
-                    if (cControl.Text != String.Empty)
+                    if (cControl.Text != String.Empty && cControl.Name != "textBoxHomeLoginID" && cControl.Name != "textBoxHomePassword")
                     {
                         return true;
                     }
@@ -5396,5 +5670,33 @@ namespace SalesManagement_SysDev
                 EnabledChangedfalsebutton(panelWareHousing);
             }
         }
+
+        /// <summary>
+        /// コンボボックスのItemsをリセットする
+        /// </summary>
+        private void ResetComboBox(Control hParent)
+        {
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    ResetComboBox(cControl);
+                }
+
+                // コントロールの型が ComboBox の場合
+                if (cControl is ComboBox)
+                {
+                    ComboBox Combo = (ComboBox)cControl;
+                    Combo.Items.Clear();
+                }
+            }
+        }
+
+    ///////////////////////////////////////////////////
+    ///データグリッドビューのセルクリックイベント
+    ///////////////////////////////////////////////////
+
+        
     }
 }
