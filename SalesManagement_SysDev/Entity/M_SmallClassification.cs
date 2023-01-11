@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SalesManagement_SysDev
 {
-    class M_SmallClassification
+    public class M_SmallClassification
     {
         [Key]
         public int ScID { get; set; }           //小分類ID		

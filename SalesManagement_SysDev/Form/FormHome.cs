@@ -70,8 +70,8 @@ namespace SalesManagement_SysDev
         List<M_SalesOffice> SalesOfficeList;                                            //表示用[営業所]情報を保持する変数
         List<M_Client> ClientList;                                                      //表示用[顧客]情報を保持する変数
         public List<M_Product> ProductList;                                                    //表示用[商品]情報を保持する変数
-        List<M_MajorClassification> MajorClassList;                                     //表示用[大分類]情報を保持する変数
-        List<M_SmallClassification> SmallClassList;                                     //表示用[小分類]情報を保持する変数
+        public List<M_MajorClassification> MajorClassList;                                     //表示用[大分類]情報を保持する変数
+        public List<M_SmallClassification> SmallClassList;                                     //表示用[小分類]情報を保持する変数
         public List<T_Stock> StockList;                                                        //表示用[在庫]情報を保持する変数
         List<M_Employee> EmployeeList;                                                  //表示用[社員]情報を保持する変数
         List<T_Sale> SaleList;                                                          //表示用[売上]情報を保持する変数

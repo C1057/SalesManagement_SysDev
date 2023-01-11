@@ -3390,6 +3390,11 @@ namespace SalesManagement_SysDev
             this.numericUpDownPrSafeStock.Name = "numericUpDownPrSafeStock";
             this.numericUpDownPrSafeStock.Size = new System.Drawing.Size(76, 34);
             this.numericUpDownPrSafeStock.TabIndex = 24;
+            this.numericUpDownPrSafeStock.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // labelPrSmallClassName
             // 
@@ -5738,11 +5743,6 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelWareHousing);
-            this.Controls.Add(this.panelHattyu);
-            this.Controls.Add(this.panelClient);
-            this.Controls.Add(this.panelStock);
-            this.Controls.Add(this.panelShipment);
             this.Controls.Add(this.panelProduct);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelSale);
@@ -5751,6 +5751,11 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelStart);
             this.Controls.Add(this.panelChumon);
             this.Controls.Add(this.panelSyukko);
+            this.Controls.Add(this.panelWareHousing);
+            this.Controls.Add(this.panelHattyu);
+            this.Controls.Add(this.panelClient);
+            this.Controls.Add(this.panelStock);
+            this.Controls.Add(this.panelShipment);
             this.Name = "FormHome";
             this.Text = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

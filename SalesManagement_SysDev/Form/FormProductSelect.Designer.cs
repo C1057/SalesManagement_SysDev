@@ -55,6 +55,10 @@ namespace SalesManagement_SysDev
             this.labelProSelectProIDWarning = new System.Windows.Forms.Label();
             this.labelProSelectSuuryoWarning = new System.Windows.Forms.Label();
             this.labelWarning = new System.Windows.Forms.Label();
+            this.textBoxPrSelectMajorName = new System.Windows.Forms.TextBox();
+            this.labelPrSelectMajorName = new System.Windows.Forms.Label();
+            this.textBoxPrSelectSmallName = new System.Windows.Forms.TextBox();
+            this.labelPrSelectSmallname = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProSelectQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProSelect)).BeginInit();
             this.SuspendLayout();
@@ -124,7 +128,7 @@ namespace SalesManagement_SysDev
             // textBoxProSelectOrderID
             // 
             this.textBoxProSelectOrderID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxProSelectOrderID.Location = new System.Drawing.Point(223, 220);
+            this.textBoxProSelectOrderID.Location = new System.Drawing.Point(176, 219);
             this.textBoxProSelectOrderID.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxProSelectOrderID.Multiline = true;
             this.textBoxProSelectOrderID.Name = "textBoxProSelectOrderID";
@@ -153,7 +157,7 @@ namespace SalesManagement_SysDev
             // textBoxProSelectProID
             // 
             this.textBoxProSelectProID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxProSelectProID.Location = new System.Drawing.Point(223, 376);
+            this.textBoxProSelectProID.Location = new System.Drawing.Point(176, 375);
             this.textBoxProSelectProID.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxProSelectProID.Name = "textBoxProSelectProID";
             this.textBoxProSelectProID.Size = new System.Drawing.Size(190, 34);
@@ -174,11 +178,12 @@ namespace SalesManagement_SysDev
             this.comboBoxProSelectProductName.Font = new System.Drawing.Font("Meiryo UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxProSelectProductName.FormattingEnabled = true;
             this.comboBoxProSelectProductName.ItemHeight = 24;
-            this.comboBoxProSelectProductName.Location = new System.Drawing.Point(223, 332);
+            this.comboBoxProSelectProductName.Location = new System.Drawing.Point(176, 331);
             this.comboBoxProSelectProductName.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxProSelectProductName.Name = "comboBoxProSelectProductName";
             this.comboBoxProSelectProductName.Size = new System.Drawing.Size(547, 32);
             this.comboBoxProSelectProductName.TabIndex = 222;
+            this.comboBoxProSelectProductName.SelectedIndexChanged += new System.EventHandler(this.comboBoxProSelectProductName_SelectedIndexChanged);
             // 
             // labelProSelectProductName
             // 
@@ -261,42 +266,46 @@ namespace SalesManagement_SysDev
             // labelProSelectMajor
             // 
             this.labelProSelectMajor.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelProSelectMajor.Location = new System.Drawing.Point(42, 274);
+            this.labelProSelectMajor.Location = new System.Drawing.Point(42, 273);
             this.labelProSelectMajor.Name = "labelProSelectMajor";
-            this.labelProSelectMajor.Size = new System.Drawing.Size(179, 33);
+            this.labelProSelectMajor.Size = new System.Drawing.Size(118, 33);
             this.labelProSelectMajor.TabIndex = 231;
-            this.labelProSelectMajor.Text = "商品カテゴリ(大)";
+            this.labelProSelectMajor.Text = "大分類ID";
             // 
             // comboBoxProSelectMajor
             // 
             this.comboBoxProSelectMajor.Font = new System.Drawing.Font("Meiryo UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxProSelectMajor.FormattingEnabled = true;
             this.comboBoxProSelectMajor.ItemHeight = 24;
-            this.comboBoxProSelectMajor.Location = new System.Drawing.Point(223, 278);
+            this.comboBoxProSelectMajor.Location = new System.Drawing.Point(176, 273);
             this.comboBoxProSelectMajor.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxProSelectMajor.Name = "comboBoxProSelectMajor";
-            this.comboBoxProSelectMajor.Size = new System.Drawing.Size(334, 32);
+            this.comboBoxProSelectMajor.Size = new System.Drawing.Size(137, 32);
             this.comboBoxProSelectMajor.TabIndex = 230;
+            this.comboBoxProSelectMajor.SelectedIndexChanged += new System.EventHandler(this.comboBoxProSelectMajor_SelectedIndexChanged);
+            this.comboBoxProSelectMajor.TextChanged += new System.EventHandler(this.comboBoxProSelectMajor_TextChanged);
             // 
             // labelProSelectSmall
             // 
             this.labelProSelectSmall.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelProSelectSmall.Location = new System.Drawing.Point(578, 276);
+            this.labelProSelectSmall.Location = new System.Drawing.Point(639, 273);
             this.labelProSelectSmall.Name = "labelProSelectSmall";
-            this.labelProSelectSmall.Size = new System.Drawing.Size(179, 33);
+            this.labelProSelectSmall.Size = new System.Drawing.Size(120, 33);
             this.labelProSelectSmall.TabIndex = 233;
-            this.labelProSelectSmall.Text = "商品カテゴリ(小)";
+            this.labelProSelectSmall.Text = "小分類ID";
             // 
             // comboBoxProSelectSmall
             // 
             this.comboBoxProSelectSmall.Font = new System.Drawing.Font("Meiryo UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxProSelectSmall.FormattingEnabled = true;
             this.comboBoxProSelectSmall.ItemHeight = 24;
-            this.comboBoxProSelectSmall.Location = new System.Drawing.Point(762, 278);
+            this.comboBoxProSelectSmall.Location = new System.Drawing.Point(764, 273);
             this.comboBoxProSelectSmall.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxProSelectSmall.Name = "comboBoxProSelectSmall";
-            this.comboBoxProSelectSmall.Size = new System.Drawing.Size(334, 32);
+            this.comboBoxProSelectSmall.Size = new System.Drawing.Size(126, 32);
             this.comboBoxProSelectSmall.TabIndex = 232;
+            this.comboBoxProSelectSmall.SelectedIndexChanged += new System.EventHandler(this.comboBoxProSelectSmall_SelectedIndexChanged);
+            this.comboBoxProSelectSmall.TextChanged += new System.EventHandler(this.comboBoxProSelectSmall_TextChanged);
             // 
             // labelProSelectTitle
             // 
@@ -340,12 +349,54 @@ namespace SalesManagement_SysDev
             this.labelWarning.TabIndex = 237;
             this.labelWarning.Text = "※ = 必須";
             // 
+            // textBoxPrSelectMajorName
+            // 
+            this.textBoxPrSelectMajorName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxPrSelectMajorName.Location = new System.Drawing.Point(440, 273);
+            this.textBoxPrSelectMajorName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPrSelectMajorName.Multiline = true;
+            this.textBoxPrSelectMajorName.Name = "textBoxPrSelectMajorName";
+            this.textBoxPrSelectMajorName.Size = new System.Drawing.Size(190, 37);
+            this.textBoxPrSelectMajorName.TabIndex = 239;
+            // 
+            // labelPrSelectMajorName
+            // 
+            this.labelPrSelectMajorName.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPrSelectMajorName.Location = new System.Drawing.Point(318, 273);
+            this.labelPrSelectMajorName.Name = "labelPrSelectMajorName";
+            this.labelPrSelectMajorName.Size = new System.Drawing.Size(109, 33);
+            this.labelPrSelectMajorName.TabIndex = 238;
+            this.labelPrSelectMajorName.Text = "大分類名";
+            // 
+            // textBoxPrSelectSmallName
+            // 
+            this.textBoxPrSelectSmallName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxPrSelectSmallName.Location = new System.Drawing.Point(1016, 273);
+            this.textBoxPrSelectSmallName.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxPrSelectSmallName.Multiline = true;
+            this.textBoxPrSelectSmallName.Name = "textBoxPrSelectSmallName";
+            this.textBoxPrSelectSmallName.Size = new System.Drawing.Size(190, 37);
+            this.textBoxPrSelectSmallName.TabIndex = 241;
+            // 
+            // labelPrSelectSmallname
+            // 
+            this.labelPrSelectSmallname.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelPrSelectSmallname.Location = new System.Drawing.Point(895, 273);
+            this.labelPrSelectSmallname.Name = "labelPrSelectSmallname";
+            this.labelPrSelectSmallname.Size = new System.Drawing.Size(116, 33);
+            this.labelPrSelectSmallname.TabIndex = 240;
+            this.labelPrSelectSmallname.Text = "小分類名";
+            // 
             // FormProductSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1251, 779);
+            this.Controls.Add(this.textBoxPrSelectSmallName);
+            this.Controls.Add(this.labelPrSelectSmallname);
+            this.Controls.Add(this.textBoxPrSelectMajorName);
+            this.Controls.Add(this.labelPrSelectMajorName);
             this.Controls.Add(this.labelWarning);
             this.Controls.Add(this.labelProSelectSuuryoWarning);
             this.Controls.Add(this.labelProSelectProIDWarning);
@@ -411,5 +462,9 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelProSelectProIDWarning;
         private System.Windows.Forms.Label labelProSelectSuuryoWarning;
         private System.Windows.Forms.Label labelWarning;
+        private System.Windows.Forms.TextBox textBoxPrSelectMajorName;
+        private System.Windows.Forms.Label labelPrSelectMajorName;
+        private System.Windows.Forms.TextBox textBoxPrSelectSmallName;
+        private System.Windows.Forms.Label labelPrSelectSmallname;
     }
 }

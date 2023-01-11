@@ -104,6 +104,23 @@ namespace SalesManagement_SysDev
             {
                 //受注IDをセット
                 textBoxProSelectOrderID.Text = formHome.OrderID.ToString();
+                //コンボボックスのItemをリセットする
+                ResetComboBox(this);
+                //商品名コンボボックスにデータを追加
+                foreach (var ProductData in formHome.ProductList)
+                {
+                    comboBoxProSelectProductName.Items.Add(ProductData.PrName);
+                }
+                //大分類IDコンボボックスにデータを追加
+                foreach (var MajorClassData in formHome.MajorClassList)
+                {
+                    comboBoxProSelectMajor.Items.Add(MajorClassData.McID);
+                }
+                //小分類IDコンボボックスにデータを追加
+                foreach (var SmallClassData in formHome.SmallClassList)
+                {
+                    comboBoxProSelectSmall.Items.Add(SmallClassData.ScID);
+                }
             }
         }
 
@@ -516,6 +533,106 @@ namespace SalesManagement_SysDev
                     cControl.Text = string.Empty;
                 }
             }
+        }
+
+        /// <summary>
+        /// コンボボックスのItemsをリセットする
+        /// </summary>
+        private void ResetComboBox(Control hParent)
+        {
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    ResetComboBox(cControl);
+                }
+
+                // コントロールの型が ComboBox の場合
+                if (cControl is ComboBox)
+                {
+                    ComboBox Combo = (ComboBox)cControl;
+                    Combo.Items.Clear();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 大分類ID(入力がある時)
+        /// </summary>
+        private void comboBoxProSelectMajor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //大分類名
+            int McID = int.Parse(comboBoxProSelectMajor.SelectedItem.ToString());
+            M_MajorClassification MajorClassData = formHome.MajorClassList.Single(MajorClass => MajorClass.McID == McID);
+            textBoxPrSelectMajorName.Text = MajorClassData.McName;
+            //小分類IDコンボボックスに大分類IDと一致しているデータを追加する
+            comboBoxProSelectSmall.Items.Clear();
+            List<M_SmallClassification> SmallClassData = formHome.SmallClassList.Where(SmallClass => SmallClass.McID == McID).ToList();
+            foreach (var SmallClass in SmallClassData)
+            {
+                comboBoxProSelectSmall.Items.Add(SmallClass.ScID);
+            }
+        }
+
+        /// <summary>
+        /// 大分類ID(入力がない時)
+        /// </summary>
+        private void comboBoxProSelectMajor_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBoxProSelectMajor.Text == "")
+            {
+                comboBoxProSelectSmall.Items.Clear();
+                //小分類IDコンボボックスにデータを追加
+                foreach (var SmallClassData in formHome.SmallClassList)
+                {
+                    comboBoxProSelectSmall.Items.Add(SmallClassData.ScID);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 小分類ID(入力がある時)
+        /// </summary>
+        private void comboBoxProSelectSmall_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //小分類名
+            int ScID = int.Parse(comboBoxProSelectSmall.SelectedItem.ToString());
+            M_SmallClassification SmallClassData = formHome.SmallClassList.Single(SmallClass => SmallClass.ScID == ScID);
+            textBoxPrSelectSmallName.Text = SmallClassData.ScName;
+            //商品名コンボボックスに小分類IDと一致しているデータを追加する
+            comboBoxProSelectProductName.Items.Clear();
+            List<M_Product> ProductData = formHome.ProductList.Where(Product => Product.ScID == ScID).ToList();
+            foreach (var Product in ProductData)
+            {
+                comboBoxProSelectProductName.Items.Add(Product.PrName);
+            }
+        }
+
+        /// <summary>
+        /// 小分類ID(入力がない時)
+        /// </summary>
+        private void comboBoxProSelectSmall_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBoxProSelectSmall.Text == "")
+            {
+                comboBoxProSelectProductName.Items.Clear();
+                //商品名コンボボックスにデータを追加
+                foreach (var ProductData in formHome.ProductList)
+                {
+                    comboBoxProSelectProductName.Items.Add(ProductData.PrName);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 商品名
+        /// </summary>
+        private void comboBoxProSelectProductName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string PrName = comboBoxProSelectProductName.Text;
+            M_Product ProductData = formHome.ProductList.Single(Product => Product.PrName == PrName);
+            textBoxProSelectProID.Text = ProductData.PrID.ToString();
         }
     }
 }
