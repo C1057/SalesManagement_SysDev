@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SalesManagement_SysDev
 {
-    class T_HattyuDetail
+    public class T_HattyuDetail
     {
         [Key]
         public int HaDetailID { get; set; } //発注詳細ID

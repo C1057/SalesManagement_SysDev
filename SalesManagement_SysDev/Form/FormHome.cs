@@ -80,8 +80,8 @@ namespace SalesManagement_SysDev
         public List<T_OrderDetail> OrderDetailList;                                            //表示用[受注詳細]情報を保持する変数
         List<T_Chumon> ChumonList;                                                      //表示用[注文]情報を保持する変数
         List<T_ChumonDetail> ChumonDetailList;                                          //表示用[注文詳細]情報を保持する変数
-        List<T_Hattyu> HattyuList;                                                      //表示用[発注]情報を保持する変数
-        List<T_HattyuDetail> HattyuDetailList;                                          //表示用[発注詳細]情報を保持する変数
+        public List<T_Hattyu> HattyuList;                                                      //表示用[発注]情報を保持する変数
+        public List<T_HattyuDetail> HattyuDetailList;                                          //表示用[発注詳細]情報を保持する変数
         List<T_Warehousing> WarehousingList;                                            //表示用[入庫]情報を保持する変数
         List<T_WarehousingDetail> WarehousingDetailList;                                //表示用[入庫詳細]情報を保持する変数
         List<T_Syukko> SyukkoList;                                                      //表示用[出庫]情報を保持する変数
@@ -3283,13 +3283,35 @@ namespace SalesManagement_SysDev
         /// <param></param>
         private void buttonOrNDisplay_Click(object sender, EventArgs e)
         {
+            var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
+
+            DialogResult result = MessageBox.Show("非表示にした場合選択された商品の在庫は元に戻ります", "非表示確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewOrderMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewOrderMain.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    OrderAccess.DeleteOrder((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の顧客IDを引数に非表示機能モジュールを呼び出す
+                    OrderAccess.DeleteOrder((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の受注IDを引数に非表示機能モジュールを呼び出す
+
+                    int OrID = (int)dataGridViewOrderMain.Rows[i].Cells[0].Value;       //受注IDをセット
+                    List<T_OrderDetail> OrderDetailData = context.T_OrderDetails.Where(OrderDetail => OrderDetail.OrID == OrID).ToList();       //受注IDと一致する受注詳細データを取得
+
+                    foreach(var OrderDetail in OrderDetailData)
+                    {
+                        int PrID = OrderDetail.PrID;            //商品IDをセット
+                        T_Stock StockData = context.T_Stocks.Single(Stock => Stock.PrID == PrID);           //商品IDと一致する在庫データを抽出する
+
+                        StockData.StQuantity = StockData.StQuantity + OrderDetail.OrQuantity;               //在庫数を更新
+
+                        context.SaveChanges();          //更新を確定
+                    }
                 }
             }
+            context.Dispose();      //contextを解放
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
 
             //顧客情報一覧表示用データを更新

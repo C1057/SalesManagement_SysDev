@@ -394,7 +394,49 @@ namespace SalesManagement_SysDev
                     }
                 }
 
-                
+                /*安全在庫数を下回っている商品の発注データを作成*/
+                int cnt = 1;            //繰り返し終了判定用変数
+                while (cnt != 0)            //配列の全データの合計が0になったら終了する
+                {
+                    cnt = 0;            //繰り返し終了判定用変数の初期化
+                    int fincnt = 0;         //配列のindex用変数
+
+                    int MaID = 0;         //発注テーブル用のメーカIDセット
+                    while (MaID == 0 && StockHattyuList.Length > fincnt)    //メーカIDが見つかった場合か、配列を全て見終わった場合終了
+                    {
+                        if (StockHattyuList[fincnt] != 0)           //配列内のデータが0でない場合
+                        {
+                            int PrID = StockHattyuList[fincnt];         //商品IDをセット
+                            M_Product product = formHome.ProductList.Single(Product => Product.PrID == PrID);       //商品IDと一致する商品データを抽出する
+                            MaID = product.MaID;            //メーカIDをセット
+
+                            context.T_Hattyus.Add(HattyuAddDataSet(MaID));      //発注テーブルにデータをセット
+                        }
+                        fincnt++;       //index用変数に＋１
+                    }
+                    for(int i = 0; i < StockHattyuList.Length; i++)
+                    {
+                        if (StockHattyuList[i] != 0)        //商品IDが0でない場合
+                        {
+                            int PrID = StockHattyuList[i];          //商品IDをセット
+                            M_Product product = formHome.ProductList.Single(Product => Product.PrID == PrID);       //商品IDと一致する商品データを抽出する
+                            if (MaID == product.MaID)           //同じメーカIDの場合のみ
+                            {
+                                context.T_HattyuDetails.Add(HattyuDetailAddSet(product));           //発注詳細テーブルにデータをセット
+
+                                StockHattyuList[i] = 0;         //登録処理の終わったデータの値を0に変える
+                            }
+                            cnt = cnt + StockHattyuList[i];         //繰り返し終了用変数
+                        }
+                    }
+                    if (cnt != 0)           //データの追加があった場合
+                    {
+                        context.SaveChanges();      //データベースへの登録を確定
+                        formHome.HattyuList = context.T_Hattyus.ToList();       //発注リストの更新
+                        formHome.HattyuDetailList = context.T_HattyuDetails.ToList();       //発注詳細リストの更新
+                    }
+                }
+                /*/////////////////////////////////////////////*/
 
                 //元の画面の一覧表示用データの更新
                 formHome.OrderList = context.T_Orders.ToList();
@@ -416,6 +458,34 @@ namespace SalesManagement_SysDev
                 //例外エラー
                 MessageBox.Show("登録に失敗しました", "登録確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// 発注データのセットをするメソッド
+        /// </summary>
+        private T_Hattyu HattyuAddDataSet(int MaID)
+        {
+            return new T_Hattyu
+            {
+                MaID = MaID,
+                EmID = formHome.AddOrderData.EmID,
+                HaDate = formHome.AddOrderData.OrDate,
+                WaWarehouseFlag = 0,
+                HaFlag = 0
+            };
+        }
+
+        /// <summary>
+        /// 発注詳細データのセット
+        /// </summary>
+        private T_HattyuDetail HattyuDetailAddSet(M_Product Product)
+        {
+            return new T_HattyuDetail
+            {
+                HaID = formHome.HattyuList.Count + 1,
+                PrID = Product.PrID,
+                HaQuantity = Product.PrSafetyStock * 2
+            };
         }
 
         private T_OrderDetail OrderDetailAddDataSet(int i)
