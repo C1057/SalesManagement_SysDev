@@ -6117,5 +6117,387 @@ namespace SalesManagement_SysDev
                 dataGridViewWareHousingDetail.Rows.Add(WarehousingDetail.WaDetailID, WarehousingDetail.WaID, WarehousingDetail.PrID, product.PrName,WarehousingDetail.WaQuantity);
             }
         }
+
+    ///////////////////////////////////////////////
+    ///IDと名前の連携
+    ///////////////////////////////////////////////
+
+        /// <summary>
+        /// 顧客管理顧客ID
+        /// </summary>
+        private void comboBoxCIClientID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ClID = int.Parse(comboBoxCIClientID.SelectedItem.ToString());
+            M_Client ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxCIClientName.Text = ClientData.ClName;
+        }
+
+        /// <summary>
+        /// 顧客管理営業所ID
+        /// </summary>
+        private void comboBoxCISalesOfficeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int SoID = int.Parse(comboBoxCISalesOfficeID.SelectedItem.ToString());
+            M_SalesOffice SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxCISalesOfficeName.Text = SalesOfficeData.SoName;
+        }
+
+        /// <summary>
+        /// 商品管理商品ID
+        /// </summary>
+        private void comboBoxPrProductID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int PrID = int.Parse(comboBoxPrProductID.SelectedItem.ToString());
+            M_Product ProductData = ProductList.Single(Product => Product.PrID == PrID);
+            textBoxPrProductName.Text = ProductData.PrName;
+        }
+
+        /// <summary>
+        /// 商品管理メーカID
+        /// </summary>
+        private void comboBoxPrMakerID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int MaID = int.Parse(comboBoxPrMakerID.SelectedItem.ToString());
+            M_Maker MakerData = MakerList.Single(Maker => Maker.MaID == MaID);
+            textBoxPrMakerName.Text = MakerData.MaName;
+        }
+
+        /// <summary>
+        /// 商品管理大分類ID(入力がある時)
+        /// </summary>
+        private void comboBoxPrMajorClassID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //大分類名
+            int McID = int.Parse(comboBoxPrMajorClassID.SelectedItem.ToString());
+            M_MajorClassification MajorClassData = MajorClassList.Single(MajorClass => MajorClass.McID == McID);
+            textBoxPrMajorClassName.Text = MajorClassData.McName;
+            //小分類IDコンボボックスに大分類IDと一致しているデータを追加する
+            comboBoxPrSmallClassID.Items.Clear();
+            List<M_SmallClassification> SmallClassData = SmallClassList.Where(SmallClass => SmallClass.McID == McID).ToList();
+            foreach(var SmallClass in SmallClassData)
+            {
+                comboBoxPrSmallClassID.Items.Add(SmallClass.ScID);
+            }
+        }
+
+        /// <summary>
+        /// 商品管理大分類ID(入力無い時)
+        /// </summary>
+        private void comboBoxPrMajorClassID_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBoxPrMajorClassID.Text == "")
+            {
+                comboBoxPrSmallClassID.Items.Clear();
+                //小分類IDコンボボックスにデータを追加
+                foreach (var SmallClassData in SmallClassList)
+                {
+                    comboBoxPrSmallClassID.Items.Add(SmallClassData.ScID);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 商品管理小分類ID
+        /// </summary>
+        private void comboBoxPrSmallClassID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ScID = int.Parse(comboBoxPrSmallClassID.SelectedItem.ToString());
+            M_SmallClassification SmallClassData = SmallClassList.Single(SmallClass => SmallClass.ScID == ScID);
+            textBoxPrSmallClassName.Text = SmallClassData.ScName;
+        }
+
+        /// <summary>
+        /// 在庫管理大分類ID(入力がある時)
+        /// </summary>
+        private void comboBoxStMajorClassID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //大分類名
+            int McID = int.Parse(comboBoxStMajorClassID.SelectedItem.ToString());
+            M_MajorClassification MajorClassData = MajorClassList.Single(MajorClass => MajorClass.McID == McID);
+            textBoxStMajorClassName.Text = MajorClassData.McName;
+            //小分類IDコンボボックスに大分類IDと一致しているデータを追加する
+            comboBoxStSmallClassID.Items.Clear();
+            List<M_SmallClassification> SmallClassData = SmallClassList.Where(SmallClass => SmallClass.McID == McID).ToList();
+            foreach (var SmallClass in SmallClassData)
+            {
+                comboBoxStSmallClassID.Items.Add(SmallClass.ScID);
+            }
+        }
+
+        /// <summary>
+        /// 在庫管理大分類(入力がない時)
+        /// </summary>
+        private void comboBoxStMajorClassID_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBoxStMajorClassID.Text == "")
+            {
+                comboBoxStSmallClassID.Items.Clear();
+                //小分類IDコンボボックスにデータを追加
+                foreach (var SmallClassData in SmallClassList)
+                {
+                    comboBoxStSmallClassID.Items.Add(SmallClassData.ScID);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 在庫管理小分類ID
+        /// </summary>
+        private void comboBoxStSmallClassID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ScID = int.Parse(comboBoxStSmallClassID.SelectedItem.ToString());
+            M_SmallClassification SmallClassData = SmallClassList.Single(SmallClass => SmallClass.ScID == ScID);
+            textBoxStSmallClassName.Text = SmallClassData.ScName;
+        }
+
+        /// <summary>
+        /// 在庫管理商品ID
+        /// </summary>
+        private void comboBoxStProductID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int PrID = int.Parse(comboBoxStProductID.SelectedItem.ToString());
+            M_Product ProductData = ProductList.Single(Product => Product.PrID == PrID);
+            textBoxStProductName.Text = ProductData.PrName;
+        }
+
+        /// <summary>
+        /// 社員管理社員ID
+        /// </summary>
+        private void comboBoxEmEmployeeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int EmID = int.Parse(comboBoxEmEmployeeID.SelectedItem.ToString());
+            M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+            textBoxEmEmployeeName.Text = EmployeeData.EmName;
+        }
+
+        /// <summary>
+        /// 社員管理営業所ID
+        /// </summary>
+        private void comboBoxEmSalesOfficeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int SoID = int.Parse(comboBoxEmSalesOfficeID.SelectedItem.ToString());
+            M_SalesOffice SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxEmSalesOfficeName.Text = SalesOfficeData.SoName;
+        }
+
+        /// <summary>
+        /// 社員管理役職ID
+        /// </summary>
+        private void comboBoxEmPositionID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int PoID = int.Parse(comboBoxEmPositionID.SelectedItem.ToString());
+            M_Position PositionData = PositionList.Single(Position => Position.PoID == PoID);
+            textBoxEmPositionName.Text = PositionData.PoName;
+        }
+
+        /// <summary>
+        /// 売上管理営業所ID
+        /// </summary>
+        private void comboBoxSaSalesOfficeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int SoID = int.Parse(comboBoxSaSalesOfficeID.SelectedItem.ToString());
+            M_SalesOffice SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxSaSalesOfficeName.Text = SalesOfficeData.SoName;
+        }
+
+        /// <summary>
+        /// 売上管理受注社員ID
+        /// </summary>
+        private void comboBoxSaOrderEmployeeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int EmID = int.Parse(comboBoxSaOrderEmployeeID.SelectedItem.ToString());
+            M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+            textBoxSaOrderEmployeeName.Text = EmployeeData.EmName;
+        }
+
+        /// <summary>
+        /// 売上管理顧客ID
+        /// </summary>
+        private void comboBoxSaClientID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ClID = int.Parse(comboBoxSaClientID.SelectedItem.ToString());
+            M_Client ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxSaClientName.Text = ClientData.ClName;
+        }
+
+        /// <summary>
+        /// 受注管理営業所ID
+        /// </summary>
+        private void comboBoxOrSalesOfficeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int SoID = int.Parse(comboBoxOrSalesOfficeID.SelectedItem.ToString());
+            M_SalesOffice SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxOrSalesOfficeName.Text = SalesOfficeData.SoName;
+        }
+
+        /// <summary>
+        /// 受注管理社員ID
+        /// </summary>
+        private void comboBoxOrEmployeeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int EmID = int.Parse(comboBoxOrEmployeeID.SelectedItem.ToString());
+            M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+            textBoxOrClientManager.Text = EmployeeData.EmName;
+        }
+
+        /// <summary>
+        /// 受注管理顧客ID
+        /// </summary>
+        private void comboBoxOrClientID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ClID = int.Parse(comboBoxOrClientID.SelectedItem.ToString());
+            M_Client ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxOrClientName.Text = ClientData.ClName;
+        }
+
+        /// <summary>
+        /// 注文管理営業所ID
+        /// </summary>
+        private void comboBoxChSalesOfficeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int SoID = int.Parse(comboBoxChSalesOfficeID.SelectedItem.ToString());
+            M_SalesOffice SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxChSalesOfficeName.Text = SalesOfficeData.SoName;
+        }
+
+        /// <summary>
+        /// 注文管理社員ID
+        /// </summary>
+        private void comboBoxChEmployeeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int EmID = int.Parse(comboBoxChEmployeeID.SelectedItem.ToString());
+            M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+            textBoxChEmployeeName.Text = EmployeeData.EmName;
+        }
+
+        /// <summary>
+        /// 注文管理顧客ID
+        /// </summary>
+        private void comboBoxChClientID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ClID = int.Parse(comboBoxChClientID.SelectedItem.ToString());
+            M_Client ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxChClientName.Text = ClientData.ClName;
+        }
+
+        /// <summary>
+        /// 出庫管理社員ID
+        /// </summary>
+        private void comboBoxSyEmployeeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int EmID = int.Parse(comboBoxSyEmployeeID.SelectedItem.ToString());
+            M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+            textBoxSyEmployeeName.Text = EmployeeData.EmName;
+        }
+
+        /// <summary>
+        /// 出庫管理顧客ID
+        /// </summary>
+        private void comboBoxSyClientID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ClID = int.Parse(comboBoxSyClientID.SelectedItem.ToString());
+            M_Client ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxSyClientName.Text = ClientData.ClName;
+        }
+
+        /// <summary>
+        /// 出庫管理営業所ID
+        /// </summary>
+        private void comboBoxSySalesOfficeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int SoID = int.Parse(comboBoxSySalesOfficeID.SelectedItem.ToString());
+            M_SalesOffice SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxSySalesOfficeName.Text = SalesOfficeData.SoName;
+        }
+
+        /// <summary>
+        /// 入荷管理営業所ID
+        /// </summary>
+        private void comboBoxArSalesOfficeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int SoID = int.Parse(comboBoxArSalesOfficeID.SelectedItem.ToString());
+            M_SalesOffice SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxArSalesOfficeName.Text = SalesOfficeData.SoName;
+        }
+
+        /// <summary>
+        /// 入荷管理社員ID
+        /// </summary>
+        private void comboBoxArEmployeeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int EmID = int.Parse(comboBoxArEmployeeID.SelectedItem.ToString());
+            M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+            textBoxArEmployeeName.Text = EmployeeData.EmName;
+        }
+
+        /// <summary>
+        /// 入荷管理顧客ID
+        /// </summary>
+        private void comboBoxArClientID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ClID = int.Parse(comboBoxArClientID.SelectedItem.ToString());
+            M_Client ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxArClientName.Text = ClientData.ClName;
+        }
+
+        /// <summary>
+        /// 出荷管理顧客ID
+        /// </summary>
+        private void comboBoxShClientID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int ClID = int.Parse(comboBoxShClientID.SelectedItem.ToString());
+            M_Client ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxShClientName.Text = ClientData.ClName;
+        }
+
+        /// <summary>
+        /// 出荷管理社員ID
+        /// </summary>
+        private void comboBoxShEmployeeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int EmID = int.Parse(comboBoxShEmployeeID.SelectedItem.ToString());
+            M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+            textBoxShEmployeeName.Text = EmployeeData.EmName;
+        }
+
+        /// <summary>
+        /// 出荷管理営業所ID
+        /// </summary>
+        private void comboBoxShSalesOfficeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int SoID = int.Parse(comboBoxShSalesOfficeID.SelectedItem.ToString());
+            M_SalesOffice SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxShSalesOfficeName.Text = SalesOfficeData.SoName;
+        }
+
+        /// <summary>
+        /// 発注管理メーカID
+        /// </summary>
+        private void comboBoxHaMakerID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int MaID = int.Parse(comboBoxHaMakerID.SelectedItem.ToString());
+            M_Maker MakerData = MakerList.Single(Maker => Maker.MaID == MaID);
+            textBoxHaMakerName.Text = MakerData.MaName;
+        }
+
+        /// <summary>
+        /// 発注管理社員ID
+        /// </summary>
+        private void comboBoxHaEmployeeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int EmID = int.Parse(comboBoxHaEmployeeID.SelectedItem.ToString());
+            M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+            textBoxHaEmployeeName.Text = EmployeeData.EmName;
+        }
+
+        /// <summary>
+        /// 入庫管理社員ID
+        /// </summary>
+        private void comboBoxWrEmployeeID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int EmID = int.Parse(comboBoxWrEmployeeID.SelectedItem.ToString());
+            M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+            textBoxWrEmployeeName.Text = EmployeeData.EmName;
+        }
     }
 }
