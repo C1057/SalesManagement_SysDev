@@ -1498,11 +1498,6 @@ namespace SalesManagement_SysDev
             {
                 comboBoxHaEmployeeID.Items.Add(EmployeeData.EmID);
             }
-            //商品IDコンボボックスにデータを追加
-            foreach (var ProductData in ProductList)
-            {
-                comboBoxHaProductID.Items.Add(ProductData.PrID);
-            }
 
             //発注管理画面を表示する
             panelHide();
@@ -1617,11 +1612,6 @@ namespace SalesManagement_SysDev
             foreach (var ClientData in ClientList)
             {
                 comboBoxShClientID.Items.Add(ClientData.ClID);
-            }
-            //商品IDコンボボックスにデータを追加
-            foreach (var ProductData in ProductList)
-            {
-                comboBoxShProductID.Items.Add(ProductData.PrID);
             }
 
             //出荷管理画面を表示する
@@ -5774,7 +5764,333 @@ namespace SalesManagement_SysDev
             textBoxStMajorClassName.Text = MajorClassData.McName.ToString();
             //在庫数、非表示理由
             textBoxStInventory.Text = dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[3].Value.ToString();
-            textBoxStRsn.Text = dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[5].Value.ToString();
+            textBoxStRsn.Text = (string)dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[5].Value;
+        }
+
+        /// <summary>
+        /// 社員データグリッドビューセルクリックイベント
+        /// </summary>
+        private void dataGridViewEmMana_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //社員ID、社員名
+            comboBoxEmEmployeeID.Text = dataGridViewEmMana.Rows[dataGridViewEmMana.CurrentRow.Index].Cells[0].Value.ToString();
+            textBoxEmEmployeeName.Text = dataGridViewEmMana.Rows[dataGridViewEmMana.CurrentRow.Index].Cells[1].Value.ToString();
+            //営業所ID、営業所名
+            comboBoxEmSalesOfficeID.Text = dataGridViewEmMana.Rows[dataGridViewEmMana.CurrentRow.Index].Cells[2].Value.ToString();
+            int SoID = (int)dataGridViewEmMana.Rows[dataGridViewEmMana.CurrentRow.Index].Cells[2].Value;
+            var SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxEmSalesOfficeName.Text = SalesOfficeData.SoName;
+            //役職ID、役職名
+            comboBoxEmPositionID.Text = dataGridViewEmMana.Rows[dataGridViewEmMana.CurrentRow.Index].Cells[3].Value.ToString();
+            int PoID = (int)dataGridViewEmMana.Rows[dataGridViewEmMana.CurrentRow.Index].Cells[3].Value;
+            var PositionData = PositionList.Single(Position => Position.PoID == PoID);
+            textBoxEmPositionName.Text = PositionData.PoName;
+            //電話番号、入社年月日、非表示理由
+            textBoxEmEmployeePhone.Text = dataGridViewEmMana.Rows[dataGridViewEmMana.CurrentRow.Index].Cells[5].Value.ToString();
+            dateTimePickerEmployee.Value = DateTime.Parse(dataGridViewEmMana.Rows[dataGridViewEmMana.CurrentRow.Index].Cells[4].Value.ToString());
+            textBoxEmEmployeeRsn.Text = (string)dataGridViewEmMana.Rows[dataGridViewEmMana.CurrentRow.Index].Cells[7].Value;
+        }
+
+        /// <summary>
+        /// 売上データグリッドビューセルクリックイベント
+        /// </summary>
+        private void dataGridViewSaleMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewSaDetail.Rows.Clear();
+            //売上ID、受注ID
+            comboBoxSaSaleID.Text = dataGridViewSaleMain.Rows[dataGridViewSaleMain.CurrentRow.Index].Cells[0].Value.ToString();
+            comboBoxSaOrderID.Text = dataGridViewSaleMain.Rows[dataGridViewSaleMain.CurrentRow.Index].Cells[4].Value.ToString();
+            //営業所ID、営業所名
+            comboBoxSaSalesOfficeID.Text = dataGridViewSaleMain.Rows[dataGridViewSaleMain.CurrentRow.Index].Cells[2].Value.ToString();
+            int SoID = (int)dataGridViewSaleMain.Rows[dataGridViewSaleMain.CurrentRow.Index].Cells[2].Value;
+            var SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxSaSalesOfficeName.Text = SalesOfficeData.SoName;
+            //受注社員ID、受注社員名
+            comboBoxSaOrderEmployeeID.Text = dataGridViewSaleMain.Rows[dataGridViewSaleMain.CurrentRow.Index].Cells[3].Value.ToString();
+            int EmID = (int)dataGridViewSaleMain.Rows[dataGridViewSaleMain.CurrentRow.Index].Cells[3].Value;
+            var EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+            textBoxShEmployeeName.Text = EmployeeData.EmName;
+            //顧客ID、顧客名
+            comboBoxSaClientID.Text = dataGridViewSaleMain.Rows[dataGridViewSaleMain.CurrentRow.Index].Cells[1].Value.ToString();
+            int ClID = (int)dataGridViewSaleMain.Rows[dataGridViewSaleMain.CurrentRow.Index].Cells[1].Value;
+            var ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxSaClientName.Text = ClientData.ClName;
+            //売上日時、非表示理由
+            dateTimePickerSaDate.Value = DateTime.Parse(dataGridViewSaleMain.Rows[dataGridViewSaleMain.CurrentRow.Index].Cells[5].Value.ToString());
+            textBoxSaRsn.Text = (string)dataGridViewSaleMain.Rows[dataGridViewSaleMain.CurrentRow.Index].Cells[7].Value;
+            //詳細グリッドビューへの表示
+            int SaID = (int)dataGridViewSaleMain.Rows[dataGridViewSaleMain.CurrentRow.Index].Cells[0].Value;
+            List<T_SaleDetail> SaleDetailData = SaleDetailList.Where(SaleDetail => SaleDetail.SaID == SaID).ToList();
+            foreach(var SaleDetail in SaleDetailData)
+            {
+                dataGridViewSaDetail.Rows.Add(SaleDetail.SaDetailID, SaleDetail.SaID, SaleDetail.PrID, SaleDetail.SaQuantity, SaleDetail.SaPrTotalPrice);
+            }
+        }
+
+        /// <summary>
+        /// 受注データグリッドビューセルクリックイベント
+        /// </summary>
+        private void dataGridViewOrderMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewOrderDetail.Rows.Clear();
+            //受注ID
+            comboBoxOrOrderID.Text = dataGridViewOrderMain.Rows[dataGridViewOrderMain.CurrentRow.Index].Cells[0].Value.ToString();
+            //営業所ID、営業所名
+            comboBoxOrSalesOfficeID.Text = dataGridViewOrderMain.Rows[dataGridViewOrderMain.CurrentRow.Index].Cells[1].Value.ToString();
+            int SoID = (int)dataGridViewOrderMain.Rows[dataGridViewOrderMain.CurrentRow.Index].Cells[1].Value;
+            var SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxOrSalesOfficeName.Text = SalesOfficeData.SoName;
+            //社員ID、顧客担当者名
+            comboBoxOrEmployeeID.Text = dataGridViewOrderMain.Rows[dataGridViewOrderMain.CurrentRow.Index].Cells[2].Value.ToString();
+            textBoxOrClientManager.Text = dataGridViewOrderMain.Rows[dataGridViewOrderMain.CurrentRow.Index].Cells[4].Value.ToString();
+            //顧客ID、顧客名
+            comboBoxOrClientID.Text = dataGridViewOrderMain.Rows[dataGridViewOrderMain.CurrentRow.Index].Cells[3].Value.ToString();
+            int ClID = (int)dataGridViewOrderMain.Rows[dataGridViewOrderMain.CurrentRow.Index].Cells[3].Value;
+            var ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxOrClientName.Text = ClientData.ClName;
+            //受注年月日、非表示理由
+            dateTimePickerOrder.Value = DateTime.Parse(dataGridViewOrderMain.Rows[dataGridViewOrderMain.CurrentRow.Index].Cells[5].Value.ToString());
+            textBoxOrRsn.Text = (string)dataGridViewOrderMain.Rows[dataGridViewOrderMain.CurrentRow.Index].Cells[8].Value;
+            //合計金額
+            int TotalPrice = 0;
+            int OrID = (int)dataGridViewOrderMain.Rows[dataGridViewOrderMain.CurrentRow.Index].Cells[0].Value;
+            List<T_OrderDetail> OrderDetailData = OrderDetailList.Where(OrderDetail => OrderDetail.OrID == OrID).ToList();
+            foreach(var OrderDetail in OrderDetailData)
+            {
+                TotalPrice = TotalPrice + (int)OrderDetail.OrTotalPrice;
+                dataGridViewOrderDetail.Rows.Add(OrderDetail.OrDetailID, OrderDetail.OrID, OrderDetail.PrID, OrderDetail.OrQuantity, OrderDetail.OrTotalPrice);
+            }
+            labelOrProductSum.Text = TotalPrice.ToString();
+        }
+
+        /// <summary>
+        /// 注文データグリッドビューセルクリックイベント
+        /// </summary>
+        private void dataGridViewChumonMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewChumonDetail.Rows.Clear();
+            //注文ID、受注ID
+            comboBoxChChumonID.Text = dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[0].Value.ToString();
+            comboBoxChOrderID.Text = dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[4].Value.ToString();
+            //営業所ID、営業所名
+            comboBoxChSalesOfficeID.Text = dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[1].Value.ToString();
+            int SoID = (int)dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[1].Value;
+            var SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxChSalesOfficeName.Text = SalesOfficeData.SoName;
+            //社員ID、社員名
+            if ((int)dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[2].Value != 0)
+            {
+                comboBoxChEmployeeID.Text = dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[2].Value.ToString();
+                int EmID = (int)dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[2].Value;
+                var EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+                textBoxChEmployeeName.Text = EmployeeData.EmName;
+            }
+            //顧客ID、顧客名
+            comboBoxChClientID.Text = dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[3].Value.ToString();
+            int ClID = (int)dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[3].Value;
+            var ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxChClientName.Text = ClientData.ClName;
+            //注文年月日、非表示理由
+            if (dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[5].Value != null)
+            {
+                dateTimePickerChumon.Value = DateTime.Parse(dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[5].Value.ToString());
+            }
+            textBoxChRsn.Text = (string)dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[8].Value;
+            //詳細グリッドビューへの表示
+            int ChID = (int)dataGridViewChumonMain.Rows[dataGridViewChumonMain.CurrentRow.Index].Cells[0].Value;
+            List<T_ChumonDetail> ChumonDetailData = ChumonDetailList.Where(ChumonDetail => ChumonDetail.ChID == ChID).ToList();
+            foreach(var ChumonDetail in ChumonDetailData)
+            {
+                M_Product product = ProductList.Single(Product => Product.PrID == ChumonDetail.PrID);
+                dataGridViewChumonDetail.Rows.Add(ChumonDetail.ChDetailID, ChumonDetail.ChID, ChumonDetail.PrID, product.PrName, ChumonDetail.ChQuantity);
+            }
+        }
+
+        /// <summary>
+        /// 出庫データグリッドビューセルクリックイベント
+        /// </summary>
+        private void dataGridViewSyukkoMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewSyukkoDetail.Rows.Clear();
+            //出庫ID、受注ID
+            comboBoxSySyukkoID.Text = dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[0].Value.ToString();
+            comboBoxSyOrderID.Text = dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[4].Value.ToString();
+            //社員ID、社員名
+            if ((int)dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[1].Value != 0)
+            {
+                comboBoxSyEmployeeID.Text = dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[1].Value.ToString();
+                int EmID = (int)dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[1].Value;
+                var EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+                textBoxSyEmployeeName.Text = EmployeeData.EmName;
+            }
+            //顧客ID、顧客名
+            comboBoxSyClientID.Text = dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[2].Value.ToString();
+            int ClID = (int)dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[2].Value;
+            var ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxSyClientName.Text = ClientData.ClName;
+            //営業所ID、営業所名
+            comboBoxSySalesOfficeID.Text = dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[3].Value.ToString();
+            int SoID = (int)dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[3].Value;
+            var SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxSySalesOfficeName.Text = SalesOfficeData.SoName;
+            //出庫年月日、非表示理由
+            if (dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[5].Value != null)
+            {
+                dateTimePickerSyukko.Value = DateTime.Parse(dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[5].Value.ToString());
+            }
+            textBoxSyRsn.Text = (string)dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[8].Value;
+            //詳細グリッドビューへの表示
+            int SyID = (int)dataGridViewSyukkoMain.Rows[dataGridViewSyukkoMain.CurrentRow.Index].Cells[0].Value;
+            List<T_SyukkoDetail> SyukkoDetailData = SyukkoDetailList.Where(SyukkoDetail => SyukkoDetail.SyID == SyID).ToList();
+            foreach (var SyukkoDetail in SyukkoDetailData)
+            {
+                M_Product product = ProductList.Single(Product => Product.PrID == SyukkoDetail.PrID);
+                dataGridViewSyukkoDetail.Rows.Add(SyukkoDetail.SyDetailID, SyukkoDetail.SyID, SyukkoDetail.PrID, product.PrName, SyukkoDetail.SyQuantity);
+            }
+        }
+
+        /// <summary>
+        /// 入荷データグリッドビューセルクリックイベント
+        /// </summary>
+        private void dataGridViewArrivalMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewArrivalDetail.Rows.Clear();
+            //入荷ID、受注ID
+            comboBoxArArrivalID.Text = dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[0].Value.ToString();
+            comboBoxArOrderID.Text = dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[4].Value.ToString();
+            //営業所ID、営業所名
+            comboBoxArSalesOfficeID.Text = dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[3].Value.ToString();
+            int SoID = (int)dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[3].Value;
+            var SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxArSalesOfficeName.Text = SalesOfficeData.SoName;
+            //社員ID、社員名
+            if ((int)dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[2].Value != 0)
+            {
+                comboBoxArEmployeeID.Text = dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[2].Value.ToString();
+                int EmID = (int)dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[1].Value;
+                var EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+                textBoxArEmployeeName.Text = EmployeeData.EmName;
+            }
+            //顧客ID、顧客名
+            comboBoxArClientID.Text = dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[1].Value.ToString();
+            int ClID = (int)dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[1].Value;
+            var ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxArClientName.Text = ClientData.ClName;
+            //入荷年月日、非表示理由
+            if (dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[5].Value != null)
+            {
+                dateTimePickerAr.Value = DateTime.Parse(dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[5].Value.ToString());
+            }
+            textBoxArRsn.Text = (string)dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[8].Value;
+            //詳細グリッドビューへの表示
+            int ArID = (int)dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[0].Value;
+            List<T_ArrivalDetail> ArrivalDetailData = ArrivalDetailList.Where(ArrivalDetail => ArrivalDetail.ArID == ArID).ToList();
+            foreach (var ArrivalDetail in ArrivalDetailData)
+            {
+                M_Product product = ProductList.Single(Product => Product.PrID == ArrivalDetail.PrID);
+                dataGridViewArrivalDetail.Rows.Add(ArrivalDetail.ArDetailID, ArrivalDetail.ArID, ArrivalDetail.PrID, product.PrName, ArrivalDetail.ArQuantity);
+            }
+        }
+
+        /// <summary>
+        /// 出荷データグリッドビューセルクリックイベント
+        /// </summary>
+        private void dataGridViewShipmentMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewShipmentDetail.Rows.Clear();
+            //出荷ID、受注ID
+            comboBoxShShipmentID.Text = dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[0].Value.ToString();
+            comboBoxShOrderID.Text = dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[4].Value.ToString();
+            //顧客ID、顧客名
+            comboBoxShClientID.Text = dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[1].Value.ToString();
+            int ClID = (int)dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[1].Value;
+            var ClientData = ClientList.Single(Client => Client.ClID == ClID);
+            textBoxShClientName.Text = ClientData.ClName;
+            //社員ID、社員名
+            if ((int)dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[2].Value != 0)
+            {
+                comboBoxShEmployeeID.Text = dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[2].Value.ToString();
+                int EmID = (int)dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[2].Value;
+                var EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+                textBoxShEmployeeName.Text = EmployeeData.EmName;
+            }
+            //営業所ID、営業所名
+            comboBoxShSalesOfficeID.Text = dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[3].Value.ToString();
+            int SoID = (int)dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[3].Value;
+            var SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxShSalesOfficeName.Text = SalesOfficeData.SoName;
+            //出荷年月日、非表示理由
+            if (dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[6].Value != null)
+            {
+                dateTimePickerShipment.Value = DateTime.Parse(dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[6].Value.ToString());
+            }
+            textBoxShRsn.Text = (string)dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[8].Value;
+            //詳細グリッドビューへの表示
+            int ShID = (int)dataGridViewShipmentMain.Rows[dataGridViewShipmentMain.CurrentRow.Index].Cells[0].Value;
+            List<T_ShipmentDetail> ShipmentDetailData = ShipmentDetailList.Where(ShipmentDetail => ShipmentDetail.ShID == ShID).ToList();
+            foreach (var ShipmentDetail in ShipmentDetailData)
+            {
+                M_Product product = ProductList.Single(Product => Product.PrID == ShipmentDetail.PrID);
+                dataGridViewShipmentDetail.Rows.Add(ShipmentDetail.ShDetailID, ShipmentDetail.ShID, ShipmentDetail.PrID, product.PrName, ShipmentDetail.ShDquantity);
+            }
+        }
+
+        /// <summary>
+        /// 発注データグリッドビューセルクリックイベント
+        /// </summary>
+        private void dataGridViewHattyuMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewHattyuDetail.Rows.Clear();
+            //発注ID
+            comboBoxHaHattyuID.Text = dataGridViewHattyuMain.Rows[dataGridViewHattyuMain.CurrentRow.Index].Cells[0].Value.ToString();
+            //メーカID、メーカ名
+            comboBoxHaMakerID.Text = dataGridViewHattyuMain.Rows[dataGridViewHattyuMain.CurrentRow.Index].Cells[1].Value.ToString();
+            int MaID = (int)dataGridViewHattyuMain.Rows[dataGridViewHattyuMain.CurrentRow.Index].Cells[1].Value;
+            var MakerData = MakerList.Single(Maker => Maker.MaID == MaID);
+            textBoxHaMakerName.Text = MakerData.MaName;
+            //社員ID、社員名
+            comboBoxHaEmployeeID.Text = dataGridViewHattyuMain.Rows[dataGridViewHattyuMain.CurrentRow.Index].Cells[2].Value.ToString();
+            int EmID = (int)dataGridViewHattyuMain.Rows[dataGridViewHattyuMain.CurrentRow.Index].Cells[2].Value;
+            var EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+            textBoxHaEmployeeName.Text = EmployeeData.EmName;
+            //発注年月日、非表示理由
+            dateTimePickerHa.Value = DateTime.Parse(dataGridViewHattyuMain.Rows[dataGridViewHattyuMain.CurrentRow.Index].Cells[3].Value.ToString());
+            textBoxHaRsn.Text = (string)dataGridViewHattyuMain.Rows[dataGridViewHattyuMain.CurrentRow.Index].Cells[6].Value;
+            //詳細グリッドビューへの表示
+            int HaID = (int)dataGridViewHattyuMain.Rows[dataGridViewHattyuMain.CurrentRow.Index].Cells[0].Value;
+            List<T_HattyuDetail> HattyuDetailData = HattyuDetailList.Where(HattyuDetail => HattyuDetail.HaID == HaID).ToList();
+            foreach (var HattyuDetail in HattyuDetailData)
+            {
+                M_Product product = ProductList.Single(Product => Product.PrID == HattyuDetail.PrID);
+                dataGridViewHattyuDetail.Rows.Add(HattyuDetail.HaDetailID, HattyuDetail.HaID, HattyuDetail.PrID, product.PrName, HattyuDetail.HaQuantity);
+            }
+        }
+
+        /// <summary>
+        /// 入庫データグリッドビューセルクリックイベント
+        /// </summary>
+        private void dataGridViewWareHousingMain_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridViewWareHousingDetail.Rows.Clear();
+            //入庫ID、発注ID
+            comboBoxWrWareHousingID.Text = dataGridViewWareHousingMain.Rows[dataGridViewWareHousingMain.CurrentRow.Index].Cells[0].Value.ToString();
+            comboBoxWrHattyuID.Text = dataGridViewWareHousingMain.Rows[dataGridViewWareHousingMain.CurrentRow.Index].Cells[1].Value.ToString();
+            //入庫確認社員ID、入庫確認社員名
+            comboBoxWrEmployeeID.Text = dataGridViewWareHousingMain.Rows[dataGridViewWareHousingMain.CurrentRow.Index].Cells[2].Value.ToString();
+            int EmID = (int)dataGridViewWareHousingMain.Rows[dataGridViewWareHousingMain.CurrentRow.Index].Cells[2].Value;
+            var EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
+            textBoxWrEmployeeName.Text = EmployeeData.EmName;
+            //入庫年月日、非表示理由
+            dateTimePickerWr.Value = DateTime.Parse(dataGridViewWareHousingMain.Rows[dataGridViewWareHousingMain.CurrentRow.Index].Cells[3].Value.ToString());
+            textBoxWrRsn.Text = (string)dataGridViewWareHousingMain.Rows[dataGridViewWareHousingMain.CurrentRow.Index].Cells[6].Value;
+            //詳細グリッドビューへの表示
+            int WaID = (int)dataGridViewWareHousingMain.Rows[dataGridViewWareHousingMain.CurrentRow.Index].Cells[0].Value;
+            List<T_WarehousingDetail> WarehousingDetailData = WarehousingDetailList.Where(WarehousingDetail => WarehousingDetail.WaID == WaID).ToList();
+            foreach (var WarehousingDetail in WarehousingDetailData)
+            {
+                M_Product product = ProductList.Single(Product => Product.PrID == WarehousingDetail.PrID);
+                dataGridViewWareHousingDetail.Rows.Add(WarehousingDetail.WaDetailID, WarehousingDetail.WaID, WarehousingDetail.PrID, product.PrName,WarehousingDetail.WaQuantity);
+            }
         }
     }
 }
