@@ -2084,6 +2084,11 @@ namespace SalesManagement_SysDev
             {
                 return;
             }
+            DialogResult result = msg.MsgDsp("M3023");              //登録確認メッセージ
+            if (result == DialogResult.Cancel)                      //resultがCancelの場合商品登録モジュールを終了する
+            {
+                return;
+            }
 
             //登録用商品情報のセット
             M_Product AddProductData = ProductAddDataSet();
@@ -2091,8 +2096,15 @@ namespace SalesManagement_SysDev
             //商品情報の登録
             ProductAccess.AddProduct(AddProductData);
 
-            //商品情報一覧表示用データの更新
+            //登録用在庫情報のセット
+            T_Stock AddStockData = StockAddDataSet();
+
+            //在庫情報の登録
+            StockAccess.AddStock(AddStockData);
+
+            //一覧表示用データの更新
             ProductList = ProductAccess.GetData();
+            StockList = StockAccess.GetData();
 
             //商品情報一覧表示
             ListProduct();
@@ -2291,6 +2303,19 @@ namespace SalesManagement_SysDev
                 PrColor = textBoxPrColor.Text,
                 PrReleaseDate = DateTimePickerProduct.Value,
                 PrHidden = textBoxPrRsn.Text
+            };
+        }
+
+        /// <summary>
+        /// 登録用在庫情報をセットする
+        /// </summary>
+        private T_Stock StockAddDataSet()
+        {
+            return new T_Stock
+            {
+                PrID = ProductList.Count + 1,
+                StQuantity = 0,
+                StFlag = 0
             };
         }
 

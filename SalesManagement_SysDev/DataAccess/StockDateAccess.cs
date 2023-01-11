@@ -62,6 +62,24 @@ namespace SalesManagement_SysDev
         }
 
         /// <summary>
+        /// 在庫情報登録モジュール
+        /// </summary>
+        public void AddStock(T_Stock AddData)
+        {
+            try
+            {
+                var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
+                context.T_Stocks.Add(AddData);                      //登録用データのセット
+                context.SaveChanges();                              //登録を確定
+                context.Dispose();                                  //contextを解放
+            }
+            catch
+            {
+                MessageBox.Show("在庫情報の登録に失敗しました", "登録確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
         /// 在庫情報更新モジュール
         /// </summary>
         /// <param name="updateData"></param>

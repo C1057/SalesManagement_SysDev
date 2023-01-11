@@ -23,13 +23,7 @@ namespace SalesManagement_SysDev
         /// <param name="AddData">登録用データ</param>
         /// <returns>なし</returns>
         public void AddProduct(M_Product AddData)
-        {
-            DialogResult result = msg.MsgDsp("M3023");              //登録確認メッセージ
-            if (result == DialogResult.Cancel)                      //resultがCancelの場合商品登録モジュールを終了する
-            {
-                return;
-            }
-
+        {  
             try                                                     //例外処理
             {
                 var context = new SalesManagement_DevContext();     //SalesManagement_DevContextクラスのインスタンス化

@@ -52,7 +52,7 @@ namespace SalesManagement_SysDev
             // 
             this.buttonPositionManaSrarch.BackColor = System.Drawing.Color.LightCyan;
             this.buttonPositionManaSrarch.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonPositionManaSrarch.Location = new System.Drawing.Point(423, 126);
+            this.buttonPositionManaSrarch.Location = new System.Drawing.Point(623, 126);
             this.buttonPositionManaSrarch.Margin = new System.Windows.Forms.Padding(1);
             this.buttonPositionManaSrarch.Name = "buttonPositionManaSrarch";
             this.buttonPositionManaSrarch.Size = new System.Drawing.Size(164, 74);
@@ -65,7 +65,7 @@ namespace SalesManagement_SysDev
             // 
             this.buttonPositionManaList.BackColor = System.Drawing.Color.LightCyan;
             this.buttonPositionManaList.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonPositionManaList.Location = new System.Drawing.Point(623, 126);
+            this.buttonPositionManaList.Location = new System.Drawing.Point(423, 126);
             this.buttonPositionManaList.Margin = new System.Windows.Forms.Padding(1);
             this.buttonPositionManaList.Name = "buttonPositionManaList";
             this.buttonPositionManaList.Size = new System.Drawing.Size(164, 74);
