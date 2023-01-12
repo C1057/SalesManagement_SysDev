@@ -37,7 +37,7 @@ namespace SalesManagement_SysDev
             this.textBoxCsManaSmallClassHidden = new System.Windows.Forms.TextBox();
             this.textBoxCsManaSmallClassName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCsManaSmallMajorClassID = new System.Windows.Forms.ComboBox();
             this.dataGridViewSmallClass = new System.Windows.Forms.DataGridView();
             this.label95 = new System.Windows.Forms.Label();
             this.label94 = new System.Windows.Forms.Label();
@@ -87,7 +87,7 @@ namespace SalesManagement_SysDev
             this.panel2.Controls.Add(this.textBoxCsManaSmallClassHidden);
             this.panel2.Controls.Add(this.textBoxCsManaSmallClassName);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.comboBoxCsManaSmallMajorClassID);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dataGridViewSmallClass);
             this.panel2.Controls.Add(this.label95);
@@ -165,13 +165,13 @@ namespace SalesManagement_SysDev
             this.label5.TabIndex = 196;
             this.label5.Text = "大分類ID";
             // 
-            // comboBox1
+            // comboBoxCsManaSmallMajorClassID
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(125, 130);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(166, 20);
-            this.comboBox1.TabIndex = 197;
+            this.comboBoxCsManaSmallMajorClassID.FormattingEnabled = true;
+            this.comboBoxCsManaSmallMajorClassID.Location = new System.Drawing.Point(125, 130);
+            this.comboBoxCsManaSmallMajorClassID.Name = "comboBoxCsManaSmallMajorClassID";
+            this.comboBoxCsManaSmallMajorClassID.Size = new System.Drawing.Size(166, 20);
+            this.comboBoxCsManaSmallMajorClassID.TabIndex = 197;
             // 
             // dataGridViewSmallClass
             // 
@@ -180,8 +180,10 @@ namespace SalesManagement_SysDev
             this.dataGridViewSmallClass.Name = "dataGridViewSmallClass";
             this.dataGridViewSmallClass.RowHeadersWidth = 62;
             this.dataGridViewSmallClass.RowTemplate.Height = 21;
+            this.dataGridViewSmallClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSmallClass.Size = new System.Drawing.Size(1648, 321);
             this.dataGridViewSmallClass.TabIndex = 111;
+            this.dataGridViewSmallClass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSmallClass_CellClick);
             // 
             // label95
             // 
@@ -212,6 +214,7 @@ namespace SalesManagement_SysDev
             this.comboBoxCsManaSmallClassID.Name = "comboBoxCsManaSmallClassID";
             this.comboBoxCsManaSmallClassID.Size = new System.Drawing.Size(203, 20);
             this.comboBoxCsManaSmallClassID.TabIndex = 195;
+            this.comboBoxCsManaSmallClassID.SelectedIndexChanged += new System.EventHandler(this.comboBoxCsManaSmallClassID_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -286,6 +289,7 @@ namespace SalesManagement_SysDev
             this.comboBoxCsManaMajorClassID.Name = "comboBoxCsManaMajorClassID";
             this.comboBoxCsManaMajorClassID.Size = new System.Drawing.Size(213, 32);
             this.comboBoxCsManaMajorClassID.TabIndex = 241;
+            this.comboBoxCsManaMajorClassID.SelectedIndexChanged += new System.EventHandler(this.comboBoxCsManaMajorClassID_SelectedIndexChanged_1);
             // 
             // textboxManaMajorClassName
             // 
@@ -323,8 +327,12 @@ namespace SalesManagement_SysDev
             this.dataGridViewMajorClass.Name = "dataGridViewMajorClass";
             this.dataGridViewMajorClass.RowHeadersWidth = 62;
             this.dataGridViewMajorClass.RowTemplate.Height = 21;
+            this.dataGridViewMajorClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMajorClass.Size = new System.Drawing.Size(1650, 321);
             this.dataGridViewMajorClass.TabIndex = 111;
+            this.dataGridViewMajorClass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMajorClass_CellClick_1);
+            this.dataGridViewMajorClass.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMajorClass_CellContentClick);
+            this.dataGridViewMajorClass.SelectionChanged += new System.EventHandler(this.dataGridViewMajorClass_SelectionChanged);
             // 
             // buttonCsManaMajorClassAdd
             // 
@@ -459,8 +467,8 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonCsManaMajorClassOpen);
             this.Controls.Add(this.buttonCsManaSmallClassOpen);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "FormClassMana";
             this.Text = "FormClassMana";
             this.Load += new System.EventHandler(this.Form4_Load);
@@ -490,7 +498,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TextBox textBoxCsManaSmallClassHidden;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxCsManaSmallMajorClassID;
         private System.Windows.Forms.Button buttonCsManaSmallClassAdd;
         private maruibutton maruibutton5;
         private System.Windows.Forms.Button buttonCsManaSmallClassUodate;
