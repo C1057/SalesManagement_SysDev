@@ -61,7 +61,7 @@ namespace SalesManagement_SysDev
 
             try
             {
-                DialogResult result = msg.MsgDsp("M3063");　//登録メッセージ
+                DialogResult result = msg.MsgDsp("M3070");　//登録メッセージ
                 if (result == DialogResult.Cancel)  //登録確認がCancelの場合
                 {
                     Context.Dispose();　　//メモリの解放
@@ -72,17 +72,17 @@ namespace SalesManagement_SysDev
                 Context.SaveChanges();  //変更の反映
                 Context.Dispose();     //メモリの解放
 
-                msg.MsgDsp("M3064");  //登録完了メッセージ
+                msg.MsgDsp("M3071");  //登録完了メッセージ
             }
             catch
             {
-                msg.MsgDsp("M3065");  //登録失敗メッセージ
+                msg.MsgDsp("M3072");  //登録失敗メッセージ
             }
         }
 
         public void UpdateMaker(M_Maker UpdateMaker)
         {
-            DialogResult result = msg.MsgDsp("M3068");   //更新しますかメッセージ
+            DialogResult result = msg.MsgDsp("M3073");   //更新しますかメッセージ
 
             if (result == DialogResult.Cancel) //更新Cancel　更新モジュールを終了する
             {
@@ -92,15 +92,22 @@ namespace SalesManagement_SysDev
             {
                 var context = new SalesManagement_DevContext();       //クラスのインスタンス化
                 var Maker = context.M_Makers.Single(x => x.MaID == UpdateMaker.MaID);    //更新対象データの取得
-                Maker = UpdateMaker;  //更新データをセット
+
+                Maker.MaName = UpdateMaker.MaName;  //更新データをセット
+                Maker.MaAdress = UpdateMaker.MaAdress;
+                Maker.MaPhone = UpdateMaker.MaPhone;
+                Maker.MaPostal = UpdateMaker.MaPostal;
+                Maker.MaFAX = UpdateMaker.MaFAX;
+                Maker.MaHidden = UpdateMaker.MaHidden;
+
                 context.SaveChanges();  //
                 context.Dispose();     //contextを開放
 
-                msg.MsgDsp("M3067");　　　//更新完了メッセージ
+                msg.MsgDsp("M3074");　　　//更新完了メッセージ
             }
             catch
             {
-                msg.MsgDsp("M3068");　　　//更新失敗メッセージ
+                msg.MsgDsp("M3075");　　　//更新失敗メッセージ
             }
         }
 

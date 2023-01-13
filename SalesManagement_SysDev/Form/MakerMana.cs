@@ -119,7 +119,7 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param>なし</param>
         /// <returns>なし</returns>
-        private void DeleteListPosition()
+        private void DeleteListMaker()
         {
             dataGridViewManaMaker.Rows.Clear();                        //データグリッドビューをクリアする
 
@@ -139,13 +139,39 @@ namespace SalesManagement_SysDev
 
         private void buttonAddMaker_Click(object sender, EventArgs e)
         {
-            //メーカーIDの入力チェックメソッドの呼びだし
-            if (!InputCheck.MakerIDInputCheck(textBoxManaMekerID.Text))
+            //メーカー名の入力チェック
+            if (!InputCheck.MakerNameInputCheck(comboBoxManaMakerName.Text))
             {
-                textBoxManaMekerID.Focus();
+                comboBoxManaMakerName.Focus();
                 return;
             }
-            
+            //メーカーの住所の入力チェック
+            if (!InputCheck.MakerAdressInputCheck(textBoxManaMakerAdress.Text))
+            {
+                textBoxManaMakerAdress.Focus();
+                return;
+            }
+
+            //メーカーの電話番号の入力チェック
+            if (!InputCheck.MakerPhoneInputCheck(textBoxManaMakerPhone.Text))
+            {
+                textBoxManaMakerPhone.Focus();
+                return;
+            }
+
+            //メーカーの郵便番号の入力チェック
+            if (!InputCheck.MakerPhoneInputCheck(textBoxManaMakerPostal.Text))
+            {
+                textBoxManaMakerPostal.Focus();
+                return;
+            }
+
+            //メーカーのFAXの入力チェック
+            if (!InputCheck.MakerFAXInputCheck(textBoxManaMakerFax.Text))
+            {
+                textBoxManaMakerFax.Focus();
+                return;
+            }
 
             //登録用顧客情報のセット
             M_Maker AddManaMakerData = ManaMakerAddDataSet();
@@ -164,7 +190,6 @@ namespace SalesManagement_SysDev
         {
             return new M_Maker
             {
-                MaID = int.Parse(textBoxManaMekerID.Text.Trim()),
                 MaName = comboBoxManaMakerName.Text.Trim(),
                 MaAdress = textBoxManaMakerAdress.Text.Trim(),
                 MaPhone = textBoxManaMakerPhone.Text.Trim(),
@@ -228,6 +253,7 @@ namespace SalesManagement_SysDev
 
             //顧客情報一覧表示用データの更新
             MakerList = MakerAccess.GetData();
+
             //顧客情報再表示
             ListMaker();
         }
@@ -241,13 +267,13 @@ namespace SalesManagement_SysDev
         {
             for (int i = 0; i < dataGridViewManaMaker.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
-                if ((bool)dataGridViewManaMaker.Rows[i].Cells[2].Value)                 //1行ずつチェックボックスがチェックされているかを判定する
+                if ((bool)dataGridViewManaMaker.Rows[i].Cells[6].Value)                 //1行ずつチェックボックスがチェックされているかを判定する
                 {
                     MakerAccess.DeleteMaker((int)dataGridViewManaMaker.Rows[i].Cells[0].Value);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             
-            msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+            //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
 
             //メーカ情報一覧表示用データを更新
             MakerList = MakerAccess.GetData();
@@ -257,7 +283,7 @@ namespace SalesManagement_SysDev
 
         private void buttonManaMakerDeleteList_Click(object sender, EventArgs e)
         {
-            
+            DeleteListMaker();
         }
 
         private void buttonSearchMaker_Click(object sender, EventArgs e)
@@ -292,6 +318,25 @@ namespace SalesManagement_SysDev
                 }
                 labelMaSearchTitle.Text = "役職名で検索しました";           //何で検索したかを表示
             }
+        }
+
+        private void dataGridViewManaMaker_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //メーカーID
+            textBoxManaMekerID.Text = dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[0].Value.ToString();
+            //メーカー名
+            comboBoxManaMakerName.Text = dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[1].Value.ToString();
+            //住所
+            textBoxManaMakerAdress.Text = dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[2].Value.ToString();
+            //電話番号
+            textBoxManaMakerPhone.Text = dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[3].Value.ToString();
+            //郵便番号
+            textBoxManaMakerPostal.Text = dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[4].Value.ToString();
+            //FAX
+            textBoxManaMakerFax.Text = dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[5].Value.ToString();
+            //非表示理由
+            textBoxManaMakerHidden.Text = (string)dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[7].Value;
+
         }
     }
 }
