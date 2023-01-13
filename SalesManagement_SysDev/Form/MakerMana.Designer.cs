@@ -36,10 +36,8 @@ namespace SalesManagement_SysDev
             this.buttonListMaker = new System.Windows.Forms.Button();
             this.buttonSearchMaker = new System.Windows.Forms.Button();
             this.labelManaMakerID = new System.Windows.Forms.Label();
-            this.textBoxManaMekerID = new System.Windows.Forms.TextBox();
             this.textBoxManaMakerHidden = new System.Windows.Forms.TextBox();
             this.labelManaMakerName = new System.Windows.Forms.Label();
-            this.comboBoxManaMakerName = new System.Windows.Forms.ComboBox();
             this.textBoxManaMakerAdress = new System.Windows.Forms.TextBox();
             this.labelManaMakerAdress = new System.Windows.Forms.Label();
             this.textBoxManaMakerPhone = new System.Windows.Forms.TextBox();
@@ -50,18 +48,22 @@ namespace SalesManagement_SysDev
             this.labelManaMakerPostal = new System.Windows.Forms.Label();
             this.labelManaMakerHidden = new System.Windows.Forms.Label();
             this.dataGridViewManaMaker = new System.Windows.Forms.DataGridView();
+            this.labelMaSearchTitle = new System.Windows.Forms.Label();
+            this.textBoxManaMakerName = new System.Windows.Forms.TextBox();
+            this.comboBoxManaMakerID = new System.Windows.Forms.ComboBox();
             this.buttonManaMakerDeleteList = new SalesManagement_SysDev.maruibutton();
             this.buttonManaMakerDelete = new SalesManagement_SysDev.maruibutton();
-            this.labelMaSearchTitle = new System.Windows.Forms.Label();
+            this.buttonClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManaMaker)).BeginInit();
             this.SuspendLayout();
             // 
             // labelManaMakerTitle
             // 
             this.labelManaMakerTitle.Font = new System.Drawing.Font("Meiryo UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelManaMakerTitle.Location = new System.Drawing.Point(742, 14);
+            this.labelManaMakerTitle.Location = new System.Drawing.Point(445, 9);
+            this.labelManaMakerTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelManaMakerTitle.Name = "labelManaMakerTitle";
-            this.labelManaMakerTitle.Size = new System.Drawing.Size(540, 130);
+            this.labelManaMakerTitle.Size = new System.Drawing.Size(324, 87);
             this.labelManaMakerTitle.TabIndex = 76;
             this.labelManaMakerTitle.Text = "メーカ管理";
             // 
@@ -69,10 +71,10 @@ namespace SalesManagement_SysDev
             // 
             this.buttonManaMakerReturn.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.buttonManaMakerReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonManaMakerReturn.Location = new System.Drawing.Point(1715, 36);
-            this.buttonManaMakerReturn.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonManaMakerReturn.Location = new System.Drawing.Point(1029, 24);
+            this.buttonManaMakerReturn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonManaMakerReturn.Name = "buttonManaMakerReturn";
-            this.buttonManaMakerReturn.Size = new System.Drawing.Size(280, 108);
+            this.buttonManaMakerReturn.Size = new System.Drawing.Size(168, 72);
             this.buttonManaMakerReturn.TabIndex = 207;
             this.buttonManaMakerReturn.Text = "戻る";
             this.buttonManaMakerReturn.UseVisualStyleBackColor = false;
@@ -81,11 +83,11 @@ namespace SalesManagement_SysDev
             // buttonAddMaker
             // 
             this.buttonAddMaker.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonAddMaker.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonAddMaker.Location = new System.Drawing.Point(52, 176);
-            this.buttonAddMaker.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonAddMaker.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonAddMaker.Location = new System.Drawing.Point(31, 117);
+            this.buttonAddMaker.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonAddMaker.Name = "buttonAddMaker";
-            this.buttonAddMaker.Size = new System.Drawing.Size(273, 111);
+            this.buttonAddMaker.Size = new System.Drawing.Size(164, 74);
             this.buttonAddMaker.TabIndex = 208;
             this.buttonAddMaker.Text = "登録";
             this.buttonAddMaker.UseVisualStyleBackColor = false;
@@ -94,11 +96,11 @@ namespace SalesManagement_SysDev
             // buttonUpdateMaker
             // 
             this.buttonUpdateMaker.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonUpdateMaker.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonUpdateMaker.Location = new System.Drawing.Point(355, 176);
-            this.buttonUpdateMaker.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonUpdateMaker.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonUpdateMaker.Location = new System.Drawing.Point(213, 117);
+            this.buttonUpdateMaker.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonUpdateMaker.Name = "buttonUpdateMaker";
-            this.buttonUpdateMaker.Size = new System.Drawing.Size(273, 111);
+            this.buttonUpdateMaker.Size = new System.Drawing.Size(164, 74);
             this.buttonUpdateMaker.TabIndex = 209;
             this.buttonUpdateMaker.Text = "更新";
             this.buttonUpdateMaker.UseVisualStyleBackColor = false;
@@ -107,11 +109,11 @@ namespace SalesManagement_SysDev
             // buttonListMaker
             // 
             this.buttonListMaker.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonListMaker.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonListMaker.Location = new System.Drawing.Point(667, 176);
-            this.buttonListMaker.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonListMaker.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonListMaker.Location = new System.Drawing.Point(400, 117);
+            this.buttonListMaker.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonListMaker.Name = "buttonListMaker";
-            this.buttonListMaker.Size = new System.Drawing.Size(273, 111);
+            this.buttonListMaker.Size = new System.Drawing.Size(164, 74);
             this.buttonListMaker.TabIndex = 210;
             this.buttonListMaker.Text = "一覧表示";
             this.buttonListMaker.UseVisualStyleBackColor = false;
@@ -120,11 +122,11 @@ namespace SalesManagement_SysDev
             // buttonSearchMaker
             // 
             this.buttonSearchMaker.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonSearchMaker.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSearchMaker.Location = new System.Drawing.Point(987, 176);
-            this.buttonSearchMaker.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonSearchMaker.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonSearchMaker.Location = new System.Drawing.Point(592, 117);
+            this.buttonSearchMaker.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSearchMaker.Name = "buttonSearchMaker";
-            this.buttonSearchMaker.Size = new System.Drawing.Size(273, 111);
+            this.buttonSearchMaker.Size = new System.Drawing.Size(164, 74);
             this.buttonSearchMaker.TabIndex = 211;
             this.buttonSearchMaker.Text = "検索";
             this.buttonSearchMaker.UseVisualStyleBackColor = false;
@@ -133,135 +135,164 @@ namespace SalesManagement_SysDev
             // labelManaMakerID
             // 
             this.labelManaMakerID.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelManaMakerID.Location = new System.Drawing.Point(12, 340);
+            this.labelManaMakerID.Location = new System.Drawing.Point(7, 227);
+            this.labelManaMakerID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelManaMakerID.Name = "labelManaMakerID";
-            this.labelManaMakerID.Size = new System.Drawing.Size(145, 54);
+            this.labelManaMakerID.Size = new System.Drawing.Size(87, 36);
             this.labelManaMakerID.TabIndex = 212;
             this.labelManaMakerID.Text = "メーカID";
             // 
-            // textBoxManaMekerID
-            // 
-            this.textBoxManaMekerID.Location = new System.Drawing.Point(175, 340);
-            this.textBoxManaMekerID.Multiline = true;
-            this.textBoxManaMekerID.Name = "textBoxManaMekerID";
-            this.textBoxManaMekerID.Size = new System.Drawing.Size(314, 54);
-            this.textBoxManaMekerID.TabIndex = 213;
-            // 
             // textBoxManaMakerHidden
             // 
-            this.textBoxManaMakerHidden.Location = new System.Drawing.Point(1242, 340);
+            this.textBoxManaMakerHidden.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxManaMakerHidden.Location = new System.Drawing.Point(745, 227);
+            this.textBoxManaMakerHidden.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxManaMakerHidden.Multiline = true;
             this.textBoxManaMakerHidden.Name = "textBoxManaMakerHidden";
-            this.textBoxManaMakerHidden.Size = new System.Drawing.Size(751, 206);
+            this.textBoxManaMakerHidden.Size = new System.Drawing.Size(452, 139);
             this.textBoxManaMakerHidden.TabIndex = 215;
             // 
             // labelManaMakerName
             // 
             this.labelManaMakerName.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelManaMakerName.Location = new System.Drawing.Point(515, 340);
+            this.labelManaMakerName.Location = new System.Drawing.Point(309, 227);
+            this.labelManaMakerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelManaMakerName.Name = "labelManaMakerName";
-            this.labelManaMakerName.Size = new System.Drawing.Size(145, 54);
+            this.labelManaMakerName.Size = new System.Drawing.Size(87, 36);
             this.labelManaMakerName.TabIndex = 214;
             this.labelManaMakerName.Text = "メーカ名";
             // 
-            // comboBoxManaMakerName
-            // 
-            this.comboBoxManaMakerName.Font = new System.Drawing.Font("Meiryo UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.comboBoxManaMakerName.FormattingEnabled = true;
-            this.comboBoxManaMakerName.ItemHeight = 24;
-            this.comboBoxManaMakerName.Location = new System.Drawing.Point(667, 342);
-            this.comboBoxManaMakerName.Name = "comboBoxManaMakerName";
-            this.comboBoxManaMakerName.Size = new System.Drawing.Size(314, 32);
-            this.comboBoxManaMakerName.TabIndex = 216;
-            // 
             // textBoxManaMakerAdress
             // 
-            this.textBoxManaMakerAdress.Location = new System.Drawing.Point(175, 416);
+            this.textBoxManaMakerAdress.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxManaMakerAdress.Location = new System.Drawing.Point(105, 277);
+            this.textBoxManaMakerAdress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxManaMakerAdress.Multiline = true;
             this.textBoxManaMakerAdress.Name = "textBoxManaMakerAdress";
-            this.textBoxManaMakerAdress.Size = new System.Drawing.Size(314, 54);
+            this.textBoxManaMakerAdress.Size = new System.Drawing.Size(190, 37);
             this.textBoxManaMakerAdress.TabIndex = 218;
             // 
             // labelManaMakerAdress
             // 
             this.labelManaMakerAdress.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelManaMakerAdress.Location = new System.Drawing.Point(12, 416);
+            this.labelManaMakerAdress.Location = new System.Drawing.Point(7, 277);
+            this.labelManaMakerAdress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelManaMakerAdress.Name = "labelManaMakerAdress";
-            this.labelManaMakerAdress.Size = new System.Drawing.Size(132, 54);
+            this.labelManaMakerAdress.Size = new System.Drawing.Size(79, 36);
             this.labelManaMakerAdress.TabIndex = 217;
             this.labelManaMakerAdress.Text = "住所";
             // 
             // textBoxManaMakerPhone
             // 
-            this.textBoxManaMakerPhone.Location = new System.Drawing.Point(667, 416);
+            this.textBoxManaMakerPhone.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxManaMakerPhone.Location = new System.Drawing.Point(400, 277);
+            this.textBoxManaMakerPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxManaMakerPhone.Multiline = true;
             this.textBoxManaMakerPhone.Name = "textBoxManaMakerPhone";
-            this.textBoxManaMakerPhone.Size = new System.Drawing.Size(314, 54);
+            this.textBoxManaMakerPhone.Size = new System.Drawing.Size(190, 37);
             this.textBoxManaMakerPhone.TabIndex = 220;
             // 
             // labelManaMakerPhone
             // 
             this.labelManaMakerPhone.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelManaMakerPhone.Location = new System.Drawing.Point(503, 416);
+            this.labelManaMakerPhone.Location = new System.Drawing.Point(302, 277);
+            this.labelManaMakerPhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelManaMakerPhone.Name = "labelManaMakerPhone";
-            this.labelManaMakerPhone.Size = new System.Drawing.Size(172, 54);
+            this.labelManaMakerPhone.Size = new System.Drawing.Size(103, 36);
             this.labelManaMakerPhone.TabIndex = 219;
             this.labelManaMakerPhone.Text = "電話番号";
             // 
             // textBoxManaMakerFax
             // 
-            this.textBoxManaMakerFax.Location = new System.Drawing.Point(667, 494);
+            this.textBoxManaMakerFax.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxManaMakerFax.Location = new System.Drawing.Point(400, 329);
+            this.textBoxManaMakerFax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxManaMakerFax.Multiline = true;
             this.textBoxManaMakerFax.Name = "textBoxManaMakerFax";
-            this.textBoxManaMakerFax.Size = new System.Drawing.Size(314, 54);
+            this.textBoxManaMakerFax.Size = new System.Drawing.Size(190, 37);
             this.textBoxManaMakerFax.TabIndex = 222;
             // 
             // labelManaMakerFax
             // 
             this.labelManaMakerFax.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelManaMakerFax.Location = new System.Drawing.Point(528, 495);
+            this.labelManaMakerFax.Location = new System.Drawing.Point(317, 330);
+            this.labelManaMakerFax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelManaMakerFax.Name = "labelManaMakerFax";
-            this.labelManaMakerFax.Size = new System.Drawing.Size(132, 54);
+            this.labelManaMakerFax.Size = new System.Drawing.Size(79, 36);
             this.labelManaMakerFax.TabIndex = 221;
             this.labelManaMakerFax.Text = "FAX";
             // 
             // textBoxManaMakerPostal
             // 
-            this.textBoxManaMakerPostal.Location = new System.Drawing.Point(175, 494);
+            this.textBoxManaMakerPostal.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxManaMakerPostal.Location = new System.Drawing.Point(105, 329);
+            this.textBoxManaMakerPostal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxManaMakerPostal.Multiline = true;
             this.textBoxManaMakerPostal.Name = "textBoxManaMakerPostal";
-            this.textBoxManaMakerPostal.Size = new System.Drawing.Size(314, 54);
+            this.textBoxManaMakerPostal.Size = new System.Drawing.Size(190, 37);
             this.textBoxManaMakerPostal.TabIndex = 224;
             // 
             // labelManaMakerPostal
             // 
             this.labelManaMakerPostal.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelManaMakerPostal.Location = new System.Drawing.Point(12, 495);
+            this.labelManaMakerPostal.Location = new System.Drawing.Point(7, 330);
+            this.labelManaMakerPostal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelManaMakerPostal.Name = "labelManaMakerPostal";
-            this.labelManaMakerPostal.Size = new System.Drawing.Size(172, 54);
+            this.labelManaMakerPostal.Size = new System.Drawing.Size(103, 36);
             this.labelManaMakerPostal.TabIndex = 223;
             this.labelManaMakerPostal.Text = "郵便番号";
             // 
             // labelManaMakerHidden
             // 
             this.labelManaMakerHidden.Font = new System.Drawing.Font("Meiryo UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelManaMakerHidden.Location = new System.Drawing.Point(1023, 416);
+            this.labelManaMakerHidden.Location = new System.Drawing.Point(614, 277);
+            this.labelManaMakerHidden.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelManaMakerHidden.Name = "labelManaMakerHidden";
-            this.labelManaMakerHidden.Size = new System.Drawing.Size(212, 54);
+            this.labelManaMakerHidden.Size = new System.Drawing.Size(127, 36);
             this.labelManaMakerHidden.TabIndex = 225;
             this.labelManaMakerHidden.Text = "非表示理由";
             // 
             // dataGridViewManaMaker
             // 
             this.dataGridViewManaMaker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewManaMaker.Location = new System.Drawing.Point(47, 585);
+            this.dataGridViewManaMaker.Location = new System.Drawing.Point(28, 390);
+            this.dataGridViewManaMaker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewManaMaker.Name = "dataGridViewManaMaker";
             this.dataGridViewManaMaker.RowHeadersWidth = 62;
             this.dataGridViewManaMaker.RowTemplate.Height = 27;
-            this.dataGridViewManaMaker.Size = new System.Drawing.Size(2008, 486);
+            this.dataGridViewManaMaker.Size = new System.Drawing.Size(1205, 324);
             this.dataGridViewManaMaker.TabIndex = 226;
             this.dataGridViewManaMaker.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewManaMaker_CellClick);
             this.dataGridViewManaMaker.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewManaMaker_CellContentClick);
+            // 
+            // labelMaSearchTitle
+            // 
+            this.labelMaSearchTitle.Location = new System.Drawing.Point(466, 89);
+            this.labelMaSearchTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMaSearchTitle.Name = "labelMaSearchTitle";
+            this.labelMaSearchTitle.Size = new System.Drawing.Size(233, 27);
+            this.labelMaSearchTitle.TabIndex = 250;
+            // 
+            // textBoxManaMakerName
+            // 
+            this.textBoxManaMakerName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxManaMakerName.Location = new System.Drawing.Point(400, 227);
+            this.textBoxManaMakerName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxManaMakerName.Multiline = true;
+            this.textBoxManaMakerName.Name = "textBoxManaMakerName";
+            this.textBoxManaMakerName.Size = new System.Drawing.Size(190, 37);
+            this.textBoxManaMakerName.TabIndex = 251;
+            // 
+            // comboBoxManaMakerID
+            // 
+            this.comboBoxManaMakerID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.comboBoxManaMakerID.FormattingEnabled = true;
+            this.comboBoxManaMakerID.Location = new System.Drawing.Point(105, 227);
+            this.comboBoxManaMakerID.Name = "comboBoxManaMakerID";
+            this.comboBoxManaMakerID.Size = new System.Drawing.Size(190, 34);
+            this.comboBoxManaMakerID.TabIndex = 252;
+            this.comboBoxManaMakerID.SelectedIndexChanged += new System.EventHandler(this.comboBoxManaMakerID_SelectedIndexChanged);
+            this.comboBoxManaMakerID.TextChanged += new System.EventHandler(this.comboBoxManaMakerID_TextChanged);
             // 
             // buttonManaMakerDeleteList
             // 
@@ -269,10 +300,9 @@ namespace SalesManagement_SysDev
             this.buttonManaMakerDeleteList.FlatAppearance.BorderSize = 0;
             this.buttonManaMakerDeleteList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonManaMakerDeleteList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonManaMakerDeleteList.Location = new System.Drawing.Point(1715, 158);
-            this.buttonManaMakerDeleteList.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.buttonManaMakerDeleteList.Location = new System.Drawing.Point(992, 104);
             this.buttonManaMakerDeleteList.Name = "buttonManaMakerDeleteList";
-            this.buttonManaMakerDeleteList.Size = new System.Drawing.Size(233, 160);
+            this.buttonManaMakerDeleteList.Size = new System.Drawing.Size(140, 107);
             this.buttonManaMakerDeleteList.TabIndex = 249;
             this.buttonManaMakerDeleteList.Text = "非表示リスト";
             this.buttonManaMakerDeleteList.UseVisualStyleBackColor = false;
@@ -284,28 +314,37 @@ namespace SalesManagement_SysDev
             this.buttonManaMakerDelete.FlatAppearance.BorderSize = 0;
             this.buttonManaMakerDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonManaMakerDelete.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonManaMakerDelete.Location = new System.Drawing.Point(1457, 158);
-            this.buttonManaMakerDelete.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.buttonManaMakerDelete.Location = new System.Drawing.Point(837, 104);
             this.buttonManaMakerDelete.Name = "buttonManaMakerDelete";
-            this.buttonManaMakerDelete.Size = new System.Drawing.Size(233, 160);
+            this.buttonManaMakerDelete.Size = new System.Drawing.Size(140, 107);
             this.buttonManaMakerDelete.TabIndex = 248;
             this.buttonManaMakerDelete.Text = "非表示";
             this.buttonManaMakerDelete.UseVisualStyleBackColor = false;
             this.buttonManaMakerDelete.Click += new System.EventHandler(this.buttonManaMakerDelete_Click);
             // 
-            // labelMaSearchTitle
+            // buttonClear
             // 
-            this.labelMaSearchTitle.Location = new System.Drawing.Point(777, 133);
-            this.labelMaSearchTitle.Name = "labelMaSearchTitle";
-            this.labelMaSearchTitle.Size = new System.Drawing.Size(389, 41);
-            this.labelMaSearchTitle.TabIndex = 250;
+            this.buttonClear.BackColor = System.Drawing.Color.Aqua;
+            this.buttonClear.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonClear.Location = new System.Drawing.Point(1159, 134);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(114, 47);
+            this.buttonClear.TabIndex = 253;
+            this.buttonClear.TabStop = false;
+            this.buttonClear.Text = "クリア";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // MakerMana
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1924, 1050);
+            this.ClientSize = new System.Drawing.Size(1284, 731);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.comboBoxManaMakerID);
+            this.Controls.Add(this.textBoxManaMakerName);
             this.Controls.Add(this.labelMaSearchTitle);
             this.Controls.Add(this.buttonManaMakerDeleteList);
             this.Controls.Add(this.buttonManaMakerDelete);
@@ -319,10 +358,8 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.labelManaMakerPhone);
             this.Controls.Add(this.textBoxManaMakerAdress);
             this.Controls.Add(this.labelManaMakerAdress);
-            this.Controls.Add(this.comboBoxManaMakerName);
             this.Controls.Add(this.textBoxManaMakerHidden);
             this.Controls.Add(this.labelManaMakerName);
-            this.Controls.Add(this.textBoxManaMekerID);
             this.Controls.Add(this.labelManaMakerID);
             this.Controls.Add(this.buttonSearchMaker);
             this.Controls.Add(this.buttonListMaker);
@@ -330,9 +367,11 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.buttonAddMaker);
             this.Controls.Add(this.buttonManaMakerReturn);
             this.Controls.Add(this.labelManaMakerTitle);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MakerMana";
             this.Text = "MakerMana";
             this.Load += new System.EventHandler(this.MakerMana_Load);
+            this.VisibleChanged += new System.EventHandler(this.MakerMana_EnabledChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManaMaker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -348,10 +387,8 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Button buttonListMaker;
         private System.Windows.Forms.Button buttonSearchMaker;
         private System.Windows.Forms.Label labelManaMakerID;
-        private System.Windows.Forms.TextBox textBoxManaMekerID;
         private System.Windows.Forms.TextBox textBoxManaMakerHidden;
         private System.Windows.Forms.Label labelManaMakerName;
-        private System.Windows.Forms.ComboBox comboBoxManaMakerName;
         private System.Windows.Forms.TextBox textBoxManaMakerAdress;
         private System.Windows.Forms.Label labelManaMakerAdress;
         private System.Windows.Forms.TextBox textBoxManaMakerPhone;
@@ -365,5 +402,8 @@ namespace SalesManagement_SysDev
         private maruibutton buttonManaMakerDeleteList;
         private maruibutton buttonManaMakerDelete;
         private System.Windows.Forms.Label labelMaSearchTitle;
+        private System.Windows.Forms.TextBox textBoxManaMakerName;
+        private System.Windows.Forms.ComboBox comboBoxManaMakerID;
+        private System.Windows.Forms.Button buttonClear;
     }
 }

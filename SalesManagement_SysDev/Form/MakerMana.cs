@@ -29,14 +29,17 @@ namespace SalesManagement_SysDev
         private void buttonManaMakerReturn_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+
+            ClearText(this);
+            dataGridViewManaMaker.Rows.Clear();
         }
 
         private M_Maker ManaMakerUpdDataSet()
         {
             return new M_Maker
             {
-                MaID = int.Parse(textBoxManaMekerID.Text.Trim()),
-                MaName = comboBoxManaMakerName.Text.Trim(),
+                MaID = int.Parse(comboBoxManaMakerID.Text.Trim()),
+                MaName = textBoxManaMakerName.Text.Trim(),
                 MaAdress = textBoxManaMakerAdress.Text.Trim(),
                 MaPhone = textBoxManaMakerPhone.Text.Trim(),
                 MaPostal = textBoxManaMakerPostal.Text.Trim(),
@@ -140,9 +143,9 @@ namespace SalesManagement_SysDev
         private void buttonAddMaker_Click(object sender, EventArgs e)
         {
             //メーカー名の入力チェック
-            if (!InputCheck.MakerNameInputCheck(comboBoxManaMakerName.Text))
+            if (!InputCheck.MakerNameInputCheck(textBoxManaMakerName.Text))
             {
-                comboBoxManaMakerName.Focus();
+                textBoxManaMakerName.Focus();
                 return;
             }
             //メーカーの住所の入力チェック
@@ -190,7 +193,7 @@ namespace SalesManagement_SysDev
         {
             return new M_Maker
             {
-                MaName = comboBoxManaMakerName.Text.Trim(),
+                MaName = textBoxManaMakerName.Text.Trim(),
                 MaAdress = textBoxManaMakerAdress.Text.Trim(),
                 MaPhone = textBoxManaMakerPhone.Text.Trim(),
                 MaPostal = textBoxManaMakerPostal.Text.Trim(),
@@ -206,15 +209,15 @@ namespace SalesManagement_SysDev
         private void buttonUpdateMaker_Click(object sender, EventArgs e)
         {
             //メーカーIDの入力チェック
-            if (!InputCheck.MakerIDInputCheck(textBoxManaMekerID.Text))
+            if (!InputCheck.MakerIDInputCheck(comboBoxManaMakerID.Text))
             {
-                textBoxManaMekerID.Focus();
+                comboBoxManaMakerID.Focus();
                 return;
             }
             //メーカー名の入力チェック
-            if (!InputCheck.MakerNameInputCheck(comboBoxManaMakerName.Text))
+            if (!InputCheck.MakerNameInputCheck(textBoxManaMakerName.Text))
             {
-                comboBoxManaMakerName.Focus();
+                textBoxManaMakerName.Focus();
                 return;
             }
             //メーカーの住所の入力チェック
@@ -290,16 +293,16 @@ namespace SalesManagement_SysDev
         {
             dataGridViewManaMaker.Rows.Clear();                        //データグリッドビューの内容を消去する
 
-            if (!string.IsNullOrEmpty(textBoxManaMekerID.Text))             //メーカIDコンボボックスの空文字チェック
+            if (!string.IsNullOrEmpty(comboBoxManaMakerID.Text))             //メーカIDコンボボックスの空文字チェック
             {
                 //メーカIDの入力チェック
-                if (!InputCheck.MakerIDInputCheck(textBoxManaMekerID.Text))
+                if (!InputCheck.MakerIDInputCheck(comboBoxManaMakerID.Text))
                 {
-                    textBoxManaMekerID.Focus();
+                    comboBoxManaMakerID.Focus();
                     return;
                 }
 
-                foreach (var MaData in MakerAccess.SearchMaker(1, textBoxManaMekerID.Text))           //メーカIDで検索する
+                foreach (var MaData in MakerAccess.SearchMaker(1, comboBoxManaMakerID.Text))           //メーカIDで検索する
                 {
                     //データグリッドビューにデータを表示
                     dataGridViewManaMaker.Rows.Add(MaData.MaID, MaData.MaName,　MaData.MaAdress, MaData.MaPhone, 
@@ -308,9 +311,9 @@ namespace SalesManagement_SysDev
                 labelMaSearchTitle.Text = "メーカIDで検索しました";            //何で検索したかを表示
             }
 
-            else if (!string.IsNullOrEmpty(comboBoxManaMakerName.Text))       //メーカ名テキストボックスの空文字チェック
+            else if (!string.IsNullOrEmpty(textBoxManaMakerName.Text))       //メーカ名テキストボックスの空文字チェック
             {
-                foreach (var MaData in MakerAccess.SearchMaker(comboBoxManaMakerName.Text))             //顧客名で検索する
+                foreach (var MaData in MakerAccess.SearchMaker(textBoxManaMakerName.Text))             //顧客名で検索する
                 {
                     //データグリッドビューにデータを表示
                     dataGridViewManaMaker.Rows.Add(MaData.MaID, MaData.MaName, MaData.MaAdress, MaData.MaPhone,
@@ -323,9 +326,9 @@ namespace SalesManagement_SysDev
         private void dataGridViewManaMaker_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //メーカーID
-            textBoxManaMekerID.Text = dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[0].Value.ToString();
+            comboBoxManaMakerID.Text = dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[0].Value.ToString();
             //メーカー名
-            comboBoxManaMakerName.Text = dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[1].Value.ToString();
+            textBoxManaMakerName.Text = dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[1].Value.ToString();
             //住所
             textBoxManaMakerAdress.Text = dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[2].Value.ToString();
             //電話番号
@@ -337,6 +340,140 @@ namespace SalesManagement_SysDev
             //非表示理由
             textBoxManaMakerHidden.Text = (string)dataGridViewManaMaker.Rows[dataGridViewManaMaker.CurrentRow.Index].Cells[7].Value;
 
+        }
+
+        private void MakerMana_EnabledChanged(object sender, EventArgs e)
+        {
+            if (this.Visible == true)
+            {
+                ListMaker();        //一覧表示
+
+                ResetComboBox(this);     //ComboBoxのItemsをリセットする
+                                         //出荷IDコンボボックスにデータを追加
+                foreach (var MakerData in MakerList)
+                {
+                    comboBoxManaMakerID.Items.Add(MakerData.MaID);
+                }
+            }
+        }
+
+        /// <summary>
+        /// コンボボックスのItemsをリセットする
+        /// </summary>
+        private void ResetComboBox(Control hParent)
+        {
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    ResetComboBox(cControl);
+                }
+
+                // コントロールの型が ComboBox の場合
+                if (cControl is ComboBox)
+                {
+                    ComboBox Combo = (ComboBox)cControl;
+                    Combo.Items.Clear();
+                }
+            }
+        }
+
+        private static void ClearText(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    ClearText(cControl);
+                }
+
+                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+                if (cControl is TextBoxBase || cControl is ComboBox)
+                {
+                    cControl.Text = string.Empty;
+                }
+            }
+        }
+
+        //登録ボタンを使用不能、更新検索ボタンを使用可能にするメソッド
+        public static void EnabledChangedfalsebutton(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    EnabledChangedfalsebutton(cControl);
+                }
+
+                // コントロールの型が Button の場合
+                if (cControl is Button)
+                {
+                    if (cControl.Text == "登録")      //登録ボタンの場合
+                    {
+                        cControl.Enabled = false;
+                    }
+                    if (cControl.Text == "更新" || cControl.Text == "検索")     //更新、検索ボタンの場合
+                    {
+                        cControl.Enabled = true;
+                    }
+                }
+            }
+        }
+
+        //登録ボタンを使用可能、更新検索ボタンを使用不能にするメソッド
+        public static void EnabledChangedtruebutton(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    EnabledChangedtruebutton(cControl);
+                }
+
+                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+                if (cControl is Button)
+                {
+                    if (cControl.Text == "登録")          //登録ボタンの場合
+                    {
+                        cControl.Enabled = true;
+                    }
+                    if (cControl.Text == "更新" || cControl.Text == "検索")     //更新、検索ボタンの場合
+                    {
+                        cControl.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        private void comboBoxManaMakerID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxManaMakerID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(this);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(this);
+            }
+        }
+
+        private void comboBoxManaMakerID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int MaID = int.Parse(comboBoxManaMakerID.SelectedItem.ToString());
+            M_Maker MakerData = MakerList.Single(Maker => Maker.MaID == MaID);
+            textBoxManaMakerName.Text = MakerData.MaName;
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            ClearText(this);
         }
     }
 }

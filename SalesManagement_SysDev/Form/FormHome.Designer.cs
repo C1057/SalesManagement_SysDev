@@ -579,9 +579,8 @@ namespace SalesManagement_SysDev
             this.labelHomeHumanNameNow.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHomeHumanNameNow.Location = new System.Drawing.Point(1524, 71);
             this.labelHomeHumanNameNow.Name = "labelHomeHumanNameNow";
-            this.labelHomeHumanNameNow.Size = new System.Drawing.Size(85, 26);
+            this.labelHomeHumanNameNow.Size = new System.Drawing.Size(0, 26);
             this.labelHomeHumanNameNow.TabIndex = 45;
-            this.labelHomeHumanNameNow.Text = "label57";
             // 
             // buttonHome
             // 
@@ -601,9 +600,8 @@ namespace SalesManagement_SysDev
             this.labelHomeEmployeeIDNow.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHomeEmployeeIDNow.Location = new System.Drawing.Point(1524, 46);
             this.labelHomeEmployeeIDNow.Name = "labelHomeEmployeeIDNow";
-            this.labelHomeEmployeeIDNow.Size = new System.Drawing.Size(85, 26);
+            this.labelHomeEmployeeIDNow.Size = new System.Drawing.Size(0, 26);
             this.labelHomeEmployeeIDNow.TabIndex = 44;
-            this.labelHomeEmployeeIDNow.Text = "label56";
             // 
             // labelHomePositionNameNow
             // 
@@ -611,9 +609,8 @@ namespace SalesManagement_SysDev
             this.labelHomePositionNameNow.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHomePositionNameNow.Location = new System.Drawing.Point(1524, 20);
             this.labelHomePositionNameNow.Name = "labelHomePositionNameNow";
-            this.labelHomePositionNameNow.Size = new System.Drawing.Size(85, 26);
+            this.labelHomePositionNameNow.Size = new System.Drawing.Size(0, 26);
             this.labelHomePositionNameNow.TabIndex = 43;
-            this.labelHomePositionNameNow.Text = "label55";
             // 
             // labelNowDays
             // 
