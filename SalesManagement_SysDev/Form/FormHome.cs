@@ -38,7 +38,7 @@ namespace SalesManagement_SysDev
         MessageDsp msg = new MessageDsp();                                              //メッセージ表示用クラス
         CheckExistence Existence = new CheckExistence();                                //IDの存在チェック用クラス
         DataInputCheck InputCheck = new DataInputCheck();                               //入力チェック用クラス
-        PasswordHash PassHash = new PasswordHash();                                     //パスワードハッシュ化用クラス
+        PasswordHash PassHash = new PasswordHash();                                     //パスワードハッシュ化用クラス        
 
         /// <summary>
         /// 各テーブルの操作をするためのクラスをインスタンス化する
@@ -60,6 +60,7 @@ namespace SalesManagement_SysDev
         SyukkoDateAccess SyukkoAccess = new SyukkoDateAccess();                         //[出庫テーブル]操作用クラスのインスタンス化
         ArrivalDateAccess ArrivalAccess = new ArrivalDateAccess();                      //[入荷テーブル]操作用クラスのインスタンス化
         ShipmentDateAccess ShipmentAccess = new ShipmentDateAccess();                   //[出荷テーブル]操作用クラスのインスタンス化
+        LoginDataAccess LoginAccess = new LoginDataAccess();                            //ログイン用クラスのインスタンス化
 
 
         /// <summary>
@@ -94,6 +95,8 @@ namespace SalesManagement_SysDev
 
         //各パネルをList型のPanelに代入する
         private List<Panel> panelList = new System.Collections.Generic.List<Panel>();
+        //画面変更用ボタンをリストに代入する
+        private List<Button> buttonList=new System.Collections.Generic.List<Button>();
 
         //bool flg = true;
 
@@ -115,6 +118,20 @@ namespace SalesManagement_SysDev
             panelList.Add(panelChumon);
             panelList.Add(panelShipment);
 
+            //画面変更ボタンをリストに代入
+            buttonList.Add(buttonClient);
+            buttonList.Add(buttonProduct);
+            buttonList.Add(buttonStock);
+            buttonList.Add(buttonEmployee);
+            buttonList.Add(buttonSale);
+            buttonList.Add(buttonOrder);
+            buttonList.Add(buttonChumon);
+            buttonList.Add(buttonHattyu);
+            buttonList.Add(buttonWareHousing);
+            buttonList.Add(buttonSyukko);
+            buttonList.Add(buttonArrival);
+            buttonList.Add(buttonShipment);
+
             panelHide();
         }
 
@@ -124,6 +141,17 @@ namespace SalesManagement_SysDev
             foreach (Panel panel in panelList)
             {
                 panel.Hide();
+            }
+        }
+
+        /// <summary>
+        /// 画面変更ボタンの使用不可にする
+        /// </summary>
+        private void ButtonEnabledChange()
+        {
+            foreach(var Button in buttonList)
+            {
+                Button.Enabled = false;
             }
         }
 
@@ -157,6 +185,8 @@ namespace SalesManagement_SysDev
             timer2.Enabled = true;
 
             timer3.Interval = 1;
+
+            //ButtonEnabledChange();      //画面変更ボタンを使用不可にする
 
             var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
 
@@ -1081,11 +1111,57 @@ namespace SalesManagement_SysDev
         //ログインボタン
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            panelStart.Hide();
+            ////ログインメソッド
+            //if(LoginAccess.Login(textBoxHomeLoginID.Text, textBoxHomePassword.Text))
+            //{
+            //    int EmID = int.Parse(textBoxHomeLoginID.Text);          //社員ID用変数に代入
+            //    M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);      //社員IDと一致する社員データを取得する
+            //    M_Position PositionData = PositionList.Single(Position => Position.PoID == EmployeeData.PoID);      //社員データの役職IDと一致する役職データを取得する
 
-            //ログイン後のタブストッププロパティ変更
-            textBoxHomeLoginID.TabStop = false;
-            textBoxHomePassword.TabStop = false;
+            //    if (EmployeeData.PoID == 1)             //管理者
+            //    {
+            //        buttonClient.Enabled = true;        //顧客管理画面
+            //        buttonProduct.Enabled = true;       //商品管理画面
+            //        buttonStock.Enabled = true;         //在庫管理画面
+            //        buttonEmployee.Enabled = true;      //社員管理画面
+            //        buttonSale.Enabled = true;          //売上管理画面
+            //    }
+            //    else if (EmployeeData.PoID == 2)        //営業
+            //    {
+            //        buttonStock.Enabled = true;         //在庫管理画面
+            //        buttonSale.Enabled = true;          //売上管理画面
+            //        buttonOrder.Enabled = true;         //受注管理画面
+            //        buttonChumon.Enabled = true;        //注文管理画面
+            //        buttonHattyu.Enabled = true;        //発注管理画面
+            //    }
+            //    else if (EmployeeData.PoID == 3)        //物流
+            //    {
+            //        buttonSale.Enabled = true;          //売上管理画面
+            //        buttonChumon.Enabled = true;        //注文管理画面
+            //        buttonHattyu.Enabled = true;        //発注管理画面
+            //        buttonWareHousing.Enabled = true;   //入庫管理画面
+            //        buttonSyukko.Enabled = true;        //出庫管理画面
+            //        buttonArrival.Enabled = true;       //入荷管理画面
+            //        buttonShipment.Enabled = true;      //出荷管理画面
+            //    }
+
+            //    //役職名、社員ID、名前を表示する
+            //    labelHomePositionNameNow.Text = PositionData.PoName;
+            //    labelHomeEmployeeIDNow.Text = EmployeeData.EmID.ToString();
+            //    labelHomeHumanNameNow.Text = EmployeeData.EmName;
+
+                //パネルを隠す
+                panelStart.Hide();
+
+                ////ログイン完了メッセージ
+                //MessageBox.Show("ログインに成功しました", "ログイン確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ////ログイン後のタブストッププロパティ変更
+                //textBoxHomeLoginID.TabStop = false;
+                //textBoxHomePassword.TabStop = false;
+                ////ログイン後のログインID、パスワードテキストボックスを使用不可にする
+                //textBoxHomeLoginID.Enabled = false;
+                //textBoxHomePassword.Enabled = false;
+            //}
         }
 
         //出庫管理ボタン
@@ -1418,6 +1494,40 @@ namespace SalesManagement_SysDev
         //ログアウトボタン
         private void buttonLogout_Click(object sender, EventArgs e)
         {
+            //ログアウト確認メッセージ
+            DialogResult result = MessageBox.Show("ログアウトしてよろしいですか？", "ログアウト確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            //全てのコントロールの入力をクリアする
+            ClearText(this);
+            //全てのコンボボックスのItemをリセットする
+            ResetComboBox(this);
+            //全パネルを非表示にする
+            panelHide();
+            //画面変更ボタンを使用不可にする
+            ButtonEnabledChange();
+            //タイトルをホームに変える
+            labelManaTitle.Text = "ホーム";
+            //役職名、社員ID、名前のラベルをリセットする
+            labelHomePositionNameNow.Text = "";
+            labelHomeEmployeeIDNow.Text = "";
+            labelHomeHumanNameNow.Text = "";
+            //ログインID、パスワードのテキストボックスを使用出来るようにする
+            textBoxHomeLoginID.Enabled = true;
+            textBoxHomePassword.Enabled = true;
+            //ログインID、パスワードのテキストボックスのTabStopプロパティをtrueにする
+            textBoxHomeLoginID.TabStop = true;
+            textBoxHomePassword.TabStop = true;
+        }
+
+        /// <summary>
+        /// ホームボタン
+        /// </summary>
+        private void buttonHome_Click(object sender, EventArgs e)
+        {
             //入力項目に入力されているかチェック
             if (PanelCheck())
             {
@@ -1428,10 +1538,10 @@ namespace SalesManagement_SysDev
                 ClearText(this);        //Okの場合全入力内容をクリアする
             }
 
-            //ログアウト、スタート画面を表示する
+            //全パネルを非表示にする
             panelHide();
-            //画面タイトルを更新する
-            labelManaTitle.Text = ((Button)sender).Text;
+            //画面タイトルのラベルを更新
+            labelManaTitle.Text = "ホーム";
         }
 
         //注文管理ボタン
@@ -5795,7 +5905,7 @@ namespace SalesManagement_SysDev
             comboBoxStStockID.Text = dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[0].ToString();
             //商品ID,商品名
             comboBoxStProductID.Text = dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[1].Value.ToString();
-            int PrID = (int)dataGridViewStock.Rows[dataGridVieProduct.CurrentRow.Index].Cells[1].Value;
+            int PrID = (int)dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[1].Value;
             var ProductData = ProductList.Single(Product => Product.PrID == PrID);
             textBoxStProductName.Text = ProductData.PrName;
             //小分類ID、小分類名
@@ -6529,11 +6639,6 @@ namespace SalesManagement_SysDev
             int EmID = int.Parse(comboBoxWrEmployeeID.SelectedItem.ToString());
             M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
             textBoxWrEmployeeName.Text = EmployeeData.EmName;
-        }
-
-        private void buttonLogout_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

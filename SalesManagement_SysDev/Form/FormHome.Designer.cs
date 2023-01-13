@@ -593,7 +593,7 @@ namespace SalesManagement_SysDev
             this.buttonHome.TabStop = false;
             this.buttonHome.Text = "ホーム";
             this.buttonHome.UseVisualStyleBackColor = true;
-            this.buttonHome.Click += new System.EventHandler(this.buttonLogout_Click);
+            this.buttonHome.Click += new System.EventHandler(this.buttonHome_Click);
             // 
             // labelHomeEmployeeIDNow
             // 
@@ -5721,7 +5721,7 @@ namespace SalesManagement_SysDev
             this.buttonLogout.TabStop = false;
             this.buttonLogout.Text = "ログアウト";
             this.buttonLogout.UseVisualStyleBackColor = false;
-            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click_1);
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
             // FormHome
             // 
