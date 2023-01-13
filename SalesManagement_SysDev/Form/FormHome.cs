@@ -6530,5 +6530,10 @@ namespace SalesManagement_SysDev
             M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
             textBoxWrEmployeeName.Text = EmployeeData.EmName;
         }
+
+        private void buttonLogout_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

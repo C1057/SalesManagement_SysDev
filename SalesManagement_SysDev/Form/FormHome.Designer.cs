@@ -3078,7 +3078,6 @@ namespace SalesManagement_SysDev
             this.panelShipment.Controls.Add(this.dataGridViewShipmentMain);
             this.panelShipment.Controls.Add(this.labelShEmployeeID);
             this.panelShipment.Controls.Add(this.textBoxShRsn);
-            this.panelShipment.Enabled = false;
             this.panelShipment.Font = new System.Drawing.Font("Meiryo UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.panelShipment.Location = new System.Drawing.Point(207, 285);
             this.panelShipment.Name = "panelShipment";
@@ -5722,6 +5721,7 @@ namespace SalesManagement_SysDev
             this.buttonLogout.TabStop = false;
             this.buttonLogout.Text = "ログアウト";
             this.buttonLogout.UseVisualStyleBackColor = false;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click_1);
             // 
             // FormHome
             // 
@@ -5743,6 +5743,7 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelShipment);
             this.Controls.Add(this.panelProduct);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelSale);
@@ -5755,7 +5756,6 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelHattyu);
             this.Controls.Add(this.panelClient);
             this.Controls.Add(this.panelStock);
-            this.Controls.Add(this.panelShipment);
             this.Name = "FormHome";
             this.Text = "FormHome";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
