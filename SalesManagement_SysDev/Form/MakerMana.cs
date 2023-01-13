@@ -31,6 +31,21 @@ namespace SalesManagement_SysDev
             this.Visible = false;
         }
 
+        private M_Maker ManaMakerUpdDataSet()
+        {
+            return new M_Maker
+            {
+                MaID = int.Parse(textBoxManaMekerID.Text.Trim()),
+                MaName = comboBoxManaMakerName.Text.Trim(),
+                MaAdress = textBoxManaMakerAdress.Text.Trim(),
+                MaPhone = textBoxManaMakerPhone.Text.Trim(),
+                MaPostal = textBoxManaMakerPostal.Text.Trim(),
+                MaFAX = textBoxManaMakerFax.Text.Trim(),
+                MaFlag = 0,
+                MaHidden = textBoxManaMakerHidden.Text.Trim()
+            };
+        }
+
 
         private void MakerMana_Load(object sender, EventArgs e)
         {
@@ -98,6 +113,30 @@ namespace SalesManagement_SysDev
 
         }
 
+        /// <summary>
+        /// メーカ情報非表示リストモジュール
+        /// (非表示になっているデータを表示)
+        /// </summary>
+        /// <param>なし</param>
+        /// <returns>なし</returns>
+        private void DeleteListPosition()
+        {
+            dataGridViewManaMaker.Rows.Clear();                        //データグリッドビューをクリアする
+
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
+            foreach (var MaData in context.M_Makers)
+
+            //  foreach (var PositionData in PositionList)
+            {
+                if (MaData.MaFlag == 2)                     //メーカ管理フラグが2の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewManaMaker.Rows.Add(MaData.MaID, MaData.MaName, MaData.MaAdress, MaData.MaPhone,
+                        MaData.MaPostal, MaData.MaFAX, Convert.ToBoolean(MaData.MaFlag), MaData.MaHidden);
+                }
+            }
+        }
+
         private void buttonAddMaker_Click(object sender, EventArgs e)
         {
             //メーカーIDの入力チェックメソッドの呼びだし
@@ -106,17 +145,13 @@ namespace SalesManagement_SysDev
                 textBoxManaMekerID.Focus();
                 return;
             }
-            //入力チェックメソッドの呼び出し
-            //if (!MakerInputCheck())
-            //{
-            //    return;
-            //}
+            
 
             //登録用顧客情報のセット
-            //M_Maker AddManaMakerData = MakerAddDataSet();
+            M_Maker AddManaMakerData = ManaMakerAddDataSet();
 
             //顧客情報の登録
-            //MakerAccess.AddMaker(AddManaMakerData);
+            MakerAccess.AddMaker(AddManaMakerData);
 
             //顧客情報一覧表示用データの更新
             MakerList = MakerAccess.GetData();
@@ -145,193 +180,119 @@ namespace SalesManagement_SysDev
 
         private void buttonUpdateMaker_Click(object sender, EventArgs e)
         {
-            ////メーカーIDの入力チェック
-            //if (!InputCheck.ClientIDInputCheck(comboBoxManaMakerName.Text))
-            //{
-            //    textBoxManaMekerID.Focus();
-            //    return;
-            //}
-            ////メーカー名の入力チェック
-            //if (!InputCheck.SalesOfficeIDInputCheck(comboBoxManaMakerName.Text))
-            //{
-            //    comboBoxManaMakerName.Focus();
-            //    return;
-            //}
-            ////顧客ID,営業所ID以外の入力チェック
-            //if (!MakerInputCheck())
-            //{
-            //    return;
-            //}
-            ////更新用顧客情報をセット
-            //M_Client updManaMakerData = MakerUpdDataSet();
-            ////顧客更新モジュール呼び出し
-            //MakerAccess.UpdateMaker(updMakerData);
+            //メーカーIDの入力チェック
+            if (!InputCheck.MakerIDInputCheck(textBoxManaMekerID.Text))
+            {
+                textBoxManaMekerID.Focus();
+                return;
+            }
+            //メーカー名の入力チェック
+            if (!InputCheck.MakerNameInputCheck(comboBoxManaMakerName.Text))
+            {
+                comboBoxManaMakerName.Focus();
+                return;
+            }
+            //メーカーの住所の入力チェック
+            if (!InputCheck.MakerAdressInputCheck(textBoxManaMakerAdress.Text))
+            {
+                textBoxManaMakerAdress.Focus();
+                return;
+            }
 
-            ////顧客情報一覧表示用データの更新
-            //MakerList = MakerAccess.GetData();
-            ////顧客情報再表示
-            //ListMaker();
+            //メーカーの電話番号の入力チェック
+            if (!InputCheck.MakerPhoneInputCheck(textBoxManaMakerPhone.Text))
+            {
+                textBoxManaMakerPhone.Focus();
+                return;
+            }
+
+            //メーカーの郵便番号の入力チェック
+            if (!InputCheck.MakerPhoneInputCheck(textBoxManaMakerPostal.Text))
+            {
+                textBoxManaMakerPostal.Focus();
+                return;
+            }
+
+            //メーカーのFAXの入力チェック
+            if (!InputCheck.MakerFAXInputCheck(textBoxManaMakerFax.Text))
+            {
+                textBoxManaMakerFax.Focus();
+                return;
+            }
+
+            //更新用顧客情報をセット
+            M_Maker updManaMakerData = ManaMakerUpdDataSet();
+
+            //顧客更新モジュール呼び出し
+            MakerAccess.UpdateMaker(updManaMakerData);
+
+            //顧客情報一覧表示用データの更新
+            MakerList = MakerAccess.GetData();
+            //顧客情報再表示
+            ListMaker();
         }
 
         private void buttonListMaker_Click(object sender, EventArgs e)
         {
-            foreach (var ManaMakerData in MakerList)
-            {
-                if (ManaMakerData.MaFlag == 0)                     //メーカー管理フラグが0の場合表示する
-                {
-                    //データグリッドビューにデータを追加する
-                    dataGridViewManaMaker.Rows.Add(ManaMakerData.MaID, ManaMakerData.MaName, ManaMakerData.MaAdress,  ManaMakerData.MaPhone,
-                                               ManaMakerData.MaPostal, ManaMakerData.MaFAX, Convert.ToBoolean(ManaMakerData.MaFlag), ManaMakerData.MaHidden);
-                }
-            }
+            ListMaker();
         }
 
         private void buttonManaMakerDelete_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < dataGridViewManaMaker.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridViewManaMaker.Rows[i].Cells[2].Value)                 //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    MakerAccess.DeleteMaker((int)dataGridViewManaMaker.Rows[i].Cells[0].Value);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+            
+            msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
 
+            //メーカ情報一覧表示用データを更新
+            MakerList = MakerAccess.GetData();
+            //メーカ情報再表示
+            ListMaker();
         }
 
         private void buttonManaMakerDeleteList_Click(object sender, EventArgs e)
         {
-            foreach (var ManaMakerData in MakerList)
+            
+        }
+
+        private void buttonSearchMaker_Click(object sender, EventArgs e)
+        {
+            dataGridViewManaMaker.Rows.Clear();                        //データグリッドビューの内容を消去する
+
+            if (!string.IsNullOrEmpty(textBoxManaMekerID.Text))             //メーカIDコンボボックスの空文字チェック
             {
-                if (ManaMakerData.MaFlag == 2)                     //メーカー管理フラグが0の場合表示する
+                //メーカIDの入力チェック
+                if (!InputCheck.MakerIDInputCheck(textBoxManaMekerID.Text))
                 {
-                    //データグリッドビューにデータを追加する
-                    dataGridViewManaMaker.Rows.Add(ManaMakerData.MaID, ManaMakerData.MaName, ManaMakerData.MaAdress, ManaMakerData.MaPhone,
-                                               ManaMakerData.MaPostal, ManaMakerData.MaFAX, Convert.ToBoolean(ManaMakerData.MaFlag), ManaMakerData.MaHidden);
+                    textBoxManaMekerID.Focus();
+                    return;
                 }
+
+                foreach (var MaData in MakerAccess.SearchMaker(1, textBoxManaMekerID.Text))           //メーカIDで検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewManaMaker.Rows.Add(MaData.MaID, MaData.MaName,　MaData.MaAdress, MaData.MaPhone, 
+                        MaData.MaPostal,MaData.MaFAX,  Convert.ToBoolean(MaData.MaFlag), MaData.MaHidden);
+                }
+                labelMaSearchTitle.Text = "メーカIDで検索しました";            //何で検索したかを表示
+            }
+
+            else if (!string.IsNullOrEmpty(comboBoxManaMakerName.Text))       //メーカ名テキストボックスの空文字チェック
+            {
+                foreach (var MaData in MakerAccess.SearchMaker(comboBoxManaMakerName.Text))             //顧客名で検索する
+                {
+                    //データグリッドビューにデータを表示
+                    dataGridViewManaMaker.Rows.Add(MaData.MaID, MaData.MaName, MaData.MaAdress, MaData.MaPhone,
+                        MaData.MaPostal, MaData.MaFAX, Convert.ToBoolean(MaData.MaFlag), MaData.MaHidden);
+                }
+                labelMaSearchTitle.Text = "役職名で検索しました";           //何で検索したかを表示
             }
         }
-
-        /// <summary>
-        /// メーカー情報入力チェックメソッド
-        /// </summary>
-        /// <returns>異常あり:false, 異常なし:true</returns>
-        //private bool MakerIDInputCheck()
-        //{
-        //    //メーカー管理画面顧客名の空文字チェック
-        //    if (string.IsNullOrEmpty(textBoxManaMekerID.Text.Trim()))
-        //    {
-        //        msg.MsgDsp("M");
-        //        textBoxCIClientName.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面顧客名の全角チェック
-        //    if (!InputCheck.CheckFullWidth(textBoxCIClientName.Text.Trim()))
-        //    {
-        //        msg.MsgDsp("M2008");
-        //        textBoxCIClientName.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面営業所IDの文字数チェック
-        //    if (textBoxCIClientName.Text.Trim().Length > 50)
-        //    {
-        //        msg.MsgDsp("M2009");
-        //        textBoxCIClientName.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面住所の空文字チェック
-        //    if (string.IsNullOrEmpty(textBoxCIAddress.Text.Trim()))
-        //    {
-        //        msg.MsgDsp("M2010");
-        //        textBoxCIAddress.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面住所の全角チェック
-        //    if (!InputCheck.CheckFullWidth(textBoxCIAddress.Text.Trim()))
-        //    {
-        //        msg.MsgDsp("M2011");
-        //        textBoxCIAddress.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面住所の文字数チェック
-        //    if (textBoxCIAddress.Text.Trim().Length > 50)
-        //    {
-        //        msg.MsgDsp("M2012");
-        //        textBoxCIAddress.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面電話番号の空文字チェック
-        //    if (string.IsNullOrEmpty(textBoxCIPhone.Text.Trim()))
-        //    {
-        //        msg.MsgDsp("M2013");
-        //        textBoxCIPhone.FindForm();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面電話番号の半角数字チェック
-        //    if (!InputCheck.CheckNumericAndHalfChar(textBoxCIPhone.Text.Trim()))
-        //    {
-        //        msg.MsgDsp("M2014");
-        //        textBoxCIPhone.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面電話番号の文字数チェック
-        //    if (textBoxCIPhone.Text.Trim().Length > 13)
-        //    {
-        //        msg.MsgDsp("M2015");
-        //        textBoxCIPhone.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面郵便番号の空文字チェック
-        //    if (string.IsNullOrEmpty(textBoxCIPostal.Text.Trim()))
-        //    {
-        //        msg.MsgDsp("M2016");
-        //        textBoxCIPostal.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面郵便番号の半角数字チェック
-        //    if (!InputCheck.CheckNumericAndHalfChar(textBoxCIPostal.Text.Trim()))
-        //    {
-        //        msg.MsgDsp("M2017");
-        //        textBoxCIPostal.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面郵便番号の文字数チェック
-        //    if (textBoxCIPostal.Text.Trim().Length > 7)
-        //    {
-        //        msg.MsgDsp("M2018");
-        //        textBoxCIPostal.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面FAXの空文字チェック
-        //    if (string.IsNullOrEmpty(textBoxCIFax.Text.Trim()))
-        //    {
-        //        msg.MsgDsp("M2019");
-        //        textBoxCIFax.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面FAXの半角数字チェック
-        //    if (!InputCheck.CheckNumericAndHalfChar(textBoxCIFax.Text.Trim()))
-        //    {
-        //        msg.MsgDsp("M2020");
-        //        textBoxCIFax.Focus();
-        //        return false;
-        //    }
-
-        //    //顧客管理画面FAXの文字数チェック
-        //    if (textBoxCIFax.Text.Trim().Length > 13)
-        //    {
-        //        msg.MsgDsp("M2021");
-        //        textBoxCIFax.Focus();
-        //        return false;
-        //    }
-
-        //    //異常が無い場合trueを返す
-        //    return true;
-        }
     }
+}
 

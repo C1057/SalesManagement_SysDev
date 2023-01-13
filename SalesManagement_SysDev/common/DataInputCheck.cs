@@ -738,5 +738,134 @@ namespace SalesManagement_SysDev
             //異常が無い場合trueを返す
             return true;
         }
+
+        /// <summary>
+        /// メーカ名入力チェックメソッド
+        /// </summary>
+        /// <returns>異常なし:true, 異常あり:false</returns>
+        public bool MakerNameInputCheck(string InputText)
+        {
+            //メーカ名の空文字チェック
+            if (string.IsNullOrEmpty(InputText))
+            {
+                msg.MsgDsp("M3059");
+                return false;
+            }
+
+
+            //メーカ名の文字数チェック
+            if (InputText.Length > 50)
+            {
+                msg.MsgDsp("M3060");
+                return false;
+            }
+
+            
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+        /// <summary>
+        /// メーカID、メーカ名以外チェックメソッド
+        /// </summary>
+        /// <returns>異常なし:true, 異常あり:false</returns>
+        public bool MakerAdressInputCheck(string InputText)
+        {
+            //メーカ住所の空文字チェック
+            if (string.IsNullOrEmpty(InputText))
+            {
+                msg.MsgDsp("M3061");
+                return false;
+            }
+
+
+            //メーカ住所の文字数チェック
+            if (InputText.Length > 50)
+            {
+                msg.MsgDsp("M3062");
+                return false;
+            }
+
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+
+        public bool MakerPhoneInputCheck(string InputText)
+        {
+            //メーカ電話番号の空文字チェック
+            if (string.IsNullOrEmpty(InputText))
+            {
+                msg.MsgDsp("M3063");
+                return false;
+            }
+
+            //メーカ電話番号の文字数チェック
+            if (InputText.Length > 13)
+            {
+                msg.MsgDsp("M3064");
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+        public bool MakerPostalInputCheck(string InputText)
+        {
+            //メーカ郵便番号の空文字チェック
+            if (string.IsNullOrEmpty(InputText))
+            {
+                msg.MsgDsp("M3065");
+                return false;
+            }
+
+            //メーカ郵便番号の文字数チェック
+            if (InputText.Length > 7)
+            {
+                msg.MsgDsp("M3066");
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+        public bool MakerFAXInputCheck(string InputText)
+        {
+            //メーカFAXの空文字チェック
+            if (string.IsNullOrEmpty(InputText))
+            {
+                msg.MsgDsp("M3067");
+                return false;
+            }
+
+            //メーカFAXの文字数チェック
+            if (InputText.Length > 13)
+            {
+                msg.MsgDsp("M3068");
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+        public bool MakerHiddenInputCheck(string InputText)
+        {
+
+            //メーカ非表示理由の文字数チェック
+            if (InputText.Length > 100)
+            {
+                msg.MsgDsp("M3069");
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
     }
 }

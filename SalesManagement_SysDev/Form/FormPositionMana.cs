@@ -207,6 +207,7 @@ namespace SalesManagement_SysDev
 
             //更新用役職情報をセット
             M_Position updPositionData = PositionUpdDataSet();
+
             //役職更新モジュール呼び出し
             PositionAccess.UpdatePosition(updPositionData);
 
@@ -214,13 +215,6 @@ namespace SalesManagement_SysDev
             PositionList = PositionAccess.GetData();
             //役職情報再表示
             ListPosition();
-
-
-
-
-
-
-
         }
 
         private void FormPositionMana_Load(object sender, EventArgs e)

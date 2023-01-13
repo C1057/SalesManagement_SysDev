@@ -159,5 +159,10 @@ namespace SalesManagement_SysDev
             // ListSalesOffice();
 
         }
+
+        private void buttonSOManaAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
