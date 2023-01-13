@@ -73,6 +73,14 @@ namespace SalesManagement_SysDev
 
             ProductList = context.M_Products.ToList();              //商品マスタの全情報を取得
             context.Dispose();                                      //contextの解放
+
+            //フォームの最大化ボタンの表示、非表示を切り替える
+            this.MaximizeBox = !this.MaximizeBox;
+            //フォームの最小化ボタンの表示、非表示を切り替える
+            this.MinimizeBox = !this.MinimizeBox;
+            //フォームのコントロールボックスの表示、非表示を切り替える
+            //コントロールボックスを非表示にすると最大化、最小化、閉じるボタンも消える
+            this.ControlBox = !this.ControlBox;
         }
 
         /// <summary>

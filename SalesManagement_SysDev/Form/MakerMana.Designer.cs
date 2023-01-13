@@ -369,7 +369,7 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.labelManaMakerTitle);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MakerMana";
-            this.Text = "MakerMana";
+            this.Text = "メーカ管理";
             this.Load += new System.EventHandler(this.MakerMana_Load);
             this.VisibleChanged += new System.EventHandler(this.MakerMana_EnabledChanged);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewManaMaker)).EndInit();

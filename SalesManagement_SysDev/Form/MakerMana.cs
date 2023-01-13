@@ -95,6 +95,14 @@ namespace SalesManagement_SysDev
             dataGridViewManaMaker.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする  
 
             MakerList = context.M_Makers.ToList();                          //List<M_Maker>型のMakerListに[メーカー]表示用データを代入する
+
+            //フォームの最大化ボタンの表示、非表示を切り替える
+            this.MaximizeBox = !this.MaximizeBox;
+            //フォームの最小化ボタンの表示、非表示を切り替える
+            this.MinimizeBox = !this.MinimizeBox;
+            //フォームのコントロールボックスの表示、非表示を切り替える
+            //コントロールボックスを非表示にすると最大化、最小化、閉じるボタンも消える
+            this.ControlBox = !this.ControlBox;
         }
 
         private void ListMaker()

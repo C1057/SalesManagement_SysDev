@@ -169,7 +169,13 @@ namespace SalesManagement_SysDev
         {
             this.Visible = false;                                       //システム起動時　FormHomeをロードしながら自分自身を見えなくする
 
-            this.FormBorderStyle = FormBorderStyle.None;                //タイトルバーを非表示にする
+            //フォームの最大化ボタンの表示、非表示を切り替える
+            this.MaximizeBox = !this.MaximizeBox;
+            //フォームの最小化ボタンの表示、非表示を切り替える
+            this.MinimizeBox = !this.MinimizeBox;
+            //フォームのコントロールボックスの表示、非表示を切り替える
+            //コントロールボックスを非表示にすると最大化、最小化、閉じるボタンも消える
+            this.ControlBox = !this.ControlBox;
             //使わないボタンの非表示
             buttonHumberger.Visible = false;
             buttonControl.Visible = false;

@@ -5754,7 +5754,7 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelClient);
             this.Controls.Add(this.panelStock);
             this.Name = "FormHome";
-            this.Text = "FormHome";
+            this.Text = "販売在庫管理システム";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormHome_Load);
             this.panelHeader.ResumeLayout(false);

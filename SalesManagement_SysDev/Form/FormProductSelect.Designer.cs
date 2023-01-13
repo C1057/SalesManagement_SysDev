@@ -424,7 +424,7 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.buttonProSelectUpdate);
             this.Controls.Add(this.buttonProSelectConfirm);
             this.Name = "FormProductSelect";
-            this.Text = "FormProductSelect";
+            this.Text = "商品選択";
             this.Load += new System.EventHandler(this.FormProductSelect_Load);
             this.VisibleChanged += new System.EventHandler(this.FormProductSelect_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProSelectQuantity)).EndInit();
