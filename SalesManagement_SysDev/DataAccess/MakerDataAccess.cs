@@ -80,7 +80,7 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public void Addmaker(M_Maker AddMaker)
+        public void UpdateMaker(M_Maker UpdateMaker)
         {
             DialogResult result = msg.MsgDsp("M3068");   //更新しますかメッセージ
 
@@ -91,8 +91,8 @@ namespace SalesManagement_SysDev
             try
             {
                 var context = new SalesManagement_DevContext();       //クラスのインスタンス化
-                var Maker = context.M_Makers.Single(x => x.MaID == AddMaker.MaID);    //更新対象データの取得
-                Maker = AddMaker;  //更新データをセット
+                var Maker = context.M_Makers.Single(x => x.MaID == UpdateMaker.MaID);    //更新対象データの取得
+                Maker = UpdateMaker;  //更新データをセット
                 context.SaveChanges();  //
                 context.Dispose();     //contextを開放
 
@@ -108,6 +108,35 @@ namespace SalesManagement_SysDev
         {
             var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
             return context.M_Makers.ToList();                          //メーカーマスタの全データを戻り値として返す
+        }
+
+        public List<M_Maker> SearchMaker(int methodflg, string SearchInfo)
+        {
+            var Context = new SalesManagement_DevContext();
+            List<M_Maker> searchresult = null;
+
+            if (methodflg == 1)
+            {
+                int MakerID = int.Parse(SearchInfo);
+                searchresult = Context.M_Makers.Where(x => x.MaID == MakerID).ToList();
+                Context.Dispose();
+
+            }
+            return searchresult;
+        }
+
+        public List<M_Maker> SearchMaker(string SearchInfo)
+        {
+            var Context = new SalesManagement_DevContext();
+            List<M_Maker> searchresult = null;
+
+            string MakerName = SearchInfo;
+            searchresult = Context.M_Makers.Where(M_Position => M_Position.MaName.Contains(MakerName)).ToList();
+
+            Context.Dispose();
+
+            return searchresult;
+
         }
     }
 }
