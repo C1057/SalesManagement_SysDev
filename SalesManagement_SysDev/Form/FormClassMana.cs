@@ -657,6 +657,7 @@ namespace SalesManagement_SysDev
             int McID = int.Parse(comboBoxCsManaMajorClassID.SelectedItem.ToString());
             M_MajorClassification MajorClassData = MajorClassList.Single(MajorClass => MajorClass.McID == McID);
             textboxManaMajorClassName.Text = MajorClassData.McName;
+            
         }
 
         private void dataGridViewSmallClass_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -671,8 +672,14 @@ namespace SalesManagement_SysDev
         {
             int ScID = int.Parse(comboBoxCsManaSmallClassID.SelectedItem.ToString());
             M_SmallClassification SmallClassData = SmallClassList.Single(SmallClass => SmallClass.ScID == ScID);
-            //comboBoxCsManaSmallMajorClassID.Text = SmallClassData.McID;
+            int McID = int.Parse(comboBoxCsManaSmallMajorClassID.Text);
             textBoxCsManaSmallClassName.Text = SmallClassData.ScName;
+
+            //foreach (SmallClassData in SmallClassList)
+            //{
+            //    comboBoxCsManaSmallMajorClassID.Items.Add(SmallClassData.McID);
+            //}
+
         }
     }
 }
