@@ -32,12 +32,14 @@ namespace SalesManagement_SysDev
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonCsManaSmallClassAdd = new System.Windows.Forms.Button();
+            this.maruibutton5 = new SalesManagement_SysDev.maruibutton();
             this.buttonCsManaSmallClassUodate = new System.Windows.Forms.Button();
             this.buttonCsManaSmallClassList = new System.Windows.Forms.Button();
+            this.maruibutton6 = new SalesManagement_SysDev.maruibutton();
             this.textBoxCsManaSmallClassHidden = new System.Windows.Forms.TextBox();
             this.textBoxCsManaSmallClassName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCsManaSmallMajorClassID = new System.Windows.Forms.ComboBox();
             this.dataGridViewSmallClass = new System.Windows.Forms.DataGridView();
             this.label95 = new System.Windows.Forms.Label();
             this.label94 = new System.Windows.Forms.Label();
@@ -52,15 +54,13 @@ namespace SalesManagement_SysDev
             this.label2 = new System.Windows.Forms.Label();
             this.labelPositionManaPositionID = new System.Windows.Forms.Label();
             this.dataGridViewMajorClass = new System.Windows.Forms.DataGridView();
+            this.buttonCsManaMajorClassDeletelist = new SalesManagement_SysDev.maruibutton();
+            this.buttonCsManaMajorClassDelete = new SalesManagement_SysDev.maruibutton();
             this.buttonCsManaMajorClassAdd = new System.Windows.Forms.Button();
             this.buttonCsManaMajorClassUpdate = new System.Windows.Forms.Button();
             this.buttonCsManaMajorClassList = new System.Windows.Forms.Button();
             this.buttonCsManaMajorClassOpen = new SalesManagement_SysDev.maruibutton();
             this.buttonCsManaSmallClassOpen = new SalesManagement_SysDev.maruibutton();
-            this.maruibutton5 = new SalesManagement_SysDev.maruibutton();
-            this.maruibutton6 = new SalesManagement_SysDev.maruibutton();
-            this.buttonCsManaMajorClassDeletelist = new SalesManagement_SysDev.maruibutton();
-            this.buttonCsManaMajorClassDelete = new SalesManagement_SysDev.maruibutton();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSmallClass)).BeginInit();
             this.panel1.SuspendLayout();
@@ -87,7 +87,7 @@ namespace SalesManagement_SysDev
             this.panel2.Controls.Add(this.textBoxCsManaSmallClassHidden);
             this.panel2.Controls.Add(this.textBoxCsManaSmallClassName);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.comboBoxCsManaSmallMajorClassID);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.dataGridViewSmallClass);
             this.panel2.Controls.Add(this.label95);
@@ -111,6 +111,20 @@ namespace SalesManagement_SysDev
             this.buttonCsManaSmallClassAdd.Text = "登録";
             this.buttonCsManaSmallClassAdd.UseVisualStyleBackColor = false;
             this.buttonCsManaSmallClassAdd.Click += new System.EventHandler(this.buttonCsManaSmallClassAdd_Click);
+            // 
+            // maruibutton5
+            // 
+            this.maruibutton5.BackColor = System.Drawing.Color.Red;
+            this.maruibutton5.FlatAppearance.BorderSize = 0;
+            this.maruibutton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.maruibutton5.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.maruibutton5.Location = new System.Drawing.Point(1463, 14);
+            this.maruibutton5.Name = "maruibutton5";
+            this.maruibutton5.Size = new System.Drawing.Size(140, 123);
+            this.maruibutton5.TabIndex = 209;
+            this.maruibutton5.Text = "非表示リスト";
+            this.maruibutton5.UseVisualStyleBackColor = false;
+            this.maruibutton5.Click += new System.EventHandler(this.maruibutton5_Click);
             // 
             // buttonCsManaSmallClassUodate
             // 
@@ -137,6 +151,20 @@ namespace SalesManagement_SysDev
             this.buttonCsManaSmallClassList.Text = "一覧表示";
             this.buttonCsManaSmallClassList.UseVisualStyleBackColor = false;
             this.buttonCsManaSmallClassList.Click += new System.EventHandler(this.buttonCsManaSmallClassList_Click);
+            // 
+            // maruibutton6
+            // 
+            this.maruibutton6.BackColor = System.Drawing.Color.Red;
+            this.maruibutton6.FlatAppearance.BorderSize = 0;
+            this.maruibutton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.maruibutton6.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.maruibutton6.Location = new System.Drawing.Point(1317, 11);
+            this.maruibutton6.Name = "maruibutton6";
+            this.maruibutton6.Size = new System.Drawing.Size(140, 123);
+            this.maruibutton6.TabIndex = 208;
+            this.maruibutton6.Text = "非表示";
+            this.maruibutton6.UseVisualStyleBackColor = false;
+            this.maruibutton6.Click += new System.EventHandler(this.maruibutton6_Click);
             // 
             // textBoxCsManaSmallClassHidden
             // 
@@ -165,13 +193,13 @@ namespace SalesManagement_SysDev
             this.label5.TabIndex = 196;
             this.label5.Text = "大分類ID";
             // 
-            // comboBox1
+            // comboBoxCsManaSmallMajorClassID
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(125, 130);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(166, 20);
-            this.comboBox1.TabIndex = 197;
+            this.comboBoxCsManaSmallMajorClassID.FormattingEnabled = true;
+            this.comboBoxCsManaSmallMajorClassID.Location = new System.Drawing.Point(125, 130);
+            this.comboBoxCsManaSmallMajorClassID.Name = "comboBoxCsManaSmallMajorClassID";
+            this.comboBoxCsManaSmallMajorClassID.Size = new System.Drawing.Size(166, 20);
+            this.comboBoxCsManaSmallMajorClassID.TabIndex = 197;
             // 
             // dataGridViewSmallClass
             // 
@@ -180,8 +208,10 @@ namespace SalesManagement_SysDev
             this.dataGridViewSmallClass.Name = "dataGridViewSmallClass";
             this.dataGridViewSmallClass.RowHeadersWidth = 62;
             this.dataGridViewSmallClass.RowTemplate.Height = 21;
+            this.dataGridViewSmallClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSmallClass.Size = new System.Drawing.Size(1648, 321);
             this.dataGridViewSmallClass.TabIndex = 111;
+            this.dataGridViewSmallClass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSmallClass_CellClick);
             // 
             // label95
             // 
@@ -212,6 +242,7 @@ namespace SalesManagement_SysDev
             this.comboBoxCsManaSmallClassID.Name = "comboBoxCsManaSmallClassID";
             this.comboBoxCsManaSmallClassID.Size = new System.Drawing.Size(203, 20);
             this.comboBoxCsManaSmallClassID.TabIndex = 195;
+            this.comboBoxCsManaSmallClassID.SelectedIndexChanged += new System.EventHandler(this.comboBoxCsManaSmallClassID_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -286,6 +317,7 @@ namespace SalesManagement_SysDev
             this.comboBoxCsManaMajorClassID.Name = "comboBoxCsManaMajorClassID";
             this.comboBoxCsManaMajorClassID.Size = new System.Drawing.Size(213, 32);
             this.comboBoxCsManaMajorClassID.TabIndex = 241;
+            this.comboBoxCsManaMajorClassID.SelectedIndexChanged += new System.EventHandler(this.comboBoxCsManaMajorClassID_SelectedIndexChanged_1);
             // 
             // textboxManaMajorClassName
             // 
@@ -323,8 +355,40 @@ namespace SalesManagement_SysDev
             this.dataGridViewMajorClass.Name = "dataGridViewMajorClass";
             this.dataGridViewMajorClass.RowHeadersWidth = 62;
             this.dataGridViewMajorClass.RowTemplate.Height = 21;
+            this.dataGridViewMajorClass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewMajorClass.Size = new System.Drawing.Size(1650, 321);
             this.dataGridViewMajorClass.TabIndex = 111;
+            this.dataGridViewMajorClass.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMajorClass_CellClick_1);
+            this.dataGridViewMajorClass.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMajorClass_CellContentClick);
+            this.dataGridViewMajorClass.SelectionChanged += new System.EventHandler(this.dataGridViewMajorClass_SelectionChanged);
+            // 
+            // buttonCsManaMajorClassDeletelist
+            // 
+            this.buttonCsManaMajorClassDeletelist.BackColor = System.Drawing.Color.Red;
+            this.buttonCsManaMajorClassDeletelist.FlatAppearance.BorderSize = 0;
+            this.buttonCsManaMajorClassDeletelist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCsManaMajorClassDeletelist.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonCsManaMajorClassDeletelist.Location = new System.Drawing.Point(1495, 29);
+            this.buttonCsManaMajorClassDeletelist.Name = "buttonCsManaMajorClassDeletelist";
+            this.buttonCsManaMajorClassDeletelist.Size = new System.Drawing.Size(172, 111);
+            this.buttonCsManaMajorClassDeletelist.TabIndex = 114;
+            this.buttonCsManaMajorClassDeletelist.Text = "非表示リスト";
+            this.buttonCsManaMajorClassDeletelist.UseVisualStyleBackColor = false;
+            this.buttonCsManaMajorClassDeletelist.Click += new System.EventHandler(this.buttonCsManaMajorClassDeletelist_Click);
+            // 
+            // buttonCsManaMajorClassDelete
+            // 
+            this.buttonCsManaMajorClassDelete.BackColor = System.Drawing.Color.Red;
+            this.buttonCsManaMajorClassDelete.FlatAppearance.BorderSize = 0;
+            this.buttonCsManaMajorClassDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCsManaMajorClassDelete.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonCsManaMajorClassDelete.Location = new System.Drawing.Point(1311, 29);
+            this.buttonCsManaMajorClassDelete.Name = "buttonCsManaMajorClassDelete";
+            this.buttonCsManaMajorClassDelete.Size = new System.Drawing.Size(172, 111);
+            this.buttonCsManaMajorClassDelete.TabIndex = 113;
+            this.buttonCsManaMajorClassDelete.Text = "非表示";
+            this.buttonCsManaMajorClassDelete.UseVisualStyleBackColor = false;
+            this.buttonCsManaMajorClassDelete.Click += new System.EventHandler(this.maruibutton8_Click);
             // 
             // buttonCsManaMajorClassAdd
             // 
@@ -393,62 +457,6 @@ namespace SalesManagement_SysDev
             this.buttonCsManaSmallClassOpen.UseVisualStyleBackColor = false;
             this.buttonCsManaSmallClassOpen.Click += new System.EventHandler(this.maruibutton3_Click);
             // 
-            // maruibutton5
-            // 
-            this.maruibutton5.BackColor = System.Drawing.Color.Red;
-            this.maruibutton5.FlatAppearance.BorderSize = 0;
-            this.maruibutton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton5.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton5.Location = new System.Drawing.Point(1463, 14);
-            this.maruibutton5.Name = "maruibutton5";
-            this.maruibutton5.Size = new System.Drawing.Size(140, 123);
-            this.maruibutton5.TabIndex = 209;
-            this.maruibutton5.Text = "非表示リスト";
-            this.maruibutton5.UseVisualStyleBackColor = false;
-            this.maruibutton5.Click += new System.EventHandler(this.maruibutton5_Click);
-            // 
-            // maruibutton6
-            // 
-            this.maruibutton6.BackColor = System.Drawing.Color.Red;
-            this.maruibutton6.FlatAppearance.BorderSize = 0;
-            this.maruibutton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.maruibutton6.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibutton6.Location = new System.Drawing.Point(1317, 11);
-            this.maruibutton6.Name = "maruibutton6";
-            this.maruibutton6.Size = new System.Drawing.Size(140, 123);
-            this.maruibutton6.TabIndex = 208;
-            this.maruibutton6.Text = "非表示";
-            this.maruibutton6.UseVisualStyleBackColor = false;
-            this.maruibutton6.Click += new System.EventHandler(this.maruibutton6_Click);
-            // 
-            // buttonCsManaMajorClassDeletelist
-            // 
-            this.buttonCsManaMajorClassDeletelist.BackColor = System.Drawing.Color.Red;
-            this.buttonCsManaMajorClassDeletelist.FlatAppearance.BorderSize = 0;
-            this.buttonCsManaMajorClassDeletelist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCsManaMajorClassDeletelist.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCsManaMajorClassDeletelist.Location = new System.Drawing.Point(1495, 29);
-            this.buttonCsManaMajorClassDeletelist.Name = "buttonCsManaMajorClassDeletelist";
-            this.buttonCsManaMajorClassDeletelist.Size = new System.Drawing.Size(172, 111);
-            this.buttonCsManaMajorClassDeletelist.TabIndex = 114;
-            this.buttonCsManaMajorClassDeletelist.Text = "非表示リスト";
-            this.buttonCsManaMajorClassDeletelist.UseVisualStyleBackColor = false;
-            this.buttonCsManaMajorClassDeletelist.Click += new System.EventHandler(this.buttonCsManaMajorClassDeletelist_Click);
-            // 
-            // buttonCsManaMajorClassDelete
-            // 
-            this.buttonCsManaMajorClassDelete.BackColor = System.Drawing.Color.Red;
-            this.buttonCsManaMajorClassDelete.FlatAppearance.BorderSize = 0;
-            this.buttonCsManaMajorClassDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCsManaMajorClassDelete.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonCsManaMajorClassDelete.Location = new System.Drawing.Point(1311, 29);
-            this.buttonCsManaMajorClassDelete.Name = "buttonCsManaMajorClassDelete";
-            this.buttonCsManaMajorClassDelete.Size = new System.Drawing.Size(172, 111);
-            this.buttonCsManaMajorClassDelete.TabIndex = 113;
-            this.buttonCsManaMajorClassDelete.Text = "非表示";
-            this.buttonCsManaMajorClassDelete.UseVisualStyleBackColor = false;
-            this.buttonCsManaMajorClassDelete.Click += new System.EventHandler(this.maruibutton8_Click);
-            // 
             // FormClassMana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -490,7 +498,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TextBox textBoxCsManaSmallClassHidden;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxCsManaSmallMajorClassID;
         private System.Windows.Forms.Button buttonCsManaSmallClassAdd;
         private maruibutton maruibutton5;
         private System.Windows.Forms.Button buttonCsManaSmallClassUodate;

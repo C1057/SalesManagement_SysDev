@@ -344,6 +344,22 @@ namespace SalesManagement_SysDev
             //役職情報再表示
             ListPosition();
         }
+
+        private void dataGridViewPositionMana_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //大分類ID,大分類名、非表示理由
+            comboBoxPositionManaPositionID.Text = dataGridViewPositionMana.Rows[dataGridViewPositionMana.CurrentRow.Index].Cells[0].Value.ToString();
+            textBoxPositionManaPositionName.Text = (string)dataGridViewPositionMana.Rows[dataGridViewPositionMana.CurrentRow.Index].Cells[1].Value;
+            textBoxPositionManaHidden.Text = (string)dataGridViewPositionMana.Rows[dataGridViewPositionMana.CurrentRow.Index].Cells[3].Value;
+        }
+
+        private void comboBoxPositionManaPositionID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int PoID = int.Parse(comboBoxPositionManaPositionID.SelectedIndex.ToString());
+            M_Position PositionData = PositionList.Single(Position => Position.PoID == PoID);
+            textBoxPositionManaPositionName.Text = PositionData.PoName;
+            textBoxPositionManaHidden.Text = PositionData.PoHidden;
+        }
     }
 }
 

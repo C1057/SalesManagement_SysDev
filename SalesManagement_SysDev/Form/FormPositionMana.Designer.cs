@@ -129,6 +129,7 @@ namespace SalesManagement_SysDev
             this.comboBoxPositionManaPositionID.Name = "comboBoxPositionManaPositionID";
             this.comboBoxPositionManaPositionID.Size = new System.Drawing.Size(213, 32);
             this.comboBoxPositionManaPositionID.TabIndex = 237;
+            this.comboBoxPositionManaPositionID.SelectedIndexChanged += new System.EventHandler(this.comboBoxPositionManaPositionID_SelectedIndexChanged);
             // 
             // textBoxPositionManaPositionName
             // 
@@ -188,8 +189,10 @@ namespace SalesManagement_SysDev
             this.dataGridViewPositionMana.Name = "dataGridViewPositionMana";
             this.dataGridViewPositionMana.RowHeadersWidth = 62;
             this.dataGridViewPositionMana.RowTemplate.Height = 21;
+            this.dataGridViewPositionMana.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPositionMana.Size = new System.Drawing.Size(1190, 331);
             this.dataGridViewPositionMana.TabIndex = 248;
+            this.dataGridViewPositionMana.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPositionMana_CellClick);
             // 
             // labelPoSearchTitle
             // 
