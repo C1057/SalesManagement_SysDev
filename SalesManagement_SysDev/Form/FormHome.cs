@@ -141,6 +141,11 @@ namespace SalesManagement_SysDev
         {
             this.Visible = false;                                       //システム起動時　FormHomeをロードしながら自分自身を見えなくする
 
+            this.FormBorderStyle = FormBorderStyle.None;                //タイトルバーを非表示にする
+            //使わないボタンの非表示
+            buttonHumberger.Visible = false;
+            buttonControl.Visible = false;
+
             formproductselect = new FormProductSelect(this);
 
             Text = Application.ProductName;
@@ -1413,9 +1418,18 @@ namespace SalesManagement_SysDev
         //ログアウトボタン
         private void buttonLogout_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする
+            }
+
             //ログアウト、スタート画面を表示する
             panelHide();
-            panelStart.Show();
             //画面タイトルを更新する
             labelManaTitle.Text = ((Button)sender).Text;
         }
@@ -5501,6 +5515,13 @@ namespace SalesManagement_SysDev
         //販売在庫管理システムを終了する
         private void buttonClose_Click(object sender, EventArgs e)
         {
+            //終了確認
+            DialogResult result = MessageBox.Show("販売在庫管理システムを終了します", "終了確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+            
             Application.Exit();
         }
 
