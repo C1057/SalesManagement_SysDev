@@ -672,14 +672,23 @@ namespace SalesManagement_SysDev
         {
             int ScID = int.Parse(comboBoxCsManaSmallClassID.SelectedItem.ToString());
             M_SmallClassification SmallClassData = SmallClassList.Single(SmallClass => SmallClass.ScID == ScID);
-            int McID = int.Parse(comboBoxCsManaSmallMajorClassID.Text);
+            //int McID = int.Parse(comboBoxCsManaSmallMajorClassID.Text);
             textBoxCsManaSmallClassName.Text = SmallClassData.ScName;
+            //comboBoxCsManaSmallMajorClassID.Text = SmallClassData.McID;
 
             //foreach (SmallClassData in SmallClassList)
             //{
             //    comboBoxCsManaSmallMajorClassID.Items.Add(SmallClassData.McID);
             //}
 
+        }
+
+        private void comboBoxCsManaSmallMajorClassID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            int McID = int.Parse(comboBoxCsManaSmallMajorClassID.SelectedItem.ToString());
+            M_MajorClassification MajorClassData = MajorClassList.Single(MajorClass => MajorClass.McID == McID);
+            textBoxCsManaSmallMajorClassName.Text = MajorClassData.McName;
         }
     }
 }
