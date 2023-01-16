@@ -148,5 +148,49 @@ namespace SalesManagement_SysDev
             var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
             return context.M_SalesOffices.ToList();                          //営業所マスタの全データを戻り値として返す
         }
+
+
+        public void AddSalesOffice(M_SalesOffice addsalesoffice)
+        {
+            var Context = new SalesManagement_DevContext(); //クラスのインスタンス化
+            MessageDsp msg = new MessageDsp();
+
+            try
+            {
+                DialogResult result = msg.MsgDsp("M5055");　//登録メッセージ
+                if (result == DialogResult.Cancel)  //登録確認がCancelの場合
+                {
+                    Context.Dispose();　　//メモリの解放
+                    return;
+                }
+
+                Context.M_SalesOffices.Add(addsalesoffice);　　//内容を登録データといてcontextに登録
+                Context.SaveChanges();  //変更の反映
+                Context.Dispose();     //メモリの解放
+
+                msg.MsgDsp("M5056");  //登録完了メッセージ
+            }
+            catch
+            {
+                msg.MsgDsp("M5057");  //登録失敗メッセージ
+            }
+        }
+
+        public void DeleteSOMana(int SalesOfficeID)
+        {
+            DialogResult result = msg.MsgDsp("M14001");　//非表示確認メッセージ
+            if (result == DialogResult.Cancel) //の場合非表示機能モジュールの実行終了
+            {
+                return;
+            }
+
+            var context = new SalesManagement_DevContext();  　　　　　　　　　　　 //SalesManagement_DevContextクラスのインスタンス化
+            var maker = context.M_SalesOffices.Single(x => x.SoID == SalesOfficeID);           //非表示にするレコードの抽出
+
+            maker.SoFlag = 2;      　　　　　　　　　　　　　　　　　              //顧客管理フラグを2にする          
+
+            context.SaveChanges();                                               //更新を確定する
+            context.Dispose();                                                  //contextを解放
+        }
     }
 }

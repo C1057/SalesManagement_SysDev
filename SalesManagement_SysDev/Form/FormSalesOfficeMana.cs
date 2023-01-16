@@ -24,14 +24,14 @@ namespace SalesManagement_SysDev
         MessageDsp msg = new MessageDsp();                                              //メッセージ表示用クラス
         CheckExistence Existence = new CheckExistence();                                //IDの存在チェック用クラス
         DataInputCheck InputCheck = new DataInputCheck();                               //入力チェック用クラス
-        PasswordHash PassHash = new PasswordHash();                                     //パスワードハッシュ化用クラス
+
+        SalesOfficeDataAccess SalesOfficeAccess = new SalesOfficeDataAccess();         //[営業所マスタ]操作用クラスのインスタンス化
 
         private M_SalesOffice SalesOfficeAddDataSet()
         {
             return new M_SalesOffice
             {
-                SoID=int.Parse(comboBoxSOManaSOID.Text),
-                SoName = textBoxProSelectOrderID.Text.Trim(),
+                SoName = textBoxProSelectOrderName.Text.Trim(),
                 SoAddress = textBoxSOManaAddress.Text.Trim(),
                 SoPhone =textBoxSOManaPhone.Text.Trim(),
                 SoPostal=textBoxSOManaPostal.Text.Trim(),
@@ -41,12 +41,26 @@ namespace SalesManagement_SysDev
             };
         }
 
+        private void DeleteListSOMana()
+        {
+            dataGridViewSOMana.Rows.Clear();                        //データグリッドビューをクリアする
+            foreach (var SalesOfficeData in SalesOfficeList)
+            {
+                if (SalesOfficeData.SoFlag == 2)                     //役員管理フラグが0の場合表示する
+                {
+                    //データグリッドビューにデータを追加する
+                    dataGridViewSOMana.Rows.Add(SalesOfficeData.SoID, SalesOfficeData.SoName, SalesOfficeData.SoAddress, SalesOfficeData.SoPhone,
+                                                SalesOfficeData.SoPostal, SalesOfficeData.SoFAX, Convert.ToBoolean(SalesOfficeData.SoFlag), SalesOfficeData.SoHidden);
+                }
+            }
+        }
+
         private M_SalesOffice SalesOfficeUpdDataSet()
         {
             return new M_SalesOffice
             {
                 SoID = int.Parse(comboBoxSOManaSOID.Text),
-                SoName = textBoxProSelectOrderID.Text.Trim(),
+                SoName = textBoxProSelectOrderName.Text.Trim(),
                 SoAddress = textBoxSOManaAddress.Text.Trim(),
                 SoPhone = textBoxSOManaPhone.Text.Trim(),
                 SoPostal = textBoxSOManaPostal.Text.Trim(),
@@ -62,17 +76,17 @@ namespace SalesManagement_SysDev
         /// <returns></returns>
         private bool SaesOfficeInputCheck()
         {
-            if (string.IsNullOrEmpty(textBoxProSelectOrderID.Text))//営業所名の空文字チェック
+            if (string.IsNullOrEmpty(textBoxProSelectOrderName.Text))//営業所名の空文字チェック
             {
                 msg.MsgDsp("M5031");
-                textBoxProSelectOrderID.Focus();
+                textBoxProSelectOrderName.Focus();
                 return false;
             }
 
-            if (textBoxProSelectOrderID.Text.Length > 50)//役職名の文字数チェック
+            if (textBoxProSelectOrderName.Text.Length > 50)//役職名の文字数チェック
             {
                 msg.MsgDsp("M5032");
-                textBoxProSelectOrderID.Focus();
+                textBoxProSelectOrderName.Focus();
                 return false;
             }
 
@@ -156,13 +170,153 @@ namespace SalesManagement_SysDev
 
             dataGridViewSOMana.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
 
-            // ListSalesOffice();
+             ListSalesOffice();
 
         }
 
         private void buttonSOManaAdd_Click(object sender, EventArgs e)
         {
+            //営業所名の入力チェック
+            if (!InputCheck.SalesOfficeNameInputCheck(textBoxProSelectOrderName.Text))
+            {
+                textBoxProSelectOrderName.Focus();
+                return;
+            }
+
+            //営業所の住所の入力チェック
+            if (!InputCheck.SalesOfficeAdressInputCheck(textBoxSOManaAddress.Text))
+            {
+                textBoxSOManaAddress.Focus();
+                return;
+            }
+
+            //営業所の電話番号の入力チェック
+            if (!InputCheck.SalesOfficePhoneInputCheck(textBoxSOManaPhone.Text))
+            {
+                textBoxSOManaPhone.Focus();
+                return;
+            }
+
+            //メーカーの郵便番号の入力チェック
+            if (!InputCheck.SalesOfficePostalInputCheck(textBoxSOManaPostal.Text))
+            {
+                textBoxSOManaPostal.Focus();
+                return;
+            }
+
+            //メーカーのFAXの入力チェック
+            if (!InputCheck.SalesOfficeFaxInputCheck(textBoxSOManaFAX.Text))
+            {
+                textBoxSOManaFAX.Focus();
+                return;
+            }
+
+            //登録用顧客情報のセット
+            M_SalesOffice AddSalesOfficeData = SalesOfficeAddDataSet();
+
+            //顧客情報の登録
+            SalesOfficeAccess.AddSalesOffice(AddSalesOfficeData);
+
+            //顧客情報一覧表示用データの更新
+            SalesOfficeList = SalesOfficeAccess.GetData();
+
+            //顧客情報再表示
+            ListSalesOffice();
+        }
+
+        private void textBoxProSelectOrderID_TextChanged(object sender, EventArgs e)
+        {
 
         }
+
+        private void buttonSOManaUpdate_Click(object sender, EventArgs e)
+        {
+            //営業所IDの入力チェック
+            if (!InputCheck.SalesOfficeIDInputCheck(comboBoxSOManaSOID.Text))
+            {
+                comboBoxSOManaSOID.Focus();
+                return;
+            }
+            //営業所名の入力チェック
+            if (!InputCheck.SalesOfficeNameInputCheck(textBoxProSelectOrderName.Text))
+            {
+                textBoxProSelectOrderName.Focus();
+                return;
+            }
+            //営業所の住所の入力チェック
+            if (!InputCheck.SalesOfficeAdressInputCheck(textBoxSOManaAddress.Text))
+            {
+                textBoxSOManaAddress.Focus();
+                return;
+            }
+
+            //営業所の電話番号の入力チェック
+            if (!InputCheck.SalesOfficePhoneInputCheck(textBoxSOManaPhone.Text))
+            {
+                textBoxSOManaPhone.Focus();
+                return;
+            }
+
+            //営業所の郵便番号の入力チェック
+            if (!InputCheck.SalesOfficePhoneInputCheck(textBoxSOManaPostal.Text))
+            {
+                textBoxSOManaPostal.Focus();
+                return;
+            }
+
+            //営業所のFAXの入力チェック
+            if (!InputCheck.SalesOfficeFaxInputCheck(textBoxSOManaFAX.Text))
+            {
+                textBoxSOManaFAX.Focus();
+                return;
+            }
+
+            //更新用営業所情報をセット
+            M_SalesOffice updSalesOfficeData = SalesOfficeUpdDataSet();
+
+            //営業所更新モジュール呼び出し
+            SalesOfficeAccess.UpdateSalesOffice(updSalesOfficeData);
+
+            //営業所情報一覧表示用データの更新
+            SalesOfficeList = SalesOfficeAccess.GetData();
+
+            //営業所情報再表示
+            ListSalesOffice();
+        }
+
+        private void buttonSOManaSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonSOManaList_Click(object sender, EventArgs e)
+        {
+            ListSalesOffice();
+        }
+
+        private void maruibuttonSOManaDelete_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridViewSOMana.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
+            {
+                if ((bool)dataGridViewSOMana.Rows[i].Cells[6].Value)                 //1行ずつチェックボックスがチェックされているかを判定する
+                {
+                    SalesOfficeAccess.DeleteClient((int)dataGridViewSOMana.Rows[i].Cells[0].Value);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
+                }
+            }
+
+            //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+
+            //メーカ情報一覧表示用データを更新
+            SalesOfficeList = SalesOfficeAccess.GetData();
+            //メーカ情報再表示
+            ListSalesOffice();
+        }
+
+        private void maruibuttonSOManaDeleteList_Click(object sender, EventArgs e)
+        {
+            DeleteListSOMana();
+        }
+
+        
     }
 }

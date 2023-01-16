@@ -35,7 +35,7 @@ namespace SalesManagement_SysDev
             this.buttonSOManaUpdate = new System.Windows.Forms.Button();
             this.buttonSOManaSearch = new System.Windows.Forms.Button();
             this.buttonSOManaReturn = new System.Windows.Forms.Button();
-            this.textBoxProSelectOrderID = new System.Windows.Forms.TextBox();
+            this.textBoxProSelectOrderName = new System.Windows.Forms.TextBox();
             this.labelSOManaSOID = new System.Windows.Forms.Label();
             this.comboBoxSOManaSOID = new System.Windows.Forms.ComboBox();
             this.labelSOManaSOName = new System.Windows.Forms.Label();
@@ -75,6 +75,7 @@ namespace SalesManagement_SysDev
             this.buttonSOManaList.TabIndex = 218;
             this.buttonSOManaList.Text = "一覧表示";
             this.buttonSOManaList.UseVisualStyleBackColor = false;
+            this.buttonSOManaList.Click += new System.EventHandler(this.buttonSOManaList_Click);
             // 
             // buttonSOManaAdd
             // 
@@ -100,6 +101,7 @@ namespace SalesManagement_SysDev
             this.buttonSOManaUpdate.TabIndex = 216;
             this.buttonSOManaUpdate.Text = "更新";
             this.buttonSOManaUpdate.UseVisualStyleBackColor = false;
+            this.buttonSOManaUpdate.Click += new System.EventHandler(this.buttonSOManaUpdate_Click);
             // 
             // buttonSOManaSearch
             // 
@@ -112,6 +114,7 @@ namespace SalesManagement_SysDev
             this.buttonSOManaSearch.TabIndex = 219;
             this.buttonSOManaSearch.Text = "検索";
             this.buttonSOManaSearch.UseVisualStyleBackColor = false;
+            this.buttonSOManaSearch.Click += new System.EventHandler(this.buttonSOManaSearch_Click);
             // 
             // buttonSOManaReturn
             // 
@@ -126,14 +129,15 @@ namespace SalesManagement_SysDev
             this.buttonSOManaReturn.UseVisualStyleBackColor = false;
             this.buttonSOManaReturn.Click += new System.EventHandler(this.buttonSOManaReturn_Click);
             // 
-            // textBoxProSelectOrderID
+            // textBoxProSelectOrderName
             // 
-            this.textBoxProSelectOrderID.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxProSelectOrderID.Location = new System.Drawing.Point(837, 352);
-            this.textBoxProSelectOrderID.Multiline = true;
-            this.textBoxProSelectOrderID.Name = "textBoxProSelectOrderID";
-            this.textBoxProSelectOrderID.Size = new System.Drawing.Size(314, 54);
-            this.textBoxProSelectOrderID.TabIndex = 232;
+            this.textBoxProSelectOrderName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxProSelectOrderName.Location = new System.Drawing.Point(837, 352);
+            this.textBoxProSelectOrderName.Multiline = true;
+            this.textBoxProSelectOrderName.Name = "textBoxProSelectOrderName";
+            this.textBoxProSelectOrderName.Size = new System.Drawing.Size(314, 54);
+            this.textBoxProSelectOrderName.TabIndex = 232;
+            this.textBoxProSelectOrderName.TextChanged += new System.EventHandler(this.textBoxProSelectOrderID_TextChanged);
             // 
             // labelSOManaSOID
             // 
@@ -149,10 +153,10 @@ namespace SalesManagement_SysDev
             // 
             this.comboBoxSOManaSOID.Font = new System.Drawing.Font("Meiryo UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxSOManaSOID.FormattingEnabled = true;
-            this.comboBoxSOManaSOID.ItemHeight = 36;
+            this.comboBoxSOManaSOID.ItemHeight = 24;
             this.comboBoxSOManaSOID.Location = new System.Drawing.Point(245, 358);
             this.comboBoxSOManaSOID.Name = "comboBoxSOManaSOID";
-            this.comboBoxSOManaSOID.Size = new System.Drawing.Size(352, 44);
+            this.comboBoxSOManaSOID.Size = new System.Drawing.Size(352, 32);
             this.comboBoxSOManaSOID.TabIndex = 233;
             // 
             // labelSOManaSOName
@@ -283,6 +287,7 @@ namespace SalesManagement_SysDev
             this.maruibuttonSOManaDeleteList.TabIndex = 247;
             this.maruibuttonSOManaDeleteList.Text = "非表示リスト";
             this.maruibuttonSOManaDeleteList.UseVisualStyleBackColor = false;
+            this.maruibuttonSOManaDeleteList.Click += new System.EventHandler(this.maruibuttonSOManaDeleteList_Click);
             // 
             // maruibuttonSOManaDelete
             // 
@@ -297,13 +302,14 @@ namespace SalesManagement_SysDev
             this.maruibuttonSOManaDelete.TabIndex = 246;
             this.maruibuttonSOManaDelete.Text = "非表示";
             this.maruibuttonSOManaDelete.UseVisualStyleBackColor = false;
+            this.maruibuttonSOManaDelete.Click += new System.EventHandler(this.maruibuttonSOManaDelete_Click);
             // 
             // FormSalesOfficeMana
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1924, 1050);
+            this.ClientSize = new System.Drawing.Size(1923, 1050);
             this.Controls.Add(this.maruibuttonSOManaDeleteList);
             this.Controls.Add(this.maruibuttonSOManaDelete);
             this.Controls.Add(this.dataGridViewSOMana);
@@ -319,7 +325,7 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxSOManaAddress);
             this.Controls.Add(this.labelSOManaSOName);
             this.Controls.Add(this.comboBoxSOManaSOID);
-            this.Controls.Add(this.textBoxProSelectOrderID);
+            this.Controls.Add(this.textBoxProSelectOrderName);
             this.Controls.Add(this.labelSOManaSOID);
             this.Controls.Add(this.buttonSOManaReturn);
             this.Controls.Add(this.buttonSOManaSearch);
@@ -345,7 +351,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Button buttonSOManaUpdate;
         private System.Windows.Forms.Button buttonSOManaSearch;
         private System.Windows.Forms.Button buttonSOManaReturn;
-        private System.Windows.Forms.TextBox textBoxProSelectOrderID;
+        private System.Windows.Forms.TextBox textBoxProSelectOrderName;
         private System.Windows.Forms.Label labelSOManaSOID;
         private System.Windows.Forms.ComboBox comboBoxSOManaSOID;
         private System.Windows.Forms.Label labelSOManaSOName;

@@ -867,5 +867,120 @@ namespace SalesManagement_SysDev
             return true;
         }
 
+        public bool SalesOfficeNameInputCheck(string InputText)
+        {
+            //営業所名の空文字チェック
+            if (string.IsNullOrEmpty(InputText))
+            {
+                msg.MsgDsp("M5044");
+                return false;
+            }
+
+            //営業所名の文字数チェック
+            if (InputText.Length > 50)
+            {
+                msg.MsgDsp("M5045");
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+        public bool SalesOfficeAdressInputCheck(string InputText)
+        {
+            //営業所名の空文字チェック
+            if (string.IsNullOrEmpty(InputText))
+            {
+                msg.MsgDsp("M5045");
+                return false;
+            }
+
+            //営業所名の文字数チェック
+            if (InputText.Length > 50)
+            {
+                msg.MsgDsp("M5047");
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+        public bool SalesOfficePhoneInputCheck(string InputText)
+        {
+            //営業所の電話番号の空文字チェック
+            if (string.IsNullOrEmpty(InputText))
+            {
+                msg.MsgDsp("M5048");
+                return false;
+            }
+
+            //営業所名の文字数チェック
+            if (InputText.Length > 13)
+            {
+                msg.MsgDsp("M5049");
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+
+        public bool SalesOfficePostalInputCheck(string InputText)
+        {
+            //営業所の郵便番号の空文字チェック
+            if (string.IsNullOrEmpty(InputText))
+            {
+                msg.MsgDsp("M5050");
+                return false;
+            }
+
+            //営業所名の文字数チェック
+            if (InputText.Length > 7)
+            {
+                msg.MsgDsp("M5051");
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+        public bool SalesOfficeFaxInputCheck(string InputText)
+        {
+            //営業所のFAXの空文字チェック
+            if (string.IsNullOrEmpty(InputText))
+            {
+                msg.MsgDsp("M5052");
+                return false;
+            }
+
+            //営業所のFAXの文字数チェック
+            if (InputText.Length > 13)
+            {
+                msg.MsgDsp("M5053");
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
+        public bool SalesOfficeHiddenInputCheck(string InputText)
+        {
+
+            //営業所非表示理由の文字数チェック
+            if (InputText.Length > 100)
+            {
+                msg.MsgDsp("M5054");
+                return false;
+            }
+
+            //異常なしの場合trueを返す
+            return true;
+        }
+
     }
 }
