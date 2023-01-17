@@ -3608,7 +3608,7 @@ namespace SalesManagement_SysDev
         private void buttonOrOrderConfirm_Click(object sender, EventArgs e)
         {
             //受注IDの入力チェック
-            if (!InputCheck.ClientIDInputCheck(comboBoxOrOrderID.Text))
+            if (!InputCheck.OrderInputCheck(comboBoxOrOrderID.Text))
             {
                 comboBoxOrOrderID.Focus();
                 return;
@@ -5228,7 +5228,7 @@ namespace SalesManagement_SysDev
                     WarehousingDetailList = context.T_WarehousingDetails.ToList();
 
                     //確定完了メッセージの表示
-                    msg.MsgDsp("M1022");
+                    msg.MsgDsp("M9022");
 
                     //データの再表示
                     ListHattyu();

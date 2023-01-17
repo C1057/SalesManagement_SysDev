@@ -232,7 +232,7 @@ namespace SalesManagement_SysDev
             }
 
             //合計金額算出用変数に商品IDに対応する価格を代入する
-            var ProductData = ProductList.Single(ProductList => ProductList.PrID == int.Parse(textBoxProSelectProID.Text));
+            var ProductData = formHome.ProductList.Single(ProductList => ProductList.PrID == int.Parse(textBoxProSelectProID.Text));
             ProductPrice = ProductData.Price;
 
             //合計金額の表示
@@ -416,6 +416,8 @@ namespace SalesManagement_SysDev
                     if (StockData.StQuantity <= ProductData.PrSafetyStock)
                     {
                         StockHattyuList[index] = OrderDetail.PrID;
+
+                        index++;
                     }
                 }
 
