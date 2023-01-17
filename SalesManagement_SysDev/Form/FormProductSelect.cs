@@ -405,10 +405,10 @@ namespace SalesManagement_SysDev
                     context.T_OrderDetails.Add(OrderDetail);
 
                     //選択された商品の在庫データと商品データを抽出
-                    T_Stock StockData = formHome.StockList.Single(Stock => Stock.PrID == OrderDetail.PrID);
+                    T_Stock StockData = context.T_Stocks.Single(Stock => Stock.PrID == OrderDetail.PrID);
                     M_Product ProductData = formHome.ProductList.Single(Product => Product.PrID == OrderDetail.PrID);
                     //在庫数を更新
-                    StockData.StQuantity = StockData.StQuantity - OrderDetail.OrQuantity;
+                    StockData.StQuantity -= OrderDetail.OrQuantity;
 
                     context.SaveChanges();          //登録を確定
 
@@ -436,6 +436,8 @@ namespace SalesManagement_SysDev
                             MaID = product.MaID;            //メーカIDをセット
 
                             context.T_Hattyus.Add(HattyuAddDataSet(MaID));      //発注テーブルにデータをセット
+
+                            context.SaveChanges();      //データベースへの登録を確定
                         }
                         fincnt++;       //index用変数に＋１
                     }
@@ -449,6 +451,8 @@ namespace SalesManagement_SysDev
                             {
                                 context.T_HattyuDetails.Add(HattyuDetailAddSet(product));           //発注詳細テーブルにデータをセット
 
+                                context.SaveChanges();      //データベースへの登録を確定
+
                                 StockHattyuList[i] = 0;         //登録処理の終わったデータの値を0に変える
                             }
                             cnt = cnt + StockHattyuList[i];         //繰り返し終了用変数
@@ -456,7 +460,7 @@ namespace SalesManagement_SysDev
                     }
                     if (cnt != 0)           //データの追加があった場合
                     {
-                        context.SaveChanges();      //データベースへの登録を確定
+                        //context.SaveChanges();      //データベースへの登録を確定
                         formHome.HattyuList = context.T_Hattyus.ToList();       //発注リストの更新
                         formHome.HattyuDetailList = context.T_HattyuDetails.ToList();       //発注詳細リストの更新
                     }

@@ -3469,24 +3469,24 @@ namespace SalesManagement_SysDev
         private bool OrderInputCheck()
         {
             //顧客担当者名の空文字チェック
-            if (!string.IsNullOrEmpty(textBoxOrClientName.Text))
+            if (string.IsNullOrEmpty(textBoxOrClientManager.Text))
             {
                 msg.MsgDsp("M7015");
-                textBoxOrClientName.Focus();
+                textBoxOrClientManager.Focus();
                 return false;
             }
             //顧客担当者名の全角チェック
-            if (!InputCheck.CheckFullWidth(textBoxOrClientName.Text))
+            if (!InputCheck.CheckFullWidth(textBoxOrClientManager.Text))
             {
                 msg.MsgDsp("M7016");
-                textBoxOrClientName.Focus();
+                textBoxOrClientManager.Focus();
                 return false;
             }
             //顧客担当者名の文字数チェック
-            if (textBoxOrClientName.Text.Length > 50)
+            if (textBoxOrClientManager.Text.Length > 50)
             {
                 msg.MsgDsp("M7017");
-                textBoxOrClientName.Focus();
+                textBoxOrClientManager.Focus();
                 return false;
             }
 
@@ -5228,7 +5228,7 @@ namespace SalesManagement_SysDev
                     WarehousingDetailList = context.T_WarehousingDetails.ToList();
 
                     //確定完了メッセージの表示
-                    msg.MsgDsp("M19022");
+                    msg.MsgDsp("M1022");
 
                     //データの再表示
                     ListHattyu();
@@ -5908,7 +5908,7 @@ namespace SalesManagement_SysDev
         private void dataGridViewStock_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //在庫ID
-            comboBoxStStockID.Text = dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[0].ToString();
+            comboBoxStStockID.Text = dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[0].Value.ToString();
             //商品ID,商品名
             comboBoxStProductID.Text = dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[1].Value.ToString();
             int PrID = (int)dataGridViewStock.Rows[dataGridViewStock.CurrentRow.Index].Cells[1].Value;

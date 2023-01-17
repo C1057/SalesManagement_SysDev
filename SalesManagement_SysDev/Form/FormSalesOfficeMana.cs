@@ -170,6 +170,8 @@ namespace SalesManagement_SysDev
 
             dataGridViewSOMana.AllowUserToAddRows = false;       //一番下の新しい行を追加するための行を非表示にする
 
+            SalesOfficeList = SalesOfficeAccess.GetData();
+
              ListSalesOffice();
 
         }
