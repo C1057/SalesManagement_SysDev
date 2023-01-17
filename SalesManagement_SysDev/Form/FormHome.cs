@@ -1118,7 +1118,7 @@ namespace SalesManagement_SysDev
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             ////ログインメソッド
-            //if(LoginAccess.Login(textBoxHomeLoginID.Text, textBoxHomePassword.Text))
+            //if (LoginAccess.Login(textBoxHomeLoginID.Text, textBoxHomePassword.Text))
             //{
             //    int EmID = int.Parse(textBoxHomeLoginID.Text);          //社員ID用変数に代入
             //    M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);      //社員IDと一致する社員データを取得する
@@ -1156,17 +1156,22 @@ namespace SalesManagement_SysDev
             //    labelHomeEmployeeIDNow.Text = EmployeeData.EmID.ToString();
             //    labelHomeHumanNameNow.Text = EmployeeData.EmName;
 
-                //パネルを隠す
-                panelStart.Hide();
+            //    //パネルを隠す
+            //    panelStart.Hide();
 
-                ////ログイン完了メッセージ
-                //MessageBox.Show("ログインに成功しました", "ログイン確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ////ログイン後のタブストッププロパティ変更
-                //textBoxHomeLoginID.TabStop = false;
-                //textBoxHomePassword.TabStop = false;
-                ////ログイン後のログインID、パスワードテキストボックスを使用不可にする
-                //textBoxHomeLoginID.Enabled = false;
-                //textBoxHomePassword.Enabled = false;
+            //    //ログイン完了メッセージ
+            //    MessageBox.Show("ログインに成功しました", "ログイン確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    //ログイン後のタブストッププロパティ変更
+            //    textBoxHomeLoginID.TabStop = false;
+            //    textBoxHomePassword.TabStop = false;
+            //    //ログイン後のログインID、パスワードテキストボックスを使用不可にする
+            //    textBoxHomeLoginID.Enabled = false;
+            //    textBoxHomePassword.Enabled = false;
+
+            //    //ログインボタンを使用不可にする
+            //    buttonLogin.Enabled = false;
+            //    //ログアウトボタンを使用可能にする
+            //    buttonLogout.Enabled = true;
             //}
         }
 
@@ -1527,6 +1532,10 @@ namespace SalesManagement_SysDev
             //ログインID、パスワードのテキストボックスのTabStopプロパティをtrueにする
             textBoxHomeLoginID.TabStop = true;
             textBoxHomePassword.TabStop = true;
+            //ログインボタンを使用可能にする
+            buttonLogin.Enabled = true;
+            //ログアウトボタンを使用不可にする
+            buttonLogout.Enabled = false;
         }
 
         /// <summary>
