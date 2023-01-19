@@ -192,7 +192,7 @@ namespace SalesManagement_SysDev
 
             timer3.Interval = 1;
 
-            //ButtonEnabledChange();      //画面変更ボタンを使用不可にする
+            ButtonEnabledChange();      //画面変更ボタンを使用不可にする
 
             var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
 
@@ -1117,62 +1117,62 @@ namespace SalesManagement_SysDev
         //ログインボタン
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            ////ログインメソッド
-            //if (LoginAccess.Login(textBoxHomeLoginID.Text, textBoxHomePassword.Text))
-            //{
-            //    int EmID = int.Parse(textBoxHomeLoginID.Text);          //社員ID用変数に代入
-            //    M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);      //社員IDと一致する社員データを取得する
-            //    M_Position PositionData = PositionList.Single(Position => Position.PoID == EmployeeData.PoID);      //社員データの役職IDと一致する役職データを取得する
+            //ログインメソッド
+            if (LoginAccess.Login(textBoxHomeLoginID.Text, textBoxHomePassword.Text))
+            {
+                int EmID = int.Parse(textBoxHomeLoginID.Text);          //社員ID用変数に代入
+                M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);      //社員IDと一致する社員データを取得する
+                M_Position PositionData = PositionList.Single(Position => Position.PoID == EmployeeData.PoID);      //社員データの役職IDと一致する役職データを取得する
 
-            //    if (EmployeeData.PoID == 1)             //管理者
-            //    {
-            //        buttonClient.Enabled = true;        //顧客管理画面
-            //        buttonProduct.Enabled = true;       //商品管理画面
-            //        buttonStock.Enabled = true;         //在庫管理画面
-            //        buttonEmployee.Enabled = true;      //社員管理画面
-            //        buttonSale.Enabled = true;          //売上管理画面
-            //    }
-            //    else if (EmployeeData.PoID == 2)        //営業
-            //    {
-            //        buttonStock.Enabled = true;         //在庫管理画面
-            //        buttonSale.Enabled = true;          //売上管理画面
-            //        buttonOrder.Enabled = true;         //受注管理画面
-            //        buttonChumon.Enabled = true;        //注文管理画面
-            //        buttonHattyu.Enabled = true;        //発注管理画面
-            //    }
-            //    else if (EmployeeData.PoID == 3)        //物流
-            //    {
-            //        buttonSale.Enabled = true;          //売上管理画面
-            //        buttonChumon.Enabled = true;        //注文管理画面
-            //        buttonHattyu.Enabled = true;        //発注管理画面
-            //        buttonWareHousing.Enabled = true;   //入庫管理画面
-            //        buttonSyukko.Enabled = true;        //出庫管理画面
-            //        buttonArrival.Enabled = true;       //入荷管理画面
-            //        buttonShipment.Enabled = true;      //出荷管理画面
-            //    }
+                if (EmployeeData.PoID == 1)             //管理者
+                {
+                    buttonClient.Enabled = true;        //顧客管理画面
+                    buttonProduct.Enabled = true;       //商品管理画面
+                    buttonStock.Enabled = true;         //在庫管理画面
+                    buttonEmployee.Enabled = true;      //社員管理画面
+                    buttonSale.Enabled = true;          //売上管理画面
+                }
+                else if (EmployeeData.PoID == 2)        //営業
+                {
+                    buttonStock.Enabled = true;         //在庫管理画面
+                    buttonSale.Enabled = true;          //売上管理画面
+                    buttonOrder.Enabled = true;         //受注管理画面
+                    buttonChumon.Enabled = true;        //注文管理画面
+                    buttonHattyu.Enabled = true;        //発注管理画面
+                }
+                else if (EmployeeData.PoID == 3)        //物流
+                {
+                    buttonSale.Enabled = true;          //売上管理画面
+                    buttonChumon.Enabled = true;        //注文管理画面
+                    buttonHattyu.Enabled = true;        //発注管理画面
+                    buttonWareHousing.Enabled = true;   //入庫管理画面
+                    buttonSyukko.Enabled = true;        //出庫管理画面
+                    buttonArrival.Enabled = true;       //入荷管理画面
+                    buttonShipment.Enabled = true;      //出荷管理画面
+                }
 
-            //    //役職名、社員ID、名前を表示する
-            //    labelHomePositionNameNow.Text = PositionData.PoName;
-            //    labelHomeEmployeeIDNow.Text = EmployeeData.EmID.ToString();
-            //    labelHomeHumanNameNow.Text = EmployeeData.EmName;
+                //役職名、社員ID、名前を表示する
+                labelHomePositionNameNow.Text = PositionData.PoName;
+                labelHomeEmployeeIDNow.Text = EmployeeData.EmID.ToString();
+                labelHomeHumanNameNow.Text = EmployeeData.EmName;
 
-            //    //パネルを隠す
-            //    panelStart.Hide();
+                //パネルを隠す
+                panelStart.Hide();
 
-            //    //ログイン完了メッセージ
-            //    MessageBox.Show("ログインに成功しました", "ログイン確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    //ログイン後のタブストッププロパティ変更
-            //    textBoxHomeLoginID.TabStop = false;
-            //    textBoxHomePassword.TabStop = false;
-            //    //ログイン後のログインID、パスワードテキストボックスを使用不可にする
-            //    textBoxHomeLoginID.Enabled = false;
-            //    textBoxHomePassword.Enabled = false;
+                //ログイン完了メッセージ
+                MessageBox.Show("ログインに成功しました", "ログイン確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //ログイン後のタブストッププロパティ変更
+                textBoxHomeLoginID.TabStop = false;
+                textBoxHomePassword.TabStop = false;
+                //ログイン後のログインID、パスワードテキストボックスを使用不可にする
+                textBoxHomeLoginID.Enabled = false;
+                textBoxHomePassword.Enabled = false;
 
-            //    //ログインボタンを使用不可にする
-            //    buttonLogin.Enabled = false;
-            //    //ログアウトボタンを使用可能にする
-            //    buttonLogout.Enabled = true;
-            //}
+                //ログインボタンを使用不可にする
+                buttonLogin.Enabled = false;
+                //ログアウトボタンを使用可能にする
+                buttonLogout.Enabled = true;
+            }
         }
 
         //出庫管理ボタン
@@ -3043,9 +3043,9 @@ namespace SalesManagement_SysDev
             }
 
             //更新用社員情報をセット
-            M_Employee AddEmployeeData = EmployeeAddDataSet();
+            M_Employee updEmployeeData = EmployeeUpdDataSet();
             //社員情報更新モジュール呼び出し
-            EmployeeAccess.addEmployee(AddEmployeeData);
+            EmployeeAccess.UpdateEmployee(updEmployeeData);
 
             //社員情報一覧表示用データの更新
             EmployeeList = EmployeeAccess.GetData();
