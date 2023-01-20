@@ -612,7 +612,7 @@ namespace SalesManagement_SysDev
         {
             for (int i = 0; i < dataGridViewSmallClass.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
-                if ((bool)dataGridViewSmallClass.Rows[i].Cells[2].Value)                 //1行ずつチェックボックスがチェックされているかを判定する
+                if ((bool)dataGridViewSmallClass.Rows[i].Cells[3].Value)                 //1行ずつチェックボックスがチェックされているかを判定する
                 {
                     SmallClassAccess.DeleteSmallClass((int)dataGridViewSmallClass.Rows[i].Cells[0].Value);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
                 }

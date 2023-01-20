@@ -13,6 +13,8 @@ namespace SalesManagement_SysDev
     public partial class FormPositionMana : Form
     {
 
+
+
         private M_Position PositionAddDataSet ()
         {
             return new M_Position
@@ -218,6 +220,8 @@ namespace SalesManagement_SysDev
 
         private void FormPositionMana_Load(object sender, EventArgs e)
         {
+
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
             /// <summry>
             /// 役職管理画面データグリッドビュー設定          //役職テーブルデータグリッドビュー
             /// </summry>
@@ -259,8 +263,13 @@ namespace SalesManagement_SysDev
 
             ListPosition();
 
+            PositionList = context.M_Positions.ToList();
 
 
+            foreach (var PositionData in PositionList)
+            {
+                comboBoxPositionManaPositionID.Items.Add(PositionData.PoID);
+            }
         }
 
         private void buttonPositionManaSrarch_Click(object sender, EventArgs e)
@@ -354,7 +363,7 @@ namespace SalesManagement_SysDev
 
         private void comboBoxPositionManaPositionID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int PoID = int.Parse(comboBoxPositionManaPositionID.SelectedIndex.ToString());
+            int PoID = int.Parse(comboBoxPositionManaPositionID.SelectedItem.ToString());
             M_Position PositionData = PositionList.Single(Position => Position.PoID == PoID);
             textBoxPositionManaPositionName.Text = PositionData.PoName;
             textBoxPositionManaHidden.Text = PositionData.PoHidden;
