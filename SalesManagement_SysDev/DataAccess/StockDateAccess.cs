@@ -102,11 +102,11 @@ namespace SalesManagement_SysDev
                 context.SaveChanges();                                  //更新を確定
                 context.Dispose();                                      //contextの解放
 
-                msg.MsgDsp("M4011");                                    //更新完了メッセージ
+                msg.MsgDsp("M4012");                                    //更新完了メッセージ
             }
             catch           //例外エラー
             {   
-                msg.MsgDsp("M4012");                                    //更新失敗メッセージ
+                msg.MsgDsp("M4011");                                    //更新失敗メッセージ
             }
         }
 
