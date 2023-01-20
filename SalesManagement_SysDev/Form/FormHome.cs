@@ -155,6 +155,17 @@ namespace SalesManagement_SysDev
             }
         }
 
+        /// <summary>
+        /// 画面変更ボタンを使用可能にする
+        /// </summary>
+        private void ButtonEnabledChangeTrue()
+        {
+            foreach(var Button in buttonList)
+            {
+                Button.Enabled = true;
+            }
+        }
+
         //時間表示機能//
         //時間、分、秒を表示する
         private void timer1_Tick(object sender, EventArgs e)
@@ -1149,6 +1160,10 @@ namespace SalesManagement_SysDev
                     buttonSyukko.Enabled = true;        //出庫管理画面
                     buttonArrival.Enabled = true;       //入荷管理画面
                     buttonShipment.Enabled = true;      //出荷管理画面
+                }
+                else if (EmployeeData.PoID == 4)        //発表用
+                {
+                    ButtonEnabledChangeTrue();          //全画面使用可能
                 }
 
                 //役職名、社員ID、名前を表示する
@@ -5602,7 +5617,7 @@ namespace SalesManagement_SysDev
                     {
                         cControl.Enabled = false;
                     }
-                    if (cControl.Text == "更新" || cControl.Text == "検索")     //更新、検索ボタンの場合
+                    if (cControl.Text == "更新")     //更新、検索ボタンの場合
                     {
                         cControl.Enabled = true;
                     }
@@ -5629,7 +5644,7 @@ namespace SalesManagement_SysDev
                     {
                         cControl.Enabled = true;
                     }
-                    if (cControl.Text == "更新" || cControl.Text == "検索")     //更新、検索ボタンの場合
+                    if (cControl.Text == "更新")     //更新、検索ボタンの場合
                     {
                         cControl.Enabled = false;
                     }
@@ -6140,8 +6155,8 @@ namespace SalesManagement_SysDev
             comboBoxArArrivalID.Text = dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[0].Value.ToString();
             comboBoxArOrderID.Text = dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[4].Value.ToString();
             //営業所ID、営業所名
-            comboBoxArSalesOfficeID.Text = dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[3].Value.ToString();
-            int SoID = (int)dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[3].Value;
+            comboBoxArSalesOfficeID.Text = dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[1].Value.ToString();
+            int SoID = (int)dataGridViewArrivalMain.Rows[dataGridViewArrivalMain.CurrentRow.Index].Cells[1].Value;
             var SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
             textBoxArSalesOfficeName.Text = SalesOfficeData.SoName;
             //社員ID、社員名
