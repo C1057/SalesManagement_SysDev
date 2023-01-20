@@ -6670,5 +6670,11 @@ namespace SalesManagement_SysDev
             M_Employee EmployeeData = EmployeeList.Single(Employee => Employee.EmID == EmID);
             textBoxWrEmployeeName.Text = EmployeeData.EmName;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var login = new F_Login();
+            login.Show();
+        }
     }
 }

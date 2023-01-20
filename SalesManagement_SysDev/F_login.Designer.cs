@@ -30,6 +30,7 @@
         {
             this.btn_CleateDabase = new System.Windows.Forms.Button();
             this.Lbl_tag = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_CleateDabase
@@ -47,15 +48,25 @@
             this.Lbl_tag.AutoSize = true;
             this.Lbl_tag.Location = new System.Drawing.Point(266, 161);
             this.Lbl_tag.Name = "Lbl_tag";
-            this.Lbl_tag.Size = new System.Drawing.Size(224, 12);
+            this.Lbl_tag.Size = new System.Drawing.Size(0, 12);
             this.Lbl_tag.TabIndex = 1;
-            this.Lbl_tag.Text = "このページはログイン画面として作成してください";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(369, 69);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 65);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "戻る";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // F_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.Lbl_tag);
             this.Controls.Add(this.btn_CleateDabase);
             this.Name = "F_Login";
@@ -69,6 +80,7 @@
 
         private System.Windows.Forms.Button btn_CleateDabase;
         private System.Windows.Forms.Label Lbl_tag;
+        private System.Windows.Forms.Button button1;
     }
 }
 

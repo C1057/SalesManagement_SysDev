@@ -462,6 +462,7 @@ namespace SalesManagement_SysDev
             this.buttonControl = new SalesManagement_SysDev.maruibutton();
             this.buttonLogin = new SalesManagement_SysDev.maruibutton();
             this.buttonLogout = new SalesManagement_SysDev.maruibutton();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHattyu.SuspendLayout();
@@ -514,6 +515,7 @@ namespace SalesManagement_SysDev
             // 
             this.panelHeader.BackColor = System.Drawing.Color.RoyalBlue;
             this.panelHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelHeader.Controls.Add(this.button1);
             this.panelHeader.Controls.Add(this.buttonClose);
             this.panelHeader.Controls.Add(this.labelHomeHumanName);
             this.panelHeader.Controls.Add(this.labelHomeEmployeeID);
@@ -5709,6 +5711,16 @@ namespace SalesManagement_SysDev
             this.buttonLogout.UseVisualStyleBackColor = false;
             this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(201, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 23);
+            this.button1.TabIndex = 217;
+            this.button1.Text = "データベース生成画面";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -6234,6 +6246,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelHaEmployeeIDWarning;
         private System.Windows.Forms.Label labelHaHattyuIDWarning;
         private System.Windows.Forms.Label labelWrWarehousingIDWarning;
+        private System.Windows.Forms.Button button1;
     }
 }
 
