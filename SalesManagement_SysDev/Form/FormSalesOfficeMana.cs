@@ -31,7 +31,7 @@ namespace SalesManagement_SysDev
         {
             return new M_SalesOffice
             {
-                SoName = textBoxProSelectOrderName.Text.Trim(),
+                SoName = textBoxSoSalesOfficeName.Text.Trim(),
                 SoAddress = textBoxSOManaAddress.Text.Trim(),
                 SoPhone =textBoxSOManaPhone.Text.Trim(),
                 SoPostal=textBoxSOManaPostal.Text.Trim(),
@@ -60,7 +60,7 @@ namespace SalesManagement_SysDev
             return new M_SalesOffice
             {
                 SoID = int.Parse(comboBoxSOManaSOID.Text),
-                SoName = textBoxProSelectOrderName.Text.Trim(),
+                SoName = textBoxSoSalesOfficeName.Text.Trim(),
                 SoAddress = textBoxSOManaAddress.Text.Trim(),
                 SoPhone = textBoxSOManaPhone.Text.Trim(),
                 SoPostal = textBoxSOManaPostal.Text.Trim(),
@@ -76,17 +76,17 @@ namespace SalesManagement_SysDev
         /// <returns></returns>
         private bool SaesOfficeInputCheck()
         {
-            if (string.IsNullOrEmpty(textBoxProSelectOrderName.Text))//営業所名の空文字チェック
+            if (string.IsNullOrEmpty(textBoxSoSalesOfficeName.Text))//営業所名の空文字チェック
             {
                 msg.MsgDsp("M5031");
-                textBoxProSelectOrderName.Focus();
+                textBoxSoSalesOfficeName.Focus();
                 return false;
             }
 
-            if (textBoxProSelectOrderName.Text.Length > 50)//役職名の文字数チェック
+            if (textBoxSoSalesOfficeName.Text.Length > 50)//役職名の文字数チェック
             {
                 msg.MsgDsp("M5032");
-                textBoxProSelectOrderName.Focus();
+                textBoxSoSalesOfficeName.Focus();
                 return false;
             }
 
@@ -174,14 +174,19 @@ namespace SalesManagement_SysDev
 
              ListSalesOffice();
 
+            foreach(var SoData in SalesOfficeList)
+            {
+                comboBoxSOManaSOID.Items.Add(SoData.SoID);
+            }
+
         }
 
         private void buttonSOManaAdd_Click(object sender, EventArgs e)
         {
             //営業所名の入力チェック
-            if (!InputCheck.SalesOfficeNameInputCheck(textBoxProSelectOrderName.Text))
+            if (!InputCheck.SalesOfficeNameInputCheck(textBoxSoSalesOfficeName.Text))
             {
-                textBoxProSelectOrderName.Focus();
+                textBoxSoSalesOfficeName.Focus();
                 return;
             }
 
@@ -240,9 +245,9 @@ namespace SalesManagement_SysDev
                 return;
             }
             //営業所名の入力チェック
-            if (!InputCheck.SalesOfficeNameInputCheck(textBoxProSelectOrderName.Text))
+            if (!InputCheck.SalesOfficeNameInputCheck(textBoxSoSalesOfficeName.Text))
             {
-                textBoxProSelectOrderName.Focus();
+                textBoxSoSalesOfficeName.Focus();
                 return;
             }
             //営業所の住所の入力チェック
@@ -319,6 +324,59 @@ namespace SalesManagement_SysDev
             DeleteListSOMana();
         }
 
-        
+        /// <summary>
+        /// データグリッドビューセルクリックイベント
+        /// </summary>
+        private void dataGridViewSOMana_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //営業所ID、営業所名
+            comboBoxSOManaSOID.Text = dataGridViewSOMana.Rows[dataGridViewSOMana.CurrentRow.Index].Cells[0].Value.ToString();
+            textBoxSoSalesOfficeName.Text = dataGridViewSOMana.Rows[dataGridViewSOMana.CurrentRow.Index].Cells[1].Value.ToString();
+            //住所
+            textBoxSOManaAddress.Text = dataGridViewSOMana.Rows[dataGridViewSOMana.CurrentRow.Index].Cells[2].Value.ToString();
+            //電話番号
+            textBoxSOManaPhone.Text = dataGridViewSOMana.Rows[dataGridViewSOMana.CurrentRow.Index].Cells[3].Value.ToString();
+            //郵便番号
+            textBoxSOManaPostal.Text = dataGridViewSOMana.Rows[dataGridViewSOMana.CurrentRow.Index].Cells[4].Value.ToString();
+            //FAX
+            textBoxSOManaFAX.Text = dataGridViewSOMana.Rows[dataGridViewSOMana.CurrentRow.Index].Cells[5].Value.ToString();
+            //非表示理由
+            textBoxSOManaHidden.Text = (string)dataGridViewSOMana.Rows[dataGridViewSOMana.CurrentRow.Index].Cells[7].Value;
+        }
+
+        private void comboBoxSOManaSOID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int SoID = int.Parse(comboBoxSOManaSOID.SelectedItem.ToString());
+            M_SalesOffice SalesOfficeData = SalesOfficeList.Single(SalesOffice => SalesOffice.SoID == SoID);
+            textBoxSoSalesOfficeName.Text = SalesOfficeData.SoName;
+        }
+
+        /// <summary>
+        /// クリアボタン
+        /// </summary>
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            ClearText(this);
+        }
+
+        //全てのテキストボックスとコンボボックスの入力をクリアする
+        private static void ClearText(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    ClearText(cControl);
+                }
+
+                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+                if (cControl is TextBoxBase || cControl is ComboBox)
+                {
+                    cControl.Text = string.Empty;
+                }
+            }
+        }
     }
 }

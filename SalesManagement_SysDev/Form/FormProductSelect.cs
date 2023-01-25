@@ -81,6 +81,8 @@ namespace SalesManagement_SysDev
             //フォームのコントロールボックスの表示、非表示を切り替える
             //コントロールボックスを非表示にすると最大化、最小化、閉じるボタンも消える
             this.ControlBox = !this.ControlBox;
+            //数量に下限を設定
+            numericUpDownProSelectQuantity.Minimum = 1;
         }
 
         /// <summary>
@@ -182,6 +184,18 @@ namespace SalesManagement_SysDev
             {
                 return;
             }
+            //在庫が0の場合
+            if (numericUpDownProSelectQuantity.Value == 0)
+            {
+                MessageBox.Show("選択された商品は現在在庫がありません", "追加確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //数量が在庫数を超えている場合
+            if (int.Parse(numericUpDownProSelectQuantity.Text) > int.Parse(labelStockNow.Text))
+            {
+                MessageBox.Show("数量が現在個数を超えています", "追加確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             //追加確認メッセージ
             if (DialogResult.Cancel == msg.MsgDsp("M7020"))
@@ -192,7 +206,7 @@ namespace SalesManagement_SysDev
             //合計金額の計算
             var ProductData = ProductList.Single(Product => Product.PrID == int.Parse(textBoxProSelectProID.Text));
             //int TotalPrice = int.Parse(labelProSelectTotalMoney.Text.ToString());
-            int TotalPrice = ProductData.Price * int.Parse(numericUpDownProSelectQuantity.Value.ToString());
+            int TotalPrice = ProductData.Price * int.Parse(numericUpDownProSelectQuantity.Text);
 
             //データグリッドビューにデータをセット
             dataGridViewProSelect.Rows.Add(OrderDetailID, formHome.OrderID, textBoxProSelectProID.Text,
@@ -457,7 +471,7 @@ namespace SalesManagement_SysDev
 
                                 StockHattyuList[i] = 0;         //登録処理の終わったデータの値を0に変える
                             }
-                            cnt = cnt + StockHattyuList[i];         //繰り返し終了用変数
+                            cnt = 1;         //繰り返し終了用変数
                         }
                     }
                     if (cnt != 0)           //データの追加があった場合
@@ -647,6 +661,21 @@ namespace SalesManagement_SysDev
             string PrName = comboBoxProSelectProductName.Text;
             M_Product ProductData = formHome.ProductList.Single(Product => Product.PrName == PrName);
             textBoxProSelectProID.Text = ProductData.PrID.ToString();
+
+            T_Stock StockData = formHome.StockList.Single(Stock => Stock.PrID == ProductData.PrID);
+            labelStockNow.Text = StockData.StQuantity.ToString();
+
+            //数量の上限を設定
+            numericUpDownProSelectQuantity.Maximum = StockData.StQuantity;
+            //数量が現在庫を超えている場合に上限と合わせる
+            if (numericUpDownProSelectQuantity.Value > StockData.StQuantity)
+            {
+                numericUpDownProSelectQuantity.Value = StockData.StQuantity;
+            }
+        }
+
+        private void numericUpDownProSelectQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
         }
     }
 }

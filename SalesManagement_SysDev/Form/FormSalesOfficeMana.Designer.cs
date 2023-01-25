@@ -35,7 +35,7 @@ namespace SalesManagement_SysDev
             this.buttonSOManaUpdate = new System.Windows.Forms.Button();
             this.buttonSOManaSearch = new System.Windows.Forms.Button();
             this.buttonSOManaReturn = new System.Windows.Forms.Button();
-            this.textBoxProSelectOrderName = new System.Windows.Forms.TextBox();
+            this.textBoxSoSalesOfficeName = new System.Windows.Forms.TextBox();
             this.labelSOManaSOID = new System.Windows.Forms.Label();
             this.comboBoxSOManaSOID = new System.Windows.Forms.ComboBox();
             this.labelSOManaSOName = new System.Windows.Forms.Label();
@@ -52,26 +52,28 @@ namespace SalesManagement_SysDev
             this.dataGridViewSOMana = new System.Windows.Forms.DataGridView();
             this.maruibuttonSOManaDeleteList = new SalesManagement_SysDev.maruibutton();
             this.maruibuttonSOManaDelete = new SalesManagement_SysDev.maruibutton();
+            this.buttonClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSOMana)).BeginInit();
             this.SuspendLayout();
             // 
             // labelSOManaTitle
             // 
             this.labelSOManaTitle.Font = new System.Drawing.Font("Meiryo UI", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSOManaTitle.Location = new System.Drawing.Point(713, 39);
+            this.labelSOManaTitle.Location = new System.Drawing.Point(428, 26);
+            this.labelSOManaTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSOManaTitle.Name = "labelSOManaTitle";
-            this.labelSOManaTitle.Size = new System.Drawing.Size(605, 134);
+            this.labelSOManaTitle.Size = new System.Drawing.Size(363, 89);
             this.labelSOManaTitle.TabIndex = 0;
             this.labelSOManaTitle.Text = "営業所管理";
             // 
             // buttonSOManaList
             // 
-            this.buttonSOManaList.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonSOManaList.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSOManaList.Location = new System.Drawing.Point(1045, 200);
-            this.buttonSOManaList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSOManaList.BackColor = System.Drawing.Color.White;
+            this.buttonSOManaList.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonSOManaList.Location = new System.Drawing.Point(699, 133);
+            this.buttonSOManaList.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSOManaList.Name = "buttonSOManaList";
-            this.buttonSOManaList.Size = new System.Drawing.Size(273, 111);
+            this.buttonSOManaList.Size = new System.Drawing.Size(200, 70);
             this.buttonSOManaList.TabIndex = 218;
             this.buttonSOManaList.Text = "一覧表示";
             this.buttonSOManaList.UseVisualStyleBackColor = false;
@@ -79,12 +81,12 @@ namespace SalesManagement_SysDev
             // 
             // buttonSOManaAdd
             // 
-            this.buttonSOManaAdd.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonSOManaAdd.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSOManaAdd.Location = new System.Drawing.Point(63, 200);
-            this.buttonSOManaAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSOManaAdd.BackColor = System.Drawing.Color.White;
+            this.buttonSOManaAdd.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonSOManaAdd.Location = new System.Drawing.Point(38, 133);
+            this.buttonSOManaAdd.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSOManaAdd.Name = "buttonSOManaAdd";
-            this.buttonSOManaAdd.Size = new System.Drawing.Size(273, 111);
+            this.buttonSOManaAdd.Size = new System.Drawing.Size(200, 70);
             this.buttonSOManaAdd.TabIndex = 217;
             this.buttonSOManaAdd.Text = "登録";
             this.buttonSOManaAdd.UseVisualStyleBackColor = false;
@@ -92,12 +94,12 @@ namespace SalesManagement_SysDev
             // 
             // buttonSOManaUpdate
             // 
-            this.buttonSOManaUpdate.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonSOManaUpdate.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSOManaUpdate.Location = new System.Drawing.Point(383, 200);
-            this.buttonSOManaUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSOManaUpdate.BackColor = System.Drawing.Color.White;
+            this.buttonSOManaUpdate.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonSOManaUpdate.Location = new System.Drawing.Point(260, 133);
+            this.buttonSOManaUpdate.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSOManaUpdate.Name = "buttonSOManaUpdate";
-            this.buttonSOManaUpdate.Size = new System.Drawing.Size(273, 111);
+            this.buttonSOManaUpdate.Size = new System.Drawing.Size(200, 70);
             this.buttonSOManaUpdate.TabIndex = 216;
             this.buttonSOManaUpdate.Text = "更新";
             this.buttonSOManaUpdate.UseVisualStyleBackColor = false;
@@ -105,12 +107,12 @@ namespace SalesManagement_SysDev
             // 
             // buttonSOManaSearch
             // 
-            this.buttonSOManaSearch.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonSOManaSearch.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSOManaSearch.Location = new System.Drawing.Point(712, 200);
-            this.buttonSOManaSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSOManaSearch.BackColor = System.Drawing.Color.White;
+            this.buttonSOManaSearch.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonSOManaSearch.Location = new System.Drawing.Point(480, 133);
+            this.buttonSOManaSearch.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSOManaSearch.Name = "buttonSOManaSearch";
-            this.buttonSOManaSearch.Size = new System.Drawing.Size(273, 111);
+            this.buttonSOManaSearch.Size = new System.Drawing.Size(200, 70);
             this.buttonSOManaSearch.TabIndex = 219;
             this.buttonSOManaSearch.Text = "検索";
             this.buttonSOManaSearch.UseVisualStyleBackColor = false;
@@ -120,32 +122,32 @@ namespace SalesManagement_SysDev
             // 
             this.buttonSOManaReturn.BackColor = System.Drawing.Color.MediumSpringGreen;
             this.buttonSOManaReturn.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonSOManaReturn.Location = new System.Drawing.Point(1742, 39);
-            this.buttonSOManaReturn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSOManaReturn.Location = new System.Drawing.Point(1128, 26);
+            this.buttonSOManaReturn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.buttonSOManaReturn.Name = "buttonSOManaReturn";
-            this.buttonSOManaReturn.Size = new System.Drawing.Size(280, 108);
+            this.buttonSOManaReturn.Size = new System.Drawing.Size(168, 72);
             this.buttonSOManaReturn.TabIndex = 230;
             this.buttonSOManaReturn.Text = "戻る";
             this.buttonSOManaReturn.UseVisualStyleBackColor = false;
             this.buttonSOManaReturn.Click += new System.EventHandler(this.buttonSOManaReturn_Click);
             // 
-            // textBoxProSelectOrderName
+            // textBoxSoSalesOfficeName
             // 
-            this.textBoxProSelectOrderName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxProSelectOrderName.Location = new System.Drawing.Point(837, 352);
-            this.textBoxProSelectOrderName.Multiline = true;
-            this.textBoxProSelectOrderName.Name = "textBoxProSelectOrderName";
-            this.textBoxProSelectOrderName.Size = new System.Drawing.Size(314, 54);
-            this.textBoxProSelectOrderName.TabIndex = 232;
-            this.textBoxProSelectOrderName.TextChanged += new System.EventHandler(this.textBoxProSelectOrderID_TextChanged);
+            this.textBoxSoSalesOfficeName.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.textBoxSoSalesOfficeName.Location = new System.Drawing.Point(417, 237);
+            this.textBoxSoSalesOfficeName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxSoSalesOfficeName.Multiline = true;
+            this.textBoxSoSalesOfficeName.Name = "textBoxSoSalesOfficeName";
+            this.textBoxSoSalesOfficeName.Size = new System.Drawing.Size(275, 37);
+            this.textBoxSoSalesOfficeName.TabIndex = 232;
+            this.textBoxSoSalesOfficeName.TextChanged += new System.EventHandler(this.textBoxProSelectOrderID_TextChanged);
             // 
             // labelSOManaSOID
             // 
             this.labelSOManaSOID.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSOManaSOID.Location = new System.Drawing.Point(55, 352);
-            this.labelSOManaSOID.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelSOManaSOID.Location = new System.Drawing.Point(33, 235);
             this.labelSOManaSOID.Name = "labelSOManaSOID";
-            this.labelSOManaSOID.Size = new System.Drawing.Size(193, 50);
+            this.labelSOManaSOID.Size = new System.Drawing.Size(116, 33);
             this.labelSOManaSOID.TabIndex = 231;
             this.labelSOManaSOID.Text = "営業所ID";
             // 
@@ -154,125 +156,128 @@ namespace SalesManagement_SysDev
             this.comboBoxSOManaSOID.Font = new System.Drawing.Font("Meiryo UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.comboBoxSOManaSOID.FormattingEnabled = true;
             this.comboBoxSOManaSOID.ItemHeight = 24;
-            this.comboBoxSOManaSOID.Location = new System.Drawing.Point(245, 358);
+            this.comboBoxSOManaSOID.Location = new System.Drawing.Point(147, 239);
+            this.comboBoxSOManaSOID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxSOManaSOID.Name = "comboBoxSOManaSOID";
-            this.comboBoxSOManaSOID.Size = new System.Drawing.Size(352, 32);
+            this.comboBoxSOManaSOID.Size = new System.Drawing.Size(136, 32);
             this.comboBoxSOManaSOID.TabIndex = 233;
+            this.comboBoxSOManaSOID.SelectedIndexChanged += new System.EventHandler(this.comboBoxSOManaSOID_SelectedIndexChanged);
             // 
             // labelSOManaSOName
             // 
             this.labelSOManaSOName.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSOManaSOName.Location = new System.Drawing.Point(637, 356);
-            this.labelSOManaSOName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelSOManaSOName.Location = new System.Drawing.Point(297, 239);
             this.labelSOManaSOName.Name = "labelSOManaSOName";
-            this.labelSOManaSOName.Size = new System.Drawing.Size(192, 50);
+            this.labelSOManaSOName.Size = new System.Drawing.Size(115, 33);
             this.labelSOManaSOName.TabIndex = 234;
             this.labelSOManaSOName.Text = "営業所名";
             // 
             // labelSOManaAddress
             // 
             this.labelSOManaAddress.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSOManaAddress.Location = new System.Drawing.Point(55, 430);
-            this.labelSOManaAddress.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelSOManaAddress.Location = new System.Drawing.Point(33, 287);
             this.labelSOManaAddress.Name = "labelSOManaAddress";
-            this.labelSOManaAddress.Size = new System.Drawing.Size(170, 50);
+            this.labelSOManaAddress.Size = new System.Drawing.Size(102, 33);
             this.labelSOManaAddress.TabIndex = 236;
             this.labelSOManaAddress.Text = "住所";
             // 
             // textBoxSOManaAddress
             // 
             this.textBoxSOManaAddress.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSOManaAddress.Location = new System.Drawing.Point(245, 430);
+            this.textBoxSOManaAddress.Location = new System.Drawing.Point(147, 287);
+            this.textBoxSOManaAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSOManaAddress.Multiline = true;
             this.textBoxSOManaAddress.Name = "textBoxSOManaAddress";
-            this.textBoxSOManaAddress.Size = new System.Drawing.Size(906, 54);
+            this.textBoxSOManaAddress.Size = new System.Drawing.Size(545, 37);
             this.textBoxSOManaAddress.TabIndex = 235;
             // 
             // labelSOManaPhone
             // 
             this.labelSOManaPhone.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSOManaPhone.Location = new System.Drawing.Point(55, 512);
-            this.labelSOManaPhone.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelSOManaPhone.Location = new System.Drawing.Point(33, 341);
             this.labelSOManaPhone.Name = "labelSOManaPhone";
-            this.labelSOManaPhone.Size = new System.Drawing.Size(182, 50);
+            this.labelSOManaPhone.Size = new System.Drawing.Size(109, 33);
             this.labelSOManaPhone.TabIndex = 238;
             this.labelSOManaPhone.Text = "電話番号";
             // 
             // textBoxSOManaPhone
             // 
             this.textBoxSOManaPhone.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSOManaPhone.Location = new System.Drawing.Point(245, 507);
+            this.textBoxSOManaPhone.Location = new System.Drawing.Point(147, 338);
+            this.textBoxSOManaPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSOManaPhone.Multiline = true;
             this.textBoxSOManaPhone.Name = "textBoxSOManaPhone";
-            this.textBoxSOManaPhone.Size = new System.Drawing.Size(352, 54);
+            this.textBoxSOManaPhone.Size = new System.Drawing.Size(213, 37);
             this.textBoxSOManaPhone.TabIndex = 237;
             // 
             // labelSOManaPostal
             // 
             this.labelSOManaPostal.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSOManaPostal.Location = new System.Drawing.Point(637, 513);
-            this.labelSOManaPostal.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelSOManaPostal.Location = new System.Drawing.Point(382, 342);
             this.labelSOManaPostal.Name = "labelSOManaPostal";
-            this.labelSOManaPostal.Size = new System.Drawing.Size(192, 50);
+            this.labelSOManaPostal.Size = new System.Drawing.Size(115, 33);
             this.labelSOManaPostal.TabIndex = 240;
             this.labelSOManaPostal.Text = "郵便番号";
             // 
             // textBoxSOManaPostal
             // 
             this.textBoxSOManaPostal.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSOManaPostal.Location = new System.Drawing.Point(837, 512);
+            this.textBoxSOManaPostal.Location = new System.Drawing.Point(502, 341);
+            this.textBoxSOManaPostal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSOManaPostal.Multiline = true;
             this.textBoxSOManaPostal.Name = "textBoxSOManaPostal";
-            this.textBoxSOManaPostal.Size = new System.Drawing.Size(314, 54);
+            this.textBoxSOManaPostal.Size = new System.Drawing.Size(190, 37);
             this.textBoxSOManaPostal.TabIndex = 239;
             // 
             // labelSOManaFAX
             // 
             this.labelSOManaFAX.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSOManaFAX.Location = new System.Drawing.Point(55, 591);
-            this.labelSOManaFAX.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelSOManaFAX.Location = new System.Drawing.Point(33, 394);
             this.labelSOManaFAX.Name = "labelSOManaFAX";
-            this.labelSOManaFAX.Size = new System.Drawing.Size(170, 50);
+            this.labelSOManaFAX.Size = new System.Drawing.Size(102, 33);
             this.labelSOManaFAX.TabIndex = 242;
             this.labelSOManaFAX.Text = "FAX";
             // 
             // textBoxSOManaFAX
             // 
             this.textBoxSOManaFAX.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSOManaFAX.Location = new System.Drawing.Point(245, 591);
+            this.textBoxSOManaFAX.Location = new System.Drawing.Point(147, 394);
+            this.textBoxSOManaFAX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSOManaFAX.Multiline = true;
             this.textBoxSOManaFAX.Name = "textBoxSOManaFAX";
-            this.textBoxSOManaFAX.Size = new System.Drawing.Size(352, 54);
+            this.textBoxSOManaFAX.Size = new System.Drawing.Size(213, 37);
             this.textBoxSOManaFAX.TabIndex = 241;
             // 
             // labelSOManaHIdden
             // 
             this.labelSOManaHIdden.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelSOManaHIdden.Location = new System.Drawing.Point(1217, 477);
-            this.labelSOManaHIdden.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.labelSOManaHIdden.Location = new System.Drawing.Point(730, 343);
             this.labelSOManaHIdden.Name = "labelSOManaHIdden";
-            this.labelSOManaHIdden.Size = new System.Drawing.Size(230, 50);
+            this.labelSOManaHIdden.Size = new System.Drawing.Size(138, 33);
             this.labelSOManaHIdden.TabIndex = 244;
             this.labelSOManaHIdden.Text = "非表示理由";
             // 
             // textBoxSOManaHidden
             // 
             this.textBoxSOManaHidden.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.textBoxSOManaHidden.Location = new System.Drawing.Point(1455, 351);
+            this.textBoxSOManaHidden.Location = new System.Drawing.Point(873, 259);
+            this.textBoxSOManaHidden.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSOManaHidden.Multiline = true;
             this.textBoxSOManaHidden.Name = "textBoxSOManaHidden";
-            this.textBoxSOManaHidden.Size = new System.Drawing.Size(564, 288);
+            this.textBoxSOManaHidden.Size = new System.Drawing.Size(340, 193);
             this.textBoxSOManaHidden.TabIndex = 243;
             // 
             // dataGridViewSOMana
             // 
             this.dataGridViewSOMana.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSOMana.Location = new System.Drawing.Point(48, 710);
+            this.dataGridViewSOMana.Location = new System.Drawing.Point(29, 473);
+            this.dataGridViewSOMana.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewSOMana.Name = "dataGridViewSOMana";
             this.dataGridViewSOMana.RowHeadersWidth = 62;
             this.dataGridViewSOMana.RowTemplate.Height = 27;
-            this.dataGridViewSOMana.Size = new System.Drawing.Size(2010, 406);
+            this.dataGridViewSOMana.Size = new System.Drawing.Size(1206, 298);
             this.dataGridViewSOMana.TabIndex = 245;
+            this.dataGridViewSOMana.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSOMana_CellClick);
             // 
             // maruibuttonSOManaDeleteList
             // 
@@ -280,10 +285,9 @@ namespace SalesManagement_SysDev
             this.maruibuttonSOManaDeleteList.FlatAppearance.BorderSize = 0;
             this.maruibuttonSOManaDeleteList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibuttonSOManaDeleteList.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibuttonSOManaDeleteList.Location = new System.Drawing.Point(1713, 178);
-            this.maruibuttonSOManaDeleteList.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.maruibuttonSOManaDeleteList.Location = new System.Drawing.Point(1142, 122);
             this.maruibuttonSOManaDeleteList.Name = "maruibuttonSOManaDeleteList";
-            this.maruibuttonSOManaDeleteList.Size = new System.Drawing.Size(233, 160);
+            this.maruibuttonSOManaDeleteList.Size = new System.Drawing.Size(172, 111);
             this.maruibuttonSOManaDeleteList.TabIndex = 247;
             this.maruibuttonSOManaDeleteList.Text = "非表示リスト";
             this.maruibuttonSOManaDeleteList.UseVisualStyleBackColor = false;
@@ -295,21 +299,35 @@ namespace SalesManagement_SysDev
             this.maruibuttonSOManaDelete.FlatAppearance.BorderSize = 0;
             this.maruibuttonSOManaDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.maruibuttonSOManaDelete.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.maruibuttonSOManaDelete.Location = new System.Drawing.Point(1455, 178);
-            this.maruibuttonSOManaDelete.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.maruibuttonSOManaDelete.Location = new System.Drawing.Point(952, 121);
             this.maruibuttonSOManaDelete.Name = "maruibuttonSOManaDelete";
-            this.maruibuttonSOManaDelete.Size = new System.Drawing.Size(233, 160);
+            this.maruibuttonSOManaDelete.Size = new System.Drawing.Size(172, 111);
             this.maruibuttonSOManaDelete.TabIndex = 246;
             this.maruibuttonSOManaDelete.Text = "非表示";
             this.maruibuttonSOManaDelete.UseVisualStyleBackColor = false;
             this.maruibuttonSOManaDelete.Click += new System.EventHandler(this.maruibuttonSOManaDelete_Click);
             // 
+            // buttonClear
+            // 
+            this.buttonClear.BackColor = System.Drawing.Color.Aqua;
+            this.buttonClear.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonClear.Location = new System.Drawing.Point(952, 51);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(114, 47);
+            this.buttonClear.TabIndex = 248;
+            this.buttonClear.TabStop = false;
+            this.buttonClear.Text = "クリア";
+            this.buttonClear.UseVisualStyleBackColor = false;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // FormSalesOfficeMana
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1923, 1050);
+            this.ClientSize = new System.Drawing.Size(1357, 794);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.maruibuttonSOManaDeleteList);
             this.Controls.Add(this.maruibuttonSOManaDelete);
             this.Controls.Add(this.dataGridViewSOMana);
@@ -325,7 +343,7 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxSOManaAddress);
             this.Controls.Add(this.labelSOManaSOName);
             this.Controls.Add(this.comboBoxSOManaSOID);
-            this.Controls.Add(this.textBoxProSelectOrderName);
+            this.Controls.Add(this.textBoxSoSalesOfficeName);
             this.Controls.Add(this.labelSOManaSOID);
             this.Controls.Add(this.buttonSOManaReturn);
             this.Controls.Add(this.buttonSOManaSearch);
@@ -333,7 +351,6 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.buttonSOManaAdd);
             this.Controls.Add(this.buttonSOManaUpdate);
             this.Controls.Add(this.labelSOManaTitle);
-            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "FormSalesOfficeMana";
             this.Text = "FormSalesOfficeMana";
             this.Load += new System.EventHandler(this.FormSalesOffice_Load);
@@ -351,7 +368,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Button buttonSOManaUpdate;
         private System.Windows.Forms.Button buttonSOManaSearch;
         private System.Windows.Forms.Button buttonSOManaReturn;
-        private System.Windows.Forms.TextBox textBoxProSelectOrderName;
+        private System.Windows.Forms.TextBox textBoxSoSalesOfficeName;
         private System.Windows.Forms.Label labelSOManaSOID;
         private System.Windows.Forms.ComboBox comboBoxSOManaSOID;
         private System.Windows.Forms.Label labelSOManaSOName;
@@ -368,5 +385,6 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.DataGridView dataGridViewSOMana;
         private maruibutton maruibuttonSOManaDeleteList;
         private maruibutton maruibuttonSOManaDelete;
+        private System.Windows.Forms.Button buttonClear;
     }
 }

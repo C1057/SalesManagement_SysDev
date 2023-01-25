@@ -29,5 +29,12 @@ namespace SalesManagement_SysDev
         {
             formhome.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var FormOp = new FormOpening();
+
+            FormOp.Show();
+        }
     }
 }

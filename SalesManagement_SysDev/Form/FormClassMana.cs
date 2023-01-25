@@ -270,11 +270,6 @@ namespace SalesManagement_SysDev
 
             var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
 
-
-
-
-
-
             /// <summry>
             /// 大分類管理画面データグリッドビュー設定          //役職テーブルデータグリッドビュー
             /// </summry>
@@ -290,7 +285,7 @@ namespace SalesManagement_SysDev
 
             var ColumnSize = new int[]                          //各列のWidthを設定
             {
-                    281,481,281,542
+                    200,350,200,385
             };
 
             var columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
@@ -331,7 +326,7 @@ namespace SalesManagement_SysDev
 
             ColumnSize = new int[]                          //各列のWidthを設定
             {
-                    141,140,481,281,542
+                    150,150,350,150,335
             };
 
             columnCellType = new DataGridViewCell[]         //各列のセルタイプを設定
@@ -371,6 +366,7 @@ namespace SalesManagement_SysDev
             {
                 comboBoxCsManaMajorClassID.Items.Add(MajorClassData.McID);
             }
+
 
         }
 
@@ -689,6 +685,31 @@ namespace SalesManagement_SysDev
             int McID = int.Parse(comboBoxCsManaSmallMajorClassID.SelectedItem.ToString());
             M_MajorClassification MajorClassData = MajorClassList.Single(MajorClass => MajorClass.McID == McID);
             textBoxCsManaSmallMajorClassName.Text = MajorClassData.McName;
+
+            comboBoxCsManaSmallClassID.Items.Clear();
+            List<M_SmallClassification> SmallClassData = SmallClassList.Where(SmallClass => SmallClass.McID == McID).ToList();
+            foreach(var ScData in SmallClassData)
+            {
+                comboBoxCsManaSmallClassID.Items.Add(ScData.ScID);
+            }
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            ClearText(this);
+        }
+
+        private void comboBoxCsManaSmallMajorClassID_TextChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCsManaMajorClassID.Text == "")
+            {
+                comboBoxCsManaSmallClassID.Items.Clear();
+                //小分類IDコンボボックスにデータを追加
+                foreach (var SmallClassData in SmallClassList)
+                {
+                    comboBoxCsManaSmallClassID.Items.Add(SmallClassData.ScID);
+                }
+            }
         }
     }
 }

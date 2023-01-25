@@ -34,6 +34,8 @@ namespace SalesManagement_SysDev
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.maruibutton1 = new SalesManagement_SysDev.maruibutton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,12 +68,33 @@ namespace SalesManagement_SysDev
             this.maruibutton1.UseVisualStyleBackColor = true;
             this.maruibutton1.Click += new System.EventHandler(this.maruibutton1_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(788, 592);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 23);
+            this.button1.TabIndex = 218;
+            this.button1.Text = "データベース生成画面";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(786, 577);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 12);
+            this.label1.TabIndex = 219;
+            this.label1.Text = "MF用データベース生成ページ";
+            // 
             // FormOpening
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(928, 616);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.maruibutton1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "FormOpening";
@@ -79,6 +102,7 @@ namespace SalesManagement_SysDev
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -87,5 +111,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private maruibutton maruibutton1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -368,6 +368,14 @@ namespace SalesManagement_SysDev
             textBoxPositionManaPositionName.Text = PositionData.PoName;
             textBoxPositionManaHidden.Text = PositionData.PoHidden;
         }
+
+        /// <summary>
+        /// クリアボタン
+        /// </summary>
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            ClearText(this);
+        }
     }
 }
 

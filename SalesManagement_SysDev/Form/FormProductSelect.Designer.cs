@@ -59,14 +59,16 @@ namespace SalesManagement_SysDev
             this.labelPrSelectMajorName = new System.Windows.Forms.Label();
             this.textBoxPrSelectSmallName = new System.Windows.Forms.TextBox();
             this.labelPrSelectSmallname = new System.Windows.Forms.Label();
+            this.labelStockNow = new System.Windows.Forms.Label();
+            this.labelStockNowTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProSelectQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProSelect)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonProSelectUpdate
             // 
-            this.buttonProSelectUpdate.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonProSelectUpdate.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonProSelectUpdate.BackColor = System.Drawing.Color.White;
+            this.buttonProSelectUpdate.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonProSelectUpdate.Location = new System.Drawing.Point(215, 118);
             this.buttonProSelectUpdate.Margin = new System.Windows.Forms.Padding(1);
             this.buttonProSelectUpdate.Name = "buttonProSelectUpdate";
@@ -92,8 +94,8 @@ namespace SalesManagement_SysDev
             // 
             // buttonProSelectAdd
             // 
-            this.buttonProSelectAdd.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonProSelectAdd.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonProSelectAdd.BackColor = System.Drawing.Color.White;
+            this.buttonProSelectAdd.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonProSelectAdd.Location = new System.Drawing.Point(22, 118);
             this.buttonProSelectAdd.Margin = new System.Windows.Forms.Padding(1);
             this.buttonProSelectAdd.Name = "buttonProSelectAdd";
@@ -105,8 +107,8 @@ namespace SalesManagement_SysDev
             // 
             // buttonProSelectDelete
             // 
-            this.buttonProSelectDelete.BackColor = System.Drawing.Color.LightCyan;
-            this.buttonProSelectDelete.Font = new System.Drawing.Font("Meiryo UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.buttonProSelectDelete.BackColor = System.Drawing.Color.White;
+            this.buttonProSelectDelete.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.buttonProSelectDelete.Location = new System.Drawing.Point(416, 118);
             this.buttonProSelectDelete.Margin = new System.Windows.Forms.Padding(1);
             this.buttonProSelectDelete.Name = "buttonProSelectDelete";
@@ -160,7 +162,7 @@ namespace SalesManagement_SysDev
             this.textBoxProSelectProID.Location = new System.Drawing.Point(176, 375);
             this.textBoxProSelectProID.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxProSelectProID.Name = "textBoxProSelectProID";
-            this.textBoxProSelectProID.Size = new System.Drawing.Size(190, 34);
+            this.textBoxProSelectProID.Size = new System.Drawing.Size(137, 34);
             this.textBoxProSelectProID.TabIndex = 221;
             this.textBoxProSelectProID.TextChanged += new System.EventHandler(this.textBoxProSelectProID_TextChanged);
             // 
@@ -197,7 +199,7 @@ namespace SalesManagement_SysDev
             // labelProSelectQuantity
             // 
             this.labelProSelectQuantity.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelProSelectQuantity.Location = new System.Drawing.Point(490, 382);
+            this.labelProSelectQuantity.Location = new System.Drawing.Point(350, 376);
             this.labelProSelectQuantity.Name = "labelProSelectQuantity";
             this.labelProSelectQuantity.Size = new System.Drawing.Size(70, 33);
             this.labelProSelectQuantity.TabIndex = 224;
@@ -206,7 +208,7 @@ namespace SalesManagement_SysDev
             // numericUpDownProSelectQuantity
             // 
             this.numericUpDownProSelectQuantity.Font = new System.Drawing.Font("Meiryo UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.numericUpDownProSelectQuantity.Location = new System.Drawing.Point(580, 381);
+            this.numericUpDownProSelectQuantity.Location = new System.Drawing.Point(440, 375);
             this.numericUpDownProSelectQuantity.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -221,6 +223,7 @@ namespace SalesManagement_SysDev
             0,
             0});
             this.numericUpDownProSelectQuantity.ValueChanged += new System.EventHandler(this.numericUpDownProSelectQuantity_ValueChanged);
+            this.numericUpDownProSelectQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDownProSelectQuantity_KeyPress);
             // 
             // dataGridViewProSelect
             // 
@@ -234,7 +237,7 @@ namespace SalesManagement_SysDev
             // labelProSelectTotal
             // 
             this.labelProSelectTotal.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelProSelectTotal.Location = new System.Drawing.Point(816, 385);
+            this.labelProSelectTotal.Location = new System.Drawing.Point(874, 383);
             this.labelProSelectTotal.Name = "labelProSelectTotal";
             this.labelProSelectTotal.Size = new System.Drawing.Size(122, 33);
             this.labelProSelectTotal.TabIndex = 227;
@@ -243,7 +246,7 @@ namespace SalesManagement_SysDev
             // labelProSelectTotalMoney
             // 
             this.labelProSelectTotalMoney.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.labelProSelectTotalMoney.Location = new System.Drawing.Point(930, 384);
+            this.labelProSelectTotalMoney.Location = new System.Drawing.Point(988, 382);
             this.labelProSelectTotalMoney.Name = "labelProSelectTotalMoney";
             this.labelProSelectTotalMoney.Size = new System.Drawing.Size(218, 33);
             this.labelProSelectTotalMoney.TabIndex = 228;
@@ -320,10 +323,10 @@ namespace SalesManagement_SysDev
             // 
             this.labelProSelectProIDWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelProSelectProIDWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelProSelectProIDWarning.Location = new System.Drawing.Point(18, 381);
+            this.labelProSelectProIDWarning.Location = new System.Drawing.Point(11, 376);
             this.labelProSelectProIDWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelProSelectProIDWarning.Name = "labelProSelectProIDWarning";
-            this.labelProSelectProIDWarning.Size = new System.Drawing.Size(29, 45);
+            this.labelProSelectProIDWarning.Size = new System.Drawing.Size(29, 33);
             this.labelProSelectProIDWarning.TabIndex = 235;
             this.labelProSelectProIDWarning.Text = "※";
             // 
@@ -331,10 +334,10 @@ namespace SalesManagement_SysDev
             // 
             this.labelProSelectSuuryoWarning.Font = new System.Drawing.Font("Meiryo UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.labelProSelectSuuryoWarning.ForeColor = System.Drawing.Color.Red;
-            this.labelProSelectSuuryoWarning.Location = new System.Drawing.Point(456, 381);
+            this.labelProSelectSuuryoWarning.Location = new System.Drawing.Point(316, 375);
             this.labelProSelectSuuryoWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelProSelectSuuryoWarning.Name = "labelProSelectSuuryoWarning";
-            this.labelProSelectSuuryoWarning.Size = new System.Drawing.Size(29, 45);
+            this.labelProSelectSuuryoWarning.Size = new System.Drawing.Size(29, 34);
             this.labelProSelectSuuryoWarning.TabIndex = 236;
             this.labelProSelectSuuryoWarning.Text = "※";
             // 
@@ -387,12 +390,34 @@ namespace SalesManagement_SysDev
             this.labelPrSelectSmallname.TabIndex = 240;
             this.labelPrSelectSmallname.Text = "小分類名";
             // 
+            // labelStockNow
+            // 
+            this.labelStockNow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelStockNow.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelStockNow.Location = new System.Drawing.Point(736, 376);
+            this.labelStockNow.Name = "labelStockNow";
+            this.labelStockNow.Size = new System.Drawing.Size(93, 33);
+            this.labelStockNow.TabIndex = 243;
+            this.labelStockNow.Text = "0";
+            this.labelStockNow.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // labelStockNowTitle
+            // 
+            this.labelStockNowTitle.Font = new System.Drawing.Font("Meiryo UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.labelStockNowTitle.Location = new System.Drawing.Point(639, 376);
+            this.labelStockNowTitle.Name = "labelStockNowTitle";
+            this.labelStockNowTitle.Size = new System.Drawing.Size(91, 33);
+            this.labelStockNowTitle.TabIndex = 242;
+            this.labelStockNowTitle.Text = "現在庫";
+            // 
             // FormProductSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1251, 779);
+            this.Controls.Add(this.labelStockNow);
+            this.Controls.Add(this.labelStockNowTitle);
             this.Controls.Add(this.textBoxPrSelectSmallName);
             this.Controls.Add(this.labelPrSelectSmallname);
             this.Controls.Add(this.textBoxPrSelectMajorName);
@@ -466,5 +491,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelPrSelectMajorName;
         private System.Windows.Forms.TextBox textBoxPrSelectSmallName;
         private System.Windows.Forms.Label labelPrSelectSmallname;
+        private System.Windows.Forms.Label labelStockNow;
+        private System.Windows.Forms.Label labelStockNowTitle;
     }
 }

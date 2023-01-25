@@ -1091,7 +1091,8 @@ namespace SalesManagement_SysDev
                 {
                     return;
                 }
-                ClearText(this);        //Okの場合全入力内容をクリアする                
+                ClearText(this);        //Okの場合全入力内容をクリアする    
+                labelOrProductSum.Text = "0";
             }
 
             ResetComboBox(panelStock);     //ComboBoxのItemsをリセットする
@@ -1201,6 +1202,7 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+                labelOrProductSum.Text = "0";
             }
 
             ResetComboBox(panelSyukko);     //ComboBoxのItemsをリセットする
@@ -1250,6 +1252,7 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+                labelOrProductSum.Text = "0";
             }
 
             ResetComboBox(panelEmployee);     //ComboBoxのItemsをリセットする
@@ -1289,6 +1292,7 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+                labelOrProductSum.Text = "0";
             }
 
             ResetComboBox(panelArrival);     //ComboBoxのItemsをリセットする
@@ -1338,6 +1342,7 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+                labelOrProductSum.Text = "0";
             }
 
             ResetComboBox(panelClient);     //ComboBoxのItemsをリセットする
@@ -1372,6 +1377,7 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+                labelOrProductSum.Text = "0";
             }
 
             ResetComboBox(panelProduct);     //ComboBoxのItemsをリセットする
@@ -1425,6 +1431,7 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+                labelOrProductSum.Text = "0";
             }
 
             ResetComboBox(panelOrder);     //ComboBoxのItemsをリセットする
@@ -1469,6 +1476,7 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+                labelOrProductSum.Text = "0";
             }
 
             ResetComboBox(panelSale);     //ComboBoxのItemsをリセットする
@@ -1585,6 +1593,7 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+                labelOrProductSum.Text = "0";
             }
 
             ResetComboBox(panelChumon);     //ComboBoxのItemsをリセットする
@@ -1634,6 +1643,7 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+                labelOrProductSum.Text = "0";
             }
 
             ResetComboBox(panelHattyu);     //ComboBoxのItemsをリセットする
@@ -1673,6 +1683,7 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+                labelOrProductSum.Text = "0";
             }
 
             ResetComboBox(panelWareHousing);     //ComboBoxのItemsをリセットする
@@ -1739,6 +1750,7 @@ namespace SalesManagement_SysDev
                     return;
                 }
                 ClearText(this);        //Okの場合全入力内容をクリアする
+                labelOrProductSum.Text = "0";
             }
 
             ResetComboBox(panelShipment);     //ComboBoxのItemsをリセットする

@@ -102,7 +102,8 @@ namespace SalesManagement_SysDev
                 context.SaveChanges();                                  //更新を確定
                 context.Dispose();                                      //contextの解放
 
-                msg.MsgDsp("M4012");                                    //更新完了メッセージ
+                MessageBox.Show("在庫数量を入力された内容に更新しました", "更新確認", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //msg.MsgDsp("M4012");                                    //更新完了メッセージ
             }
             catch           //例外エラー
             {   
