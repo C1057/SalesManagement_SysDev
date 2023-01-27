@@ -10,20 +10,16 @@ namespace SalesManagement_SysDev
     class PositionDataAccess
     {
         MessageDsp msg = new MessageDsp();
-        public void DeletePosition(int PositionID)
+        public void DeletePosition(int PositionID,string Hidden)
         {
-            DialogResult result = msg.MsgDsp("M14001");
-            if (result == DialogResult.Cancel)
-            {
-                return;
-            }
             var context = new SalesManagement_DevContext();
             var position = context.M_Positions.Single(x => x.PoID == PositionID);
+
             position.PoFlag = 2;
+            position.PoHidden = Hidden;             //非表示理由
+
             context.SaveChanges();
             context.Dispose();
-
-            msg.MsgDsp("M14002");
         }
 
         public List<M_Position> SearchPosition(int methodflg, string SearchInfo)

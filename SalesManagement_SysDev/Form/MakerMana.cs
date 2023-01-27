@@ -276,11 +276,24 @@ namespace SalesManagement_SysDev
 
         private void buttonManaMakerDelete_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxManaMakerHidden.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxManaMakerHidden.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewManaMaker.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewManaMaker.Rows[i].Cells[6].Value)                 //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    MakerAccess.DeleteMaker((int)dataGridViewManaMaker.Rows[i].Cells[0].Value);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
+                    MakerAccess.DeleteMaker((int)dataGridViewManaMaker.Rows[i].Cells[0].Value, textBoxManaMakerHidden.Text);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             
@@ -424,10 +437,12 @@ namespace SalesManagement_SysDev
                     if (cControl.Text == "登録")      //登録ボタンの場合
                     {
                         cControl.Enabled = false;
+                        cControl.BackColor = Color.FromArgb(170, 170, 170);
                     }
-                    if (cControl.Text == "更新" || cControl.Text == "検索")     //更新、検索ボタンの場合
+                    if (cControl.Text == "更新")     //更新、検索ボタンの場合
                     {
                         cControl.Enabled = true;
+                        cControl.BackColor = Color.White;
                     }
                 }
             }
@@ -451,10 +466,12 @@ namespace SalesManagement_SysDev
                     if (cControl.Text == "登録")          //登録ボタンの場合
                     {
                         cControl.Enabled = true;
+                        cControl.BackColor = Color.White;
                     }
-                    if (cControl.Text == "更新" || cControl.Text == "検索")     //更新、検索ボタンの場合
+                    if (cControl.Text == "更新")     //更新、検索ボタンの場合
                     {
                         cControl.Enabled = false;
+                        cControl.BackColor = Color.FromArgb(170, 170, 170);
                     }
                 }
             }

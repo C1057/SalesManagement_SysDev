@@ -69,11 +69,12 @@ namespace SalesManagement_SysDev
             // 
             this.buttonProSelectUpdate.BackColor = System.Drawing.Color.White;
             this.buttonProSelectUpdate.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonProSelectUpdate.Location = new System.Drawing.Point(215, 118);
+            this.buttonProSelectUpdate.Location = new System.Drawing.Point(263, 118);
             this.buttonProSelectUpdate.Margin = new System.Windows.Forms.Padding(1);
             this.buttonProSelectUpdate.Name = "buttonProSelectUpdate";
-            this.buttonProSelectUpdate.Size = new System.Drawing.Size(164, 74);
+            this.buttonProSelectUpdate.Size = new System.Drawing.Size(214, 74);
             this.buttonProSelectUpdate.TabIndex = 213;
+            this.buttonProSelectUpdate.TabStop = false;
             this.buttonProSelectUpdate.Text = "更新";
             this.buttonProSelectUpdate.UseVisualStyleBackColor = false;
             this.buttonProSelectUpdate.Click += new System.EventHandler(this.buttonProSelectUpdate_Click);
@@ -88,6 +89,7 @@ namespace SalesManagement_SysDev
             this.buttonProSelectConfirm.Name = "buttonProSelectConfirm";
             this.buttonProSelectConfirm.Size = new System.Drawing.Size(168, 74);
             this.buttonProSelectConfirm.TabIndex = 212;
+            this.buttonProSelectConfirm.TabStop = false;
             this.buttonProSelectConfirm.Text = "確定";
             this.buttonProSelectConfirm.UseVisualStyleBackColor = false;
             this.buttonProSelectConfirm.Click += new System.EventHandler(this.buttonProSelectConfirm_Click);
@@ -99,8 +101,9 @@ namespace SalesManagement_SysDev
             this.buttonProSelectAdd.Location = new System.Drawing.Point(22, 118);
             this.buttonProSelectAdd.Margin = new System.Windows.Forms.Padding(1);
             this.buttonProSelectAdd.Name = "buttonProSelectAdd";
-            this.buttonProSelectAdd.Size = new System.Drawing.Size(164, 74);
+            this.buttonProSelectAdd.Size = new System.Drawing.Size(214, 74);
             this.buttonProSelectAdd.TabIndex = 214;
+            this.buttonProSelectAdd.TabStop = false;
             this.buttonProSelectAdd.Text = "追加";
             this.buttonProSelectAdd.UseVisualStyleBackColor = false;
             this.buttonProSelectAdd.Click += new System.EventHandler(this.buttonProSelectAdd_Click);
@@ -109,11 +112,12 @@ namespace SalesManagement_SysDev
             // 
             this.buttonProSelectDelete.BackColor = System.Drawing.Color.White;
             this.buttonProSelectDelete.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonProSelectDelete.Location = new System.Drawing.Point(416, 118);
+            this.buttonProSelectDelete.Location = new System.Drawing.Point(500, 118);
             this.buttonProSelectDelete.Margin = new System.Windows.Forms.Padding(1);
             this.buttonProSelectDelete.Name = "buttonProSelectDelete";
-            this.buttonProSelectDelete.Size = new System.Drawing.Size(164, 74);
+            this.buttonProSelectDelete.Size = new System.Drawing.Size(214, 74);
             this.buttonProSelectDelete.TabIndex = 215;
+            this.buttonProSelectDelete.TabStop = false;
             this.buttonProSelectDelete.Text = "削除";
             this.buttonProSelectDelete.UseVisualStyleBackColor = false;
             this.buttonProSelectDelete.Click += new System.EventHandler(this.buttonProSelectDelete_Click);
@@ -135,7 +139,7 @@ namespace SalesManagement_SysDev
             this.textBoxProSelectOrderID.Multiline = true;
             this.textBoxProSelectOrderID.Name = "textBoxProSelectOrderID";
             this.textBoxProSelectOrderID.Size = new System.Drawing.Size(190, 37);
-            this.textBoxProSelectOrderID.TabIndex = 217;
+            this.textBoxProSelectOrderID.TabIndex = 1;
             // 
             // textBoxProSelectOrderDetailID
             // 
@@ -145,7 +149,7 @@ namespace SalesManagement_SysDev
             this.textBoxProSelectOrderDetailID.Multiline = true;
             this.textBoxProSelectOrderDetailID.Name = "textBoxProSelectOrderDetailID";
             this.textBoxProSelectOrderDetailID.Size = new System.Drawing.Size(190, 37);
-            this.textBoxProSelectOrderDetailID.TabIndex = 219;
+            this.textBoxProSelectOrderDetailID.TabIndex = 2;
             // 
             // labelProSelectOrderDetailID
             // 
@@ -163,7 +167,7 @@ namespace SalesManagement_SysDev
             this.textBoxProSelectProID.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxProSelectProID.Name = "textBoxProSelectProID";
             this.textBoxProSelectProID.Size = new System.Drawing.Size(137, 34);
-            this.textBoxProSelectProID.TabIndex = 221;
+            this.textBoxProSelectProID.TabIndex = 8;
             this.textBoxProSelectProID.TextChanged += new System.EventHandler(this.textBoxProSelectProID_TextChanged);
             // 
             // labelProSelectProductID
@@ -184,7 +188,7 @@ namespace SalesManagement_SysDev
             this.comboBoxProSelectProductName.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxProSelectProductName.Name = "comboBoxProSelectProductName";
             this.comboBoxProSelectProductName.Size = new System.Drawing.Size(547, 32);
-            this.comboBoxProSelectProductName.TabIndex = 222;
+            this.comboBoxProSelectProductName.TabIndex = 7;
             this.comboBoxProSelectProductName.SelectedIndexChanged += new System.EventHandler(this.comboBoxProSelectProductName_SelectedIndexChanged);
             // 
             // labelProSelectProductName
@@ -216,7 +220,7 @@ namespace SalesManagement_SysDev
             0});
             this.numericUpDownProSelectQuantity.Name = "numericUpDownProSelectQuantity";
             this.numericUpDownProSelectQuantity.Size = new System.Drawing.Size(190, 34);
-            this.numericUpDownProSelectQuantity.TabIndex = 225;
+            this.numericUpDownProSelectQuantity.TabIndex = 9;
             this.numericUpDownProSelectQuantity.Value = new decimal(new int[] {
             1,
             0,
@@ -233,6 +237,7 @@ namespace SalesManagement_SysDev
             this.dataGridViewProSelect.RowTemplate.Height = 21;
             this.dataGridViewProSelect.Size = new System.Drawing.Size(1216, 334);
             this.dataGridViewProSelect.TabIndex = 226;
+            this.dataGridViewProSelect.TabStop = false;
             // 
             // labelProSelectTotal
             // 
@@ -262,6 +267,7 @@ namespace SalesManagement_SysDev
             this.buttonProSelectReturn.Name = "buttonProSelectReturn";
             this.buttonProSelectReturn.Size = new System.Drawing.Size(168, 72);
             this.buttonProSelectReturn.TabIndex = 229;
+            this.buttonProSelectReturn.TabStop = false;
             this.buttonProSelectReturn.Text = "戻る";
             this.buttonProSelectReturn.UseVisualStyleBackColor = false;
             this.buttonProSelectReturn.Click += new System.EventHandler(this.buttonProSelectReturn_Click);
@@ -284,7 +290,7 @@ namespace SalesManagement_SysDev
             this.comboBoxProSelectMajor.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxProSelectMajor.Name = "comboBoxProSelectMajor";
             this.comboBoxProSelectMajor.Size = new System.Drawing.Size(137, 32);
-            this.comboBoxProSelectMajor.TabIndex = 230;
+            this.comboBoxProSelectMajor.TabIndex = 3;
             this.comboBoxProSelectMajor.SelectedIndexChanged += new System.EventHandler(this.comboBoxProSelectMajor_SelectedIndexChanged);
             this.comboBoxProSelectMajor.TextChanged += new System.EventHandler(this.comboBoxProSelectMajor_TextChanged);
             // 
@@ -306,7 +312,7 @@ namespace SalesManagement_SysDev
             this.comboBoxProSelectSmall.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxProSelectSmall.Name = "comboBoxProSelectSmall";
             this.comboBoxProSelectSmall.Size = new System.Drawing.Size(126, 32);
-            this.comboBoxProSelectSmall.TabIndex = 232;
+            this.comboBoxProSelectSmall.TabIndex = 5;
             this.comboBoxProSelectSmall.SelectedIndexChanged += new System.EventHandler(this.comboBoxProSelectSmall_SelectedIndexChanged);
             this.comboBoxProSelectSmall.TextChanged += new System.EventHandler(this.comboBoxProSelectSmall_TextChanged);
             // 
@@ -360,7 +366,7 @@ namespace SalesManagement_SysDev
             this.textBoxPrSelectMajorName.Multiline = true;
             this.textBoxPrSelectMajorName.Name = "textBoxPrSelectMajorName";
             this.textBoxPrSelectMajorName.Size = new System.Drawing.Size(190, 37);
-            this.textBoxPrSelectMajorName.TabIndex = 239;
+            this.textBoxPrSelectMajorName.TabIndex = 4;
             // 
             // labelPrSelectMajorName
             // 
@@ -379,7 +385,7 @@ namespace SalesManagement_SysDev
             this.textBoxPrSelectSmallName.Multiline = true;
             this.textBoxPrSelectSmallName.Name = "textBoxPrSelectSmallName";
             this.textBoxPrSelectSmallName.Size = new System.Drawing.Size(190, 37);
-            this.textBoxPrSelectSmallName.TabIndex = 241;
+            this.textBoxPrSelectSmallName.TabIndex = 6;
             // 
             // labelPrSelectSmallname
             // 

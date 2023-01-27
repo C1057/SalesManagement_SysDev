@@ -97,7 +97,6 @@ namespace SalesManagement_SysDev
                 var Stock = context.T_Stocks.Single(x => x.StID == updateData.StID);            //更新対象データの取得
                 Stock.PrID = updateData.PrID;                           //商品IDの代入
                 Stock.StQuantity = updateData.StQuantity;               //在庫数の代入
-                Stock.StHidden = updateData.StHidden;                   //非表示理由の代入
 
                 context.SaveChanges();                                  //更新を確定
                 context.Dispose();                                      //contextの解放
@@ -127,18 +126,13 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="StockID"></param>
         /// <returns>なし</returns>
-        public void DeleteStock(int StockID)
+        public void DeleteStock(int StockID,string Hidden)
         {
-            DialogResult result = msg.MsgDsp("M14001");
-            if (result == DialogResult.Cancel)
-            {
-                return;
-            }
-
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Stock = context.T_Stocks.Single(x => x.StID == StockID);             //非表示にするレコードの抽出
 
-            Stock.StFlag = 2;                                                          //在庫管理フラグを2にする          
+            Stock.StFlag = 2;                                                          //在庫管理フラグを2にする
+            Stock.StHidden = Hidden;                                                    //非表示理由
 
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放

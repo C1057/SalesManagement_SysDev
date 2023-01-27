@@ -179,6 +179,13 @@ namespace SalesManagement_SysDev
                 comboBoxSOManaSOID.Items.Add(SoData.SoID);
             }
 
+            //フォームの最大化ボタンの表示、非表示を切り替える
+            this.MaximizeBox = !this.MaximizeBox;
+            //フォームの最小化ボタンの表示、非表示を切り替える
+            this.MinimizeBox = !this.MinimizeBox;
+            //フォームのコントロールボックスの表示、非表示を切り替える
+            //コントロールボックスを非表示にすると最大化、最小化、閉じるボタンも消える
+            this.ControlBox = !this.ControlBox;
         }
 
         private void buttonSOManaAdd_Click(object sender, EventArgs e)
@@ -303,11 +310,24 @@ namespace SalesManagement_SysDev
 
         private void maruibuttonSOManaDelete_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxSOManaHidden.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxSOManaHidden.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewSOMana.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewSOMana.Rows[i].Cells[6].Value)                 //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    SalesOfficeAccess.DeleteClient((int)dataGridViewSOMana.Rows[i].Cells[0].Value);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
+                    SalesOfficeAccess.DeleteClient((int)dataGridViewSOMana.Rows[i].Cells[0].Value, textBoxSOManaHidden.Text);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
                 }
             }
 
@@ -375,6 +395,76 @@ namespace SalesManagement_SysDev
                 if (cControl is TextBoxBase || cControl is ComboBox)
                 {
                     cControl.Text = string.Empty;
+                }
+            }
+        }
+
+        private void comboBoxSOManaSOID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxSOManaSOID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(this);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(this);
+            }
+        }
+
+        //登録ボタンを使用可能、更新検索ボタンを使用不能にするメソッド
+        public static void EnabledChangedtruebutton(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    EnabledChangedtruebutton(cControl);
+                }
+
+                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+                if (cControl is Button)
+                {
+                    if (cControl.Text == "登録")          //登録ボタンの場合
+                    {
+                        cControl.Enabled = true;
+                        cControl.BackColor = Color.White;
+                    }
+                    if (cControl.Text == "更新")     //更新、検索ボタンの場合
+                    {
+                        cControl.Enabled = false;
+                        cControl.BackColor = Color.FromArgb(170, 170, 170);
+                    }
+                }
+            }
+        }
+
+        //登録ボタンを使用不能、更新検索ボタンを使用可能にするメソッド
+        public static void EnabledChangedfalsebutton(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    EnabledChangedfalsebutton(cControl);
+                }
+
+                // コントロールの型が Button の場合
+                if (cControl is Button)
+                {
+                    if (cControl.Text == "登録")      //登録ボタンの場合
+                    {
+                        cControl.Enabled = false;
+                        cControl.BackColor = Color.FromArgb(170, 170, 170);
+                    }
+                    if (cControl.Text == "更新")     //更新、検索ボタンの場合
+                    {
+                        cControl.Enabled = true;
+                        cControl.BackColor = Color.White;
+                    }
                 }
             }
         }

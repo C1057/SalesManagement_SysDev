@@ -10,18 +10,13 @@ namespace SalesManagement_SysDev
     class MakerDataAccess
     {
         MessageDsp msg = new MessageDsp();
-        public void DeleteMaker(int makerID)
+        public void DeleteMaker(int makerID,string Hidden)
         {
-            DialogResult result = msg.MsgDsp("M14001");　//非表示確認メッセージ
-            if (result == DialogResult.Cancel) //の場合非表示機能モジュールの実行終了
-            {
-                return;
-            }
-
             var context = new SalesManagement_DevContext();  　　　　　　　　　　　 //SalesManagement_DevContextクラスのインスタンス化
             var maker = context.M_Makers.Single(x => x.MaID == makerID);           //非表示にするレコードの抽出
 
-            maker.MaFlag = 2;      　　　　　　　　　　　　　　　　　              //顧客管理フラグを2にする          
+            maker.MaFlag = 2;      　　　　　　　　　　　　　　　　　              //顧客管理フラグを2にする
+            maker.MaHidden = Hidden;                                                //非表示理由
 
             context.SaveChanges();                                               //更新を確定する
             context.Dispose();                                                  //contextを解放

@@ -129,11 +129,14 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="ProductID"></param>
         /// <returns>List<M_Product></returns>
-        public void DeleteProduct(int ProductID)
+        public void DeleteProduct(int ProductID,string Hidden)
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Product = context.M_Products.Single(x => x.PrID == ProductID);             //非表示にするレコードの抽出
+
             Product.PrFlag = 2;                                                          //商品管理フラグを2にする
+            Product.PrHidden = Hidden;                                                  //非表示理由
+
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }

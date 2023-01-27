@@ -69,7 +69,6 @@ namespace SalesManagement_SysDev
                 Employee.EmName = UpdateData.EmName;
                 Employee.SoID = UpdateData.SoID;
                 Employee.PoID = UpdateData.PoID;
-                Employee.EmHidden = UpdateData.EmHidden;
                 Employee.EmPhone = UpdateData.EmPhone;
                 Employee.EmHiredate = UpdateData.EmHiredate;
 
@@ -139,7 +138,7 @@ namespace SalesManagement_SysDev
         /// <param name=""></param>
         /// <param name="EmployeeID"></param>
         /// <returns>List<M_Employee></returns>
-        public void DeleteEmployee (int EmployeeID) //非表示
+        public void DeleteEmployee (int EmployeeID,string Hidden) //非表示
         {
             DialogResult result = msg.MsgDsp("M14001");             //非表示確認メッセージ
             if (result == DialogResult.Cancel)
@@ -149,7 +148,10 @@ namespace SalesManagement_SysDev
 
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Employee = context.M_Employees.Single(x => x.EmID == EmployeeID);             //非表示にするレコードの抽出
+
             Employee.EmFlag = 2;                                                          //社員管理フラグを2にする
+            Employee.EmHidden = Hidden;                                                 //非表示理由
+
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }

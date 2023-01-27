@@ -69,7 +69,6 @@ namespace SalesManagement_SysDev
                 Client.ClPhone = UpdateData.ClPhone;                //電話番号をセット
                 Client.ClPostal = UpdateData.ClPostal;              //郵便番号をセット
                 Client.ClFAX = UpdateData.ClFAX;                    //FAXをセット
-                Client.ClHidden = UpdateData.ClHidden;              //非表示理由をセット
 
                 context.SaveChanges();                              //データベースへの登録を確定する
                 context.Dispose();                                  //contextを解放する
@@ -133,18 +132,14 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="ClientID"></param>
         /// <returns>なし</returns>
-        public void DeleteClient(int ClientID)
+        public void DeleteClient(int ClientID,string Hidden)
         {
-            DialogResult result = msg.MsgDsp("M14001");
-            if (result == DialogResult.Cancel)
-            {
-                return;
-            }
-
+            
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Client = context.M_Clients.Single(x => x.ClID == ClientID);             //非表示にするレコードの抽出
 
-            Client.ClFlag = 2;                                                          //顧客管理フラグを2にする          
+            Client.ClFlag = 2;                                                          //顧客管理フラグを2にする
+            Client.ClHidden = Hidden;                                                   //非表示理由を入力
 
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放

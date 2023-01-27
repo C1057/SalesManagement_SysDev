@@ -17,21 +17,16 @@ namespace SalesManagement_SysDev
             return context.T_Hattyus.ToList();                      //発注テーブルのデータを戻り値として返す
         }
 
-        public void DeleteHattyu(int HattyuID)
+        public void DeleteHattyu(int HattyuID,string Hidden)
         {
-            DialogResult result = msg.MsgDsp("M14001"); //非表示メッセージ
-            if (result == DialogResult.Cancel)　　//の場合非表示機能モジュールの実行終了
-            {
-                return;
-            }
-
             var context = new SalesManagement_DevContext();  //クラスのインスタンス化
             var hattyu = context.T_Hattyus.Single(x => x.HaID == HattyuID);
-            hattyu.HaFlag = 2;
+
+            hattyu.HaFlag = 2;                          //発注管理フラグを2にする
+            hattyu.HaHidden = Hidden;                   //非表示理由
+            
             context.SaveChanges();　　　　　　　　　　　　　//変更の反映
             context.Dispose();                             //contextの解放
-
-            msg.MsgDsp("M14002");
         }
 
         public List<T_Hattyu> SearchHattyu(int methodflg, string SearchInfo)

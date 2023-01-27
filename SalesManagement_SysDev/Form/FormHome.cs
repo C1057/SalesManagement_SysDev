@@ -152,6 +152,7 @@ namespace SalesManagement_SysDev
             foreach(var Button in buttonList)
             {
                 Button.Enabled = false;
+                Button.BackColor = Color.FromArgb(170,170,170);
             }
         }
 
@@ -163,6 +164,7 @@ namespace SalesManagement_SysDev
             foreach(var Button in buttonList)
             {
                 Button.Enabled = true;
+                Button.BackColor = Color.White;
             }
         }
 
@@ -475,7 +477,7 @@ namespace SalesManagement_SysDev
 
             ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
             {
-                    true,true,true,true,true,true,false,false,true
+                    true,true,true,true,true,true,true,false,true
             };
 
             ColumnSize = new int[]                          //各列のWidthを設定
@@ -554,12 +556,12 @@ namespace SalesManagement_SysDev
             /// </summry>
             columnText = new string[]                      //各列のヘッダーテキストを設定
             {
-                "注文ID", "営業所ID", "社員ID", "顧客ID", "受注ID", "注文年月日", "注文可否", "注文管理フラグ", "非表示理由"
+                "注文ID", "営業所ID", "社員ID", "顧客ID", "受注ID", "注文年月日", "確定可否", "注文管理フラグ", "非表示理由"
             };
 
             ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
             {
-                    true,true,true,true,true,true,false,false,true
+                    true,true,true,true,true,true,true,false,true
             };
 
             ColumnSize = new int[]                          //各列のWidthを設定
@@ -638,12 +640,12 @@ namespace SalesManagement_SysDev
             /// </summry>
             columnText = new string[]                      //各列のヘッダーテキストを設定
             {
-                "発注ID", "メーカID", "発注社員ID", "発注年月日", "入庫済可否(倉庫)", "発注管理フラグ", "非表示理由"
+                "発注ID", "メーカID", "発注社員ID", "発注年月日", "確定可否", "発注管理フラグ", "非表示理由"
             };
 
             ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
             {
-                    true,true,true,true,false,false,true
+                    true,true,true,true,true,false,true
             };
 
             ColumnSize = new int[]                          //各列のWidthを設定
@@ -720,12 +722,12 @@ namespace SalesManagement_SysDev
             /// </summary>
             columnText = new string[]                      //各列のヘッダーテキストを設定
             {
-                "入庫ID", "発注ID", "入庫確認社員ID", "入庫年月日", "入庫済フラグ(棚)", "入庫管理フラグ", "非表示理由"
+                "入庫ID", "発注ID", "入庫確認社員ID", "入庫年月日", "確定可否", "入庫管理フラグ", "非表示理由"
             };
 
             ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
             {
-                    true,true,true,true,false,false,true
+                    true,true,true,true,true,false,true
             };
 
             ColumnSize = new int[]                          //各列のWidthを設定
@@ -802,12 +804,12 @@ namespace SalesManagement_SysDev
             /// </summary>
             columnText = new string[]                      //各列のヘッダーテキストを設定
             {
-                "出庫ID", "社員ID", "顧客ID", "営業所ID", "受注ID", "出庫年月日", "出庫状態フラグ", "出庫管理フラグ", "非表示理由"
+                "出庫ID", "社員ID", "顧客ID", "営業所ID", "受注ID", "出庫年月日", "確定可否", "出庫管理フラグ", "非表示理由"
             };
 
             ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
             {
-                    true,true,true,true,true,true,false,false,true
+                    true,true,true,true,true,true,true,false,true
             };
 
             ColumnSize = new int[]                          //各列のWidthを設定
@@ -886,12 +888,12 @@ namespace SalesManagement_SysDev
             /// </summary>
             columnText = new string[]                      //各列のヘッダーテキストを設定
             {
-                "入荷ID", "営業所ID", "社員ID", "顧客ID", "受注ID", "入荷年月日", "入荷状態フラグ", "入荷管理フラグ", "非表示理由"
+                "入荷ID", "営業所ID", "社員ID", "顧客ID", "受注ID", "入荷年月日", "確定可否", "入荷管理フラグ", "非表示理由"
             };
 
             ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
             {
-                    true,true,true,true,true,true,false,false,true
+                    true,true,true,true,true,true,true,false,true
             };
 
             ColumnSize = new int[]                          //各列のWidthを設定
@@ -970,12 +972,12 @@ namespace SalesManagement_SysDev
             /// </summary>
             columnText = new string[]                      //各列のヘッダーテキストを設定
             {
-                "出荷ID", "顧客ID", "社員ID", "営業所ID", "受注ID", "出荷状態フラグ", "出荷完了年月日", "出荷管理フラグ", "非表示理由"
+                "出荷ID", "顧客ID", "社員ID", "営業所ID", "受注ID", "確定可否", "出荷完了年月日", "出荷管理フラグ", "非表示理由"
             };
 
             ReadOnlySet = new bool[]                        //各列の読み取り可否を設定
             {
-                    true,true,true,true,true,false,true,false,true
+                    true,true,true,true,true,true,true,false,true
             };
 
             ColumnSize = new int[]                          //各列のWidthを設定
@@ -1139,28 +1141,45 @@ namespace SalesManagement_SysDev
                 if (EmployeeData.PoID == 1)             //管理者
                 {
                     buttonClient.Enabled = true;        //顧客管理画面
+                    buttonClient.BackColor = Color.White;           //顧客管理ボタンの背景色変更
                     buttonProduct.Enabled = true;       //商品管理画面
+                    buttonProduct.BackColor = Color.White;           //商品管理ボタンの背景色変更
                     buttonStock.Enabled = true;         //在庫管理画面
+                    buttonStock.BackColor = Color.White;           //在庫管理ボタンの背景色変更
                     buttonEmployee.Enabled = true;      //社員管理画面
+                    buttonEmployee.BackColor = Color.White;           //社員管理ボタンの背景色変更
                     buttonSale.Enabled = true;          //売上管理画面
+                    buttonSale.BackColor = Color.White;           //売上管理ボタンの背景色変更
                 }
                 else if (EmployeeData.PoID == 2)        //営業
                 {
                     buttonStock.Enabled = true;         //在庫管理画面
+                    buttonStock.BackColor = Color.White;           //在庫管理ボタンの背景色変更
                     buttonSale.Enabled = true;          //売上管理画面
+                    buttonSale.BackColor = Color.White;           //売上管理ボタンの背景色変更
                     buttonOrder.Enabled = true;         //受注管理画面
+                    buttonOrder.BackColor = Color.White;           //受注管理ボタンの背景色変更
                     buttonChumon.Enabled = true;        //注文管理画面
+                    buttonChumon.BackColor = Color.White;           //注文管理ボタンの背景色変更
                     buttonHattyu.Enabled = true;        //発注管理画面
+                    buttonHattyu.BackColor = Color.White;           //発注管理ボタンの背景色変更
                 }
                 else if (EmployeeData.PoID == 3)        //物流
                 {
                     buttonSale.Enabled = true;          //売上管理画面
+                    buttonSale.BackColor = Color.White;           //売上管理ボタンの背景色変更
                     buttonChumon.Enabled = true;        //注文管理画面
+                    buttonChumon.BackColor = Color.White;           //注文管理ボタンの背景色変更
                     buttonHattyu.Enabled = true;        //発注管理画面
+                    buttonHattyu.BackColor = Color.White;           //発注管理ボタンの背景色変更
                     buttonWareHousing.Enabled = true;   //入庫管理画面
+                    buttonWareHousing.BackColor = Color.White;           //入庫管理ボタンの背景色変更
                     buttonSyukko.Enabled = true;        //出庫管理画面
+                    buttonSyukko.BackColor = Color.White;           //出庫管理ボタンの背景色変更
                     buttonArrival.Enabled = true;       //入荷管理画面
+                    buttonArrival.BackColor = Color.White;           //入荷管理ボタンの背景色変更
                     buttonShipment.Enabled = true;      //出荷管理画面
+                    buttonShipment.BackColor = Color.White;           //出荷管理ボタンの背景色変更
                 }
                 else if (EmployeeData.PoID == 4)        //発表用
                 {
@@ -2057,7 +2076,6 @@ namespace SalesManagement_SysDev
                 ClPhone = textBoxCIPhone.Text,
                 ClPostal = textBoxCIPostal.Text,
                 ClFAX = textBoxCIFax.Text,
-                ClHidden = textBoxCIRsn.Text
             };
         }
 
@@ -2164,11 +2182,24 @@ namespace SalesManagement_SysDev
         /// <param>int ClientID</param>
         private void buttonCINDisplay_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxCIRsn.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCIRsn.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewCI.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewCI.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    ClientAccess.DeleteClient((int)dataGridViewCI.Rows[i].Cells[0].Value);      //チェックされている場合その行の顧客IDを引数に非表示機能モジュールを呼び出す
+                    ClientAccess.DeleteClient((int)dataGridViewCI.Rows[i].Cells[0].Value,textBoxCIRsn.Text);      //チェックされている場合その行の顧客IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
@@ -2468,7 +2499,6 @@ namespace SalesManagement_SysDev
                 PrModelNumber = textBoxPrModelNumber.Text,
                 PrColor = textBoxPrColor.Text,
                 PrReleaseDate = DateTimePickerProduct.Value,
-                PrHidden = textBoxPrRsn.Text
             };
         }
 
@@ -2592,11 +2622,24 @@ namespace SalesManagement_SysDev
         /// <param >int ProductID</param>
         private void buttonPrNDisplay_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxPrRsn.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxPrRsn.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridVieProduct.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridVieProduct.Rows[i].Cells[9].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    ProductAccess.DeleteProduct((int)dataGridVieProduct.Rows[i].Cells[0].Value);      //チェックされている場合その行の商品IDを引数に非表示機能モジュールを呼び出す
+                    ProductAccess.DeleteProduct((int)dataGridVieProduct.Rows[i].Cells[0].Value,textBoxPrRsn.Text);      //チェックされている場合その行の商品IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
@@ -2812,11 +2855,24 @@ namespace SalesManagement_SysDev
         /// <param></param>
         private void buttonStNDisplay_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxStRsn.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxStRsn.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewStock.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewStock.Rows[i].Cells[4].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    StockAccess.DeleteStock((int)dataGridViewStock.Rows[i].Cells[0].Value);      //チェックされている場合その行の在庫IDを引数に非表示機能モジュールを呼び出す
+                    StockAccess.DeleteStock((int)dataGridViewStock.Rows[i].Cells[0].Value, textBoxStRsn.Text);      //チェックされている場合その行の在庫IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
@@ -3035,7 +3091,6 @@ namespace SalesManagement_SysDev
                 PoID = int.Parse(comboBoxEmPositionID.Text),
                 EmHiredate = dateTimePickerEmployee.Value,
                 EmPhone = textBoxEmEmployeePhone.Text,
-                EmHidden = textBoxEmEmployeeRsn.Text
             };
         }
 
@@ -3160,11 +3215,24 @@ namespace SalesManagement_SysDev
         /// <param>EmployeeID</param>
         private void buttonEmNdisplay_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxEmEmployeeRsn.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxEmEmployeeRsn.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewEmMana.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewEmMana.Rows[i].Cells[6].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    EmployeeAccess.DeleteEmployee((int)dataGridViewEmMana.Rows[i].Cells[0].Value);      //チェックされている場合その行の社員IDを引数に非表示機能モジュールを呼び出す
+                    EmployeeAccess.DeleteEmployee((int)dataGridViewEmMana.Rows[i].Cells[0].Value, textBoxEmEmployeeRsn.Text);      //チェックされている場合その行の社員IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
@@ -3334,11 +3402,24 @@ namespace SalesManagement_SysDev
         /// <param>int SaleID</param>
         private void buttonSaNDisplay_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxSaRsn.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxSaRsn.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewSaleMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewSaleMain.Rows[i].Cells[6].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    SaleAccess.DeleteSale((int)dataGridViewSaleMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の売上IDを引数に非表示機能モジュールを呼び出す
+                    SaleAccess.DeleteSale((int)dataGridViewSaleMain.Rows[i].Cells[0].Value, textBoxSaRsn.Text);      //チェックされている場合その行の売上IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
@@ -3740,7 +3821,14 @@ namespace SalesManagement_SysDev
         {
             var context = new SalesManagement_DevContext();     //DB接続用クラスのインスタンス化
 
-            DialogResult result = MessageBox.Show("非表示にした場合選択された商品の在庫は元に戻ります", "非表示確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (string.IsNullOrEmpty(textBoxOrRsn.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxOrRsn.Focus();
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("非表示にした場合選択された商品の在庫は元に戻ります(未確定データのみ)", "非表示確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Cancel)
             {
                 return;
@@ -3750,7 +3838,7 @@ namespace SalesManagement_SysDev
             {
                 if ((bool)dataGridViewOrderMain.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    OrderAccess.DeleteOrder((int)dataGridViewOrderMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の受注IDを引数に非表示機能モジュールを呼び出す
+                    OrderAccess.DeleteOrder((int)dataGridViewOrderMain.Rows[i].Cells[0].Value, textBoxOrRsn.Text);      //チェックされている場合その行の受注IDを引数に非表示機能モジュールを呼び出す
 
                     int OrID = (int)dataGridViewOrderMain.Rows[i].Cells[0].Value;       //受注IDをセット
                     List<T_OrderDetail> OrderDetailData = context.T_OrderDetails.Where(OrderDetail => OrderDetail.OrID == OrID).ToList();       //受注IDと一致する受注詳細データを取得
@@ -4085,11 +4173,24 @@ namespace SalesManagement_SysDev
         /// <param></param>
         private void buttonChNDisplay_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxChRsn.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxChRsn.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewChumonMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewChumonMain.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    ChumonAccess.DeleteChumon((int)dataGridViewChumonMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の注文IDを引数に非表示機能モジュールを呼び出す
+                    ChumonAccess.DeleteChumon((int)dataGridViewChumonMain.Rows[i].Cells[0].Value, textBoxChRsn.Text);      //チェックされている場合その行の注文IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
@@ -4390,11 +4491,24 @@ namespace SalesManagement_SysDev
         /// <param></param>
         private void buttonSyNDisplay_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxSyRsn.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxSyRsn.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewSyukkoMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewSyukkoMain.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    SyukkoAccess.DeleteSyukko((int)dataGridViewSyukkoMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の出庫IDを引数に非表示機能モジュールを呼び出す
+                    SyukkoAccess.DeleteSyukko((int)dataGridViewSyukkoMain.Rows[i].Cells[0].Value, textBoxSyRsn.Text);      //チェックされている場合その行の出庫IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
@@ -4696,11 +4810,24 @@ namespace SalesManagement_SysDev
         /// <param></param>
         private void buttonArNDisplay_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxArRsn.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxArRsn.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewArrivalMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewArrivalMain.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    ArrivalAccess.DeleteArrival((int)dataGridViewArrivalMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の入荷IDを引数に非表示機能モジュールを呼び出す
+                    ArrivalAccess.DeleteArrival((int)dataGridViewArrivalMain.Rows[i].Cells[0].Value, textBoxArRsn.Text);      //チェックされている場合その行の入荷IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
@@ -5013,11 +5140,24 @@ namespace SalesManagement_SysDev
         /// <param></param>
         private void buttonShNDisplay_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxShRsn.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxShRsn.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewShipmentMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewShipmentMain.Rows[i].Cells[7].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    ShipmentAccess.DeleteShipment((int)dataGridViewShipmentMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の出荷IDを引数に非表示機能モジュールを呼び出す
+                    ShipmentAccess.DeleteShipment((int)dataGridViewShipmentMain.Rows[i].Cells[0].Value, textBoxShRsn.Text);      //チェックされている場合その行の出荷IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
@@ -5290,11 +5430,24 @@ namespace SalesManagement_SysDev
         /// <param></param>
         private void buttonHaNDisplay_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxHaRsn.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxHaRsn.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewHattyuMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewHattyuMain.Rows[i].Cells[5].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    HattyuAccess.DeleteHattyu((int)dataGridViewHattyuMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の発注IDを引数に非表示機能モジュールを呼び出す
+                    HattyuAccess.DeleteHattyu((int)dataGridViewHattyuMain.Rows[i].Cells[0].Value, textBoxHaRsn.Text);      //チェックされている場合その行の発注IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
@@ -5516,11 +5669,24 @@ namespace SalesManagement_SysDev
         /// <param></param>
         private void buttonWrNDisplay_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxWrRsn.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxWrRsn.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewWareHousingMain.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewWareHousingMain.Rows[i].Cells[5].Value)                    //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    WareHousingAccess.DeleteWarehousing((int)dataGridViewWareHousingMain.Rows[i].Cells[0].Value);      //チェックされている場合その行の入庫IDを引数に非表示機能モジュールを呼び出す
+                    WareHousingAccess.DeleteWarehousing((int)dataGridViewWareHousingMain.Rows[i].Cells[0].Value, textBoxWrRsn.Text);      //チェックされている場合その行の入庫IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
@@ -5628,10 +5794,12 @@ namespace SalesManagement_SysDev
                     if (cControl.Text == "登録")      //登録ボタンの場合
                     {
                         cControl.Enabled = false;
+                        cControl.BackColor = Color.FromArgb(170, 170, 170);
                     }
                     if (cControl.Text == "更新")     //更新、検索ボタンの場合
                     {
                         cControl.Enabled = true;
+                        cControl.BackColor = Color.White;
                     }
                 }
             }
@@ -5655,10 +5823,12 @@ namespace SalesManagement_SysDev
                     if (cControl.Text == "登録")          //登録ボタンの場合
                     {
                         cControl.Enabled = true;
+                        cControl.BackColor = Color.White;
                     }
                     if (cControl.Text == "更新")     //更新、検索ボタンの場合
                     {
                         cControl.Enabled = false;
+                        cControl.BackColor = Color.FromArgb(170, 170, 170);
                     }
                 }
             }

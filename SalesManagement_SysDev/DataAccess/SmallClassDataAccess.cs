@@ -83,11 +83,14 @@ namespace SalesManagement_SysDev
         /// <param name=""></param>
         /// <param name="SmallClassID"></param>
         /// <returns>List<M_Employee></returns>
-        public void DeleteSmallClass(int SmallClassID) //非表示
+        public void DeleteSmallClass(int SmallClassID,string Hidden) //非表示
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var SmallClass = context.M_SmallClassifications.Single(x => x.ScID == SmallClassID);             //非表示にするレコードの抽出
+
             SmallClass.ScFlag = 2;                                                          //小分類管理フラグを2にする
+            SmallClass.ScHidden = Hidden;                                               //非表示理由
+
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }

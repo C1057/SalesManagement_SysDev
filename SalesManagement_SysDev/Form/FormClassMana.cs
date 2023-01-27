@@ -57,8 +57,15 @@ namespace SalesManagement_SysDev
                 {
                     CheckText(cControl);
                 }
+                // コントロールの型が TextBoxBase またはComboBoxの場合チェックする
+                if (cControl is TextBoxBase || cControl is ComboBox)
+                {
+                    if (cControl.Text != String.Empty && cControl.Name != "textBoxHomeLoginID" && cControl.Name != "textBoxHomePassword")
+                    {
+                        return true;
+                    }
+                }
 
-                
             }
             return false;
         }
@@ -367,7 +374,13 @@ namespace SalesManagement_SysDev
                 comboBoxCsManaMajorClassID.Items.Add(MajorClassData.McID);
             }
 
-
+            //フォームの最大化ボタンの表示、非表示を切り替える
+            this.MaximizeBox = !this.MaximizeBox;
+            //フォームの最小化ボタンの表示、非表示を切り替える
+            this.MinimizeBox = !this.MinimizeBox;
+            //フォームのコントロールボックスの表示、非表示を切り替える
+            //コントロールボックスを非表示にすると最大化、最小化、閉じるボタンも消える
+            this.ControlBox = !this.ControlBox;
         }
 
         
@@ -428,6 +441,16 @@ namespace SalesManagement_SysDev
 
         private void maruibutton3_Click(object sender, EventArgs e)
         {
+            //入力項目に入力されているかチェック
+            if (PanelCheck())
+            {
+                if (msg.MsgDsp("M15001") == DialogResult.Cancel)            //Cancelの場合何もせず終了する
+                {
+                    return;
+                }
+                ClearText(this);        //Okの場合全入力内容をクリアする                
+            }
+
 
             panel1.Hide();
 
@@ -530,11 +553,24 @@ namespace SalesManagement_SysDev
 
         private void maruibutton8_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textboxCsManaMajorClassHidden.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textboxCsManaMajorClassHidden.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewMajorClass.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewMajorClass.Rows[i].Cells[2].Value)                 //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    MajorClassAccess.DeleteMajorClass((int)dataGridViewMajorClass.Rows[i].Cells[0].Value);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
+                    MajorClassAccess.DeleteMajorClass((int)dataGridViewMajorClass.Rows[i].Cells[0].Value, textboxCsManaMajorClassHidden.Text);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
                 }
             }
             //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
@@ -606,14 +642,27 @@ namespace SalesManagement_SysDev
 
         private void maruibutton6_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(textBoxCsManaSmallClassHidden.Text))
+            {
+                MessageBox.Show("非表示理由が入力されていません。", "入力確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textBoxCsManaSmallClassHidden.Focus();
+                return;
+            }
+
+            DialogResult result = msg.MsgDsp("M14001");
+            if (result == DialogResult.Cancel)
+            {
+                return;
+            }
+
             for (int i = 0; i < dataGridViewSmallClass.Rows.Count; i++)                     //データグリッドビューの行の数だけ繰り返す
             {
                 if ((bool)dataGridViewSmallClass.Rows[i].Cells[3].Value)                 //1行ずつチェックボックスがチェックされているかを判定する
                 {
-                    SmallClassAccess.DeleteSmallClass((int)dataGridViewSmallClass.Rows[i].Cells[0].Value);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
+                    SmallClassAccess.DeleteSmallClass((int)dataGridViewSmallClass.Rows[i].Cells[0].Value, textBoxCsManaSmallClassHidden.Text);      //チェックされている場合その行の役職IDを引数に非表示機能モジュールを呼び出す
                 }
             }
-            msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
+            //msg.MsgDsp("M14002");                                                   //非表示完了メッセージ
 
             //在庫情報一覧表示用データを更新
             SmallClassList = SmallClassAccess.GetData();
@@ -659,7 +708,12 @@ namespace SalesManagement_SysDev
         private void dataGridViewSmallClass_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             comboBoxCsManaSmallClassID.Text = dataGridViewSmallClass.Rows[dataGridViewSmallClass.CurrentRow.Index].Cells[0].Value.ToString();
+
             comboBoxCsManaSmallMajorClassID.Text = dataGridViewSmallClass.Rows[dataGridViewSmallClass.CurrentRow.Index].Cells[1].Value.ToString();
+            int McID= int.Parse(dataGridViewSmallClass.Rows[dataGridViewSmallClass.CurrentRow.Index].Cells[1].Value.ToString());
+            M_MajorClassification MajorClassData = MajorClassList.Single(MajorClass => MajorClass.McID == McID);
+            textBoxCsManaSmallMajorClassName.Text = MajorClassData.McName;
+
             textBoxCsManaSmallClassName.Text = (string)dataGridViewSmallClass.Rows[dataGridViewSmallClass.CurrentRow.Index].Cells[2].Value;
             textBoxCsManaSmallClassHidden.Text = (string)dataGridViewSmallClass.Rows[dataGridViewSmallClass.CurrentRow.Index].Cells[4].Value;
         }
@@ -709,6 +763,88 @@ namespace SalesManagement_SysDev
                 {
                     comboBoxCsManaSmallClassID.Items.Add(SmallClassData.ScID);
                 }
+            }
+        }
+
+        private void comboBoxCsManaMajorClassID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxCsManaMajorClassID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(this);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(this);
+            }
+        }
+
+        //登録ボタンを使用可能、更新検索ボタンを使用不能にするメソッド
+        public static void EnabledChangedtruebutton(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    EnabledChangedtruebutton(cControl);
+                }
+
+                // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+                if (cControl is Button)
+                {
+                    if (cControl.Text == "登録")          //登録ボタンの場合
+                    {
+                        cControl.Enabled = true;
+                        cControl.BackColor = Color.White;
+                    }
+                    if (cControl.Text == "更新")     //更新、検索ボタンの場合
+                    {
+                        cControl.Enabled = false;
+                        cControl.BackColor = Color.FromArgb(170, 170, 170);
+                    }
+                }
+            }
+        }
+
+        //登録ボタンを使用不能、更新検索ボタンを使用可能にするメソッド
+        public static void EnabledChangedfalsebutton(Control hParent)
+        {
+            // hParent 内のすべてのコントロールを列挙する
+            foreach (Control cControl in hParent.Controls)
+            {
+                // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+                if (cControl.HasChildren == true)
+                {
+                    EnabledChangedfalsebutton(cControl);
+                }
+
+                // コントロールの型が Button の場合
+                if (cControl is Button)
+                {
+                    if (cControl.Text == "登録")      //登録ボタンの場合
+                    {
+                        cControl.Enabled = false;
+                        cControl.BackColor = Color.FromArgb(170, 170, 170);
+                    }
+                    if (cControl.Text == "更新")     //更新、検索ボタンの場合
+                    {
+                        cControl.Enabled = true;
+                        cControl.BackColor = Color.White;
+                    }
+                }
+            }
+        }
+
+        private void comboBoxCsManaSmallClassID_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(comboBoxCsManaSmallClassID.Text))           //主キーの項目に入力されていない場合
+            {
+                EnabledChangedtruebutton(this);
+            }
+            else　　　　　　　　　　　　　　　　　　　　　　　　　　　　//主キーの項目に入力されている場合
+            {
+                EnabledChangedfalsebutton(this);
             }
         }
     }

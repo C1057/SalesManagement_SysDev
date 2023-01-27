@@ -89,12 +89,14 @@ namespace SalesManagement_SysDev
         /// <param name=""></param>
         /// <param name="MajorClassID"></param>
         /// <returns>List<M_MajorClassifcation></returns>
-        public void DeleteMajorClass(int MajorClassID) //非表示
+        public void DeleteMajorClass(int MajorClassID,string Hidden) //非表示
         {
-            msg.MsgDsp("M14001"); //非表示確認メッセージ
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var MajorClass = context.M_MajorClassifications.Single(x => x.McID == MajorClassID);             //非表示にするレコードの抽出
+
             MajorClass.McFlag = 2;                                                          //大分類管理フラグを2にする
+            MajorClass.McHidden = Hidden;                                               //非表示理由
+
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }

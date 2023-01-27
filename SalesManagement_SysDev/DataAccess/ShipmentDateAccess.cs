@@ -48,11 +48,14 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="ShipmentlID"></param>
         /// <returns>List<t_Shipment></returns>
-        public void DeleteShipment(int ShipmentID) //非表示
+        public void DeleteShipment(int ShipmentID,string Hidden) //非表示
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Shipment = context.T_Shipments.Single(x => x.ShID == ShipmentID);             //非表示にするレコードの抽出
+
             Shipment.ShFlag = 2;                                                          //出荷管理フラグを2にする
+            Shipment.ShHidden = Hidden;                                                   //非表示理由
+
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }

@@ -66,11 +66,14 @@ namespace SalesManagement_SysDev
         /// <param name=""></param>
         /// <param name="SaleID"></param>
         /// <returns>List<T_Sale></returns>
-        public void DeleteSale(int SaleID) //非表示
+        public void DeleteSale(int SaleID,string Hidden) //非表示
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Sale = context.T_Sale.Single(x => x.SaID == SaleID);             //非表示にするレコードの抽出
+
             Sale.SaFlag = 2;                                                          //売上管理フラグを2にする
+            Sale.SaHidden = Hidden;                                                 //非表示理由
+
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }

@@ -102,11 +102,14 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="SalesOfficeID"></param>
         /// <returns>List<M_Client></returns>
-        public void DeleteOrder(int SalesOfficeID)
+        public void DeleteOrder(int OrderID,string Hidden)
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
-            var SalesOffice = context.M_SalesOffices.Single(x => x.SoID == SalesOfficeID); //非表示にするレコードの抽出
-            SalesOffice.SoFlag = 2;                                                      //受注管理フラグを2にする
+            var Order = context.T_Orders.Single(x => x.OrID == OrderID); //非表示にするレコードの抽出
+
+            Order.OrFlag = 2;                                                      //受注管理フラグを2にする
+            Order.OrHidden = Hidden;                                        //非表示理由
+
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }

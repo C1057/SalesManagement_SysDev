@@ -47,11 +47,14 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="WarehousingID"></param>
         /// <returns>List<t_Warehosing></returns>
-        public void DeleteWarehousing(int WarehousingID) //非表示
+        public void DeleteWarehousing(int WarehousingID,string Hidden) //非表示
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Warehousing = context.T_Warehousings.Single(x => x.WaID == WarehousingID);             //非表示にするレコードの抽出
+
             Warehousing.WaFlag = 2;                                                          //入庫管理フラグを2にする
+            Warehousing.WaHidden = Hidden;                                                  //非表示理由
+
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }

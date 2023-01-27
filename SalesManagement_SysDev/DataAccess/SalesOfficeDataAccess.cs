@@ -129,11 +129,14 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="SalesOfficeID"></param>
         /// <returns>List<M_SalesOffice></returns>
-        public void DeleteClient(int SalesOfficeID)
+        public void DeleteClient(int SalesOfficeID,string Hidden)
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var SalesOffice = context.M_SalesOffices.Single(x => x.SoID == SalesOfficeID);             //非表示にするレコードの抽出
+
             SalesOffice.SoFlag = 2;                                                          //営業所管理フラグを2にする
+            SalesOffice.SoHidden = Hidden;                                                  //非表示理由
+
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }

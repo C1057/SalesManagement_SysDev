@@ -58,11 +58,14 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="SyukkoID"></param>
         /// <returns>List<t_Syukko></returns>
-        public void DeleteSyukko(int SyukkoID) //非表示
+        public void DeleteSyukko(int SyukkoID,string Hidden) //非表示
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Syukko = context.T_Syukkos.Single(x => x.SyID == SyukkoID);             //非表示にするレコードの抽出
+
             Syukko.SyFlag = 2;                                                          //出庫管理フラグを2にする
+            Syukko.SyHidden = Hidden;                                                   //非表示理由
+
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }

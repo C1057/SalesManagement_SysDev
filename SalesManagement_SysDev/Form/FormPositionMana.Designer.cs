@@ -53,11 +53,12 @@ namespace SalesManagement_SysDev
             // 
             this.buttonPositionManaSrarch.BackColor = System.Drawing.Color.White;
             this.buttonPositionManaSrarch.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonPositionManaSrarch.Location = new System.Drawing.Point(623, 126);
+            this.buttonPositionManaSrarch.Location = new System.Drawing.Point(620, 126);
             this.buttonPositionManaSrarch.Margin = new System.Windows.Forms.Padding(1);
             this.buttonPositionManaSrarch.Name = "buttonPositionManaSrarch";
-            this.buttonPositionManaSrarch.Size = new System.Drawing.Size(164, 74);
+            this.buttonPositionManaSrarch.Size = new System.Drawing.Size(190, 74);
             this.buttonPositionManaSrarch.TabIndex = 224;
+            this.buttonPositionManaSrarch.TabStop = false;
             this.buttonPositionManaSrarch.Text = "検索";
             this.buttonPositionManaSrarch.UseVisualStyleBackColor = false;
             this.buttonPositionManaSrarch.Click += new System.EventHandler(this.buttonPositionManaSrarch_Click);
@@ -66,11 +67,12 @@ namespace SalesManagement_SysDev
             // 
             this.buttonPositionManaList.BackColor = System.Drawing.Color.White;
             this.buttonPositionManaList.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonPositionManaList.Location = new System.Drawing.Point(423, 126);
+            this.buttonPositionManaList.Location = new System.Drawing.Point(418, 126);
             this.buttonPositionManaList.Margin = new System.Windows.Forms.Padding(1);
             this.buttonPositionManaList.Name = "buttonPositionManaList";
-            this.buttonPositionManaList.Size = new System.Drawing.Size(164, 74);
+            this.buttonPositionManaList.Size = new System.Drawing.Size(190, 74);
             this.buttonPositionManaList.TabIndex = 223;
+            this.buttonPositionManaList.TabStop = false;
             this.buttonPositionManaList.Text = "一覧表示";
             this.buttonPositionManaList.UseVisualStyleBackColor = false;
             this.buttonPositionManaList.Click += new System.EventHandler(this.buttonPositionManaList_Click);
@@ -79,24 +81,27 @@ namespace SalesManagement_SysDev
             // 
             this.buttonPositionManaAdd.BackColor = System.Drawing.Color.White;
             this.buttonPositionManaAdd.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonPositionManaAdd.Location = new System.Drawing.Point(34, 126);
+            this.buttonPositionManaAdd.Location = new System.Drawing.Point(8, 126);
             this.buttonPositionManaAdd.Margin = new System.Windows.Forms.Padding(1);
             this.buttonPositionManaAdd.Name = "buttonPositionManaAdd";
-            this.buttonPositionManaAdd.Size = new System.Drawing.Size(164, 74);
+            this.buttonPositionManaAdd.Size = new System.Drawing.Size(190, 74);
             this.buttonPositionManaAdd.TabIndex = 222;
+            this.buttonPositionManaAdd.TabStop = false;
             this.buttonPositionManaAdd.Text = "登録";
             this.buttonPositionManaAdd.UseVisualStyleBackColor = false;
             this.buttonPositionManaAdd.Click += new System.EventHandler(this.buttonPositionManaAdd_Click_1);
             // 
             // buttonPositionManaUpdate
             // 
-            this.buttonPositionManaUpdate.BackColor = System.Drawing.Color.White;
+            this.buttonPositionManaUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.buttonPositionManaUpdate.Enabled = false;
             this.buttonPositionManaUpdate.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.buttonPositionManaUpdate.Location = new System.Drawing.Point(226, 126);
+            this.buttonPositionManaUpdate.Location = new System.Drawing.Point(212, 126);
             this.buttonPositionManaUpdate.Margin = new System.Windows.Forms.Padding(1);
             this.buttonPositionManaUpdate.Name = "buttonPositionManaUpdate";
-            this.buttonPositionManaUpdate.Size = new System.Drawing.Size(164, 74);
+            this.buttonPositionManaUpdate.Size = new System.Drawing.Size(190, 74);
             this.buttonPositionManaUpdate.TabIndex = 221;
+            this.buttonPositionManaUpdate.TabStop = false;
             this.buttonPositionManaUpdate.Text = "更新";
             this.buttonPositionManaUpdate.UseVisualStyleBackColor = false;
             this.buttonPositionManaUpdate.Click += new System.EventHandler(this.buttonPositionManaUpdate_Click);
@@ -129,8 +134,9 @@ namespace SalesManagement_SysDev
             this.comboBoxPositionManaPositionID.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPositionManaPositionID.Name = "comboBoxPositionManaPositionID";
             this.comboBoxPositionManaPositionID.Size = new System.Drawing.Size(213, 32);
-            this.comboBoxPositionManaPositionID.TabIndex = 237;
+            this.comboBoxPositionManaPositionID.TabIndex = 1;
             this.comboBoxPositionManaPositionID.SelectedIndexChanged += new System.EventHandler(this.comboBoxPositionManaPositionID_SelectedIndexChanged);
+            this.comboBoxPositionManaPositionID.TextChanged += new System.EventHandler(this.comboBoxPositionManaPositionID_TextChanged);
             // 
             // textBoxPositionManaPositionName
             // 
@@ -140,7 +146,7 @@ namespace SalesManagement_SysDev
             this.textBoxPositionManaPositionName.Multiline = true;
             this.textBoxPositionManaPositionName.Name = "textBoxPositionManaPositionName";
             this.textBoxPositionManaPositionName.Size = new System.Drawing.Size(245, 37);
-            this.textBoxPositionManaPositionName.TabIndex = 236;
+            this.textBoxPositionManaPositionName.TabIndex = 2;
             // 
             // labelPositionManaPositionID
             // 
@@ -168,7 +174,7 @@ namespace SalesManagement_SysDev
             this.textBoxPositionManaHidden.Multiline = true;
             this.textBoxPositionManaHidden.Name = "textBoxPositionManaHidden";
             this.textBoxPositionManaHidden.Size = new System.Drawing.Size(835, 101);
-            this.textBoxPositionManaHidden.TabIndex = 245;
+            this.textBoxPositionManaHidden.TabIndex = 3;
             // 
             // buttonPositionManaReturn
             // 
@@ -179,6 +185,7 @@ namespace SalesManagement_SysDev
             this.buttonPositionManaReturn.Name = "buttonPositionManaReturn";
             this.buttonPositionManaReturn.Size = new System.Drawing.Size(168, 72);
             this.buttonPositionManaReturn.TabIndex = 247;
+            this.buttonPositionManaReturn.TabStop = false;
             this.buttonPositionManaReturn.Text = "戻る";
             this.buttonPositionManaReturn.UseVisualStyleBackColor = false;
             this.buttonPositionManaReturn.Click += new System.EventHandler(this.buttonPositionManaReturn_Click);
@@ -193,6 +200,7 @@ namespace SalesManagement_SysDev
             this.dataGridViewPositionMana.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPositionMana.Size = new System.Drawing.Size(1190, 331);
             this.dataGridViewPositionMana.TabIndex = 248;
+            this.dataGridViewPositionMana.TabStop = false;
             this.dataGridViewPositionMana.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPositionMana_CellClick);
             // 
             // labelPoSearchTitle
@@ -213,6 +221,7 @@ namespace SalesManagement_SysDev
             this.buttonPositionManaDeleteList.Name = "buttonPositionManaDeleteList";
             this.buttonPositionManaDeleteList.Size = new System.Drawing.Size(172, 111);
             this.buttonPositionManaDeleteList.TabIndex = 250;
+            this.buttonPositionManaDeleteList.TabStop = false;
             this.buttonPositionManaDeleteList.Text = "非表示リスト";
             this.buttonPositionManaDeleteList.UseVisualStyleBackColor = false;
             this.buttonPositionManaDeleteList.Click += new System.EventHandler(this.buttonPositionManaDeleteList_Click);
@@ -227,6 +236,7 @@ namespace SalesManagement_SysDev
             this.buttonPositionManaDelete.Name = "buttonPositionManaDelete";
             this.buttonPositionManaDelete.Size = new System.Drawing.Size(172, 111);
             this.buttonPositionManaDelete.TabIndex = 249;
+            this.buttonPositionManaDelete.TabStop = false;
             this.buttonPositionManaDelete.Text = "非表示";
             this.buttonPositionManaDelete.UseVisualStyleBackColor = false;
             this.buttonPositionManaDelete.Click += new System.EventHandler(this.buttonPositionManaDelete_Click);

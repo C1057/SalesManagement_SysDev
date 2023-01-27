@@ -51,11 +51,14 @@ namespace SalesManagement_SysDev
         /// </summary>
         /// <param name="ArrivalID"></param>
         /// <returns>List<t_Arrival></returns>
-        public void DeleteArrival(int ArrivalID) //非表示
+        public void DeleteArrival(int ArrivalID,string Hidden) //非表示
         {
             var context = new SalesManagement_DevContext();                             //SalesManagement_DevContextクラスのインスタンス化
             var Arrival = context.T_Arrivals.Single(x => x.ArID == ArrivalID);             //非表示にするレコードの抽出
+
             Arrival.ArFlag = 2;                                                          //入荷管理フラグを2にする
+            Arrival.ArHidden = Hidden;                                                  //非表示理由
+
             context.SaveChanges();                                                      //更新を確定する
             context.Dispose();                                                          //contextを解放
         }
