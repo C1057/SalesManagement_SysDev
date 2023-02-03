@@ -238,6 +238,7 @@ namespace SalesManagement_SysDev
             this.dataGridViewProSelect.Size = new System.Drawing.Size(1216, 334);
             this.dataGridViewProSelect.TabIndex = 226;
             this.dataGridViewProSelect.TabStop = false;
+            this.dataGridViewProSelect.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProSelect_CellClick_1);
             // 
             // labelProSelectTotal
             // 

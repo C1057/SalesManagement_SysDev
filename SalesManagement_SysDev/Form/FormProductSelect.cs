@@ -367,13 +367,12 @@ namespace SalesManagement_SysDev
                 return;
             }
 
-            //受注詳細IDをと一致するデータを削除する
-            dataGridViewProSelect.Rows.RemoveAt(int.Parse(textBoxProSelectOrderDetailID.Text) - 1);
-            
+            dataGridViewProSelect.Rows.RemoveAt(int.Parse(textBoxProSelectOrderDetailID.Text) - formHome.OrderDetailID);
+
             //ずれた分の受注詳細IDを修正する
             for (int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
             {
-                dataGridViewProSelect.Rows[i].Cells[0].Value = i + 1;
+                dataGridViewProSelect.Rows[i].Cells[0].Value = i + formHome.OrderDetailID;
             }
 
             OrderDetailID--;
@@ -676,6 +675,18 @@ namespace SalesManagement_SysDev
 
         private void numericUpDownProSelectQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
+        }
+
+        private void dataGridViewProSelect_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dataGridViewProSelect_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            textBoxProSelectOrderDetailID.Text = dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[0].Value.ToString();
+            textBoxProSelectProID.Text = dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[1].Value.ToString();
+            //numericUpDownProSelectQuantity.TextAlign = (HorizontalAlignment)dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[2].Value;
         }
     }
 }
