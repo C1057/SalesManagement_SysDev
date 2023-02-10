@@ -1185,6 +1185,23 @@ namespace SalesManagement_SysDev
                 {
                     ButtonEnabledChangeTrue();          //全画面使用可能
                 }
+                else if (EmployeeData.PoID == 5)        //倉庫
+                {
+                    buttonSale.Enabled = true;          //売上管理画面
+                    buttonSale.BackColor = Color.White;           //売上管理ボタンの背景色変更
+                    buttonChumon.Enabled = true;        //注文管理画面
+                    buttonChumon.BackColor = Color.White;           //注文管理ボタンの背景色変更
+                    buttonHattyu.Enabled = true;        //発注管理画面
+                    buttonHattyu.BackColor = Color.White;           //発注管理ボタンの背景色変更
+                    buttonWareHousing.Enabled = true;   //入庫管理画面
+                    buttonWareHousing.BackColor = Color.White;           //入庫管理ボタンの背景色変更
+                    buttonSyukko.Enabled = true;        //出庫管理画面
+                    buttonSyukko.BackColor = Color.White;           //出庫管理ボタンの背景色変更
+                    buttonArrival.Enabled = true;       //入荷管理画面
+                    buttonArrival.BackColor = Color.White;           //入荷管理ボタンの背景色変更
+                    buttonShipment.Enabled = true;      //出荷管理画面
+                    buttonShipment.BackColor = Color.White;           //出荷管理ボタンの背景色変更
+                }
 
                 //役職名、社員ID、名前を表示する
                 labelHomePositionNameNow.Text = PositionData.PoName;

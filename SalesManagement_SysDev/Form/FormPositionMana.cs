@@ -216,6 +216,8 @@ namespace SalesManagement_SysDev
             PositionList = PositionAccess.GetData();
             //役職情報再表示
             ListPosition();
+
+           
         }
 
         private void FormPositionMana_Load(object sender, EventArgs e)

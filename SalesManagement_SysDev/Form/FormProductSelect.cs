@@ -12,6 +12,8 @@ namespace SalesManagement_SysDev
 {
     public partial class FormProductSelect : Form
     {
+        //List<T_OrderDetail> OrderDetailList;
+
         private FormHome formHome;                  //FormHomeのデータを取得するための変数を宣言
 
         int OrderDetailID;                          //受注詳細ID
@@ -251,6 +253,13 @@ namespace SalesManagement_SysDev
 
             //合計金額の表示
             labelProSelectTotalMoney.Text = (ProductPrice * int.Parse(numericUpDownProSelectQuantity.Value.ToString())).ToString("C");
+
+
+            //int PrID = int.Parse(textBoxProSelectProID.ToString());
+            ////M_Product ProductData = formHome.ProductList.Single(Product => Product.PrID == PrID);
+            //comboBoxProSelectMajor.Text = ProductData.MaID.ToString();
+            //comboBoxProSelectSmall.Text = ProductData.ScID.ToString();
+
         }
 
         /// <summary>
@@ -368,12 +377,12 @@ namespace SalesManagement_SysDev
             }
 
             //受注詳細IDをと一致するデータを削除する
-            dataGridViewProSelect.Rows.RemoveAt(int.Parse(textBoxProSelectOrderDetailID.Text) - 1);
-            
+            dataGridViewProSelect.Rows.RemoveAt(int.Parse(textBoxProSelectOrderDetailID.Text) - formHome.OrderDetailID);
+
             //ずれた分の受注詳細IDを修正する
             for (int i = 0; i < dataGridViewProSelect.Rows.Count; i++)
             {
-                dataGridViewProSelect.Rows[i].Cells[0].Value = i + 1;
+                dataGridViewProSelect.Rows[i].Cells[0].Value = i + formHome.OrderDetailID;
             }
 
             OrderDetailID--;
@@ -662,8 +671,14 @@ namespace SalesManagement_SysDev
             M_Product ProductData = formHome.ProductList.Single(Product => Product.PrName == PrName);
             textBoxProSelectProID.Text = ProductData.PrID.ToString();
 
+
+            
+
             T_Stock StockData = formHome.StockList.Single(Stock => Stock.PrID == ProductData.PrID);
             labelStockNow.Text = StockData.StQuantity.ToString();
+
+            
+
 
             //数量の上限を設定
             numericUpDownProSelectQuantity.Maximum = StockData.StQuantity;
@@ -676,6 +691,32 @@ namespace SalesManagement_SysDev
 
         private void numericUpDownProSelectQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
+        }
+
+        private void dataGridViewProSelect_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            
+        }
+
+        private void dataGridViewProSelect_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBoxProSelectOrderDetailID.Text = dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[0].Value.ToString();
+            textBoxProSelectProID.Text = dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[1].Value.ToString();
+            //numericUpDownProSelectQuantity.TextAlign = (HorizontalAlignment)dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[2].Value;
+        }
+
+        private void textBoxProSelectOrderDetailID_TextChanged(object sender, EventArgs e)
+        {
+
+            
+
+
+        }
+
+        private void labelStockNow_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
