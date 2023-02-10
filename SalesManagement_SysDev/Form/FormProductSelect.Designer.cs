@@ -150,6 +150,7 @@ namespace SalesManagement_SysDev
             this.textBoxProSelectOrderDetailID.Name = "textBoxProSelectOrderDetailID";
             this.textBoxProSelectOrderDetailID.Size = new System.Drawing.Size(190, 37);
             this.textBoxProSelectOrderDetailID.TabIndex = 2;
+            this.textBoxProSelectOrderDetailID.TextChanged += new System.EventHandler(this.textBoxProSelectOrderDetailID_TextChanged);
             // 
             // labelProSelectOrderDetailID
             // 
@@ -238,7 +239,8 @@ namespace SalesManagement_SysDev
             this.dataGridViewProSelect.Size = new System.Drawing.Size(1216, 334);
             this.dataGridViewProSelect.TabIndex = 226;
             this.dataGridViewProSelect.TabStop = false;
-            this.dataGridViewProSelect.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProSelect_CellClick_1);
+            this.dataGridViewProSelect.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProSelect_CellClick);
+            this.dataGridViewProSelect.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProSelect_CellContentClick);
             // 
             // labelProSelectTotal
             // 
@@ -407,6 +409,7 @@ namespace SalesManagement_SysDev
             this.labelStockNow.TabIndex = 243;
             this.labelStockNow.Text = "0";
             this.labelStockNow.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.labelStockNow.Click += new System.EventHandler(this.labelStockNow_Click);
             // 
             // labelStockNowTitle
             // 

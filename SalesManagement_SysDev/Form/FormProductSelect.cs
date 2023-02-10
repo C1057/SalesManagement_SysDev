@@ -12,6 +12,8 @@ namespace SalesManagement_SysDev
 {
     public partial class FormProductSelect : Form
     {
+        //List<T_OrderDetail> OrderDetailList;
+
         private FormHome formHome;                  //FormHomeのデータを取得するための変数を宣言
 
         int OrderDetailID;                          //受注詳細ID
@@ -251,6 +253,13 @@ namespace SalesManagement_SysDev
 
             //合計金額の表示
             labelProSelectTotalMoney.Text = (ProductPrice * int.Parse(numericUpDownProSelectQuantity.Value.ToString())).ToString("C");
+
+
+            //int PrID = int.Parse(textBoxProSelectProID.ToString());
+            ////M_Product ProductData = formHome.ProductList.Single(Product => Product.PrID == PrID);
+            //comboBoxProSelectMajor.Text = ProductData.MaID.ToString();
+            //comboBoxProSelectSmall.Text = ProductData.ScID.ToString();
+
         }
 
         /// <summary>
@@ -661,8 +670,14 @@ namespace SalesManagement_SysDev
             M_Product ProductData = formHome.ProductList.Single(Product => Product.PrName == PrName);
             textBoxProSelectProID.Text = ProductData.PrID.ToString();
 
+
+            
+
             T_Stock StockData = formHome.StockList.Single(Stock => Stock.PrID == ProductData.PrID);
             labelStockNow.Text = StockData.StQuantity.ToString();
+
+            
+
 
             //数量の上限を設定
             numericUpDownProSelectQuantity.Maximum = StockData.StQuantity;
