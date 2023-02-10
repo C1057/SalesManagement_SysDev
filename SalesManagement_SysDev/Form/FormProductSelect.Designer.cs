@@ -61,6 +61,7 @@ namespace SalesManagement_SysDev
             this.labelPrSelectSmallname = new System.Windows.Forms.Label();
             this.labelStockNow = new System.Windows.Forms.Label();
             this.labelStockNowTitle = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProSelectQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProSelect)).BeginInit();
             this.SuspendLayout();
@@ -420,12 +421,27 @@ namespace SalesManagement_SysDev
             this.labelStockNowTitle.TabIndex = 242;
             this.labelStockNowTitle.Text = "現在庫";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Font = new System.Drawing.Font("Meiryo UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.button1.Location = new System.Drawing.Point(736, 118);
+            this.button1.Margin = new System.Windows.Forms.Padding(1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(214, 74);
+            this.button1.TabIndex = 244;
+            this.button1.TabStop = false;
+            this.button1.Text = "一覧表示";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormProductSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(1251, 779);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelStockNow);
             this.Controls.Add(this.labelStockNowTitle);
             this.Controls.Add(this.textBoxPrSelectSmallName);
@@ -503,5 +519,6 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelPrSelectSmallname;
         private System.Windows.Forms.Label labelStockNow;
         private System.Windows.Forms.Label labelStockNowTitle;
+        private System.Windows.Forms.Button button1;
     }
 }

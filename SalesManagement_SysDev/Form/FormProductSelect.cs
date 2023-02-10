@@ -12,6 +12,21 @@ namespace SalesManagement_SysDev
 {
     public partial class FormProductSelect : Form
     {
+        private void ListProductSelect()
+        {
+            dataGridViewProSelect.Rows.Clear();
+            //データグリッドビューをクリアする
+            var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
+            foreach (var ProductSelectData in context.T_OrderDetails)
+            {
+                
+                    //データグリッドビューにデータを追加する
+                    dataGridViewProSelect.Rows.Add(ProductSelectData.OrDetailID, ProductSelectData.OrID, ProductSelectData.PrID, ProductSelectData.OrQuantity, ProductSelectData.OrTotalPrice);
+               
+
+            }
+        }
+
         //List<T_OrderDetail> OrderDetailList;
 
         private FormHome formHome;                  //FormHomeのデータを取得するための変数を宣言
@@ -85,6 +100,8 @@ namespace SalesManagement_SysDev
             this.ControlBox = !this.ControlBox;
             //数量に下限を設定
             numericUpDownProSelectQuantity.Minimum = 1;
+
+
         }
 
         /// <summary>
@@ -511,6 +528,8 @@ namespace SalesManagement_SysDev
                 //例外エラー
                 MessageBox.Show("登録に失敗しました", "登録確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            formHome.ListOrder();
         }
 
         /// <summary>
@@ -702,6 +721,26 @@ namespace SalesManagement_SysDev
             textBoxProSelectOrderDetailID.Text = dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[0].Value.ToString();
             textBoxProSelectProID.Text = dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[1].Value.ToString();
             //numericUpDownProSelectQuantity.TextAlign = (HorizontalAlignment)dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[2].Value;
+        }
+
+        private void textBoxProSelectOrderDetailID_TextChanged(object sender, EventArgs e)
+        {
+
+            
+
+
+        }
+
+        private void labelStockNow_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(textBoxProSelectProID.Text.ToString());
+            
+            ListProductSelect();
         }
     }
 }
