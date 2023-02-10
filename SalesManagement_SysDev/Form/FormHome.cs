@@ -3463,7 +3463,7 @@ namespace SalesManagement_SysDev
         /// <summary>
         /// 受注情報一覧表示モジュール
         /// </summary>
-        private void ListOrder()
+        public void ListOrder()
         {
             dataGridViewOrderMain.Rows.Clear();                        //メインデータグリッドビューをクリアする
             dataGridViewOrderDetail.Rows.Clear();                        //詳細データグリッドビューをクリアする
