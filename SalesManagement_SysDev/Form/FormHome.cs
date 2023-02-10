@@ -204,7 +204,8 @@ namespace SalesManagement_SysDev
             timer2.Enabled = true;
 
             timer3.Interval = 1;
-
+            this.AcceptButton = buttonLogin;
+            this.CancelButton = buttonClose;
             ButtonEnabledChange();      //画面変更ボタンを使用不可にする
 
             var context = new SalesManagement_DevContext();             //SalesManagement_DevContextクラスのインスタンス化
@@ -6874,6 +6875,11 @@ namespace SalesManagement_SysDev
         {
             var login = new F_Login();
             login.Show();
+        }
+
+        private void textBoxHomePassword_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

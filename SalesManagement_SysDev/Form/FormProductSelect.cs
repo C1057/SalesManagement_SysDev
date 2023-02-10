@@ -101,6 +101,8 @@ namespace SalesManagement_SysDev
             //数量に下限を設定
             numericUpDownProSelectQuantity.Minimum = 1;
 
+            
+
 
         }
 
@@ -215,6 +217,10 @@ namespace SalesManagement_SysDev
                 MessageBox.Show("数量が現在個数を超えています", "追加確認", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+           
+            
+
 
             //追加確認メッセージ
             if (DialogResult.Cancel == msg.MsgDsp("M7020"))
