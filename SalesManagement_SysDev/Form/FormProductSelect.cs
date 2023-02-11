@@ -12,6 +12,24 @@ namespace SalesManagement_SysDev
 {
     public partial class FormProductSelect : Form
     {
+        private static List<T_OrderDetail> t_OrderDetails = new List<T_OrderDetail>();
+        public List<T_OrderDetail> SearchOrderDetail(int methodflg, string SearchInfo)　//IDで検索
+        {
+            var context = new SalesManagement_DevContext();
+            List<T_OrderDetail> SearchResult = null;
+
+            if (methodflg == 1)　
+            {
+                int OrderID = int.Parse(SearchInfo);
+                SearchResult = context.T_OrderDetails.Where(x => x.OrID == OrderID).ToList();
+            }
+          
+
+            context.Dispose();
+            return SearchResult;
+        }
+
+
         private void ListProductSelect()
         {
             dataGridViewProSelect.Rows.Clear();
@@ -101,8 +119,8 @@ namespace SalesManagement_SysDev
             //数量に下限を設定
             numericUpDownProSelectQuantity.Minimum = 1;
 
+            //受注IDより抽出
             
-
 
         }
 
@@ -133,8 +151,18 @@ namespace SalesManagement_SysDev
             //Visibleがtrueになった場合
             if (this.Visible == true)
             {
+                //textBoxProSelectOrderID.Text = "";
+
                 //受注IDをセット
-                textBoxProSelectOrderID.Text = formHome.OrderID.ToString();
+                if (!string.IsNullOrEmpty(formHome.comboBoxOrOrderID.Text))
+                {
+                    textBoxProSelectOrderID.Text = formHome.comboBoxOrOrderID.Text;
+                }
+                else
+                {
+                    textBoxProSelectOrderID.Text = formHome.OrderID.ToString();
+                }
+                
                 //コンボボックスのItemをリセットする
                 ResetComboBox(this);
                 //商品名コンボボックスにデータを追加
@@ -744,9 +772,24 @@ namespace SalesManagement_SysDev
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(textBoxProSelectProID.Text.ToString());
-            
-            ListProductSelect();
+            //dataGridViewProSelect.Rows.Clear();                        //メインデータグリッドビューの内容を消去する
+
+            //if (!string.IsNullOrEmpty(textBoxProSelectOrderID.Text))             //受注IDコンボボックスの空文字チェック
+            //{
+            //    //売上IDの入力チェック
+            //    if (!string.IsNullOrEmpty(textBoxProSelectOrderID.Text))
+            //    {
+            //        textBoxProSelectOrderID.Focus();
+            //        return;
+            //    }
+            //    foreach (var OrDetailData in SearchOrderDetail(1, textBoxProSelectOrderID.Text))           //注文IDで検索する
+            //    {
+            //        //データグリッドビューにデータを表示
+            //        dataGridViewProSelect.Rows.Add(OrDetailData.OrDetailID, OrDetailData.OrID, OrDetailData.PrID, OrDetailData.OrQuantity, OrDetailData.OrTotalPrice);
+            //    }
+                
+            //}
+
         }
     }
 }
