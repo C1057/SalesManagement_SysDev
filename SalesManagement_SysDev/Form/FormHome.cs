@@ -6245,10 +6245,15 @@ namespace SalesManagement_SysDev
             bool check = (bool)dataGridViewOrderMain.Rows[e.RowIndex].Cells[6].Value;
             if (check  == true)
             {
-                buttonOrSelectProduct.Enabled = true;
+                buttonOrSelectProduct.Enabled = false;
+                buttonOrSelectProduct.BackColor = Color.Gray;
             }
             else
-                buttonOrSelectProduct.Enabled = false;
+            {
+                buttonOrSelectProduct.Enabled = true;
+                buttonOrSelectProduct.BackColor = Color.PaleGoldenrod;
+            }
+                
 
         }
 
