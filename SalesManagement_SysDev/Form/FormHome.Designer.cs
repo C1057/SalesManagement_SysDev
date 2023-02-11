@@ -5729,6 +5729,9 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.textBoxHomeLoginID);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelOrder);
+            this.Controls.Add(this.panelArrival);
+            this.Controls.Add(this.panelStart);
             this.Controls.Add(this.panelChumon);
             this.Controls.Add(this.panelSyukko);
             this.Controls.Add(this.panelWareHousing);
@@ -5739,9 +5742,6 @@ namespace SalesManagement_SysDev
             this.Controls.Add(this.panelProduct);
             this.Controls.Add(this.panelEmployee);
             this.Controls.Add(this.panelSale);
-            this.Controls.Add(this.panelOrder);
-            this.Controls.Add(this.panelArrival);
-            this.Controls.Add(this.panelStart);
             this.Name = "FormHome";
             this.Text = "販売在庫管理システム";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -6058,7 +6058,6 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Button buttonOrSearch;
         private System.Windows.Forms.Button buttonOrDisplay;
         private System.Windows.Forms.Button buttonOrOrderConfirm;
-        private System.Windows.Forms.ComboBox comboBoxOrOrderID;
         private System.Windows.Forms.ComboBox comboBoxOrSalesOfficeID;
         private System.Windows.Forms.ComboBox comboBoxOrEmployeeID;
         private System.Windows.Forms.ComboBox comboBoxOrClientID;
@@ -6234,6 +6233,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelHaHattyuIDWarning;
         private System.Windows.Forms.Label labelWrWarehousingIDWarning;
         public System.Windows.Forms.ComboBox comboBoxChChumonID;
+        public System.Windows.Forms.ComboBox comboBoxOrOrderID;
     }
 }
 
