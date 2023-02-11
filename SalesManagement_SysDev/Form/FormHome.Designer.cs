@@ -5907,7 +5907,6 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.ComboBox comboBoxChOrderID;
         private System.Windows.Forms.Label labelChOrderID;
         private System.Windows.Forms.ComboBox comboBoxChEmployeeID;
-        private System.Windows.Forms.ComboBox comboBoxChChumonID;
         private System.Windows.Forms.DateTimePicker dateTimePickerChumon;
         private maruibutton buttonChNDisplay;
         private System.Windows.Forms.Label labelChChumonID;
@@ -6234,6 +6233,7 @@ namespace SalesManagement_SysDev
         private System.Windows.Forms.Label labelHaEmployeeIDWarning;
         private System.Windows.Forms.Label labelHaHattyuIDWarning;
         private System.Windows.Forms.Label labelWrWarehousingIDWarning;
+        public System.Windows.Forms.ComboBox comboBoxChChumonID;
     }
 }
 
