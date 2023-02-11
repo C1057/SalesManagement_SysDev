@@ -156,7 +156,29 @@ namespace SalesManagement_SysDev
                 //受注IDをセット
                 if (!string.IsNullOrEmpty(formHome.comboBoxOrOrderID.Text))
                 {
+                    
                     textBoxProSelectOrderID.Text = formHome.comboBoxOrOrderID.Text;
+
+                    dataGridViewProSelect.Rows.Clear();                        //メインデータグリッドビューの内容を消去する
+
+                    if (!string.IsNullOrEmpty(textBoxProSelectOrderID.Text))             //受注IDコンボボックスの空文字チェック
+                    {
+                        
+                        //if (!string.IsNullOrEmpty(textBoxProSelectOrderID.Text))
+                        //{
+                        //    textBoxProSelectOrderID.Focus();
+                        //    return;
+                        //}
+
+                        foreach (var OrDetailData in SearchOrderDetail(1, textBoxProSelectOrderID.Text))           //注文IDで検索する
+                        {
+                            //データグリッドビューにデータを表示
+                            dataGridViewProSelect.Rows.Add(OrDetailData.OrDetailID, OrDetailData.OrID, OrDetailData.PrID, OrDetailData.OrQuantity, OrDetailData.OrTotalPrice);
+                        }
+
+                    }
+
+
                 }
                 else
                 {
@@ -747,7 +769,12 @@ namespace SalesManagement_SysDev
 
         private void dataGridViewProSelect_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            textBoxProSelectOrderDetailID.Text = dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[0].Value.ToString();
+            textBoxProSelectOrderID.Text = dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[1].Value.ToString();
+            textBoxProSelectProID.Text = dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[2].Value.ToString();
+
+            //numericUpDownProSelectQuantity.TextAlign = (HorizontalAlignment)dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[3].Value;
+            labelProSelectTotalMoney.Text = dataGridViewProSelect.Rows[dataGridViewProSelect.CurrentRow.Index].Cells[4].Value.ToString();
         }
 
         private void dataGridViewProSelect_CellClick_1(object sender, DataGridViewCellEventArgs e)

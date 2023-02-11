@@ -6240,6 +6240,16 @@ namespace SalesManagement_SysDev
                 dataGridViewOrderDetail.Rows.Add(OrderDetail.OrDetailID, OrderDetail.OrID, OrderDetail.PrID, OrderDetail.OrQuantity, OrderDetail.OrTotalPrice);
             }
             labelOrProductSum.Text = TotalPrice.ToString();
+
+            //int rows = (int)dataGridViewOrderMain.Rows[e.RowIndex].Cells[6].Value;
+            bool check = (bool)dataGridViewOrderMain.Rows[e.RowIndex].Cells[6].Value;
+            if (check  == true)
+            {
+                buttonOrSelectProduct.Enabled = true;
+            }
+            else
+                buttonOrSelectProduct.Enabled = false;
+
         }
 
         /// <summary>
@@ -6863,6 +6873,40 @@ namespace SalesManagement_SysDev
         private void textBoxHomePassword_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void panelOrder_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewOrderMain_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
+        {
+
+        }
+
+        private void dataGridViewOrderMain_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            //int rows = e.RowIndex;
+            //if((bool)dataGridViewOrderMain.Rows[rows].Cells[6].Value == true)
+            //{
+            //    buttonOrSelectProduct.Enabled = true;
+            //}
+        }
+
+        private void dataGridViewOrderMain_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            //int rows = e.Row.Index;
+            //if ((bool)dataGridViewOrderMain.Rows[rows].Cells[6].Value == true)
+            //{
+            //    buttonOrSelectProduct.Enabled = true;
+            //}
+        }
+
+        private void dataGridViewOrderMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rows = e.RowIndex;
+            bool check = (bool)dataGridViewOrderMain.Rows[rows].Cells[6].Value;
         }
     }
 }
