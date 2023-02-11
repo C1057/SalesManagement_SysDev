@@ -27,6 +27,8 @@ namespace SalesManagement_SysDev
 
         SalesOfficeDataAccess SalesOfficeAccess = new SalesOfficeDataAccess();         //[営業所マスタ]操作用クラスのインスタンス化
 
+        public FormHome formHome;
+
         private M_SalesOffice SalesOfficeAddDataSet()
         {
             return new M_SalesOffice
@@ -114,14 +116,16 @@ namespace SalesManagement_SysDev
             }
         }
 
-        public FormSalesOfficeMana()
+        public FormSalesOfficeMana(FormHome formHome)
         {
-            InitializeComponent();    
+            InitializeComponent();
+            this.formHome = formHome;
         }
 
         private void buttonSOManaReturn_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+            formHome.Visible = true;
         }
 
 

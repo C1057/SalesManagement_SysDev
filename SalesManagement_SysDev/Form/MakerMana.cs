@@ -20,15 +20,20 @@ namespace SalesManagement_SysDev
 
         List<M_Maker> MakerList;                                                        //表示用[メーカー]情報を保持する変数
 
+        private FormHome formHome;
 
-        public MakerMana()
+        public MakerMana(FormHome formHome)
         {
             InitializeComponent();
+
+            this.formHome = formHome;
         }
 
         private void buttonManaMakerReturn_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+            formHome.Visible = true;
+
 
             ClearText(this);
             dataGridViewManaMaker.Rows.Clear();

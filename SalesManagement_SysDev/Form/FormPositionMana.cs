@@ -12,7 +12,7 @@ namespace SalesManagement_SysDev
 {
     public partial class FormPositionMana : Form
     {
-
+        public FormHome formHome;
 
 
         private M_Position PositionAddDataSet ()
@@ -62,9 +62,11 @@ namespace SalesManagement_SysDev
 
        
 
-        public FormPositionMana()
+        public FormPositionMana(FormHome formHome)
         {
             InitializeComponent();
+
+            this.formHome = formHome;
         }
 
         private static void ClearText(Control hParent)
@@ -89,6 +91,7 @@ namespace SalesManagement_SysDev
         private void buttonPositionManaReturn_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+            formHome.Visible = true;
             ClearText(this);
 
         }

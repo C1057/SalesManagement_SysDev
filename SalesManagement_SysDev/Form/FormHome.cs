@@ -26,11 +26,15 @@ namespace SalesManagement_SysDev
         /// <summary>
         /// 別フォームのクラスをインスタンス化
         /// </summary>
-        FormClassMana form4 = new FormClassMana();                                                      //商品分類管理フォーム
-        MakerMana formMaker = new MakerMana();                                          //メーカ管理フォーム
+        //FormClassMana form4 = new FormClassMana();                                                      //商品分類管理フォーム
+        public FormClassMana formClassMana;
+        //MakerMana formMaker = new MakerMana();                                          //メーカ管理フォーム
+        public MakerMana formMaker;
         public FormProductSelect formproductselect;                 //商品選択フォーム
-        FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();                     //営業所管理フォーム
-        FormPositionMana formPositionMana = new FormPositionMana();                     //役職管理フォーム
+        //FormSalesOfficeMana formSOMana = new FormSalesOfficeMana();                     //営業所管理フォーム
+        public FormSalesOfficeMana formSOMana;
+        //FormPositionMana formPositionMana = new FormPositionMana();                     //役職管理フォーム
+        public FormPositionMana formPosition;
 
         ///<summary>
         ///共通モジュールのインスタンス化
@@ -194,6 +198,10 @@ namespace SalesManagement_SysDev
             buttonControl.Visible = false;
 
             formproductselect = new FormProductSelect(this);
+            formClassMana = new FormClassMana(this);
+            formPosition = new FormPositionMana(this);
+            formSOMana = new FormSalesOfficeMana(this);
+            formMaker = new MakerMana(this);
 
             Text = Application.ProductName;
             timer1.Interval = 1000;
@@ -1812,8 +1820,9 @@ namespace SalesManagement_SysDev
         //商品分類管理ボタン
         private void buttonPrProductClassOpen_Click(object sender, EventArgs e)
         {
-            //商品管理画面に遷移する
-            form4.Visible = true;
+            //商品分類管理画面に遷移する
+            formClassMana.Visible = true;
+            this.Visible = false;
         }
 
         //メーカ管理ボタン
@@ -1821,6 +1830,7 @@ namespace SalesManagement_SysDev
         {
             //メーカ管理画面に遷移する
             formMaker.Visible = true;
+            this.Visible = false;
         }
 
         //営業所管理ボタン
@@ -1828,13 +1838,15 @@ namespace SalesManagement_SysDev
         {
             //営業所管理画面に遷移する
             formSOMana.Visible = true;
+            this.Visible = false;
         }
 
         //役職管理ボタン
         private void buttonEmPositionManaOpen_Click(object sender, EventArgs e)
         {
             //役職管理画面に遷移する
-            formPositionMana.Visible = true;
+            formPosition.Visible = true;
+            this.Visible = false;
         }
 
         ///////////////////////////////////////////////////
@@ -6875,43 +6887,132 @@ namespace SalesManagement_SysDev
             login.Show();
         }
 
-        private void textBoxHomePassword_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panelOrder_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataGridViewOrderMain_ColumnAdded(object sender, DataGridViewColumnEventArgs e)
-        {
-
-        }
-
-        private void dataGridViewOrderMain_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            //int rows = e.RowIndex;
-            //if((bool)dataGridViewOrderMain.Rows[rows].Cells[6].Value == true)
-            //{
-            //    buttonOrSelectProduct.Enabled = true;
-            //}
-        }
-
-        private void dataGridViewOrderMain_UserAddedRow(object sender, DataGridViewRowEventArgs e)
-        {
-            //int rows = e.Row.Index;
-            //if ((bool)dataGridViewOrderMain.Rows[rows].Cells[6].Value == true)
-            //{
-            //    buttonOrSelectProduct.Enabled = true;
-            //}
-        }
-
         private void dataGridViewOrderMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int rows = e.RowIndex;
             bool check = (bool)dataGridViewOrderMain.Rows[rows].Cells[6].Value;
+        }
+
+        private void FormHome_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Enabled == true)
+            {
+                var context = new SalesManagement_DevContext();
+
+                PositionList = context.M_Positions.ToList();                    //List<M_Position>型のPositionListに[役職]表示用データを代入する
+                MakerList = context.M_Makers.ToList();                          //List<M_Maker>型のMakerListに[メーカー]表示用データを代入する
+                SalesOfficeList = context.M_SalesOffices.ToList();              //List<M_SalesOffice>型のSalesOfficeListに[営業所]表示用データを代入する
+                ClientList = context.M_Clients.ToList();                        //List<M_Client>型のClientListに[顧客]表示用データを代入する
+                ProductList = context.M_Products.ToList();                      //List<M_Product>型のProductListに[商品]表示用データを代入する
+                MajorClassList = context.M_MajorClassifications.ToList();       //List<M_MajorClassification>型のMajorClassListに[大分類]表示用データを代入する
+                SmallClassList = context.M_SmallClassifications.ToList();       //List<M_SmallClassification>型のSmallClassListに[小分類]表示用データを代入する
+                StockList = context.T_Stocks.ToList();                          //List<T_Stock>型のStockListに[在庫]表示用データを代入する
+                EmployeeList = context.M_Employees.ToList();                    //List<T_Employee>型のEmployeeListに[社員]表示用データを代入する
+                SaleList = context.T_Sale.ToList();                             //List<T_Sale>型のSaleListに[売上]表示用データを代入する
+                SaleDetailList = context.T_SaleDetails.ToList();                //List<T_SaleDetail>型のSaleDetailListに[売上詳細]表示用データを代入する
+                OrderList = context.T_Orders.ToList();                          //List<T_Order>型のOrderListに[受注]表示用データを代入する
+                OrderDetailList = context.T_OrderDetails.ToList();              //List<T_OrderDetail>型のOrderDetailListに[受注詳細]表示用データを代入する
+                ChumonList = context.T_Chumons.ToList();                        //List<T_Chumon>型のChumonListに[注文]表示用データを代入する
+                ChumonDetailList = context.T_ChumonDetails.ToList();            //List<T_ChumonDetail>型のChumonDetailListに[注文詳細]表示用データを代入する
+                HattyuList = context.T_Hattyus.ToList();                        //List<T_Hattyu>型のHattyuListに[発注]表示用データを代入する
+                HattyuDetailList = context.T_HattyuDetails.ToList();            //List<T_HattyuDetail>型のHattyuDetailListに[発注詳細]表示用データを代入する
+                WarehousingList = context.T_Warehousings.ToList();              //List<T_Warehousing>型のWarehousingListに[入庫]表示用データを代入する
+                WarehousingDetailList = context.T_WarehousingDetails.ToList();  //List<T_WarehousingDetail>型のWarehousingDetailListに[入庫詳細]表示用データを代入する
+                SyukkoList = context.T_Syukkos.ToList();                        //List<T_Syukko>型のSyukkoListに[出庫]表示用データを代入する
+                SyukkoDetailList = context.T_SyukkoDetails.ToList();            //List<T_SyukkoDetail>型のSyukkoDetailListに[出庫詳細]表示用データを代入する
+                ArrivalList = context.T_Arrivals.ToList();                      //List<T_Arrival>型のArrivalListに[入荷]表示用データを代入する
+                ArrivalDetailList = context.T_ArrivalDetails.ToList();          //List<T_ArrivalDetail>型のArrivalDetailListに[入荷詳細]表示用データを代入する
+                ShipmentList = context.T_Shipments.ToList();                    //List<T_Shipment>型のShipmentListに[出荷]表示用データを代入する
+                ShipmentDetailList = context.T_ShipmentDetails.ToList();        //List<T_ShipmentDetail>型のShipmentDetailListに[出荷詳細]表示用データを代入する
+
+                context.Dispose();
+
+                //Visibleがtrueのパネルを判別する
+                foreach(var panel in panelList)
+                {
+                    //商品管理画面
+                    if (panel == panelProduct)
+                    {
+                        ResetComboBox(panelProduct);     //ComboBoxのItemsをリセットする
+                                                         //商品IDコンボボックスにデータを追加
+                        foreach (var ProductData in ProductList)
+                        {
+                            comboBoxPrProductID.Items.Add(ProductData.PrID);
+                        }
+                        //メーカIDコンボボックスにデータを追加
+                        foreach (var MakerData in MakerList)
+                        {
+                            comboBoxPrMakerID.Items.Add(MakerData.MaID);
+                        }
+                        //大分類IDコンボボックスにデータを追加
+                        foreach (var MajorClassData in MajorClassList)
+                        {
+                            comboBoxPrMajorClassID.Items.Add(MajorClassData.McID);
+                        }
+                        //小分類IDコンボボックスにデータを追加
+                        foreach (var SmallClassData in SmallClassList)
+                        {
+                            comboBoxPrSmallClassID.Items.Add(SmallClassData.ScID);
+                        }
+                    }
+                    //社員管理画面
+                    else if(panel == panelEmployee)
+                    {
+                        ResetComboBox(panelEmployee);     //ComboBoxのItemsをリセットする
+                                                          //社員IDコンボボックスにデータを追加
+                        foreach (var EmployeeData in EmployeeList)
+                        {
+                            comboBoxEmEmployeeID.Items.Add(EmployeeData.EmID);
+                        }
+                        //営業所IDコンボボックスにデータを追加
+                        foreach (var SalesOfficeData in SalesOfficeList)
+                        {
+                            comboBoxEmSalesOfficeID.Items.Add(SalesOfficeData.SoID);
+                        }
+                        //役職IDコンボボックスにデータを追加
+                        foreach (var PositionData in PositionList)
+                        {
+                            comboBoxEmPositionID.Items.Add(PositionData.PoID);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void FormHome_EnabledChanged(object sender, EventArgs e)
+        {
+            //if (this.Enabled == true)
+            //{
+            //    var context = new SalesManagement_DevContext();
+
+            //    PositionList = context.M_Positions.ToList();                    //List<M_Position>型のPositionListに[役職]表示用データを代入する
+            //    MakerList = context.M_Makers.ToList();                          //List<M_Maker>型のMakerListに[メーカー]表示用データを代入する
+            //    SalesOfficeList = context.M_SalesOffices.ToList();              //List<M_SalesOffice>型のSalesOfficeListに[営業所]表示用データを代入する
+            //    ClientList = context.M_Clients.ToList();                        //List<M_Client>型のClientListに[顧客]表示用データを代入する
+            //    ProductList = context.M_Products.ToList();                      //List<M_Product>型のProductListに[商品]表示用データを代入する
+            //    MajorClassList = context.M_MajorClassifications.ToList();       //List<M_MajorClassification>型のMajorClassListに[大分類]表示用データを代入する
+            //    SmallClassList = context.M_SmallClassifications.ToList();       //List<M_SmallClassification>型のSmallClassListに[小分類]表示用データを代入する
+            //    StockList = context.T_Stocks.ToList();                          //List<T_Stock>型のStockListに[在庫]表示用データを代入する
+            //    EmployeeList = context.M_Employees.ToList();                    //List<T_Employee>型のEmployeeListに[社員]表示用データを代入する
+            //    SaleList = context.T_Sale.ToList();                             //List<T_Sale>型のSaleListに[売上]表示用データを代入する
+            //    SaleDetailList = context.T_SaleDetails.ToList();                //List<T_SaleDetail>型のSaleDetailListに[売上詳細]表示用データを代入する
+            //    OrderList = context.T_Orders.ToList();                          //List<T_Order>型のOrderListに[受注]表示用データを代入する
+            //    OrderDetailList = context.T_OrderDetails.ToList();              //List<T_OrderDetail>型のOrderDetailListに[受注詳細]表示用データを代入する
+            //    ChumonList = context.T_Chumons.ToList();                        //List<T_Chumon>型のChumonListに[注文]表示用データを代入する
+            //    ChumonDetailList = context.T_ChumonDetails.ToList();            //List<T_ChumonDetail>型のChumonDetailListに[注文詳細]表示用データを代入する
+            //    HattyuList = context.T_Hattyus.ToList();                        //List<T_Hattyu>型のHattyuListに[発注]表示用データを代入する
+            //    HattyuDetailList = context.T_HattyuDetails.ToList();            //List<T_HattyuDetail>型のHattyuDetailListに[発注詳細]表示用データを代入する
+            //    WarehousingList = context.T_Warehousings.ToList();              //List<T_Warehousing>型のWarehousingListに[入庫]表示用データを代入する
+            //    WarehousingDetailList = context.T_WarehousingDetails.ToList();  //List<T_WarehousingDetail>型のWarehousingDetailListに[入庫詳細]表示用データを代入する
+            //    SyukkoList = context.T_Syukkos.ToList();                        //List<T_Syukko>型のSyukkoListに[出庫]表示用データを代入する
+            //    SyukkoDetailList = context.T_SyukkoDetails.ToList();            //List<T_SyukkoDetail>型のSyukkoDetailListに[出庫詳細]表示用データを代入する
+            //    ArrivalList = context.T_Arrivals.ToList();                      //List<T_Arrival>型のArrivalListに[入荷]表示用データを代入する
+            //    ArrivalDetailList = context.T_ArrivalDetails.ToList();          //List<T_ArrivalDetail>型のArrivalDetailListに[入荷詳細]表示用データを代入する
+            //    ShipmentList = context.T_Shipments.ToList();                    //List<T_Shipment>型のShipmentListに[出荷]表示用データを代入する
+            //    ShipmentDetailList = context.T_ShipmentDetails.ToList();        //List<T_ShipmentDetail>型のShipmentDetailListに[出荷詳細]表示用データを代入する
+
+            //    context.Dispose();
+            //}
         }
     }
 }

@@ -12,6 +12,8 @@ namespace SalesManagement_SysDev
 {
     public partial class FormClassMana : Form
     {
+
+        private FormHome formHome;
         //全てのテキストボックスとコンボボックスの入力をクリアする
         private static void ClearText(Control hParent)
         {
@@ -254,13 +256,14 @@ namespace SalesManagement_SysDev
 
         //bool flg = true;
 
-        public FormClassMana()
+        public FormClassMana(FormHome formHome)
         {
             InitializeComponent();
 
             panelList.Add(panel1);
             panelList.Add(panel2);
 
+            this.formHome = formHome;
         }
 
         private void panelHide()
@@ -481,6 +484,18 @@ namespace SalesManagement_SysDev
         private void button1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
+            formHome.Visible = true;
+
+            //ResetComboBox();
+
+            //foreach (var MajorClassData in MajorClassList)
+            //{
+            //    formHome.comboBoxPrMajorClassID.Items.Add(MajorClassData.McID);
+            //}
+            //foreach (var SmallClassData in SmallClassList)
+            //{
+            //    formHome.comboBoxPrSmallClassID.Items.Add(SmallClassData.ScID);
+            //}
         }
 
         private void label61_Click(object sender, EventArgs e)
