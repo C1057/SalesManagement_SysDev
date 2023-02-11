@@ -28,6 +28,8 @@ namespace SalesManagement_SysDev
         private void Form2_Load(object sender, EventArgs e)
         {
             formhome.Show();
+
+            this.AcceptButton = button1;
         }
 
         private void button1_Click(object sender, EventArgs e)

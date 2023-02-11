@@ -241,7 +241,7 @@ namespace SalesManagement_SysDev
             this.dataGridViewProSelect.TabIndex = 226;
             this.dataGridViewProSelect.TabStop = false;
             this.dataGridViewProSelect.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProSelect_CellClick);
-            this.dataGridViewProSelect.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProSelect_CellContentClick);
+            //this.dataGridViewProSelect.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProSelect_CellContentClick);
             // 
             // labelProSelectTotal
             // 
